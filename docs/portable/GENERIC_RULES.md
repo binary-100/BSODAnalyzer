@@ -10,7 +10,7 @@ Regenerate: ``pack\scripts\sync-portable-docs.ps1`` (also runs during ``sync-aud
 | This file | Claude, Copilot, Windsurf, CLI - paste or attach at session start |
 
 Pack version: 1.8.0
-Rule files: 12
+Rule files: 13
 
 ---
 
@@ -111,7 +111,7 @@ When the user asks for **deep**, **full**, **thorough**, **compare**, **everythi
 
 ## Work queue (what's on the radar)
 
-When the user asks **what's next**, **what's pending**, or priorities **change mid-session**, read **`docs/WORK_QUEUE.md`** first if present. Follow **`generic-work-queue-discipline.mdc`**. Do not replace the queue in chat without updating that file.
+When the user asks **what's next**, **what's pending**, or priorities **change mid-session**, follow **`handoff-first.mdc`**: **`docs/handoffs/SESSION.md`** first (if present), then **`docs/WORK_QUEUE.md`**, then **`generic-work-queue-discipline.mdc`**. Do not replace the queue in chat without updating that file.
 
 ## Agent handoffs (implement / confirm)
 
@@ -261,7 +261,7 @@ Full convention: **`pack/docs/AGENT_HANDOFFS.md`** (after install: `%USERPROFILE
 
 ## Problem
 
-Multiple paste blocks for the same implement job (handoff file + PLAN + BUILD_HANDOFF + chat) confuse humans and agents.
+Multiple paste blocks for the same implement job (handoff file + PLAN + BUILD_HANDOFF + chat) confuse humans and agents. A second doc claiming **Next** (retired root session mega-doc, 2.22.65) contradicted WORK_QUEUE three times — use **`docs/handoffs/SESSION.md`** for session continuity instead (**pointers only**; see **`handoff-first.mdc`**).
 
 ## Build / implement handoffs
 
@@ -584,8 +584,12 @@ If `docs/WORK_QUEUE.md` is missing in a bootstrapped project, treat `docs/ROADMA
 
 ### Before changing priorities or saying "what's next?"
 
-1. Read **`docs/WORK_QUEUE.md`** if it exists (else note its absence).
-2. Report: **Next ID**, **Active count**, **Inbox count**, **Parked count** — not only the latest chat bullet list.
+Follow **`handoff-first.mdc`** lookup order:
+
+1. Read **`docs/handoffs/SESSION.md`** if present — open items or blockers → **stop here**.
+2. Read **`docs/WORK_QUEUE.md`** if it exists (else note its absence).
+3. Report: **Next ID**, **Active count**, **Inbox count**, **Parked count** — not only the latest chat bullet list.
+4. Unplanned next only when SESSION **and** WQ are clear — label it explicitly.
 
 ### When adding work
 
@@ -630,7 +634,8 @@ Order in **Active queue** is **not frozen**. Move rows when dependencies, blocke
 | `run_audit.cmd` report | Ephemeral **Fix** / **Improve** for that audit run |
 | `WORK_QUEUE.md` → Engineering backlog | Recurring gaps worth scheduling (e.g. audit depth findings) |
 | `ROADMAP.md` | Product features and phased plans |
-| Handoff / session notes | Session context + pointer to **Next** ID in work queue |
+| `docs/handoffs/SESSION.md` | Session **now** + pointers (no duplicate Next table) |
+| Slice handoffs | Implement packet for one WQ row |
 
 ## Forbidden
 
@@ -647,6 +652,62 @@ Template: `pack/templates/docs/WORK_QUEUE.md.template` — bootstrap `-Targets` 
 **Verify:** `pack/scripts/verify-work-queue.ps1 -ProjectRoot PATH` (also in `verify-agent-setup.ps1` and behavior step 31).  
 **Status alignment:** `pack/scripts/verify-complete-picture.ps1` (step 37) — see **`pack/docs/RULES_AND_VERIFY_MAP.md`**.  
 **Backfill:** `ensure-work-queue.ps1` runs from `refresh-agent-context.ps1` when the file is missing.
+
+
+---
+
+## handoff-first
+
+Source: `pack/rules/handoff-first.mdc`
+
+# Handoff-first and "what's next?" (all projects)
+
+Normative detail: **`pack/docs/AGENT_HANDOFFS.md`** § Session handoff.
+
+## Canonical files
+
+| File | Owns |
+|------|------|
+| `docs/handoffs/SESSION.md` | **Now** — where we left off, blockers, open items, pointers only |
+| `docs/WORK_QUEUE.md` | **Priority/status** — one **Next**, Active, Inbox, backlog, Parked, Done |
+| `docs/handoffs/active/HANDOFF_WQ*.md` | **How** to implement one WQ slice |
+
+**Forbidden:** a second doc claiming **Next**, root session mega-docs (retired 2.22.65), chat-only priority lists.
+
+## Project updated / new session
+
+Read in order:
+
+1. `docs/handoffs/SESSION.md` (if present)
+2. `docs/WORK_QUEUE.md` (if present)
+3. Active slice handoff if implementing
+4. `AGENTS.md` / product docs as needed
+
+## Trigger: "what's next?" (and equivalents)
+
+Includes: **what's next**, **continue**, **pick up**, **updated project**, **where did we leave off**, **what remains**.
+
+| Step | Read | If … then next is … |
+|------|------|---------------------|
+| 1 | **SESSION.md** | Open items or blockers → **stop here**; report and act on those |
+| 2 | **WORK_QUEUE.md** | **Next** / untriaged Inbox → that (after SESSION clear) |
+| 3 | Unplanned | Only if SESSION **and** WQ are clear — say so explicitly |
+
+Report format: `Session handoff: … | WQ: … | Unplanned proposal: yes/no`.
+
+## Interrupt rule (while on SESSION or WQ work)
+
+Issues found during the slice (failing tests, verify, regressions, doc contradictions):
+
+- **Fix or triage in the same session** when possible
+- Large surprise → **WQ Inbox** row + note in **SESSION** blockers; do not jump to step 3
+- Do not abandon a broken tree for greenfield ideas
+
+## End of session
+
+Update **SESSION.md** (evidence, blockers, open items, pointers). If WQ status changed, update **WORK_QUEUE.md** first, then align SESSION pointers in the same session.
+
+Related: **`generic-work-queue-discipline.mdc`**, **`generic-agent-handoff-discipline.mdc`**.
 
 
 ---

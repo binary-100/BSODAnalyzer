@@ -1,11 +1,11 @@
 {
     "schemaVersion":  2,
     "packVersion":  "1.8.0",
-    "auditEngineVersion":  "2.22.65",
-    "installedVersion":  "2.22.65",
-    "rulesRevision":  "sha256:da5b6898e60f0ed0a7032bf86adbd59477e38bd05a34ff2c242856b914b7fdd6",
-    "syncedAt":  "2026-09-02T01:27:31.0809642Z",
-    "previousSyncedAt":  "2026-09-01T05:00:50.0290640Z",
+    "auditEngineVersion":  "2.22.68",
+    "installedVersion":  "2.22.68",
+    "rulesRevision":  "sha256:123bdc1fff0dc493f6820c35a99d395e78629e5ecbe1f3163c9667728d9deee1",
+    "syncedAt":  "2026-09-03T07:29:40.0587990Z",
+    "previousSyncedAt":  "2026-09-02T01:27:31.0809642Z",
     "packRootUsed":  "C:\\Users\\binar\\.cursor\\AgentStarterPack",
     "installedPackRoot":  "C:\\Users\\binar\\.cursor\\AgentStarterPack",
     "projectRoot":  "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer",
@@ -28,6 +28,7 @@
                           "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\AGENTS.md",
                           "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\AI_INSTRUCTIONS.md",
                           "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\docs\\AGENT_REFRESH.md",
+                          "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\docs\\handoffs\\SESSION.md",
                           "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\docs\\WORK_QUEUE.md"
                       ],
     "triggerPhrases":  [

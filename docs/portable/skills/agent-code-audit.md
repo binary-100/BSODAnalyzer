@@ -24,6 +24,15 @@ range.
 | 6 | **`scripts\finalize_audit.cmd`** — exit 0 |
 | 7 | Report **only** Fix and Improve to user |
 
+## Product-truth on a closing slice (Step 3d)
+
+When the audit finds **product-truth** docs contradict **shipped** behavior (capability/limitation prose vs code, Done **WQ** still reads not built/deferred, ROADMAP **Next** for a Done id), and the user is **closing a slice** (`WORK_COMPLETION` Step 3):
+
+- Report **Fix** — not Improve — until prose matches shipped behavior or the WQ row is corrected.
+- Recurring drift with **no active slice** may stay **Improve** (backlog / awareness).
+
+Mechanical backstop: `verify-complete-picture.ps1` and `verify-product-truth-paths.ps1` (Step 5b / Update-AgentStack `-VerifyOnly`).
+
 **Forbidden:** bulk `"Nothing found."`; missing `modulesReviewed[]`; stale semantic before test pass; gate-only.
 
 ## Section B layout pass (mandatory)

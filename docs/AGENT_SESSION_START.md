@@ -1,18 +1,19 @@
 # Agent session start
 
-**Context: OK** (audit engine 2.22.65). No mandatory re-read this session.
+**Context: OK** (audit engine 2.22.68). No mandatory re-read this session.
 
 | Check | Value |
 |-------|-------|
 | Pack version | 1.8.0 |
-| Stamped engine | 2.22.65 |
-| Installed engine | 2.22.65 |
+| Stamped engine | 2.22.68 |
+| Installed engine | 2.22.68 |
 | Reason | (none) |
 
 **Required reads (absolute paths):**
 - `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\AGENTS.md`
 - `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\AI_INSTRUCTIONS.md`
 - `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\AGENT_REFRESH.md`
+- `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoffs\SESSION.md`
 - `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\WORK_QUEUE.md`
 
 **Handshake:** Reply with the packVersion and auditEngineVersion from the files you read.

@@ -13,7 +13,7 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 - **Queues:** product work queue **empty** · process WQ Active/Inbox **empty** (WQ-001/002 in Done log)
 - **Git:** `https://github.com/binary-100/BSODAnalyzer.git` · branch `main` · factory cleanup committed and pushed (see latest commit on remote)
 - **Validation:** `run_tests.bat` exit **0** (2026-09-03 post-cleanup) · stable archive `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer_StableBuilds\v6.5.27`
-- **Agent pack:** global profile rules; project rules BSOD-only per `AGENTS.md` § Cursor rules (Model A)
+- **Agent pack:** **1.8.0** / audit engine **2.22.68** — context refreshed 2026-09-03; Model A rules restored (**11** project `.mdc` after post-refresh cleanup)
 
 **Product next (when user directs):** promote one **Approved intent** row on ROADMAP → work queue → `implement Phase X` per [`upgrade/BUILD_HANDOFF.md`](../upgrade/BUILD_HANDOFF.md). Tracks: Rescue USB · Native dump engine · Guided diagnostic UX — see [`upgrade/README.md`](../upgrade/README.md).
 
@@ -27,8 +27,7 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 
 ## Open items
 
-- [ ] **Agent context:** stamped audit engine **2.22.65** vs installed **2.22.68** — run `Refresh-AgentContext.cmd` when convenient
-- [ ] **Pack feedback (separate project):** `C:\Users\binar\OneDrive\Desktop\AgentStarterPack_feedback_from_BSOD_factory_2026-09-03.md`
+- [ ] **Pack feedback (separate project):** `C:\Users\binar\OneDrive\Desktop\AgentStarterPack_feedback_from_BSOD_factory_2026-09-03.md` (include: refresh re-syncs generic rules — needs pack `-SkipGeneric` for Model A factories)
 
 ---
 

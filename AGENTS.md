@@ -18,9 +18,14 @@ Also enforced by **`.cursor/rules/agent-readiness.mdc`** (always-on pointer — 
 
 ## Cursor rules (Model A — factory)
 
-This repo is the **dev factory**. Generic Agent Starter Pack rules load from **`%USERPROFILE%\.cursor\rules\`** (global install). **Project** [`.cursor/rules/`](.cursor/rules/) holds **BSOD-specific** rules only — do not re-copy generic `generic-*.mdc` here (avoids duplicate always-on context).
+This repo is the **dev factory**. Generic Agent Starter Pack rules load from **`%USERPROFILE%\.cursor\rules\`** (global install). **Project** [`.cursor/rules/`](.cursor/rules/) holds **BSOD-specific** rules only — see [`docs/MODEL_A_FACTORY.json`](docs/MODEL_A_FACTORY.json).
 
-**After `Refresh-AgentContext.cmd`:** the pack sync may re-copy generic rules and recreate `docs/handoff_archive/` — **delete those again** (keep **11** project `.mdc` files; no `handoff_archive/`). Context files (`AGENT_SESSION_START.md`, `AGENT_REFRESH.md`, `AGENT_CONTEXT.json`) should be kept.
+| Command | When |
+|---------|------|
+| **`Refresh-AgentContext-ModelA.cmd`** | **Use this** — pack refresh + auto-prune generic rules + remove `handoff_archive/` |
+| `Refresh-AgentContext.cmd` | Stock pack only — **will re-sync 13 generic `.mdc`** and conflict with `project-handoffs.mdc` |
+
+Verify project rules anytime: `powershell -File scripts\prune_factory_generic_rules.ps1 -VerifyOnly`
 
 ## Session start
 

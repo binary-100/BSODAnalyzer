@@ -90,6 +90,7 @@ Require network and/or real hardware; longer runs.
 | `probe_nvidia_psid_pfid.py` | NVIDIA PSID/PFID probe |
 | `probe_gui_bootstrap.py` | Qt bootstrap probe |
 | `verify_gui_launch.py` | GUI launch smoke |
+| `prune_factory_generic_rules.ps1` | Model A — remove pack-generic `.mdc` after refresh; `-VerifyOnly` gate |
 
 ---
 

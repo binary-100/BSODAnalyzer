@@ -59,6 +59,7 @@ Last updated: **2026-09-03** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | [`docs/DRIVER_VERIFICATION_PLAN.md`](DRIVER_VERIFICATION_PLAN.md) | Completed verification plan |
 | [`docs/DEPENDENCIES_CHEATSHEET.txt`](DEPENDENCIES_CHEATSHEET.txt) | **Dependency matrix** — CDB/WinDbg, PS7, winget, MSCatalog, first-launch flow |
 | [`docs/MODULE_INDEX.md`](MODULE_INDEX.md) | **Module navigation** — audit domain map by section (138 flat root modules) |
+| [`docs/MODEL_A_FACTORY.json`](MODEL_A_FACTORY.json) | **Model A factory** — allowed project rules + post-refresh prune list |
 | [`scripts/README.md`](../scripts/README.md) | **Scripts index** — diag/live/compare utilities |
 | [`VERSIONING.md`](../VERSIONING.md) | v6 product line and build layout (link `VERSION.txt` for current number) |
 

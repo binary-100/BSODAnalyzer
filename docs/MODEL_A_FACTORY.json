@@ -1,0 +1,35 @@
+{
+  "description": "BSOD Analyzer dev factory uses Model A: generic pack rules in %USERPROFILE%\\.cursor\\rules\\ only. Project .cursor/rules/ is BSOD-specific.",
+  "allowedProjectRules": [
+    "agent-readiness.mdc",
+    "audit.mdc",
+    "design-tier-gate.mdc",
+    "gui-testing-roadmap.mdc",
+    "product-reference.mdc",
+    "project-handoffs.mdc",
+    "qt-test-bootstrap.mdc",
+    "recompile-after-changes.mdc",
+    "terminal-and-build-hygiene.mdc",
+    "upgrade-planning-only.mdc",
+    "version-sync.mdc"
+  ],
+  "removeAfterPackRefresh": [
+    "agent-defaults-always.mdc",
+    "audit-protocol.mdc",
+    "full-paths-in-chat.mdc",
+    "generic-agent-doc-hygiene.mdc",
+    "generic-agent-handoff-discipline.mdc",
+    "generic-deep-task-execution.mdc",
+    "generic-phased-feature-design.mdc",
+    "generic-terminal-and-build-hygiene.mdc",
+    "generic-version-sync.mdc",
+    "generic-work-queue-discipline.mdc",
+    "handoff-first.mdc",
+    "loop-back-protocol.mdc",
+    "new-project-bootstrap.mdc"
+  ],
+  "removePathsAfterPackRefresh": [
+    "docs/handoff_archive",
+    "docs/AGENT_PASTE.txt"
+  ]
+}

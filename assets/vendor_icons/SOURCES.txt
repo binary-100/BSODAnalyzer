@@ -1,0 +1,48 @@
+Vendor logo SVG sources (device/manufacturer identification only)
+====================================================================
+
+Each file maps to vendor_key in gui_vendor_icons.py. Rebuild with build_ci.bat
+after changes. Re-run scripts/refresh_vendor_icons.py to update Simple Icons
+entries from manufacturer-linked sources (Simple Icons v14.0.0).
+
+Simple Icons (manufacturer source URL in each brand's press/brand kit):
+  amd.svg              https://www.amd.com  (deprecated — use amd.png from user reference in v5.4.13+)
+  amd.png              User-approved reference emblem (#ED1C24); build via scripts/build_amd_logo_png.py
+  intel.svg            https://www.intel.com (press kit)
+  nvidia.svg           https://www.nvidia.com
+  dell.svg             https://www.dell.com
+  hp.svg               https://brandcentral.hp.com
+  lenovo.svg           https://news.lenovo.com/press-kits/
+  samsung.svg          https://www.samsung.com/us/about-us/brand-identity/logo/
+  western_digital.svg  https://www.westerndigital.com (2024 rebrand, #995DFF)
+  asus.svg             https://www.asus.com (wordmark lightened #E8E8EC for dark UI)
+  acer.svg             https://www.acer.com
+  msi.svg              https://www.msi.com/page/brochure
+  qualcomm.svg         https://www.qualcomm.com
+  broadcom.svg         https://www.broadcom.com/support
+  logitech.svg         https://www.logitech.com/en-us/pr/library
+  corsair.svg          https://www.corsair.com (#F9E900 on dark UI)
+  razer.svg            https://press.razer.com (#44D62C Razer Green)
+  apple.svg            https://www.apple.com (#D0D0D6 on dark UI)
+  seagate.svg          https://branding.seagate.com
+  sandisk.svg          https://kb.sandisk.com
+  kingston.svg         https://www.kingston.com (Kingston Technology wordmark, #CC0000)
+  alienware.svg        https://www.dell.com/en-us/gaming/alienware (#00AEEF)
+  mediatek.svg         https://corp.mediatek.com/news-events/press-library
+  lg.svg               https://www.lg.com/global/our-brand/brand-expression/elements/logo/
+  vmware.svg           https://www.vmware.com
+  virtualbox.svg       https://www.virtualbox.org (OSE artwork)
+
+Microsoft (official four-color window mark):
+  microsoft.svg        Microsoft brand colors (#F25022, #7FBA00, #00A4EF, #FFB900)
+
+Manufacturer / published brand artwork (not in Simple Icons):
+  realtek.svg          Realtek logotype — Wikimedia Commons / realtek.com (#0078af)
+  crucial.svg          Crucial brand vector (Micron consumer brand)
+  gigabyte.svg         Gigabyte brand vector (white background removed for dark UI)
+  sk_hynix.svg         SK hynix brand vector
+  marvell.svg          Marvell Technology horizontal logo — Wikimedia / marvell.com (#E31837)
+  synaptics.svg        Synaptics corporate logo — Wikimedia (#cc0000 mark; wordmark #E8E8EC)
+
+Dark-theme note: Black wordmarks (ASUS, Apple, Corsair) use lightened fills so logos
+remain readable on the app's dark table rows without changing the mark shape.

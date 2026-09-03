@@ -1,0 +1,23 @@
+{
+  "hardware_summary": {
+    "manufacturer": "Dell Inc.",
+    "model": "Latitude 5540",
+    "device_list_count": 142
+  },
+  "devices": [
+    {
+      "device_name": "Intel(R) Serial IO I2C Host Controller - 7A4C",
+      "display_name": "Intel(R) Serial IO I2C Host Controller - 7A4C",
+      "device_class": "SYSTEM",
+      "installed_version": "30.100.2417.30",
+      "expected_suite_version": "10.1.19900.8770"
+    },
+    {
+      "device_name": "Intel(R) Management Engine Interface #1",
+      "display_name": "Intel(R) Management Engine Interface #1",
+      "device_class": "SYSTEM",
+      "installed_version": "2406.5.5.0",
+      "expected_oem_rejects": ["Intel Chipset Driver"]
+    }
+  ]
+}

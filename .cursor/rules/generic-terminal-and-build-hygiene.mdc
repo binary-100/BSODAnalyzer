@@ -1,0 +1,40 @@
+---
+description: Non-interactive builds for agents — no pause prompts, explicit exit codes, output read not assumed
+alwaysApply: false
+---
+
+# Build hygiene (agents)
+
+Apply when running builds or long shell commands.
+
+**Terminals are covered elsewhere, on purpose.** The before/after sequence for long commands is in
+**`agent-defaults-always.mdc`** (always on, so it is the copy that actually loads). Diagnosis —
+stale metadata, orphan children, what an agent can and cannot fix — is the skill
+**`agent-terminal-hygiene`**. This rule is the third surface of the same subject, so it keeps only
+what neither of those covers: making a build finish without a human at the keyboard.
+
+## Running builds (agent-initiated)
+
+1. Set **`BUILD_NOPAUSE=1`** (Windows) or use `build_ci.*` / `--ci` / `CI=true` scripts so batch files **do not** wait on `pause`.
+2. Prefer explicit exit: `exit /b %ERRORLEVEL%` (Windows) or `set -e` (Unix).
+3. After the build, **read the terminal output** for success or failure — a spinner in the UI is not a result, and an exit code you did not look at is not a pass.
+
+**Windows example:**
+
+```bat
+set BUILD_NOPAUSE=1
+call build_and_deploy.bat
+```
+
+## Writing build scripts
+
+- Never use bare `pause` in a script an agent will run; gate it: `if "%BUILD_NOPAUSE%"=="" pause`.
+- Same for `read -p`, `Read-Host`, and any other prompt on the CI path.
+- Copy `pack/templates/build-ci.bat.template` → project `build_ci.bat` for a script that is already gated.
+- Python projects also copy the version sync templates — see **`generic-version-sync.mdc`**.
+
+## When a build seems stuck
+
+A build waiting on `pause` and a build still working look identical from the outside. Check the
+output for a prompt before killing anything, then follow the skill **`agent-terminal-hygiene`** —
+force-killing the shell first is what leaves orphaned child processes behind.

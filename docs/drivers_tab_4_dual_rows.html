@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Drivers tab — 4 dual rows @ 1280×960 (no banner)</title>
+  <style>
+    :root {
+      --bg: #1e1e23; --card: #26262d; --card-alt: #2c2c34; --border: #3a3a44;
+      --text: #e7e7ec; --muted: #9a9aa6; --accent: #2f81f7; --gold: #d8a000;
+      --green: #3fb950; --update-bg: rgba(63,185,80,.14); --outdated-bg: #3a3420;
+      --sel: rgba(47,129,247,.22); --slack: rgba(63,185,80,.12);
+      --font: "Segoe UI", sans-serif;
+      --win-h: 960px; --list-pane: 320px; --viewport: 208px; --row-dual: 48px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px 24px 40px; background: #121216; color: var(--text); font-family: var(--font); font-size: 13px; }
+    h1 { font-size: 18px; margin: 0 0 6px; }
+    .lead { color: var(--muted); font-size: 12px; line-height: 1.55; max-width: 980px; margin-bottom: 14px; }
+    .callout { background: #1a2a1a; border: 1px solid #3a5a3a; border-radius: 8px; padding: 10px 14px; max-width: 980px; margin-bottom: 16px; font-size: 12px; color: #b8e0b8; line-height: 1.45; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 1280px; margin-bottom: 20px; }
+    @media (max-width: 1100px) { .compare { grid-template-columns: 1fr; } }
+    .label { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .dims { font-family: Consolas, monospace; font-size: 10px; color: #7ec8ff; line-height: 1.55; margin-bottom: 8px; }
+    .win {
+      width: 1280px; max-width: 100%; height: var(--win-h); background: var(--bg);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .win.old { --win-h: 880px; opacity: .92; }
+    .win-title { padding: 5px 12px; background: var(--card-alt); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+    .menubar { padding: 2px 10px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .banner { margin: 8px 12px 0; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 12px; color: var(--muted); }
+    .banner.hidden { display: none; }
+    .tabs { display: flex; gap: 3px; padding: 8px 12px 0; flex-shrink: 0; }
+    .tab { padding: 6px 12px; font-size: 12px; border: 1px solid var(--border); border-radius: 7px 7px 0 0; background: var(--card); color: var(--muted); }
+    .tab.on { color: var(--text); border-bottom: 2px solid var(--accent); }
+    .content { flex: 1; min-height: 0; padding: 0 12px 6px; display: flex; flex-direction: column; }
+    .card { flex: 1; min-height: 0; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; font-size: 12px; }
+    .card-title { font-size: 13px; font-weight: 600; }
+    .card-sub { color: var(--muted); margin: 2px 0 6px; }
+    .list-pane { min-height: var(--list-pane); border: 2px dashed #7ec8ff; border-radius: 6px; padding: 6px 8px; position: relative; flex-shrink: 0; }
+    .list-pane .tag { position: absolute; top: -10px; left: 8px; font-size: 9px; color: #7ec8ff; background: var(--bg); padding: 0 5px; font-family: Consolas, monospace; }
+    .toolrow { display: flex; gap: 6px; margin-bottom: 6px; }
+    .combo, .btn { background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 4px 8px; font-size: 12px; color: var(--text); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .table-box { border: 1px solid var(--border); border-radius: 5px; background: var(--bg); }
+    .tbl-h { height: 34px; display: grid; grid-template-columns: 42px 30px 1fr 168px 92px; align-items: center; padding: 0 4px; background: var(--card-alt); color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--border); }
+    .viewport { height: var(--viewport); }
+    .tbl-r { height: var(--row-dual); display: grid; grid-template-columns: 42px 30px 1fr 168px 92px; align-items: center; padding: 0 4px; border-bottom: 1px solid var(--border); font-size: 12px; }
+    .tbl-r.sel { background: var(--sel); outline: 1px solid var(--accent); }
+    .tbl-r.upd { background: var(--update-bg); }
+    .tbl-r.out { background: var(--outdated-bg); }
+    .inst { color: var(--muted); line-height: 1.28; white-space: pre-line; }
+    .st-u { color: var(--gold); font-weight: 600; }
+    .st-k { color: var(--muted); }
+    .slack { height: 16px; background: var(--slack); text-align: center; font-size: 9px; color: var(--green); line-height: 16px; border-top: 1px dashed rgba(63,185,80,.35); }
+    .ico { width: 14px; height: 14px; background: var(--card-alt); border: 1px solid var(--border); margin: auto; border-radius: 2px; }
+    .bottom { flex: 1; min-height: 0; border-top: 6px solid var(--bg); margin-top: 4px; display: flex; flex-direction: column; }
+    .insp { flex: 1; padding-top: 4px; color: var(--muted); font-size: 12px; }
+    .insp b { color: var(--text); font-size: 13px; }
+    .pkg { border-top: 5px solid var(--bg); padding-top: 4px; font-size: 11px; color: var(--muted); }
+    .toolbar { flex-shrink: 0; display: flex; gap: 8px; padding: 8px 12px; border-top: 1px solid var(--border); background: var(--card-alt); font-size: 12px; }
+    .toolbar .sp { flex: 1; }
+    .toolbar .link { background: none; border: none; color: var(--accent); }
+    table { width: 100%; max-width: 1280px; border-collapse: collapse; font-size: 11px; margin-top: 16px; }
+    th, td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+    th { background: var(--card); color: var(--text); }
+    td { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<h1>Drivers tab — real chrome (no banner) + taller default window</h1>
+<p class="lead">
+  In the <strong>actual app</strong>, the “Ready to scan” severity banner is already <strong>hidden</strong> on Drivers and Firmware
+  (<code>_sync_global_toolbar_for_tab</code>). Earlier mockups wrongly showed it on every tab.
+</p>
+<div class="callout">
+  <strong>Proposed default size:</strong> 1280×<strong>960</strong> (was 1280×880) · min still 960×640 · fits 1080p with taskbar (~993px usable).
+  Extra <strong>+80px</strong> goes to the tab content area — helps the 320px list pane fit without clipping row 4.
+</div>
+
+<div class="compare">
+  <div>
+    <div class="label">Old default 1280×880 — banner hidden (correct app behavior)</div>
+    <div class="dims">Tab content ~578px tall</div>
+    <div class="win old">
+      <div class="win-title"><span>BSOD Analyzer — 1280×880</span><span>1080p</span></div>
+      <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+      <div class="banner hidden">(hidden on Drivers tab)</div>
+      <div class="tabs"><span class="tab on">Drivers</span><span class="tab">Firmware</span></div>
+      <div class="content"><div class="card" style="justify-content:center;align-items:center;color:var(--muted)">Catalog tab — less vertical room for list pane</div></div>
+      <div class="toolbar"><span class="btn primary">Run Analysis</span><span class="sp"></span></div>
+    </div>
+  </div>
+  <div>
+    <div class="label">New default 1280×960 — banner hidden · 4 dual Installed rows</div>
+    <div class="dims">Tab content ~658px (+80) · list pane 320px · viewport 208px</div>
+    <div class="win">
+      <div class="win-title"><span>BSOD Analyzer — 1280×960</span><span>1080p</span></div>
+      <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+      <div class="tabs">
+        <span class="tab">Summary</span><span class="tab on">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+      </div>
+      <div class="content">
+        <div class="card">
+          <div class="card-title">Driver updates</div>
+          <div class="card-sub">Searching driver catalogs… 145/152 · Updates available</div>
+          <div class="list-pane">
+            <span class="tag">list pane 320px — no banner above tabs</span>
+            <div class="toolrow">
+              <span class="combo">Updates available ▾</span>
+              <span class="combo" style="flex:1;color:var(--muted)">Search by name…</span>
+              <span class="btn primary">② Search for updates</span>
+            </div>
+            <div class="table-box">
+              <div class="tbl-h"><span></span><span></span><span>Device</span><span>Installed</span><span>Status</span></div>
+              <div class="viewport">
+                <div class="tbl-r sel upd"><span class="ico"></span><span class="ico"></span><span>Realtek Audio</span><span class="inst">6.0.9929.1
+Effects 13.1020.1391.394</span><span class="st-u">Update</span></div>
+                <div class="tbl-r out"><span class="ico"></span><span class="ico"></span><span>Realtek 2.5GbE</span><span class="inst">1125.28.1224.2025
+Package 1168.008.0515.2022</span><span class="st-u">Update</span></div>
+                <div class="tbl-r upd"><span class="ico"></span><span class="ico"></span><span>NVIDIA RTX 3070 Ti</span><span class="inst">32.0.15.8097
+Branch 581.42</span><span class="st-u">Update</span></div>
+                <div class="tbl-r"><span class="ico"></span><span class="ico"></span><span>Intel Wi-Fi 6E AX210</span><span class="inst">23.160.0.8
+PROSet 23.160.0.8</span><span class="st-k">Up to date</span></div>
+                <div class="slack">16px slack — 4 dual-line rows fully visible</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="insp"><b>Realtek Audio</b> — WDM + Effects · Update available · packages below</div>
+            <div class="pkg">Compare · Microsoft 6.0.10001.1 (Newer) · OEM 6.0.9738.1 (Same)</div>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <span class="btn primary">Run Analysis</span>
+        <span class="btn">Export Report</span>
+        <span class="btn" style="opacity:.45">Install package</span>
+        <span class="sp"></span>
+        <button class="btn link">Open in WinDbg (advanced)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr><th>Setting</th><th>Today (v6.2.x)</th><th>Proposed</th></tr>
+  <tr><td>Default window</td><td><strong>1280 × 880</strong></td><td><strong>1280 × 960</strong></td></tr>
+  <tr><td>Minimum window</td><td>960 × 640</td><td>960 × 640 (unchanged)</td></tr>
+  <tr><td>1080p usable height</td><td>~993px (below title bar + taskbar)</td><td>960 + chrome ≈ 999px — still fits</td></tr>
+  <tr><td>“Ready to scan” banner on Drivers/Firmware</td><td>Already hidden in app</td><td>Stay hidden; mockups corrected</td></tr>
+  <tr><td>Extra tab content (vs 880)</td><td>—</td><td><strong>+80px</strong> for list / splitter</td></tr>
+</table>
+
+<p style="color:var(--muted);font-size:12px;margin-top:14px;max-width:980px">
+  Banner stays on Summary, Action Plan, Crash Details, System, Advanced — only catalog tabs drop it to reclaim ~70px.
+</p>
+
+</body>
+</html>

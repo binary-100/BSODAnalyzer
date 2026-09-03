@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Related UI controls — not two-tone checkboxes</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #e7e7ec;
+      padding: 24px;
+      line-height: 1.45;
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    .intro {
+      max-width: 960px;
+      color: #9a9aa6;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    .panel {
+      border-radius: 12px;
+      border: 1px solid #3a3a44;
+      background: #1e1e23;
+      overflow: hidden;
+    }
+    .panel-head {
+      padding: 10px 14px;
+      background: #26262d;
+      border-bottom: 1px solid #3a3a44;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .panel-head .tag {
+      font-weight: 400;
+      font-size: 11px;
+      color: #9a9aa6;
+      margin-left: 8px;
+    }
+    .panel-body { padding: 16px 14px 18px; font-size: 13px; }
+    .ref {
+      border: 1px dashed #5a5a66;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+      background: #26262d;
+    }
+    .ref-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9a9aa6; margin-bottom: 10px; }
+    .row { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+    .muted { color: #9a9aa6; font-size: 12px; margin-top: 10px; }
+
+    /* Two-tone checkbox (what we styled) */
+    .cb-two {
+      width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0;
+      background: #1e4a7a; border: 1.5px solid #2f81f7; position: relative;
+    }
+    .cb-two::after {
+      content: ""; position: absolute; left: 3px; top: 4px; width: 9px; height: 5px;
+      border-left: 2px solid #6aa8ff; border-bottom: 2px solid #6aa8ff;
+      transform: rotate(-45deg);
+    }
+    .cb-unchecked {
+      width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0;
+      background: #2c2c34; border: 2px solid #5a5a66;
+    }
+
+    /* View menu mock */
+    .menubar {
+      display: flex; gap: 2px; padding: 4px 8px; background: #1e1e23;
+      border: 1px solid #3a3a44; border-radius: 6px 6px 0 0; font-size: 13px;
+    }
+    .menubar span { padding: 6px 12px; color: #9a9aa6; }
+    .menubar span.active { color: #e7e7ec; background: #34343d; border-radius: 4px; }
+    .dropdown {
+      background: #26262d; border: 1px solid #3a3a44; border-top: none;
+      border-radius: 0 0 8px 8px; padding: 4px 0; min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .menu-item {
+      padding: 6px 16px 6px 36px; position: relative; color: #e7e7ec;
+    }
+    .menu-item:hover { background: #2f81f7; color: #fff; }
+    .menu-item.checked::before {
+      content: "✓"; position: absolute; left: 12px; top: 5px;
+      font-size: 14px; font-weight: 600; color: #e7e7ec;
+    }
+    .menu-item:hover.checked::before { color: #fff; }
+
+    /* Radio (install mode) */
+    .radio {
+      width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid #5a5a66; background: #2c2c34; position: relative;
+    }
+    .radio.on { border-color: #2f81f7; }
+    .radio.on::after {
+      content: ""; position: absolute; inset: 3px; border-radius: 50%; background: #2f81f7;
+    }
+    .radio-label-on { color: #e7e7ec; font-weight: 600; }
+    .radio-label-off { color: #9a9aa6; }
+
+    /* ToolButton Details toggle */
+    .toolbtn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 6px; font-size: 12px;
+      border: 1px solid #3a3a44; background: #2c2c34; color: #9a9aa6;
+      cursor: default;
+    }
+    .toolbtn.pressed {
+      background: #34343d; color: #e7e7ec; border-color: #2f81f7;
+    }
+    .arrow { font-size: 10px; opacity: 0.8; }
+    .toolbtn.pressed .arrow { transform: rotate(90deg); display: inline-block; }
+
+    .context-box {
+      margin-top: 12px; padding: 10px 12px; background: #26262d;
+      border-radius: 8px; border: 1px solid #3a3a44; font-size: 12px;
+    }
+    .context-title { font-weight: 600; margin-bottom: 6px; color: #e7e7ec; }
+  </style>
+</head>
+<body>
+  <h1>Related UI controls (preview only)</h1>
+  <p class="intro">
+    These look <em>related</em> to checkboxes but use different Qt control types and styling paths.
+    They were <strong>not</strong> changed to the two-tone checkbox design in 6.4.2.
+    Open this file in a browser to compare side-by-side with what you see in the app.
+  </p>
+
+  <div class="ref">
+    <div class="ref-title">Reference — two-tone checkbox (what we did style)</div>
+    <div class="row">
+      <span class="cb-two"></span>
+      <span>Include device — checked (Drivers tab)</span>
+    </div>
+    <div class="row">
+      <span class="cb-unchecked"></span>
+      <span>Include device — unchecked</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="panel-head">
+        View → theme menu
+        <span class="tag">QAction checkable — menu checkmark</span>
+      </div>
+      <div class="panel-body">
+        <div class="menubar">
+          <span>File</span>
+          <span>Settings</span>
+          <span class="active">View</span>
+          <span>Tools</span>
+          <span>Help</span>
+        </div>
+        <div class="dropdown">
+          <div class="menu-item checked">Night (dark)</div>
+          <div class="menu-item">Day (light)</div>
+          <div class="menu-item">Manly mode</div>
+        </div>
+        <p class="muted">
+          In the app: <strong>View</strong> menu → pick Night / Day / Manly.
+          The tick is Qt’s <code>QMenu</code> check indicator (plain ✓ on the left),
+          not our square two-tone box. Hover turns the whole row accent blue.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        Install mode / first launch
+        <span class="tag">QRadioButton — round, filled dot</span>
+      </div>
+      <div class="panel-body">
+        <div class="context-box">
+          <div class="context-title">How will you use BSOD Analyzer?</div>
+          <div class="row">
+            <span class="radio on"></span>
+            <span class="radio-label-on">Full install mode — ongoing driver checks on this PC</span>
+          </div>
+          <div class="row">
+            <span class="radio"></span>
+            <span class="radio-label-off">Portable mode — find what is causing BSODs and crashes</span>
+          </div>
+        </div>
+        <p class="muted">
+          In the app: first-launch dialog or when switching install mode in Settings.
+          Radio = <strong>one choice among several</strong> (circle + accent dot when selected).
+          Same family as Preferences if any radio options appear — not a checkbox.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        Drivers / Firmware inspector
+        <span class="tag">QToolButton checkable — pressed state</span>
+      </div>
+      <div class="panel-body">
+        <div class="context-box">
+          <div class="context-title">Selected device summary pane</div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <div style="font-weight:600;">NVIDIA GeForce RTX 3070 Ti Laptop GPU</div>
+              <div class="muted" style="margin-top:4px;">Installed: 32.0.15.6107</div>
+            </div>
+            <span class="toolbtn"><span class="arrow">▶</span> Details</span>
+          </div>
+          <div style="height:12px"></div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <div style="font-weight:600;">Realtek Audio</div>
+              <div class="muted" style="margin-top:4px;">Installed: 6.0.9733.1</div>
+            </div>
+            <span class="toolbtn pressed"><span class="arrow">▶</span> Details</span>
+          </div>
+          <div class="muted" style="margin-top:10px; padding:8px; background:#2c2c34; border-radius:6px;">
+            Expanded: PnP ID, manufacturer, class, extra metadata…
+          </div>
+        </div>
+        <p class="muted">
+          In the app: select a row on Drivers or Firmware tab → middle summary pane →
+          <strong>▶ Details</strong> button (only when extra metadata exists).
+          Toggles expanded text; <strong>pressed = “on”</strong>, not a checkbox.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        Why they’re separate
+        <span class="tag">Design intent</span>
+      </div>
+      <div class="panel-body" style="font-size:12px; color:#9a9aa6;">
+        <p style="margin:0 0 10px; color:#e7e7ec;">
+          <strong>Checkbox</strong> = yes/no on an option (Include, backup before install, delete dumps).
+        </p>
+        <p style="margin:0 0 10px;">
+          <strong>Menu checkmark</strong> = which theme is active (one of many, shown in a menu).
+        </p>
+        <p style="margin:0 0 10px;">
+          <strong>Radio</strong> = pick exactly one mode (portable vs full install).
+        </p>
+        <p style="margin:0;">
+          <strong>Tool button</strong> = show/hide a panel (Details expander).
+        </p>
+        <p style="margin:14px 0 0; padding-top:12px; border-top:1px solid #3a3a44;">
+          If you want menu ticks or radios to <em>visually match</em> the two-tone square style,
+          that would be a separate polish pass — different Qt APIs than <code>QCheckBox</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

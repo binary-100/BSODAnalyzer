@@ -1,0 +1,219 @@
+BSOD Analyzer v6 — External dependencies cheatsheet
+====================================================
+Last updated: 2026-07-24 (Opus / portable-first)
+
+Use this when setting up a new PC, a USB stick, or troubleshooting “why is
+this scan slow / why is minidump analysis limited?”
+
+Quick tier summary
+------------------
+  MUST HAVE (Windows itself)     → tool launches; basic BSOD/event-log work
+  BUNDLED IN PORTABLE EXE       → minidump analysis + MSCatalog work offline
+  STRONGLY RECOMMENDED           → admin rights, internet for driver/firmware Search
+  OPTIONAL (speed / accuracy)    → PowerShell 7, Edge/Chrome, newer WinDbg via winget
+  NOT BUNDLED (manual fallback)  → winsdksetup.exe offline installer, PowerShell 7
+
+
+1) Windows (required)
+---------------------
+What:   Windows 10/11 (x64 or ARM64). WMI, event logs, crash dumps, WU COM.
+Need:   Required — tool exits on non-Windows.
+Bundled: N/A (the host OS).
+Prompt:  N/A.
+Notes:   PySide6 GUI + Python runtime are inside the portable folder (_internal).
+
+
+2) Administrator rights (strongly recommended)
+----------------------------------------------
+What:   Full access to System/Application event logs, minidump folder, crash-
+        dump registry settings, System Restore, driver backup/restore, some WU
+        depth, MSCatalog module repair.
+Need:   Recommended, not strictly required for all features.
+Bundled: N/A.
+Prompt:  On every GUI launch the tool tries UAC elevation (accept to relaunch
+         as admin). If declined, a yellow banner stays visible and admin-only
+         buttons are disabled.
+Notes:   Right-click BSODAnalyzer.exe → Run as administrator is the reliable
+         choice on a troubleshooting machine.
+
+
+3) Internet (strongly recommended for driver/firmware work)
+-----------------------------------------------------------
+What:   OEM catalogs, vendor download pages (NVIDIA/AMD/Intel/Realtek), Microsoft
+        Update Catalog (MSCatalogLTS), optional MSCatalogLTS gallery update,
+        optional WinDbg install via winget.
+Need:   Required for “Search for updates” to be complete. BSOD analysis of
+         existing local dumps/event logs can work offline.
+Bundled: N/A.
+Prompt:  No dedicated “connect to internet” dialog.
+Notes:   Quick connectivity check uses DNS (8.8.8.8:53). Air-gapped use is
+         possible for analysis; catalog Search will be thin without network.
+
+
+4) Windows PowerShell 5.1 (required — built into Windows)
+-----------------------------------------------------------
+What:   All catalog PowerShell: WU COM, Get-WindowsDriver, MSCatalogLTS module
+        import, hardware enrichment scripts. Used whenever PowerShell 7 is absent.
+Need:   Required (ships with Windows).
+Bundled: N/A (OS component).
+Prompt:  No.
+Notes:   If PowerShell is broken/disabled on the PC, driver Search fails.
+
+
+5) CDB / WinDbg — minidump “faulting driver” analysis (BSOD core)
+-----------------------------------------------------------------
+What:   Microsoft Console Debugger (cdb.exe) runs !analyze on minidump files so
+        you get the exact faulting driver/module (e.g. nvlddmkm.sys), not just
+        the stop code from the event log.
+Need:   Required for full minidump analysis. Without any CDB, Run Analysis still
+         works but crash driver detail is generic/limited.
+Bundled: YES — a full Debugging Tools x64 engine is inside the portable build
+         (_internal/DebuggingTools/x64/). Works offline on first launch with
+         no extra install.
+Online:  Preferred — GUI prompts before Run Analysis when online and WinDbg app is
+         missing; Install/Update uses direct MSIX download + Add-AppxPackage (not
+         winget install). Log: %TEMP%\BSODAnalyzer_windbg_install.log. Refresh
+         shipped fallback URL: py -3 scripts\sync_install_fallbacks.py. Copies a
+         writable local engine next to the exe (DebuggingTools/x64/ beside BSODAnalyzer.exe).
+Offline: Optional fallback ONLY if you manually place winsdksetup.exe in:
+           <folder>\DebuggingTools\Installers\
+         Standard release does NOT ship winsdksetup.exe (too large). Legacy SDK
+         CDB is last-resort; modern WinDbg app engine is preferred because its
+         !analyze works fully offline.
+Prompt:  Before Run Analysis when online and Microsoft's WinDbg app is not installed
+         (Settings → Preferences can disable). Advanced tab still has Install/Update.
+         CLI (--cli) can interactively ask when no CDB is found.
+Manual:  Accept prompt before Run Analysis, Advanced → Install CDB, or Microsoft Store.
+
+
+6) MSCatalogLTS PowerShell module (driver/firmware catalog Search)
+------------------------------------------------------------------
+What:   Searches Microsoft Update Catalog (Get-MSCatalogUpdate) for driver and
+        some firmware packages. Central to v6 catalog accuracy.
+Need:   Required for v6 driver/firmware Search (v6-only feature).
+Bundled: YES — pinned build MSCatalogLTS 2.1.0.2 in _internal/PowerShellModules/.
+         On first run the tool seeds a writable copy beside the exe
+         (PowerShellModules/MSCatalogLTS/<version>/).
+Online:  Default ON — setting mscatalog_auto_update checks PowerShell Gallery
+         once per day and downloads a newer MSCatalogLTS if available.
+Offline: Bundled copy is used; Search still works if module prep succeeds.
+Prompt:  No install prompt. If prep fails at startup, a warning dialog appears
+         (~0.5 s after main window): “MSCatalogLTS could not be prepared…”
+         (Try Tools → Repair lookup addresses, or restart as administrator.)
+Manual:  Tools → Refresh driver database (full rebuild) also refreshes module.
+Setting: Settings → Preferences → MSCatalog auto-update (default on).
+
+
+7) PowerShell 7 (pwsh) — recommended for driver/firmware Search speed
+-----------------------------------------------------------------------
+What:   Parallel MSCatalog batch searches (ForEach-Object -Parallel) and faster
+        PnP parent resolution during hardware enrichment. Without pwsh, Windows
+        PowerShell 5.1 still works but runs catalog queries sequentially.
+Need:   Optional for correctness; strongly recommended for Search speed (~minutes
+         saved on a full ~150-device check).
+Bundled: NO — intentional. Search requires internet; user installs latest pwsh from
+         Microsoft at Search time instead of shipping a stale offline installer.
+Online:  Preferred — always install the newest PowerShell 7 from Microsoft (MSI: GitHub
+         release → winget-pkgs manifest → winget fallback).
+Prompt:  Before driver or firmware Search (not at app launch): warning dialog —
+         Driver Search is about 5× faster with PowerShell 7 vs Windows PowerShell 5.1.
+         "Install PowerShell 7" (default) / "Search anyway (slower)" /
+         "Don't show again". Runs bundled install script; log: %TEMP%\BSODAnalyzer_pwsh7_install.log
+Manual:  https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
+         Restart BSOD Analyzer after installing pwsh.
+
+NOT the same as MSCatalogLTS: that is a bundled PowerShell *module* (see section 6).
+Windows PowerShell 5.1 is always present and runs Search without pwsh — just slower.
+
+
+8) winget (optional — metadata only for WinDbg / legacy SDK CDB)
+------------------------------------------------
+What:   Optional helper to read package version/URL for WinDbg MSIX and legacy
+        Windows SDK Debugging Tools packages. WinDbg install itself does NOT
+        use winget install (direct MSIX + Add-AppxPackage).
+Need:   Optional — bundled CDB works offline; WinDbg online install uses CDN +
+         GitHub winget-pkgs manifest + shipped fallback URL when winget show fails.
+Bundled: NO (App Installer / winget is a Windows component on many builds).
+Prompt:  No winget-specific prompt.
+Notes:   Windows 11 and recent Windows 10 often have winget; clean VMs may not.
+
+
+9) Edge / Chrome / Brave (optional — vendor page version scraping)
+------------------------------------------------------------------
+What:   Headless --dump-dom fallback when Intel/AMD/etc. pages need JavaScript
+        to expose driver version text (vendor_js_render_fallback, default ON).
+Need:   Optional — plain HTTP scrape still runs; some vendor pages may show no
+         version until you open the link manually.
+Bundled: NO (keeps portable size down; no Playwright/Chromium bundle).
+Prompt:  None.
+Notes:   Edge is present on most Windows 11 installs. Chrome/Brave also detected.
+
+
+10) Full install vs portable (product mode — not a dependency)
+-------------------------------------------------------------
+Portable (default on new machine): no first-run install-mode dialog; settings
+  written silently. Fresh hardware scan each session; catalog cache per machine
+  fingerprint under BSODAnalyzer_portable/.
+Full install (legacy, opt-in via Settings → Change install mode): persistent
+  device list and check history under %LOCALAPPDATA%\BSODAnalyzer\.
+
+
+What happens on first launch (new machine, portable USB)
+--------------------------------------------------------
+  1. UAC prompt — offer to relaunch as Administrator (recommended Accept).
+  2. Silent portable defaults — no “full install vs portable” dialog.
+  3. MSCatalogLTS prep — silent; bundled module seeded locally; optional gallery
+     update if online and mscatalog_auto_update is on.
+  4. ~0.9 s — “Welcome / Quick start” tips (admin, Run Analysis, Drivers tab…).
+  5. ~0.5 s — MSCatalog warning ONLY if step 3 failed.
+  6. Before first driver/firmware Search — PowerShell 7 install offer when pwsh missing.
+  7. Before Run Analysis (online, no WinDbg app) — offer to install latest WinDbg.
+     Offline: bundled CDB in _internal is used with no prompt.
+
+What is bundled in a standard portable build (BSODAnalyzer_v6 folder)
+---------------------------------------------------------------------
+  IN THE EXE FOLDER:
+    BSODAnalyzer.exe
+    _internal/                     PySide6, Python, app code
+    _internal/DebuggingTools/x64/  CDB engine for offline !analyze
+    _internal/PowerShellModules/   MSCatalogLTS 2.1.0.2 (pinned at build time)
+
+  NOT IN STANDARD SHIP (bring your own if needed):
+    DebuggingTools/Installers/winsdksetup.exe   offline CDB installer fallback
+    PowerShell 7 (pwsh)
+    WinDbg Store app (installed on demand via direct MSIX / user action)
+    Edge/Chrome (use whatever is on the PC)
+
+  CREATED AT RUNTIME (beside exe, USB-friendly):
+    BSODAnalyzer_portable/settings.json
+    PowerShellModules/MSCatalogLTS/<version>/   after first seed / gallery update
+    DebuggingTools/x64/                         after Install CDB copies engine
+    BSODAnalyzer_portable/driver_catalog/<fingerprint>/   after catalog Search
+
+
+Recommended setup checklist (new troubleshooting PC)
+----------------------------------------------------
+  [ ] Copy BSODAnalyzer_v6 folder to local disk (avoid OneDrive-synced exe path).
+  [ ] Run BSODAnalyzer.exe as Administrator.
+  [ ] Run Analysis once (accept WinDbg install prompt when online if offered).
+  [ ] Optional: accept PowerShell 7 install when prompted before Search (or skip).
+  [ ] Ensure internet for driver/firmware Search (~5 min full check).
+  [ ] Optional: confirm Edge/Chrome present if Intel/AMD version scrape looks empty.
+
+Settings keys (prompts / updates)
+---------------------------------
+  prompt_install_mode_on_first_launch     default false (silent portable)
+  catalog_auto_refresh_prompt             default false (portable); true in full install
+  powershell7_upgrade_prompt              default true
+  powershell7_upgrade_dismissed           set true when user dismisses PS7 dialog
+  mscatalog_auto_update                   default true (gallery check for newer module)
+  vendor_js_render_fallback               default true (Edge/Chrome headless)
+  first_run_complete                      set after first-run tips dismissed
+
+Related docs
+------------
+  docs/KNOWN_LIMITATIONS.md     — portable cache, JS render, scan behavior
+  AGENTS.md                     — portable-first product direction
+  bsod_analyzer.py              — CDB install paths, winget package IDs
+  catalog_ps_module.py          — MSCatalogLTS bundle/update logic
+  vendor_page_render.py         — Edge/Chrome/Brave headless detection

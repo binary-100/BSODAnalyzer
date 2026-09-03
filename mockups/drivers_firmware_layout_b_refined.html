@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BSOD Analyzer — Drivers layout B (refined)</title>
+  <style>
+    :root {
+      --bg: #1e1e23;
+      --card: #26262d;
+      --card-alt: #2c2c34;
+      --border: #3a3a44;
+      --text: #e7e7ec;
+      --muted: #9a9aa6;
+      --accent: #2f81f7;
+      --warn: #d8a000;
+      --danger: #e5484d;
+      --ok: #3fb950;
+      --mono: Consolas, "Cascadia Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 14px/1.45 "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 24px 32px;
+    }
+    h1 { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
+    .sub { color: var(--muted); margin: 0 0 16px; max-width: 820px; font-size: 13px; }
+    .tabs-app {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .tabs-app span {
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .tabs-app span.on {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .card h2 { font-size: 16px; margin: 0 0 4px; }
+    .hint { color: var(--muted); font-size: 12px; margin: 0 0 10px; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot.red { background: var(--danger); }
+    .dot.yellow { background: var(--warn); }
+    .dot.green { background: var(--ok); }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: var(--card-alt);
+      color: var(--text);
+      cursor: default;
+    }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
+      gap: 14px;
+      min-height: 420px;
+    }
+    @media (max-width: 860px) {
+      .split { grid-template-columns: 1fr; min-height: 0; }
+    }
+    .pane {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-alt);
+      overflow: hidden;
+    }
+    .pane-head {
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      flex-shrink: 0;
+    }
+    .pane-head .for {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .pkg-body { padding: 10px 12px; flex: 1; }
+    .pkg-empty {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 24px 8px;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th {
+      text-align: left;
+      padding: 7px 8px;
+      color: var(--muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 6px 8px;
+      border-top: 1px solid var(--border);
+    }
+    tr.pkg-sel td { background: rgba(47, 129, 247, 0.12); }
+    .vs-newer { color: var(--warn); }
+    .vs-older { color: var(--muted); }
+    .pkg-actions {
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .device-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 6px;
+      max-height: 380px;
+    }
+    .device-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      margin-bottom: 4px;
+    }
+    .device-row:hover { background: rgba(255, 255, 255, 0.03); }
+    .device-row.sel {
+      border-color: var(--accent);
+      background: rgba(47, 129, 247, 0.1);
+    }
+    .device-row .bar {
+      width: 3px;
+      align-self: stretch;
+      border-radius: 2px;
+      flex-shrink: 0;
+      min-height: 36px;
+    }
+    .device-row.tier-culprit .bar { background: var(--danger); }
+    .device-row.tier-outdated .bar { background: var(--warn); }
+    .device-row.tier-ok .bar { background: var(--border); }
+    .device-main { flex: 1; min-width: 0; }
+    .device-name {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .device-ver {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .device-note { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .badge.red { background: rgba(229, 72, 77, 0.2); color: var(--danger); }
+    .badge.yellow { background: rgba(216, 160, 0, 0.2); color: var(--warn); }
+    .badge.muted { background: rgba(154, 154, 166, 0.15); color: var(--muted); }
+    .count-line {
+      font-size: 11px;
+      color: var(--muted);
+      padding: 6px 10px 4px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .notes-box {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .notes-box strong { color: var(--text); }
+    .notes-box ul { margin: 8px 0 0; padding-left: 18px; }
+    .notes-box li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Drivers — Layout B (your revision)</h1>
+  <p class="sub">
+    Refined master/detail: <strong>All devices on the left</strong>; <strong>Packages on the right</strong>
+    update for whichever device you select. No “Needs attention” filter or search — one scrollable list,
+    sorted red (crash log) → yellow (out of date) → routine. Open in any browser.
+  </p>
+
+  <div class="tabs-app">
+    <span>Summary</span><span>Action Plan</span><span>Crash Details</span><span>System</span>
+    <span class="on">Drivers</span><span>Firmware</span><span>Advanced</span>
+  </div>
+
+  <div class="card">
+    <h2>Driver updates</h2>
+    <p class="hint" id="statusLine">847 devices indexed · 2 crash suspects · 5 updates available</p>
+
+    <div class="legend">
+      <span><i class="dot red"></i> Red first — tied to your crash report</span>
+      <span><i class="dot yellow"></i> Yellow next — newer package found</span>
+      <span><i class="dot green"></i> Then everything else (alphabetical within group)</span>
+    </div>
+
+    <div class="toolbar">
+      <span class="btn primary">Check selected</span>
+      <span class="btn">Tools ▾</span>
+      <span style="color:var(--muted);font-size:11px;margin-left:4px">Maintenance collapsed in full install</span>
+    </div>
+
+    <div class="split">
+      <!-- LEFT: All devices, scrollable -->
+      <div class="pane">
+        <div class="pane-head">All devices</div>
+        <div class="device-scroll" id="deviceList"></div>
+        <div class="count-line" id="deviceCount"></div>
+      </div>
+
+      <!-- RIGHT: Packages for selection -->
+      <div class="pane" id="pkgPane">
+        <div class="pane-head">
+          Packages
+          <span class="for" id="pkgFor">— AMD Processor</span>
+        </div>
+        <div class="pkg-body" id="pkgBody"></div>
+        <div class="pkg-actions" id="pkgActions" style="display:none">
+          <span class="btn primary">Download / open page</span>
+          <span class="btn">Install package</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes-box">
+    <strong>Compared to today’s app</strong>
+    <ul>
+      <li>Removes view filter combo and search field.</li>
+      <li>Replaces vertical splitter (devices above packages) with side-by-side panes.</li>
+      <li>Uses the same sort you already have in code: <code>culprit → outdated → attention → normal</code>.</li>
+      <li>Packages table only updates for the single selected row on the left (after Check, or cached).</li>
+    </ul>
+  </div>
+
+  <script>
+    const DEVICES = [
+      {
+        id: "amd-cpu",
+        tier: "culprit",
+        name: "AMD Processor",
+        ver: "10.0.26100.8521",
+        note: "WHEA / BugCheck 0x124 — CPU",
+        badge: "Crash suspect",
+        badgeClass: "red",
+        checked: true,
+        packages: [
+          { source: "AMD", version: "6.04.28.230", date: "2026-04", vs: "Newer", pkg: "Chipset", vsClass: "vs-newer" },
+          { source: "Dell", version: "—", date: "—", vs: "—", pkg: "OEM support", vsClass: "" },
+          { source: "Microsoft", version: "10.0.26100.5074", date: "2025-10", vs: "Older", pkg: "Inbox", vsClass: "vs-older" }
+        ]
+      },
+      {
+        id: "amd-psp",
+        tier: "culprit",
+        name: "AMD PSP 10.0 Device",
+        ver: "5.39.0.0",
+        note: "Platform security — same crash window",
+        badge: "Crash suspect",
+        badgeClass: "red",
+        packages: [
+          { source: "AMD", version: "5.40.0.0", date: "2026-03", vs: "Newer", pkg: "PSP driver", vsClass: "vs-newer" },
+          { source: "Microsoft", version: "5.39.0.0", date: "—", vs: "Same", pkg: "Inbox", vsClass: "" }
+        ]
+      },
+      {
+        id: "realtek",
+        tier: "outdated",
+        name: "Realtek 2.5GbE Controller",
+        ver: "1125.28.1224.2025",
+        note: "",
+        badge: "Update available",
+        badgeClass: "yellow",
+        packages: [
+          { source: "Realtek", version: "1125.29.0310.2026", date: "2026-03", vs: "Newer", pkg: "LAN", vsClass: "vs-newer" },
+          { source: "Dell", version: "1125.28.1224", date: "2025-12", vs: "Same", pkg: "OEM", vsClass: "" }
+        ]
+      },
+      {
+        id: "nvme",
+        tier: "outdated",
+        name: "Standard NVM Express Controller",
+        ver: "10.0.26100.5074",
+        note: "",
+        badge: "Update available",
+        badgeClass: "yellow",
+        packages: [
+          { source: "Samsung", version: "3.3.0.3003", date: "2026-01", vs: "Newer", pkg: "NVMe", vsClass: "vs-newer" }
+        ]
+      },
+      {
+        id: "usb",
+        tier: "outdated",
+        name: "USB4 Root Router (1.0)",
+        ver: "10.0.26100.1150",
+        note: "",
+        badge: "Update available",
+        badgeClass: "yellow",
+        packages: null
+      },
+      {
+        id: "audio",
+        tier: "outdated",
+        name: "Realtek High Definition Audio",
+        ver: "6.0.9700.1",
+        note: "",
+        badge: "Update available",
+        badgeClass: "yellow",
+        packages: [
+          { source: "Realtek", version: "6.0.9800.2", date: "2026-02", vs: "Newer", pkg: "Audio", vsClass: "vs-newer" }
+        ]
+      },
+      {
+        id: "gpu",
+        tier: "outdated",
+        name: "AMD Radeon RX 7900 XTX",
+        ver: "32.0.12033.1033",
+        note: "Not implicated in latest crash",
+        badge: "Update available",
+        badgeClass: "yellow",
+        packages: [
+          { source: "AMD", version: "32.0.13057.5006", date: "2026-05", vs: "Newer", pkg: "Adrenalin", vsClass: "vs-newer" }
+        ]
+      },
+      {
+        id: "bt",
+        tier: "ok",
+        name: "Intel(R) Wireless Bluetooth(R)",
+        ver: "23.160.0.9",
+        note: "",
+        badge: "OK",
+        badgeClass: "muted",
+        packages: []
+      },
+      {
+        id: "wifi",
+        tier: "ok",
+        name: "Intel(R) Wi-Fi 7 BE200 320MHz",
+        ver: "23.160.0.9",
+        note: "",
+        badge: "OK",
+        badgeClass: "muted",
+        packages: []
+      },
+      {
+        id: "monitor",
+        tier: "ok",
+        name: "Generic PnP Monitor",
+        ver: "10.0.26100.1",
+        note: "",
+        badge: "OK",
+        badgeClass: "muted",
+        packages: []
+      },
+      {
+        id: "hid",
+        tier: "ok",
+        name: "HID-compliant mouse",
+        ver: "10.0.26100.1",
+        note: "",
+        badge: "OK",
+        badgeClass: "muted",
+        packages: []
+      },
+      {
+        id: "print",
+        tier: "ok",
+        name: "Microsoft Print to PDF",
+        ver: "10.0.26100.1",
+        note: "",
+        badge: "OK",
+        badgeClass: "muted",
+        packages: []
+      }
+    ];
+
+    const tierOrder = { culprit: 0, outdated: 1, ok: 2 };
+    DEVICES.sort((a, b) => {
+      const d = tierOrder[a.tier] - tierOrder[b.tier];
+      if (d !== 0) return d;
+      return a.name.localeCompare(b.name);
+    });
+
+    let selectedId = DEVICES[0].id;
+
+    function renderDevices() {
+      const el = document.getElementById("deviceList");
+      el.innerHTML = DEVICES.map((d) => `
+        <div class="device-row tier-${d.tier} ${d.id === selectedId ? "sel" : ""}"
+             data-id="${d.id}" role="button" tabindex="0">
+          <div class="bar"></div>
+          <div class="device-main">
+            <div class="device-name">${d.name}</div>
+            <div class="device-ver">${d.ver}</div>
+            ${d.note ? `<div class="device-note">${d.note}</div>` : ""}
+          </div>
+          <span class="badge ${d.badgeClass}">${d.badge}</span>
+        </div>
+      `).join("");
+      const red = DEVICES.filter((d) => d.tier === "culprit").length;
+      const yellow = DEVICES.filter((d) => d.tier === "outdated").length;
+      document.getElementById("deviceCount").textContent =
+        `${DEVICES.length} devices shown · ${red} red · ${yellow} yellow · scroll for more`;
+      el.querySelectorAll(".device-row").forEach((row) => {
+        row.addEventListener("click", () => selectDevice(row.dataset.id));
+        row.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            selectDevice(row.dataset.id);
+          }
+        });
+      });
+    }
+
+    function renderPackages() {
+      const d = DEVICES.find((x) => x.id === selectedId);
+      const forEl = document.getElementById("pkgFor");
+      const body = document.getElementById("pkgBody");
+      const actions = document.getElementById("pkgActions");
+      if (!d) return;
+      forEl.textContent = "— " + d.name;
+
+      if (d.packages === null) {
+        body.innerHTML = '<p class="pkg-empty">Run <strong>Check selected</strong> to load manufacturer → OEM → Microsoft packages for this device.</p>';
+        actions.style.display = "none";
+        return;
+      }
+      if (!d.packages.length) {
+        body.innerHTML = '<p class="pkg-empty">No packages in cache. Select this device and click Check selected.</p>';
+        actions.style.display = "none";
+        return;
+      }
+      body.innerHTML = `
+        <table>
+          <thead><tr><th>Source</th><th>Version</th><th>Date</th><th>vs installed</th><th>Package</th></tr></thead>
+          <tbody>
+            ${d.packages.map((p, i) => `
+              <tr class="${i === 0 ? "pkg-sel" : ""}">
+                <td>${p.source}</td>
+                <td style="font-family:var(--mono)">${p.version}</td>
+                <td>${p.date}</td>
+                <td class="${p.vsClass}">${p.vs}</td>
+                <td>${p.pkg}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>`;
+      actions.style.display = "flex";
+    }
+
+    function selectDevice(id) {
+      selectedId = id;
+      renderDevices();
+      renderPackages();
+    }
+
+    renderDevices();
+    renderPackages();
+  </script>
+</body>
+</html>

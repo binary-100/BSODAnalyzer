@@ -1,0 +1,192 @@
+BSOD Analyzer audit (machine + semantic gate)
+Repo: C:\Users\binar\OneDrive\Desktop\BSODAnalyzer
+App:  C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\app
+
+Running run_tests.bat ...
+Tests: OK
+Running audit_code_checks.py ...
+Agent manifest: docs\.audit_agent_manifest.json (all sections + semantic report path)
+Running semantic report verify ...
+Running sync-audit-system.ps1 -VerifyOnly ...
+
+Audit sync: OK
+sync-audit-system: OK
+Running verify-audit-system.ps1 (Section L harness check; independent of product Fix lines) ...
+Audit system verification
+
+Pack: C:\Users\binar\.cursor\agent-starter-pack
+  manifest version: 2.20.0
+[OK] AUDIT_SYSTEM.md version matches manifest
+[OK] AUDIT_SYSTEM_CHANGELOG.md has current version entry
+[OK] manifest.json
+[OK] AUDIT_SYSTEM.md
+[OK] AUDIT_SYSTEM_CHANGELOG.md
+[OK] AGENT_WORKFLOW.md
+[OK] run_audit_core.ps1
+[OK] audit_code_checks.py
+[OK] sync-audit-system.ps1
+[OK] verify-audit-system.ps1
+[OK] verify-audit-behavior.ps1
+[OK] run_audit.ps1.template
+[OK] run_audit.cmd.template
+[OK] sync_audit_system.cmd.template
+[OK] verify_semantic_audit.cmd.template
+[OK] write_semantic_audit_template.cmd.template
+[OK] finalize_audit.cmd.template
+[OK] audit.mdc.template
+[OK] AUDIT.md.template
+[OK] AUDIT.config.json.template
+[OK] gitignore.audit.snippet
+[OK] agent-defaults-always.mdc
+[OK] loop-back-protocol.mdc
+[OK] audit-protocol.mdc
+[OK] SKILL.md
+[OK] run_tests_stub.bat
+[OK] run_audit.cmd
+[OK] run_audit.ps1
+[OK] sync_audit_system.cmd
+[OK] finalize_audit.cmd
+[OK] verify_semantic_audit.cmd
+[OK] write_semantic_audit_template.cmd
+[OK] audit.mdc
+[OK] .gitignore
+[OK] main.py
+[OK] app_settings.py
+[OK] catalog_cache.py
+[OK] hardware_cache.py
+[OK] AUDIT.md
+[OK] AUDIT.config.json
+[OK] test_f.py
+[OK] test_k.py
+
+Pack: C:\Users\binar\OneDrive\Desktop\CursorAgentStarterPack
+  manifest version: 2.20.0
+[OK] AUDIT_SYSTEM.md version matches manifest
+[OK] AUDIT_SYSTEM_CHANGELOG.md has current version entry
+[OK] manifest.json
+[OK] AUDIT_SYSTEM.md
+[OK] AUDIT_SYSTEM_CHANGELOG.md
+[OK] AGENT_WORKFLOW.md
+[OK] run_audit_core.ps1
+[OK] audit_code_checks.py
+[OK] sync-audit-system.ps1
+[OK] verify-audit-system.ps1
+[OK] verify-audit-behavior.ps1
+[OK] run_audit.ps1.template
+[OK] run_audit.cmd.template
+[OK] sync_audit_system.cmd.template
+[OK] verify_semantic_audit.cmd.template
+[OK] write_semantic_audit_template.cmd.template
+[OK] finalize_audit.cmd.template
+[OK] audit.mdc.template
+[OK] AUDIT.md.template
+[OK] AUDIT.config.json.template
+[OK] gitignore.audit.snippet
+[OK] agent-defaults-always.mdc
+[OK] loop-back-protocol.mdc
+[OK] audit-protocol.mdc
+[OK] SKILL.md
+[OK] run_tests_stub.bat
+[OK] run_audit.cmd
+[OK] run_audit.ps1
+[OK] sync_audit_system.cmd
+[OK] finalize_audit.cmd
+[OK] verify_semantic_audit.cmd
+[OK] write_semantic_audit_template.cmd
+[OK] audit.mdc
+[OK] .gitignore
+[OK] main.py
+[OK] app_settings.py
+[OK] catalog_cache.py
+[OK] hardware_cache.py
+[OK] AUDIT.md
+[OK] AUDIT.config.json
+[OK] test_f.py
+[OK] test_k.py
+
+User Cursor: C:\Users\binar\.cursor
+[OK] agent-code-audit skill
+[OK] audit-protocol one-standard text
+[OK] loop-back-protocol (all projects)
+
+Project: C:\Users\binar\OneDrive\Desktop\BSODAnalyzer
+[OK] AUDIT.md: C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\AUDIT.md
+[OK] AUDIT.config.json
+[OK] run_audit_core.ps1 installed
+[WARN] Project copy of agent-code-audit skill (prefer pack skill only)
+
+Sync drift check:
+
+Audit sync: OK
+
+Behavior self-test:
+Audit behavior verification
+Pack: C:\Users\binar\OneDrive\Desktop\CursorAgentStarterPack
+
+1. audit_code_checks.py --self-test
+audit_code_checks self-test: OK
+[OK] self-test
+2. Fixture JSON + manifest sections F and K
+[OK] section F in manifest
+[OK] section K in manifest
+[OK] section A in manifest (checklist parse)
+[OK] requiredSections populated
+[OK] machineCoverage agentFocus + machineCheckCount
+[OK] machineFixesBySection present
+[OK] machineSectionsWithFixes aligned
+3. run_audit_core.ps1 -SkipTests must exit 1
+[OK] SkipTests exits 1
+4. Template hygiene
+[OK] no orphan AUDIT.md.template
+5. Rules and skill one-standard text
+[OK] skill one-standard text
+[OK] audit-protocol one-standard text
+6. Config template hygiene
+[OK] no runSectionTestsWhenSkipFull in template
+7. Agent workflow docs
+[OK] AGENT_WORKFLOW.md
+[OK] AUDIT_SYSTEM_CHANGELOG.md
+[OK] AGENT_WORKFLOW all-projects loop-back
+[OK] loop-back-protocol.mdc
+8. Semantic report verify
+[OK] write-semantic-template
+[OK] verify-semantic-report
+9. Semantic cite validation
+[OK] cite validation rejects vague summary
+10. Semantic evidence validation
+[OK] evidence required when not clean
+[OK] evidence file path validated
+11. machineCoverage completeness
+[OK] machineCoverage sections populated
+12. Semantic vs machine alignment
+[OK] semantic vs machine blocks clean F when domain module missing
+13. Section L gitignore audit artifacts
+[OK] gitignore check flags missing semantic report path
+14. auditGateFixes manifest (Incomplete audit not in Section L)
+[OK] auditGateFixes holds Incomplete audit; gate not in L
+15. Semantic gate fix patterns (not Section L wiring)
+[OK] gate fix patterns distinct from L wiring
+16. FinalizeOnly blocked without prior test pass
+[OK] FinalizeOnly requires manifest testsGitHead
+17. FinalizeOnly preserves manifest test-pass proof
+[OK] FinalizeOnly preserves testsGitHead + testsPassedAt
+18. Auditor workflow E2E �?" pass 1, semantic, finalize exit 0
+[OK] auditor workflow E2E finalize exit 0
+19. Audit phase timing log
+[OK] audit timing jsonl written with phases
+
+Summary: 0 fail(s)
+
+Summary: 0 fail(s), 1 warn(s)
+verify-audit-system: OK
+
+========== AUDIT (machine + semantic gate) ==========
+## Fix
+- Section L - duplicate project skill agent-code-audit (use pack skill)
+
+## Improve
+Nothing found.
+
+Agent: read docs\.audit_agent_manifest.json - semantic review (machine checks above).
+============================================
+Audit timing: docs\.audit_timing.jsonl (406.512s total)

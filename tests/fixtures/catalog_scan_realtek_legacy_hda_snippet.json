@@ -1,0 +1,37 @@
+{
+  "hardware_summary": {
+    "manufacturer": "Dell Inc.",
+    "model": "Legacy Realtek HDA",
+    "device_list_count": 4
+  },
+  "inventory": [
+    {
+      "name": "Realtek High Definition Audio",
+      "display_name": "Realtek High Definition Audio",
+      "device_class": "MEDIA",
+      "version": "R2.82"
+    },
+    {
+      "name": "Realtek Audio",
+      "display_name": "Realtek Audio",
+      "device_class": "MEDIA",
+      "version": "6.0.9600.1"
+    }
+  ],
+  "devices": [
+    {
+      "device_name": "Realtek High Definition Audio",
+      "display_name": "Realtek High Definition Audio",
+      "device_class": "MEDIA",
+      "installed_version": "R2.82",
+      "companion_version": "6.0.9600.1"
+    },
+    {
+      "device_name": "Realtek Audio Effects Component",
+      "display_name": "Realtek Audio Effects Component",
+      "device_class": "SOFTWARECOMPONENT",
+      "installed_version": "13.0.6000.1905",
+      "companion_version": "6.0.9929.1"
+    }
+  ]
+}

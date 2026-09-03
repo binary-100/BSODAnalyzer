@@ -1,0 +1,23 @@
+{
+  "count": 4,
+  "results": [
+    {
+      "id": 360023353553,
+      "title": "Update firmware version 102.1.22 for the G810 gaming keyboard",
+      "html_url": "https://support.logi.com/hc/en-us/articles/360023353553-Update-firmware-version-102-1-22-for-the-G810-gaming-keyboard",
+      "snippet": "Launch LGS and update firmware on the G810 gaming keyboard."
+    },
+    {
+      "id": 360025289513,
+      "title": "G910 Orion Spectrum Firmware Update",
+      "html_url": "https://support.logi.com/hc/en-us/articles/360025289513-G910-Orion-Spectrum-Firmware-Update",
+      "snippet": "Firmware update for the G910 gaming keyboard."
+    },
+    {
+      "id": 1500007306382,
+      "title": "Firmware Update Tool",
+      "html_url": "https://support.logi.com/hc/en-us/articles/1500007306382-Firmware-Update-Tool",
+      "snippet": "Legacy firmware update tool for selected keyboards."
+    }
+  ]
+}

@@ -1,0 +1,4374 @@
+{
+  "source": "https://www.amd.com/en/support/download/drivers.html",
+  "product_count": 728,
+  "products": [
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-chipsets/amd-780e-sb710-chipset.html",
+      "title": "AMD 780E | SB710 Chipset",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-chipsets/amd-785e-sb8x0-chipset.html",
+      "title": "AMD 785E | SB8X0 Chipset",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600.html",
+      "title": "AMD Radeon\u2122 AI PRO R9600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html",
+      "title": "AMD Radeon\u2122 AI PRO R9600D",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9700.html",
+      "title": "AMD Radeon\u2122 AI PRO R9700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9700s.html",
+      "title": "AMD Radeon\u2122 AI PRO R9700S",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-hd-series/amd-radeon-hd-5770-embedded.html",
+      "title": "AMD Radeon\u2122 HD 5770 (embedded)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6330m.html",
+      "title": "AMD Radeon\u2122 HD 6330M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6350.html",
+      "title": "AMD Radeon\u2122 HD 6350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6350m.html",
+      "title": "AMD Radeon\u2122 HD 6350M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6370m.html",
+      "title": "AMD Radeon\u2122 HD 6370M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6430m.html",
+      "title": "AMD Radeon\u2122 HD 6430M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6450.html",
+      "title": "AMD Radeon\u2122 HD 6450",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6450m.html",
+      "title": "AMD Radeon\u2122 HD 6450M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6470m.html",
+      "title": "AMD Radeon\u2122 HD 6470M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6490m.html",
+      "title": "AMD Radeon\u2122 HD 6490M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6530m.html",
+      "title": "AMD Radeon\u2122 HD 6530M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6550m.html",
+      "title": "AMD Radeon\u2122 HD 6550M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6570.html",
+      "title": "AMD Radeon\u2122 HD 6570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6570m.html",
+      "title": "AMD Radeon\u2122 HD 6570M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6630m.html",
+      "title": "AMD Radeon\u2122 HD 6630M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6650m.html",
+      "title": "AMD Radeon\u2122 HD 6650M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6670.html",
+      "title": "AMD Radeon\u2122 HD 6670",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6730m.html",
+      "title": "AMD Radeon\u2122 HD 6730M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6750.html",
+      "title": "AMD Radeon\u2122 HD 6750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6770.html",
+      "title": "AMD Radeon\u2122 HD 6770",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6770m.html",
+      "title": "AMD Radeon\u2122 HD 6770M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6790.html",
+      "title": "AMD Radeon\u2122 HD 6790",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6830m.html",
+      "title": "AMD Radeon\u2122 HD 6830M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6850.html",
+      "title": "AMD Radeon\u2122 HD 6850",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6850m.html",
+      "title": "AMD Radeon\u2122 HD 6850M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6870.html",
+      "title": "AMD Radeon\u2122 HD 6870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6870m.html",
+      "title": "AMD Radeon\u2122 HD 6870M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6930.html",
+      "title": "AMD Radeon\u2122 HD 6930",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6950.html",
+      "title": "AMD Radeon\u2122 HD 6950",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6970.html",
+      "title": "AMD Radeon\u2122 HD 6970",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-hd-series/amd-radeon-hd-6970m-embedded.html",
+      "title": "AMD Radeon\u2122 HD 6970M (embedded)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series/amd-radeon-hd-6990.html",
+      "title": "AMD Radeon\u2122 HD 6990",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series/amd-radeon-hd-6990m.html",
+      "title": "AMD Radeon\u2122 HD 6990M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7350.html",
+      "title": "AMD Radeon\u2122 HD 7350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7430m.html",
+      "title": "AMD Radeon\u2122 HD 7430M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7450.html",
+      "title": "AMD Radeon\u2122 HD 7450",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7450m.html",
+      "title": "AMD Radeon\u2122 HD 7450M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7470.html",
+      "title": "AMD Radeon\u2122 HD 7470",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7470m.html",
+      "title": "AMD Radeon\u2122 HD 7470M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7490m.html",
+      "title": "AMD Radeon\u2122 HD 7490M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7510.html",
+      "title": "AMD Radeon\u2122 HD 7510",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7510m.html",
+      "title": "AMD Radeon\u2122 HD 7510M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7530m.html",
+      "title": "AMD Radeon\u2122 HD 7530M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7550m.html",
+      "title": "AMD Radeon\u2122 HD 7550M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7570.html",
+      "title": "AMD Radeon\u2122 HD 7570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7570m.html",
+      "title": "AMD Radeon\u2122 HD 7570M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7590m.html",
+      "title": "AMD Radeon\u2122 HD 7590M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7610m.html",
+      "title": "AMD Radeon\u2122 HD 7610M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7630m.html",
+      "title": "AMD Radeon\u2122 HD 7630M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7650m.html",
+      "title": "AMD Radeon\u2122 HD 7650M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7670.html",
+      "title": "AMD Radeon\u2122 HD 7670",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7670m.html",
+      "title": "AMD Radeon\u2122 HD 7670M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7690m.html",
+      "title": "AMD Radeon\u2122 HD 7690M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7690m-xt.html",
+      "title": "AMD Radeon\u2122 HD 7690M XT",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7730.html",
+      "title": "AMD Radeon\u2122 HD 7730",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7730m.html",
+      "title": "AMD Radeon\u2122 HD 7730M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7750.html",
+      "title": "AMD Radeon\u2122 HD 7750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7750m.html",
+      "title": "AMD Radeon\u2122 HD 7750M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7770-ghz-edition.html",
+      "title": "AMD Radeon\u2122 HD 7770 GHz Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7770m.html",
+      "title": "AMD Radeon\u2122 HD 7770M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7790.html",
+      "title": "AMD Radeon\u2122 HD 7790",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7850.html",
+      "title": "AMD Radeon\u2122 HD 7850",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7850m.html",
+      "title": "AMD Radeon\u2122 HD 7850M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7870-ghz-edition.html",
+      "title": "AMD Radeon\u2122 HD 7870 GHz Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7870-xt.html",
+      "title": "AMD Radeon\u2122 HD 7870 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7870m.html",
+      "title": "AMD Radeon\u2122 HD 7870M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7950.html",
+      "title": "AMD Radeon\u2122 HD 7950",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7970.html",
+      "title": "AMD Radeon\u2122 HD 7970",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7970-ghz-edition.html",
+      "title": "AMD Radeon\u2122 HD 7970 GHz Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series/amd-radeon-hd-7970m.html",
+      "title": "AMD Radeon\u2122 HD 7970M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series/amd-radeon-hd-7990.html",
+      "title": "AMD Radeon\u2122 HD 7990",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8350.html",
+      "title": "AMD Radeon\u2122 HD 8350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8470.html",
+      "title": "AMD Radeon\u2122 HD 8470",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8490.html",
+      "title": "AMD Radeon\u2122 HD 8490",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8550m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8550M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8570.html",
+      "title": "AMD Radeon\u2122 HD 8570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8570m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8570M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8590m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8590M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8630m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8630M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8670.html",
+      "title": "AMD Radeon\u2122 HD 8670",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8670m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8670M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8690m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8690M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8730.html",
+      "title": "AMD Radeon\u2122 HD 8730",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8730m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8730M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8750m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8750M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8760.html",
+      "title": "AMD Radeon\u2122 HD 8760",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8770.html",
+      "title": "AMD Radeon\u2122 HD 8770",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8770m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8770M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8790m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8790M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8830m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8830M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8850m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8850M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8870.html",
+      "title": "AMD Radeon\u2122 HD 8870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8870m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8870M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8950.html",
+      "title": "AMD Radeon\u2122 HD 8950",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8970.html",
+      "title": "AMD Radeon\u2122 HD 8970",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series/amd-radeon-hd-8970m-series-gpu.html",
+      "title": "AMD Radeon\u2122 HD 8970M Series GPU",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series/amd-radeon-hd-8990.html",
+      "title": "AMD Radeon\u2122 HD 8990",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-v-series/radeon-pro-v340.html",
+      "title": "AMD Radeon\u2122 PRO V340",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-v-series/radeon-pro-v620.html",
+      "title": "AMD Radeon\u2122 PRO V620",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-v-series/amd-radeon-pro-v710.html",
+      "title": "AMD Radeon\u2122 PRO V710",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-series/amd-radeon-pro-w6400.html",
+      "title": "AMD Radeon\u2122 PRO W6400",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-series/amd-radeon-pro-w6600.html",
+      "title": "AMD Radeon\u2122 PRO W6600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-mobile-series/amd-radeon-pro-w6600m.html",
+      "title": "AMD Radeon\u2122 PRO W6600M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-series/amd-radeon-pro-w6800.html",
+      "title": "AMD Radeon\u2122 PRO W6800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7500.html",
+      "title": "AMD Radeon\u2122 PRO W7500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-mobile-series/amd-radeon-pro-w7500m.html",
+      "title": "AMD Radeon\u2122 PRO W7500M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7600.html",
+      "title": "AMD Radeon\u2122 PRO W7600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7700.html",
+      "title": "AMD Radeon\u2122 PRO W7700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7800.html",
+      "title": "AMD Radeon\u2122 PRO W7800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7800-48gb.html",
+      "title": "AMD Radeon\u2122 PRO W7800 48GB",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7900.html",
+      "title": "AMD Radeon\u2122 PRO W7900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7900-dual-slot.html",
+      "title": "AMD Radeon\u2122 PRO W7900 Dual Slot",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series/amd-radeon-pro-w7900d.html",
+      "title": "AMD Radeon\u2122 PRO W7900D",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-220.html",
+      "title": "AMD Radeon\u2122 R5 220",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-230.html",
+      "title": "AMD Radeon\u2122 R5 230",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-235.html",
+      "title": "AMD Radeon\u2122 R5 235",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-235x.html",
+      "title": "AMD Radeon\u2122 R5 235X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-240.html",
+      "title": "AMD Radeon\u2122 R5 240",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-330.html",
+      "title": "AMD Radeon\u2122 R5 330",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-340.html",
+      "title": "AMD Radeon\u2122 R5 340",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-m230.html",
+      "title": "AMD Radeon\u2122 R5 M230",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-m240.html",
+      "title": "AMD Radeon\u2122 R5 M240",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-m240x.html",
+      "title": "AMD Radeon\u2122 R5 M240X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-m255.html",
+      "title": "AMD Radeon\u2122 R5 M255",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series/amd-radeon-r5-m255x.html",
+      "title": "AMD Radeon\u2122 R5 M255X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-m315.html",
+      "title": "AMD Radeon\u2122 R5 M315",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-m320.html",
+      "title": "AMD Radeon\u2122 R5 M320",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-m330.html",
+      "title": "AMD Radeon\u2122 R5 M330",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-m335.html",
+      "title": "AMD Radeon\u2122 R5 M335",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series/amd-radeon-r5-m335x.html",
+      "title": "AMD Radeon\u2122 R5 M335X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-400-series/amd-radeon-r5-m420.html",
+      "title": "AMD Radeon\u2122 R5 M420",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-400-series/amd-radeon-r5-m430.html",
+      "title": "AMD Radeon\u2122 R5 M430",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-240.html",
+      "title": "AMD Radeon\u2122 R7 240",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-250.html",
+      "title": "AMD Radeon\u2122 R7 250",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-250x.html",
+      "title": "AMD Radeon\u2122 R7 250X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-260.html",
+      "title": "AMD Radeon\u2122 R7 260",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-260x.html",
+      "title": "AMD Radeon\u2122 R7 260X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-265.html",
+      "title": "AMD Radeon\u2122 R7 265",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-340.html",
+      "title": "AMD Radeon\u2122 R7 340",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-350.html",
+      "title": "AMD Radeon\u2122 R7 350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-360.html",
+      "title": "AMD Radeon\u2122 R7 360",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-370.html",
+      "title": "AMD Radeon\u2122 R7 370",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-m260.html",
+      "title": "AMD Radeon\u2122 R7 M260",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-m260x.html",
+      "title": "AMD Radeon\u2122 R7 M260X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-m265.html",
+      "title": "AMD Radeon\u2122 R7 M265",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-m265x.html",
+      "title": "AMD Radeon\u2122 R7 M265X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series/amd-radeon-r7-m270.html",
+      "title": "AMD Radeon\u2122 R7 M270",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m340.html",
+      "title": "AMD Radeon\u2122 R7 M340",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m350.html",
+      "title": "AMD Radeon\u2122 R7 M350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m360.html",
+      "title": "AMD Radeon\u2122 R7 M360",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m365.html",
+      "title": "AMD Radeon\u2122 R7 M365",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m365x.html",
+      "title": "AMD Radeon\u2122 R7 M365X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m370.html",
+      "title": "AMD Radeon\u2122 R7 M370",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m375.html",
+      "title": "AMD Radeon\u2122 R7 M375",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series/amd-radeon-r7-m380.html",
+      "title": "AMD Radeon\u2122 R7 M380",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m435.html",
+      "title": "AMD Radeon\u2122 R7 M435",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m440.html",
+      "title": "AMD Radeon\u2122 R7 M440",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m445.html",
+      "title": "AMD Radeon\u2122 R7 M445",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m460.html",
+      "title": "AMD Radeon\u2122 R7 M460",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m465.html",
+      "title": "AMD Radeon\u2122 R7 M465",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series/amd-radeon-r7-m465x.html",
+      "title": "AMD Radeon\u2122 R7 M465X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-270.html",
+      "title": "AMD Radeon\u2122 R9 270",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-270x.html",
+      "title": "AMD Radeon\u2122 R9 270X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-280.html",
+      "title": "AMD Radeon\u2122 R9 280",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-280x.html",
+      "title": "AMD Radeon\u2122 R9 280X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-285.html",
+      "title": "AMD Radeon\u2122 R9 285",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-290.html",
+      "title": "AMD Radeon\u2122 R9 290",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-290x.html",
+      "title": "AMD Radeon\u2122 R9 290X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-295x2.html",
+      "title": "AMD Radeon\u2122 R9 295X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-360.html",
+      "title": "AMD Radeon\u2122 R9 360",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-370.html",
+      "title": "AMD Radeon\u2122 R9 370",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-370x.html",
+      "title": "AMD Radeon\u2122 R9 370X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-380.html",
+      "title": "AMD Radeon\u2122 R9 380",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-380x.html",
+      "title": "AMD Radeon\u2122 R9 380X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-390.html",
+      "title": "AMD Radeon\u2122 R9 390",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-390x.html",
+      "title": "AMD Radeon\u2122 R9 390X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-fury-series/amd-radeon-r9-fury.html",
+      "title": "AMD Radeon\u2122 R9 Fury",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-fury-series/amd-radeon-r9-fury-x.html",
+      "title": "AMD Radeon\u2122 R9 Fury X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m265x.html",
+      "title": "AMD Radeon\u2122 R9 M265X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m270x.html",
+      "title": "AMD Radeon\u2122 R9 M270X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m275x.html",
+      "title": "AMD Radeon\u2122 R9 M275X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m280.html",
+      "title": "AMD Radeon\u2122 R9 M280",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m280x.html",
+      "title": "AMD Radeon\u2122 R9 M280X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m285x.html",
+      "title": "AMD Radeon\u2122 R9 M285X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m290x.html",
+      "title": "AMD Radeon\u2122 R9 M290X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series/amd-radeon-r9-m295x.html",
+      "title": "AMD Radeon\u2122 R9 M295X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m360.html",
+      "title": "AMD Radeon\u2122 R9 M360",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m365x.html",
+      "title": "AMD Radeon\u2122 R9 M365X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m375.html",
+      "title": "AMD Radeon\u2122 R9 M375",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m375x.html",
+      "title": "AMD Radeon\u2122 R9 M375X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m380.html",
+      "title": "AMD Radeon\u2122 R9 M380",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m385.html",
+      "title": "AMD Radeon\u2122 R9 M385",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m385x.html",
+      "title": "AMD Radeon\u2122 R9 M385X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m390.html",
+      "title": "AMD Radeon\u2122 R9 M390",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m390x.html",
+      "title": "AMD Radeon\u2122 R9 M390X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m395.html",
+      "title": "AMD Radeon\u2122 R9 M395",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series/amd-radeon-r9-m395x.html",
+      "title": "AMD Radeon\u2122 R9 M395X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-fury-series/amd-radeon-r9-nano.html",
+      "title": "AMD Radeon\u2122 R9 Nano",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5300.html",
+      "title": "AMD Radeon\u2122 RX 5300",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5300m.html",
+      "title": "AMD Radeon\u2122 RX 5300M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5500.html",
+      "title": "AMD Radeon\u2122 RX 5500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5500-xt.html",
+      "title": "AMD Radeon\u2122 RX 5500 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5500m.html",
+      "title": "AMD Radeon\u2122 RX 5500M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5600-xt.html",
+      "title": "AMD Radeon\u2122 RX 5600 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5600m.html",
+      "title": "AMD Radeon\u2122 RX 5600M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5700.html",
+      "title": "AMD Radeon\u2122 RX 5700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5700-xt.html",
+      "title": "AMD Radeon\u2122 RX 5700 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5700-xt-50th-anniversary.html",
+      "title": "AMD Radeon\u2122 RX 5700 XT 50th Anniversary",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5700m.html",
+      "title": "AMD Radeon\u2122 RX 5700M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6300m.html",
+      "title": "AMD Radeon\u2122 RX 6300M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6400.html",
+      "title": "AMD Radeon\u2122 RX 6400",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6450m.html",
+      "title": "AMD Radeon\u2122 RX 6450M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6500-xt.html",
+      "title": "AMD Radeon\u2122 RX 6500 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6500m.html",
+      "title": "AMD Radeon\u2122 RX 6500M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6550m.html",
+      "title": "AMD Radeon\u2122 RX 6550M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6600.html",
+      "title": "AMD Radeon\u2122 RX 6600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6600-xt.html",
+      "title": "AMD Radeon\u2122 RX 6600 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6600m.html",
+      "title": "AMD Radeon\u2122 RX 6600M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6650-xt.html",
+      "title": "AMD Radeon\u2122 RX 6650 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6650m.html",
+      "title": "AMD Radeon\u2122 RX 6650M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6700.html",
+      "title": "AMD Radeon\u2122 RX 6700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6700-xt.html",
+      "title": "AMD Radeon\u2122 RX 6700 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6700m.html",
+      "title": "AMD Radeon\u2122 RX 6700M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6700s.html",
+      "title": "AMD Radeon\u2122 RX 6700S",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6750-gre-10gb.html",
+      "title": "AMD Radeon\u2122 RX 6750 GRE 10GB",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6750-gre-12gb.html",
+      "title": "AMD Radeon\u2122 RX 6750 GRE 12GB",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6750-xt.html",
+      "title": "AMD Radeon\u2122 RX 6750 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6800.html",
+      "title": "AMD Radeon\u2122 RX 6800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6800-xt.html",
+      "title": "AMD Radeon\u2122 RX 6800 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6800m.html",
+      "title": "AMD Radeon\u2122 RX 6800M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6800s.html",
+      "title": "AMD Radeon\u2122 RX 6800S",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6900-xt.html",
+      "title": "AMD Radeon\u2122 RX 6900 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series/amd-radeon-rx-6950-xt.html",
+      "title": "AMD Radeon\u2122 RX 6950 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600.html",
+      "title": "AMD Radeon\u2122 RX 7600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600-xt.html",
+      "title": "AMD Radeon\u2122 RX 7600 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600m.html",
+      "title": "AMD Radeon\u2122 RX 7600M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600m-xt.html",
+      "title": "AMD Radeon\u2122 RX 7600M XT",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600s.html",
+      "title": "AMD Radeon\u2122 RX 7600S",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7650-gre.html",
+      "title": "AMD Radeon\u2122 RX 7650 GRE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7700.html",
+      "title": "AMD Radeon\u2122 RX 7700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7700-xt.html",
+      "title": "AMD Radeon\u2122 RX 7700 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7700s.html",
+      "title": "AMD Radeon\u2122 RX 7700S",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7800-xt.html",
+      "title": "AMD Radeon\u2122 RX 7800 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7800m.html",
+      "title": "AMD Radeon\u2122 RX 7800M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7900-gre.html",
+      "title": "AMD Radeon\u2122 RX 7900 GRE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7900-xt.html",
+      "title": "AMD Radeon\u2122 RX 7900 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7900-xtx.html",
+      "title": "AMD Radeon\u2122 RX 7900 XTX",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7900m.html",
+      "title": "AMD Radeon\u2122 RX 7900M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9050.html",
+      "title": "AMD Radeon\u2122 RX 9050",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9060.html",
+      "title": "AMD Radeon\u2122 RX 9060",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9060-xt.html",
+      "title": "AMD Radeon\u2122 RX 9060 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9060-xt-8gb.html",
+      "title": "AMD Radeon\u2122 RX 9060 XT (8GB)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9060-xt-lp.html",
+      "title": "AMD Radeon\u2122 RX 9060 XT LP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9070.html",
+      "title": "AMD Radeon\u2122 RX 9070",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9070-gre.html",
+      "title": "AMD Radeon\u2122 RX 9070 GRE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series/amd-radeon-rx-9070-xt.html",
+      "title": "AMD Radeon\u2122 RX 9070 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-vega-series/amd-radeon-vii.html",
+      "title": "AMD Radeon\u2122 VII",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-2006.html",
+      "title": "ATI All-in-Wonder 2006",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-7500.html",
+      "title": "ATI All-in-Wonder 7500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9000-pro.html",
+      "title": "ATI All-in-Wonder 9000 Pro",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9600.html",
+      "title": "ATI All-in-Wonder 9600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9600-pro.html",
+      "title": "ATI All-in-Wonder 9600 Pro",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9600-xt.html",
+      "title": "ATI All-in-Wonder 9600 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9700-pro.html",
+      "title": "ATI All-in-Wonder 9700 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-9800-pro.html",
+      "title": "ATI All-in-Wonder 9800 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-hd.html",
+      "title": "ATI All-in-Wonder HD",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-radeon.html",
+      "title": "ATI All-in-Wonder Radeon",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-radeon-8500.html",
+      "title": "ATI All-in-Wonder Radeon 8500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-radeon-8500dv.html",
+      "title": "ATI All-in-Wonder Radeon 8500DV",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-radeon-ve.html",
+      "title": "ATI All-in-Wonder Radeon VE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x1800-xl.html",
+      "title": "ATI All-in-Wonder X1800 XL",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x1900.html",
+      "title": "ATI All-in-Wonder X1900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x600-pro.html",
+      "title": "ATI All-in-Wonder X600 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x800-gt.html",
+      "title": "ATI All-in-Wonder X800 GT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x800-xl.html",
+      "title": "ATI All-in-Wonder X800 XL",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series/ati-all-in-wonder-x800-xt.html",
+      "title": "ATI All-in-Wonder X800 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-all-in-wonder-128.html",
+      "title": "ATI All-in-Wonder\u2122 128",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-all-in-wonder-128-pro.html",
+      "title": "ATI All-in-Wonder\u2122 128 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-all-in-wonder-pro.html",
+      "title": "ATI All-in-Wonder\u2122 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/crossfire-xpress-series/ati-crossfire-xpress-1600.html",
+      "title": "ATI CrossFire\u2122 Xpress 1600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/crossfire-xpress-series/ati-crossfire-xpress-3200.html",
+      "title": "ATI CrossFire\u2122 Xpress 3200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-hdtv-wonder.html",
+      "title": "ATI HDTV Wonder",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-4100.html",
+      "title": "ATI Mobility Radeon\u2122 4100",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2300.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2300",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2400.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2400",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2400-xt.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2400 XT",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2600.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2600",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2600-xt.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2600 XT",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series/ati-mobility-radeon-hd-2700.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2700",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3100.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3100",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3200.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3200",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3410.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3410",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3450.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3450",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3470.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3470",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3650.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3650",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3670.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3670",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3850.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3850",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3850-x2.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3850 X2",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3870.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3870",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-mobility-radeon-hd-3870-x2.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3870 X2",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4200.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4200",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4225.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4225",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4250.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4250",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4270.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4270",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4330.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4330",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4530.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4530",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4550.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4550",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4570.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4570",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4650.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4650",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4670.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4670",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4830.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4830",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4850.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4850",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4860.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4860",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4870.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4870",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series/ati-mobility-radeon-hd-4870-x2.html",
+      "title": "ATI Mobility Radeon\u2122 HD 4870 X2",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5145.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5145",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5165.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5165",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5430.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5430",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5450.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5450",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5470.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5470",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5650.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5650",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5730.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5730",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5750.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5750",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5770.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5770",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5830.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5830",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5850.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5850",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series/ati-mobility-radeon-hd-5870.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5870",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-2xxx-series/ati-radeon-2100.html",
+      "title": "ATI Radeon\u2122 2100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-3xxx-series/ati-radeon-3000.html",
+      "title": "ATI Radeon\u2122 3000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-3xxx-series/ati-radeon-3100.html",
+      "title": "ATI Radeon\u2122 3100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-32-series/ati-radeon-32.html",
+      "title": "ATI Radeon\u2122 32",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-320-igp.html",
+      "title": "ATI Radeon\u2122 320 IGP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-3xxx-series/ati-radeon-3200.html",
+      "title": "ATI Radeon\u2122 3200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-330-igp.html",
+      "title": "ATI Radeon\u2122 330 IGP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-340-igp.html",
+      "title": "ATI Radeon\u2122 340 IGP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-7xxx-series/ati-radeon-7000-series.html",
+      "title": "ATI Radeon\u2122 7000 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-7xxx-series/ati-radeon-7200-series.html",
+      "title": "ATI Radeon\u2122 7200 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-7xxx-series/ati-radeon-7500-series.html",
+      "title": "ATI Radeon\u2122 7500 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-8xxx-series/ati-radeon-8500-series.html",
+      "title": "ATI Radeon\u2122 8500 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-9000-igp.html",
+      "title": "ATI Radeon\u2122 9000 IGP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9000-series.html",
+      "title": "ATI Radeon\u2122 9000 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-9100-igp.html",
+      "title": "ATI Radeon\u2122 9100 IGP",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series/ati-radeon-9100-igp-pro.html",
+      "title": "ATI Radeon\u2122 9100 IGP Pro",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9200-series.html",
+      "title": "ATI Radeon\u2122 9200 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9250-series.html",
+      "title": "ATI Radeon\u2122 9250 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9500-series.html",
+      "title": "ATI Radeon\u2122 9500 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9550-series.html",
+      "title": "ATI Radeon\u2122 9550 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9600-series.html",
+      "title": "ATI Radeon\u2122 9600 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9700-series.html",
+      "title": "ATI Radeon\u2122 9700 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9800-series.html",
+      "title": "ATI Radeon\u2122 9800 Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2350.html",
+      "title": "ATI Radeon\u2122 HD 2350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2400-pro.html",
+      "title": "ATI Radeon\u2122 HD 2400 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2400-xt.html",
+      "title": "ATI Radeon\u2122 HD 2400 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2600-pro.html",
+      "title": "ATI Radeon\u2122 HD 2600 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2600-xt.html",
+      "title": "ATI Radeon\u2122 HD 2600 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2900-gt.html",
+      "title": "ATI Radeon\u2122 HD 2900 GT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2900-pro.html",
+      "title": "ATI Radeon\u2122 HD 2900 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series/ati-radeon-hd-2900-xt.html",
+      "title": "ATI Radeon\u2122 HD 2900 XT",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-integrated-hd-series/ati-radeon-hd-3300.html",
+      "title": "ATI Radeon\u2122 HD 3300",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3410.html",
+      "title": "ATI Radeon\u2122 HD 3410",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3450.html",
+      "title": "ATI Radeon\u2122 HD 3450",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3470.html",
+      "title": "ATI Radeon\u2122 HD 3470",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3550.html",
+      "title": "ATI Radeon\u2122 HD 3550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3570.html",
+      "title": "ATI Radeon\u2122 HD 3570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3610.html",
+      "title": "ATI Radeon\u2122 HD 3610",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3650.html",
+      "title": "ATI Radeon\u2122 HD 3650",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3730.html",
+      "title": "ATI Radeon\u2122 HD 3730",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3750.html",
+      "title": "ATI Radeon\u2122 HD 3750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3830.html",
+      "title": "ATI Radeon\u2122 HD 3830",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3850.html",
+      "title": "ATI Radeon\u2122 HD 3850",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3850-x2.html",
+      "title": "ATI Radeon\u2122 HD 3850 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3870.html",
+      "title": "ATI Radeon\u2122 HD 3870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series/ati-radeon-hd-3870-x2.html",
+      "title": "ATI Radeon\u2122 HD 3870 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4200.html",
+      "title": "ATI Radeon\u2122 HD 4200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4250.html",
+      "title": "ATI Radeon\u2122 HD 4250",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4290.html",
+      "title": "ATI Radeon\u2122 HD 4290",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4350.html",
+      "title": "ATI Radeon\u2122 HD 4350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4550.html",
+      "title": "ATI Radeon\u2122 HD 4550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4570.html",
+      "title": "ATI Radeon\u2122 HD 4570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4580.html",
+      "title": "ATI Radeon\u2122 HD 4580",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4650.html",
+      "title": "ATI Radeon\u2122 HD 4650",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4670.html",
+      "title": "ATI Radeon\u2122 HD 4670",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4730.html",
+      "title": "ATI Radeon\u2122 HD 4730",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4750.html",
+      "title": "ATI Radeon\u2122 HD 4750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4770.html",
+      "title": "ATI Radeon\u2122 HD 4770",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4810.html",
+      "title": "ATI Radeon\u2122 HD 4810",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4830.html",
+      "title": "ATI Radeon\u2122 HD 4830",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4850-x2.html",
+      "title": "ATI Radeon\u2122 HD 4850 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4860.html",
+      "title": "ATI Radeon\u2122 HD 4860",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4870.html",
+      "title": "ATI Radeon\u2122 HD 4870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4870-x2.html",
+      "title": "ATI Radeon\u2122 HD 4870 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series/ati-radeon-hd-4890.html",
+      "title": "ATI Radeon\u2122 HD 4890",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5450.html",
+      "title": "ATI Radeon\u2122 HD 5450",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5550.html",
+      "title": "ATI Radeon\u2122 HD 5550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5570.html",
+      "title": "ATI Radeon\u2122 HD 5570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5670.html",
+      "title": "ATI Radeon\u2122 HD 5670",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5750.html",
+      "title": "ATI Radeon\u2122 HD 5750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5770.html",
+      "title": "ATI Radeon\u2122 HD 5770",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5830.html",
+      "title": "ATI Radeon\u2122 HD 5830",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5850.html",
+      "title": "ATI Radeon\u2122 HD 5850",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5870.html",
+      "title": "ATI Radeon\u2122 HD 5870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series/ati-radeon-hd-5970.html",
+      "title": "ATI Radeon\u2122 HD 5970",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-ve-series/ati-radeon-ve.html",
+      "title": "ATI Radeon\u2122 VE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-x12xx-series/ati-radeon-x1200.html",
+      "title": "ATI Radeon\u2122 X1200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-x12xx-series/ati-radeon-x1250.html",
+      "title": "ATI Radeon\u2122 X1250",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x1xxx-series.html",
+      "title": "ATI Radeon\u2122 X1xxx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x3xx-series.html",
+      "title": "ATI Radeon\u2122 X3xx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x5xx-series.html",
+      "title": "ATI Radeon\u2122 X5xx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x6xx-series.html",
+      "title": "ATI Radeon\u2122 X6xx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x7xx-series.html",
+      "title": "ATI Radeon\u2122 X7xx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series/ati-radeon-x8xx-series.html",
+      "title": "ATI Radeon\u2122 X8xx Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series/ati-radeon-xpress.html",
+      "title": "ATI Radeon\u2122 Xpress",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series/ati-radeon-xpress-1100.html",
+      "title": "ATI Radeon\u2122 Xpress 1100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series/ati-radeon-xpress-1150.html",
+      "title": "ATI Radeon\u2122 Xpress 1150",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series/ati-radeon-xpress-200.html",
+      "title": "ATI Radeon\u2122 Xpress 200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series/ati-radeon-xpress-200m.html",
+      "title": "ATI Radeon\u2122 Xpress 200M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-128.html",
+      "title": "ATI Rage\u2122 128",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-128-pro.html",
+      "title": "ATI Rage\u2122 128 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-fury.html",
+      "title": "ATI Rage\u2122 Fury",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-fury-maxx.html",
+      "title": "ATI Rage\u2122 Fury Maxx",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-fury-pro.html",
+      "title": "ATI Rage\u2122 Fury PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-ii-series.html",
+      "title": "ATI Rage\u2122 II Series",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-iic.html",
+      "title": "ATI Rage\u2122 IIC",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-lt-pro.html",
+      "title": "ATI Rage\u2122 LT PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-magnum.html",
+      "title": "ATI Rage\u2122 Magnum",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-pro.html",
+      "title": "ATI Rage\u2122 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-xc.html",
+      "title": "ATI Rage\u2122 XC",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-xl.html",
+      "title": "ATI Rage\u2122 XL",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/remote-wonder-series/ati-remote-wonder.html",
+      "title": "ATI Remote Wonder",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/remote-wonder-series/ati-remote-wonder-ii.html",
+      "title": "ATI Remote Wonder II",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/remote-wonder-series/ati-remote-wonder-plus.html",
+      "title": "ATI Remote Wonder Plus",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/theater-series/ati-theater-550-pro.html",
+      "title": "ATI Theater 550 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/theater-series/ati-theater-600-pro.html",
+      "title": "ATI Theater 600 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/theater-series/ati-theater-650-pro.html",
+      "title": "ATI Theater 650 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/theater-series/ati-theater-750-pro.html",
+      "title": "ATI Theater 750 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-600-usb.html",
+      "title": "ATI TV Wonder 600 USB",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-650-combo-usb.html",
+      "title": "ATI TV Wonder 650 Combo USB",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-elite.html",
+      "title": "ATI TV Wonder Elite",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-pci.html",
+      "title": "ATI TV Wonder PCI",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-pro.html",
+      "title": "ATI TV Wonder PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-usb-2-0.html",
+      "title": "ATI TV Wonder USB 2.0",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-usb-edition.html",
+      "title": "ATI TV Wonder USB Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series/ati-tv-wonder-ve.html",
+      "title": "ATI TV Wonder VE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-xpert-128.html",
+      "title": "ATI Xpert 128",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-xpert-2000.html",
+      "title": "ATI Xpert 2000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-xpert-2000-pro.html",
+      "title": "ATI Xpert 2000 PRO",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-xpert-99.html",
+      "title": "ATI Xpert 99",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series/ati-radeon-hd-3430.html",
+      "title": "ATI \u79fb\u52a8\u7248 Radeon\u2122 HD 3430",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e2400.html",
+      "title": "E2400",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e4690.html",
+      "title": "E4690",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e6460.html",
+      "title": "E6460",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e6465.html",
+      "title": "E6465",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e6760.html",
+      "title": "E6760",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e8860.html",
+      "title": "E8860",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e8870.html",
+      "title": "E8870",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e8950.html",
+      "title": "E8950",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e917x.html",
+      "title": "E917x",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e9260.html",
+      "title": "E9260",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e9390.html",
+      "title": "E9390",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e9550.html",
+      "title": "E9550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e9560.html",
+      "title": "E9560",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series/e9565.html",
+      "title": "E9565",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-1.html",
+      "title": "FireGL\u2122 1",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-2.html",
+      "title": "FireGL\u2122 2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-3.html",
+      "title": "FireGL\u2122 3",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-4.html",
+      "title": "FireGL\u2122 4",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-8700.html",
+      "title": "FireGL\u2122 8700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-8800.html",
+      "title": "FireGL\u2122 8800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-t2-128.html",
+      "title": "FireGL\u2122 T2-128",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3100.html",
+      "title": "FireGL\u2122 V3100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3200.html",
+      "title": "FireGL\u2122 V3200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3300.html",
+      "title": "FireGL\u2122 V3300",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3350.html",
+      "title": "FireGL\u2122 V3350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3400.html",
+      "title": "FireGL\u2122 V3400",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v3600.html",
+      "title": "FireGL\u2122 V3600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v5000.html",
+      "title": "FireGL\u2122 V5000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v5100.html",
+      "title": "FireGL\u2122 V5100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v5200.html",
+      "title": "FireGL\u2122 V5200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v5600.html",
+      "title": "FireGL\u2122 V5600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7100.html",
+      "title": "FireGL\u2122 V7100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7200.html",
+      "title": "FireGL\u2122 V7200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7300.html",
+      "title": "FireGL\u2122 V7300",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7350.html",
+      "title": "FireGL\u2122 V7350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7600.html",
+      "title": "FireGL\u2122 V7600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v7700.html",
+      "title": "FireGL\u2122 V7700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v8600.html",
+      "title": "FireGL\u2122 V8600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-v8650.html",
+      "title": "FireGL\u2122 V8650",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-x1.html",
+      "title": "FireGL\u2122 X1",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-x2.html",
+      "title": "FireGL\u2122 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-x3-256.html",
+      "title": "FireGL\u2122 X3-256",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series/firegl-z1.html",
+      "title": "FireGL\u2122 Z1",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series/firemv-2200-pci.html",
+      "title": "FireMV\u2122 2200 PCI",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series/firemv-2200-pcie.html",
+      "title": "FireMV\u2122 2200 PCIE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series/firemv-2250-pcie.html",
+      "title": "FireMV\u2122 2250 PCIE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series/firemv-2400-pci.html",
+      "title": "FireMV\u2122 2400 PCI",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series/firemv-2400-pcie.html",
+      "title": "FireMV\u2122 2400 PCIE",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-2260.html",
+      "title": "FirePro\u2122 2260",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-2260-pci.html",
+      "title": "FirePro\u2122 2260 PCI",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-2270.html",
+      "title": "FirePro\u2122 2270",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-2450.html",
+      "title": "FirePro\u2122 2450",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-2460.html",
+      "title": "FirePro\u2122 2460",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m2000-mobility.html",
+      "title": "FirePro\u2122 M2000 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m3900-mobility.html",
+      "title": "FirePro\u2122 M3900 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m4000-mobility.html",
+      "title": "FirePro\u2122 M4000 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m4100-mobility.html",
+      "title": "FirePro\u2122 M4100 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m4150-mobility.html",
+      "title": "FirePro\u2122 M4150 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m5100-mobility.html",
+      "title": "FirePro\u2122 M5100 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m5800-mobility.html",
+      "title": "FirePro\u2122 M5800 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m5950-mobility.html",
+      "title": "FirePro\u2122 M5950 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m6000-mobility.html",
+      "title": "FirePro\u2122 M6000 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m6100-mobility.html",
+      "title": "FirePro\u2122 M6100 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m7740-mobility.html",
+      "title": "FirePro\u2122 M7740 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m7820-mobility.html",
+      "title": "FirePro\u2122 M7820 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-m8900-mobility.html",
+      "title": "FirePro\u2122 M8900 Mobility",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-r-series/firepro-r5000.html",
+      "title": "FirePro\u2122 R5000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-rg220.html",
+      "title": "FirePro\u2122 RG220",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view/firepro-rg220a.html",
+      "title": "FirePro\u2122 RG220A",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s10000.html",
+      "title": "FirePro\u2122 S10000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s4000x.html",
+      "title": "FirePro\u2122 S4000X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s7000.html",
+      "title": "FirePro\u2122 S7000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s7100x.html",
+      "title": "FirePro\u2122 S7100X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s7150-active-cooling.html",
+      "title": "FirePro\u2122 S7150 (Active Cooling)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s7150-passive-cooling.html",
+      "title": "FirePro\u2122 S7150 (Passive Cooling)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s7150-x2.html",
+      "title": "FirePro\u2122 S7150 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9000.html",
+      "title": "FirePro\u2122 S9000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9050.html",
+      "title": "FirePro\u2122 S9050",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9100.html",
+      "title": "FirePro\u2122 S9100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9150.html",
+      "title": "FirePro\u2122 S9150",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9170.html",
+      "title": "FirePro\u2122 S9170",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series/firepro-s9300-x2.html",
+      "title": "FirePro\u2122 S9300 X2",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v3700.html",
+      "title": "FirePro\u2122 V3700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v3750.html",
+      "title": "FirePro\u2122 V3750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v3800.html",
+      "title": "FirePro\u2122 V3800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v3900.html",
+      "title": "FirePro\u2122 V3900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v4800.html",
+      "title": "FirePro\u2122 V4800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v4900.html",
+      "title": "FirePro\u2122 V4900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v5700.html",
+      "title": "FirePro\u2122 V5700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v5800.html",
+      "title": "FirePro\u2122 V5800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v5900.html",
+      "title": "FirePro\u2122 V5900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v7750.html",
+      "title": "FirePro\u2122 V7750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v7800.html",
+      "title": "FirePro\u2122 V7800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v7800p.html",
+      "title": "FirePro\u2122 V7800P",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v7900.html",
+      "title": "FirePro\u2122 V7900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v8700.html",
+      "title": "FirePro\u2122 V8700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v8750.html",
+      "title": "FirePro\u2122 V8750",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v8800.html",
+      "title": "FirePro\u2122 V8800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v9800.html",
+      "title": "FirePro\u2122 V9800",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series/firepro-v9800p.html",
+      "title": "FirePro\u2122 V9800P",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w2100.html",
+      "title": "FirePro\u2122 W2100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w4100.html",
+      "title": "FirePro\u2122 W4100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w4170m.html",
+      "title": "FirePro\u2122 W4170M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w4190m.html",
+      "title": "FirePro\u2122 W4190M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w4300.html",
+      "title": "FirePro\u2122 W4300",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series/firepro-w5000.html",
+      "title": "FirePro\u2122 W5000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w5100.html",
+      "title": "FirePro\u2122 W5100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w5130m.html",
+      "title": "FirePro\u2122 W5130M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w5170m.html",
+      "title": "FirePro\u2122 W5170M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series/firepro-w600.html",
+      "title": "FirePro\u2122 W600",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w6150m.html",
+      "title": "FirePro\u2122 W6150M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series/firepro-w7000.html",
+      "title": "FirePro\u2122 W7000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w7100.html",
+      "title": "FirePro\u2122 W7100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series/firepro-w7170m.html",
+      "title": "FirePro\u2122 W7170M",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series/firepro-w8000.html",
+      "title": "FirePro\u2122 W8000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w8100.html",
+      "title": "FirePro\u2122 W8100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series/firepro-w9000.html",
+      "title": "FirePro\u2122 W9000",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series/firepro-w9100.html",
+      "title": "FirePro\u2122 W9100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9170.html",
+      "title": "FireStream\u2122 9170",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9250.html",
+      "title": "FireStream\u2122 9250",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9270.html",
+      "title": "FireStream\u2122 9270",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9270f.html",
+      "title": "FireStream\u2122 9270f",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9350.html",
+      "title": "FireStream\u2122 9350",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series/firestream-9370.html",
+      "title": "FireStream\u2122 9370",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series/radeon-520.html",
+      "title": "Radeon\u2122 520",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series/radeon-530.html",
+      "title": "Radeon\u2122 530",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series/radeon-535.html",
+      "title": "Radeon\u2122 535",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series/radeon-540.html",
+      "title": "Radeon\u2122 540",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500x-series/radeon-540x.html",
+      "title": "Radeon\u2122 540X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series/radeon-550.html",
+      "title": "Radeon\u2122 550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500x-series/radeon-550x.html",
+      "title": "Radeon\u2122 550X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series/radeon-610.html",
+      "title": "Radeon\u2122 610",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series/radeon-620.html",
+      "title": "Radeon\u2122 620",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series/radeon-625.html",
+      "title": "Radeon\u2122 625",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series/radeon-630.html",
+      "title": "Radeon\u2122 630",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-7xxx-mac-series/radeon-7000-mac-edition.html",
+      "title": "Radeon\u2122 7000 Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-8xxx-mac-series/radeon-8500-mac-edition.html",
+      "title": "Radeon\u2122 8500 Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series/radeon-9000-pro-mac-edition.html",
+      "title": "Radeon\u2122 9000 PRO Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series/radeon-9200-mac-edition.html",
+      "title": "Radeon\u2122 9200 Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series/radeon-9600-pro-pc-mac-edition.html",
+      "title": "Radeon\u2122 9600 PRO PC Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series/radeon-9800-pro-mac-edition.html",
+      "title": "Radeon\u2122 9800 PRO Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series/radeon-9800-pro-mac-special-edition.html",
+      "title": "Radeon\u2122 9800 PRO Mac Special Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series/radeon-pro-duo-fiji.html",
+      "title": "Radeon\u2122 PRO Duo (Fiji)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series/radeon-pro-duo-polaris.html",
+      "title": "Radeon\u2122 PRO Duo (Polaris)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series/radeon-pro-ssg.html",
+      "title": "Radeon\u2122 PRO SSG",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-vii-series/radeon-pro-vii.html",
+      "title": "Radeon\u2122 PRO VII",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w5000-series/radeon-pro-w5500.html",
+      "title": "Radeon\u2122 PRO W5500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w5000-mobile-series/radeon-pro-w5500m-mobile.html",
+      "title": "Radeon\u2122 PRO W5500M (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w5000-series/radeon-pro-w5700.html",
+      "title": "Radeon\u2122 PRO W5700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-2100.html",
+      "title": "Radeon\u2122 PRO WX 2100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-2100-mobile.html",
+      "title": "Radeon\u2122 Pro WX 2100 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-3100.html",
+      "title": "Radeon\u2122 PRO WX 3100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-3100-mobile.html",
+      "title": "Radeon\u2122 Pro WX 3100 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x200-series/radeon-pro-wx-3200.html",
+      "title": "Radeon\u2122 PRO WX 3200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x200-mobile-series/radeon-pro-wx-3200-mobile.html",
+      "title": "Radeon\u2122 Pro WX 3200 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-4100.html",
+      "title": "Radeon\u2122 PRO WX 4100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-4130-mobile.html",
+      "title": "Radeon\u2122 Pro WX 4130 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-4150-mobile.html",
+      "title": "Radeon\u2122 Pro WX 4150 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-4170-mobile.html",
+      "title": "Radeon\u2122 Pro WX 4170 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-5100.html",
+      "title": "Radeon\u2122 PRO WX 5100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-7100.html",
+      "title": "Radeon\u2122 PRO WX 7100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-7100-mobile.html",
+      "title": "Radeon\u2122 Pro WX 7100 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series/radeon-pro-wx-7130-mobile.html",
+      "title": "Radeon\u2122 Pro WX 7130 (Mobile)",
+      "notebook": true,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x200-series/radeon-pro-wx-8200.html",
+      "title": "Radeon\u2122 PRO WX 8200",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series/radeon-pro-wx-9100.html",
+      "title": "Radeon\u2122 PRO WX 9100",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-400-series/radeon-rx-460.html",
+      "title": "Radeon\u2122 RX 460",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-400-series/radeon-rx-470.html",
+      "title": "Radeon\u2122 RX 470",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-400-series/radeon-rx-480.html",
+      "title": "Radeon\u2122 RX 480",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-540.html",
+      "title": "Radeon\u2122 RX 540",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series/radeon-rx-540x.html",
+      "title": "Radeon\u2122 RX 540X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-550.html",
+      "title": "Radeon\u2122 RX 550",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series/radeon-rx-550x.html",
+      "title": "Radeon\u2122 RX 550X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-560.html",
+      "title": "Radeon\u2122 RX 560",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series/radeon-rx-560x.html",
+      "title": "Radeon\u2122 RX 560X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-570.html",
+      "title": "Radeon\u2122 RX 570",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series/radeon-rx-570x.html",
+      "title": "Radeon\u2122 RX 570X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-580.html",
+      "title": "Radeon\u2122 RX 580",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series/radeon-rx-580x.html",
+      "title": "Radeon\u2122 RX 580X",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-590.html",
+      "title": "Radeon\u2122 RX 590",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series/radeon-rx-640.html",
+      "title": "Radeon\u2122 RX 640",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-vega-series/radeon-rx-vega-56.html",
+      "title": "Radeon\u2122 RX Vega 56",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-vega-series/radeon-rx-vega-64.html",
+      "title": "Radeon\u2122 RX Vega 64",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-sky-series/radeon-sky-500.html",
+      "title": "Radeon\u2122 SKY 500",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-sky-series/radeon-sky-700.html",
+      "title": "Radeon\u2122 SKY 700",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-sky-series/radeon-sky-900.html",
+      "title": "Radeon\u2122 SKY 900",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series/radeon-vega-frontier-edition-air-cooled.html",
+      "title": "Radeon\u2122 Vega Frontier Edition (Air-cooled)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series/radeon-vega-frontier-edition-liquid-cooled.html",
+      "title": "Radeon\u2122 Vega Frontier Edition (Liquid-cooled)",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-x-mac-series/radeon-x1900-g5-series-for-mac.html",
+      "title": "Radeon\u2122 X1900 G5 Series for Mac",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-x-mac-series/radeon-x800-xt-mac-edition.html",
+      "title": "Radeon\u2122 X800 XT Mac Edition",
+      "notebook": false,
+      "depth": 2
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-chipsets.html",
+      "title": "AMD 780E | SB710 Chipset",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series.html",
+      "title": "AMD Radeon\u2122 AI PRO R9700",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-hd-series.html",
+      "title": "AMD Radeon\u2122 HD 5770 (embedded)",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000m-series.html",
+      "title": "AMD Radeon\u2122 HD 6330M",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-6000-series.html",
+      "title": "AMD Radeon\u2122 HD 6350",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000-series.html",
+      "title": "AMD Radeon\u2122 HD 7350",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-7000m-series.html",
+      "title": "AMD Radeon\u2122 HD 7430M",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000-series.html",
+      "title": "AMD Radeon\u2122 HD 8350",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-8000m-series.html",
+      "title": "AMD Radeon\u2122 HD 8550M Series GPU",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-v-series.html",
+      "title": "AMD Radeon\u2122 PRO V340",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-series.html",
+      "title": "AMD Radeon\u2122 PRO W6400",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w6000-mobile-series.html",
+      "title": "AMD Radeon\u2122 PRO W6600M",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-series.html",
+      "title": "AMD Radeon\u2122 PRO W7500",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w7000-mobile-series.html",
+      "title": "AMD Radeon\u2122 PRO W7500M",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-200-series.html",
+      "title": "AMD Radeon\u2122 R5 220",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-300-series.html",
+      "title": "AMD Radeon\u2122 R5 330",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r5-400-series.html",
+      "title": "AMD Radeon\u2122 R5 M420",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-200-series.html",
+      "title": "AMD Radeon\u2122 R7 240",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-300-series.html",
+      "title": "AMD Radeon\u2122 R7 340",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r7-400-series.html",
+      "title": "AMD Radeon\u2122 R7 M435",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-200-series.html",
+      "title": "AMD Radeon\u2122 R9 270",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-300-series.html",
+      "title": "AMD Radeon\u2122 R9 360",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-r9-r7-r5/radeon-r9-fury-series.html",
+      "title": "AMD Radeon\u2122 R9 Fury",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series.html",
+      "title": "AMD Radeon\u2122 RX 5300",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-6000-series.html",
+      "title": "AMD Radeon\u2122 RX 6300M",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-7000-series.html",
+      "title": "AMD Radeon\u2122 RX 7600",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-9000-series.html",
+      "title": "AMD Radeon\u2122 RX 9070",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-vega-series.html",
+      "title": "AMD Radeon\u2122 VII",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/apple-boot-camp.html",
+      "title": "Apple Boot Camp",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/all-in-wonder-series.html",
+      "title": "ATI All-in-Wonder 2006",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series.html",
+      "title": "ATI All-in-Wonder\u2122 128",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/crossfire-xpress-series.html",
+      "title": "ATI CrossFire\u2122 Xpress 1600",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/tv-wonder-series.html",
+      "title": "ATI HDTV Wonder",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-4000-series.html",
+      "title": "ATI Mobility Radeon\u2122 4100",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-2000-series.html",
+      "title": "ATI Mobility Radeon\u2122 HD 2300",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-3000-series.html",
+      "title": "ATI Mobility Radeon\u2122 HD 3100",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/mobility-radeon-hd-5000-series.html",
+      "title": "ATI Mobility Radeon\u2122 HD 5145",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-2xxx-series.html",
+      "title": "ATI Radeon\u2122 2100",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-3xxx-series.html",
+      "title": "ATI Radeon\u2122 3000",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-32-series.html",
+      "title": "ATI Radeon\u2122 32",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-igp-series.html",
+      "title": "ATI Radeon\u2122 320 IGP",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-7xxx-series.html",
+      "title": "ATI Radeon\u2122 7000 Series",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-8xxx-series.html",
+      "title": "ATI Radeon\u2122 8500 Series",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series.html",
+      "title": "ATI Radeon\u2122 9000 Series",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-2000-series.html",
+      "title": "ATI Radeon\u2122 HD 2350",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-integrated-hd-series.html",
+      "title": "ATI Radeon\u2122 HD 3300",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-3000-series.html",
+      "title": "ATI Radeon\u2122 HD 3410",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-4000-series.html",
+      "title": "ATI Radeon\u2122 HD 4200",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-hd/radeon-hd-5000-series.html",
+      "title": "ATI Radeon\u2122 HD 5450",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-ve-series.html",
+      "title": "ATI Radeon\u2122 VE",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-x12xx-series.html",
+      "title": "ATI Radeon\u2122 X1200",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-x-series.html",
+      "title": "ATI Radeon\u2122 X1xxx Series",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/integrated-motherboard-graphics/radeon-xpress-series.html",
+      "title": "ATI Radeon\u2122 Xpress",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/remote-wonder-series.html",
+      "title": "ATI Remote Wonder",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/tv-tuners/theater-series.html",
+      "title": "ATI Theater 550 PRO",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-embedded/embedded-e-series.html",
+      "title": "E2400",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firegl-series.html",
+      "title": "FireGL\u2122 1",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firemv-series.html",
+      "title": "FireMV\u2122 2200 PCI",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-multi-view.html",
+      "title": "FirePro\u2122 2260",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-mobility-series.html",
+      "title": "FirePro\u2122 M2000 Mobility",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-r-series.html",
+      "title": "FirePro\u2122 R5000",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-s-series.html",
+      "title": "FirePro\u2122 S10000",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firepro-v-series.html",
+      "title": "FirePro\u2122 V3700",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx100-series.html",
+      "title": "FirePro\u2122 W2100",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/firepro/firepro-wx000-series.html",
+      "title": "FirePro\u2122 W5000",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/firestream-series.html",
+      "title": "FireStream\u2122 9170",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500-series.html",
+      "title": "Radeon\u2122 520",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-500x-series.html",
+      "title": "Radeon\u2122 540X",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-600-series.html",
+      "title": "Radeon\u2122 610",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-7xxx-mac-series.html",
+      "title": "Radeon\u2122 7000 Mac Edition",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-8xxx-mac-series.html",
+      "title": "Radeon\u2122 8500 Mac Edition",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-9xxx-mac-series.html",
+      "title": "Radeon\u2122 9000 PRO Mac Edition",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-series.html",
+      "title": "Radeon\u2122 PRO Duo (Fiji)",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-vii-series.html",
+      "title": "Radeon\u2122 PRO VII",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w5000-series.html",
+      "title": "Radeon\u2122 PRO W5500",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-w5000-mobile-series.html",
+      "title": "Radeon\u2122 PRO W5500M (Mobile)",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-series.html",
+      "title": "Radeon\u2122 PRO WX 2100",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x100-mobile-series.html",
+      "title": "Radeon\u2122 Pro WX 2100 (Mobile)",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x200-series.html",
+      "title": "Radeon\u2122 PRO WX 3200",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-pro/radeon-pro-wx-x200-mobile-series.html",
+      "title": "Radeon\u2122 Pro WX 3200 (Mobile)",
+      "notebook": true,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-400-series.html",
+      "title": "Radeon\u2122 RX 460",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series.html",
+      "title": "Radeon\u2122 RX 540",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500x-series.html",
+      "title": "Radeon\u2122 RX 540X",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-sky-series.html",
+      "title": "Radeon\u2122 SKY 500",
+      "notebook": false,
+      "depth": 1
+    },
+    {
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/mac-graphics/radeon-x-mac-series.html",
+      "title": "Radeon\u2122 X1900 G5 Series for Mac",
+      "notebook": false,
+      "depth": 1
+    }
+  ]
+}

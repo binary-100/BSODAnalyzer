@@ -1,0 +1,7 @@
+# Audit template (copy to docs/AUDIT.md in new projects)
+
+See the live version in this repo: `app/docs/AUDIT.md`
+
+When bootstrapping a new project from the starter pack, copy `AUDIT.md` from BSOD Analyzer or adapt this template with project-specific checklist steps under "What the agent runs".
+
+Report format is always **Fix** and **Improve** only.

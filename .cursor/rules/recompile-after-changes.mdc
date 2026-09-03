@@ -1,0 +1,30 @@
+---
+description: Build policy when exe/spec changes — tests before done; build when shipping (not every edit)
+globs: bsod_analyzer.py, BSODAnalyzer.spec
+alwaysApply: false
+---
+
+# Build after code/spec changes
+
+**Canonical:** [`AGENTS.md`](../../AGENTS.md) (Builds) · [`AGENT_READINESS.md`](../../docs/AGENT_READINESS.md) § Tiered validation.
+
+## Default (maintainability / most edits)
+
+- **Do not** run a full PyInstaller build on every source edit — it is slow and not required to validate logic.
+- **Do** run **`run_tests.bat`** (T2) before claiming done on production changes.
+- **Do** run **`build_ci.bat`** (or `build_and_deploy_v6.bat`) when the user asks for an exe, before field-test handoff, or when **`BSODAnalyzer.spec`** / packaging layout changes.
+
+From project root:
+
+```bat
+set BUILD_NOPAUSE=1
+call build_ci.bat
+```
+
+## When spec or entrypoint changes
+
+Edits to **`BSODAnalyzer.spec`** or packaging-critical paths in **`bsod_analyzer.py`** → run **T2 tests**, then **build** in the same task if the deliverable is a portable exe.
+
+**v5 maintenance line only:** see [`VERSIONING.md`](../../VERSIONING.md) — not the default agent build path.
+
+Never use legacy v5/v2 build scripts or output folders; use `build_ci.bat` / `build_and_deploy_v6.bat` and `BSODAnalyzer_v6\` only.

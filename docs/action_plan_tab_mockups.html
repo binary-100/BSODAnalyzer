@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Action Plan tab — UX mockups (Aug 2026)</title>
+  <style>
+    :root {
+      --bg: #1e1e23; --card: #26262d; --card-alt: #2c2c34; --border: #3a3a44;
+      --text: #e7e7ec; --muted: #9a9aa6; --accent: #2f81f7; --gold: #d8a000;
+      --green: #3fb950; --orange: #f5731f; --body: 12px; --title: 13px; --hero: 20px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px 24px 48px; background: #121216; color: var(--text); font-family: "Segoe UI", sans-serif; font-size: 13px; }
+    h1 { font-size: 18px; margin: 0 0 6px; }
+    .intro { color: var(--muted); font-size: 12px; line-height: 1.5; max-width: 920px; margin-bottom: 20px; }
+    .nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 28px; }
+    .nav a { color: var(--accent); text-decoration: none; font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+    .section { margin-bottom: 52px; max-width: 1180px; }
+    .section > h2 { font-size: 15px; margin: 0 0 4px; }
+    .section > p { color: var(--muted); font-size: 12px; margin: 0 0 12px; line-height: 1.45; max-width: 900px; }
+    .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); margin-right: 6px; }
+    .tag.cur { border-color: var(--orange); color: #ffb366; }
+    .tag.rec { border-color: var(--green); color: #9cf0a8; }
+    .tag.alt { border-color: var(--accent); color: #9ec5ff; }
+    .pros { font-size: 11px; color: var(--muted); margin: 10px 0 0; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; line-height: 1.45; }
+    .pros strong { color: var(--text); }
+
+    .win {
+      width: 1180px; max-width: 100%; height: 720px; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      display: flex; flex-direction: column; box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    }
+    .win-title { padding: 5px 12px; background: var(--card-alt); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--muted); }
+    .menubar { padding: 2px 10px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .banner {
+      margin: 8px 12px 0; padding: 12px 14px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; display: flex; gap: 12px; align-items: flex-start; flex-shrink: 0;
+    }
+    .dot { width: 26px; height: 26px; border-radius: 50%; background: var(--orange); border: 3px solid var(--orange); flex-shrink: 0; margin-top: 2px; }
+    .banner h3 { margin: 0; font-size: var(--hero); font-weight: 600; line-height: 1.2; }
+    .banner p { margin: 3px 0 0; font-size: var(--body); color: var(--muted); line-height: 1.35; }
+    .tabs { display: flex; gap: 3px; padding: 8px 12px 0; flex-shrink: 0; }
+    .tab { padding: 6px 13px; font-size: var(--body); border: 1px solid var(--border); border-bottom: none; border-radius: 7px 7px 0 0; background: var(--card); color: var(--muted); }
+    .tab.on { color: var(--text); border-bottom: 2px solid var(--accent); margin-bottom: -1px; }
+    .content { flex: 1; min-height: 0; padding: 0 12px 8px; overflow: hidden; display: flex; flex-direction: column; }
+    .scroll { flex: 1; min-height: 0; overflow: auto; padding: 8px 0; }
+
+    /* ---- Current (wonky) layout ---- */
+    .row-cur { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+    .row-cur .num { width: 24px; color: var(--accent); font-weight: 600; text-align: right; flex-shrink: 0; }
+    .row-cur .btn-col { width: 196px; flex-shrink: 0; }
+    .row-cur .btn { display: block; width: 196px; height: 34px; line-height: 34px; text-align: center; background: var(--card-alt); border: 1px solid var(--border); border-radius: 6px; font-size: var(--body); color: var(--text); }
+    .row-cur .btn-gap { width: 196px; height: 34px; border: 1px dashed #5a3a20; border-radius: 6px; background: rgba(245,115,31,.06); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--orange); }
+    .row-cur .text { flex: 1; font-size: var(--body); line-height: 1.45; color: var(--muted); padding-top: 6px; }
+    .row-cur .text-only { padding-top: 0; }
+
+    /* ---- Concept A: full-width text rows ---- */
+    .row-a { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; margin-bottom: 10px; align-items: start; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+    .row-a.text-only { grid-template-columns: 24px 1fr; }
+    .row-a .num { color: var(--accent); font-weight: 600; text-align: right; }
+    .row-a .text { font-size: var(--body); line-height: 1.45; color: var(--muted); }
+    .row-a .text strong { color: var(--text); font-weight: 500; }
+    .row-a .btn { padding: 6px 12px; background: var(--card-alt); border: 1px solid var(--border); border-radius: 6px; font-size: var(--body); color: var(--text); white-space: nowrap; }
+    .row-a .badge { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; }
+
+    /* ---- Concept B: checklist + progress ---- */
+    .progress-hdr { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+    .progress-hdr .meter { flex: 1; height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+    .progress-hdr .meter i { display: block; height: 100%; background: var(--green); border-radius: 4px; }
+    .progress-hdr .stat { font-size: var(--body); color: var(--muted); white-space: nowrap; }
+    .row-b { display: grid; grid-template-columns: 28px 24px 1fr auto; gap: 8px; margin-bottom: 8px; align-items: start; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+    .row-b.done { opacity: .72; }
+    .row-b.done .text { text-decoration: line-through; color: #6a6a76; }
+    .row-b input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--accent); }
+    .row-b .num { color: var(--accent); font-weight: 600; text-align: right; }
+    .row-b .text { font-size: var(--body); line-height: 1.45; color: var(--muted); }
+    .row-b .btn { padding: 6px 12px; background: var(--card-alt); border: 1px solid var(--border); border-radius: 6px; font-size: var(--body); color: var(--text); white-space: nowrap; }
+    .row-b.text-only { grid-template-columns: 28px 24px 1fr; }
+    .row-b .hint { font-size: 10px; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+    /* ---- Concept C: grouped phases ---- */
+    .phase { margin-bottom: 14px; }
+    .phase-h { font-size: var(--title); font-weight: 600; color: var(--text); margin: 0 0 8px 4px; display: flex; align-items: center; gap: 8px; }
+    .phase-h .chip { font-size: 10px; font-weight: 500; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
+    .row-c { display: flex; gap: 10px; margin-bottom: 6px; padding: 8px 10px; border-radius: 6px; align-items: flex-start; }
+    .row-c:hover { background: rgba(255,255,255,.02); }
+    .row-c .chk { width: 16px; height: 16px; margin-top: 1px; accent-color: var(--accent); flex-shrink: 0; }
+    .row-c .body { flex: 1; min-width: 0; }
+    .row-c .body .t { font-size: var(--body); line-height: 1.45; color: var(--muted); }
+    .row-c .body .t strong { color: var(--text); }
+    .row-c .act { flex-shrink: 0; }
+    .row-c .act .btn { padding: 5px 10px; background: var(--card-alt); border: 1px solid var(--border); border-radius: 6px; font-size: 11px; color: var(--text); }
+    .row-c .act .spacer { width: 1px; height: 1px; visibility: hidden; }
+    .divider { height: 1px; background: var(--border); margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Action Plan tab — UX mockups</h1>
+<p class="intro">
+  Based on your Alienware m17 R5 AMD session (kernel fault / ntoskrnl, Aug 22 crash).
+  <strong>No app changes yet</strong> — review these layouts and say which direction you prefer.
+  Problem called out: step 3 has no button but still reserves a 196px button column, so text looks indented and uneven.
+</p>
+
+<nav class="nav">
+  <a href="#current">A — Current (problem)</a>
+  <a href="#concept-a">B — Card rows (recommended)</a>
+  <a href="#concept-b">C — Checklist + progress</a>
+  <a href="#concept-c">D — Grouped phases</a>
+</nav>
+
+<!-- ========== CURRENT ========== -->
+<div class="section" id="current">
+  <span class="tag cur">Today</span>
+  <h2>Current layout — why step 3 looks wonky</h2>
+  <p>Every row reserves a fixed 196×34px button column. Text-only steps still leave an empty gap (shown dashed here).</p>
+  <div class="win">
+    <div class="win-title">BSOD Analyzer v6.5.24 — Action Plan (current behavior)</div>
+    <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner">
+      <div class="dot"></div>
+      <div>
+        <h3>Likely cause: Kernel fault — likely driver, firmware, or Windows servicing</h3>
+        <p>Your PC shut down unexpectedly on 2026-08-22. Boot/recovery activity logged.</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab on">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="scroll">
+        <div class="row-cur">
+          <span class="num">1.</span>
+          <div class="btn-col"><span class="btn">Open AMD chipset</span></div>
+          <div class="text">Install the latest AMD chipset drivers for this PC.</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">2.</span>
+          <div class="btn-col"><span class="btn">Open BIOS page</span></div>
+          <div class="text">Update BIOS/UEFI from Alienware Alienware m17 R5 AMD for your exact model — firmware fixes many CPU/platform WHEA crashes.</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">3.</span>
+          <div class="btn-col"><span class="btn-gap">no button</span></div>
+          <div class="text text-only">Disable CPU overclocking in BIOS; clean fans and vents; let the PC cool before gaming or heavy loads.</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">4.</span>
+          <div class="btn-col"><span class="btn">Start memory test</span></div>
+          <div class="text">If crashes continue after the steps above: run Windows Memory Diagnostic (mdsched.exe).</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">5.</span>
+          <div class="btn-col"><span class="btn">Run SFC now</span></div>
+          <div class="text">Optional: run sfc /scannow only if problems persist after the main fixes above.</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">6.</span>
+          <div class="btn-col"><span class="btn">Open PC maker site</span></div>
+          <div class="text">Download drivers for this PC (Alienware Alienware m17 R5 AMD)</div>
+        </div>
+        <div class="row-cur">
+          <span class="num">7.</span>
+          <div class="btn-col"><span class="btn">Open Windows Update</span></div>
+          <div class="text">Open Windows Update (optional updates)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pros"><strong>Issue:</strong> Text-only advice (step 3) is pushed right by an invisible button slot — reads like a misaligned second column.</div>
+</div>
+
+<!-- ========== CONCEPT A ========== -->
+<div class="section" id="concept-a">
+  <span class="tag rec">Recommended</span>
+  <h2>Concept A — Card rows, button only when needed</h2>
+  <p>Text-only steps use the full row width. Action steps put the button on the right (or below on narrow windows). Optional “Manual step” pill instead of empty space.</p>
+  <div class="win">
+    <div class="win-title">Concept A — card rows</div>
+    <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner">
+      <div class="dot"></div>
+      <div>
+        <h3>Likely cause: Kernel fault — likely driver, firmware, or Windows servicing</h3>
+        <p>Minidump: ntoskrnl.exe · Crash-linked: AMD Chipset / Platform drivers</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab on">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="scroll">
+        <div class="row-a">
+          <span class="num">1.</span>
+          <div class="text"><strong>AMD chipset</strong> — Install the latest AMD chipset drivers for this PC.</div>
+          <span class="btn">Open AMD chipset</span>
+        </div>
+        <div class="row-a">
+          <span class="num">2.</span>
+          <div class="text"><strong>BIOS/UEFI</strong> — Update from Alienware m17 R5 AMD support; firmware fixes many CPU/platform WHEA crashes.</div>
+          <span class="btn">Open BIOS page</span>
+        </div>
+        <div class="row-a text-only">
+          <span class="num">3.</span>
+          <div class="text">
+            <strong>Cooling &amp; power</strong>
+            <span class="badge">Manual step</span><br />
+            Disable CPU overclocking in BIOS; clean fans and vents; let the PC cool before gaming or heavy loads.
+          </div>
+        </div>
+        <div class="row-a">
+          <span class="num">4.</span>
+          <div class="text"><strong>Memory test</strong> — If crashes continue after the steps above: run Windows Memory Diagnostic.</div>
+          <span class="btn">Start memory test</span>
+        </div>
+        <div class="row-a">
+          <span class="num">5.</span>
+          <div class="text"><strong>System files (optional)</strong> — Run sfc /scannow only if problems persist after main fixes.</div>
+          <span class="btn">Run SFC now</span>
+        </div>
+        <div class="row-a">
+          <span class="num">6.</span>
+          <div class="text"><strong>OEM drivers</strong> — Download drivers for Alienware m17 R5 AMD.</div>
+          <span class="btn">Open PC maker site</span>
+        </div>
+        <div class="row-a">
+          <span class="num">7.</span>
+          <div class="text"><strong>Windows Update</strong> — Check optional quality/cumulative updates.</div>
+          <span class="btn">Open Windows Update</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pros">
+    <strong>Pros:</strong> Fixes alignment without adding fake buttons. “Manual step” badge sets expectation.<br />
+    <strong>Checklist later:</strong> Easy to add a checkbox column on the left in a follow-up pass.
+  </div>
+</div>
+
+<!-- ========== CONCEPT B ========== -->
+<div class="section" id="concept-b">
+  <span class="tag alt">Checklist</span>
+  <h2>Concept B — Progress header + done checkboxes</h2>
+  <p>User marks steps done/skipped; progress bar and “2 of 7 complete” at top. Text-only rows span full width — no button column. State could persist in portable settings.</p>
+  <div class="win">
+    <div class="win-title">Concept B — checklist (session-persisted)</div>
+    <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner">
+      <div class="dot"></div>
+      <div>
+        <h3>Likely cause: Kernel fault — likely driver, firmware, or Windows servicing</h3>
+        <p>Track what you’ve already tried — helps the tool prioritize next suggestions.</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab on">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="scroll">
+        <div class="progress-hdr">
+          <span class="stat">2 of 7 done</span>
+          <div class="meter"><i style="width:29%"></i></div>
+          <span class="stat" style="color:var(--green)">Next: cooling &amp; power</span>
+        </div>
+        <div class="row-b done">
+          <input type="checkbox" checked disabled />
+          <span class="num">1.</span>
+          <div class="text">Install the latest AMD chipset drivers for this PC.</div>
+          <span class="btn">Open AMD chipset</span>
+        </div>
+        <div class="row-b done">
+          <input type="checkbox" checked disabled />
+          <span class="num">2.</span>
+          <div class="text">Update BIOS/UEFI from Alienware m17 R5 AMD — firmware fixes many CPU/platform WHEA crashes.</div>
+          <span class="btn">Open BIOS page</span>
+        </div>
+        <div class="row-b text-only">
+          <input type="checkbox" />
+          <span class="num">3.</span>
+          <div class="text">
+            Disable CPU overclocking in BIOS; clean fans and vents; let the PC cool before gaming or heavy loads.
+            <div class="hint">No link — do this in BIOS / physically on the machine</div>
+          </div>
+        </div>
+        <div class="row-b">
+          <input type="checkbox" />
+          <span class="num">4.</span>
+          <div class="text">If crashes continue: run Windows Memory Diagnostic (mdsched.exe).</div>
+          <span class="btn">Start memory test</span>
+        </div>
+        <div class="row-b">
+          <input type="checkbox" />
+          <span class="num">5.</span>
+          <div class="text">Optional: sfc /scannow if problems persist after main fixes.</div>
+          <span class="btn">Run SFC now</span>
+        </div>
+        <div class="row-b">
+          <input type="checkbox" />
+          <span class="num">6.</span>
+          <div class="text">Download drivers for this PC (Alienware m17 R5 AMD)</div>
+          <span class="btn">Open PC maker site</span>
+        </div>
+        <div class="row-b">
+          <input type="checkbox" />
+          <span class="num">7.</span>
+          <div class="text">Open Windows Update (optional updates)</div>
+          <span class="btn">Open Windows Update</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pros">
+    <strong>Pros:</strong> Clear “where am I?” for multi-visit troubleshooting. Tool could hide completed items or move them to a collapsed “Done” section.<br />
+    <strong>Cons:</strong> More UI chrome; need decide whether checks reset on new analysis or carry over per machine.
+  </div>
+</div>
+
+<!-- ========== CONCEPT C ========== -->
+<div class="section" id="concept-c">
+  <span class="tag alt">Phases</span>
+  <h2>Concept C — Grouped phases with inline actions</h2>
+  <p>Steps clustered by intent (Platform → Hardware care → Verify). Text-only items are plain rows; buttons sit inline only on actionable rows — no reserved column.</p>
+  <div class="win">
+    <div class="win-title">Concept C — phased groups</div>
+    <div class="menubar"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner">
+      <div class="dot"></div>
+      <div>
+        <h3>Likely cause: Kernel fault — likely driver, firmware, or Windows servicing</h3>
+        <p>Do platform updates first, then cooling, then verification tests.</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab on">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="scroll" style="padding:4px 0">
+        <div class="phase">
+          <div class="phase-h">Platform &amp; firmware <span class="chip">Steps 1–2</span></div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" checked />
+            <div class="body"><div class="t">Install the latest <strong>AMD chipset</strong> drivers for this PC.</div></div>
+            <div class="act"><span class="btn">Open AMD chipset</span></div>
+          </div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Update <strong>BIOS/UEFI</strong> from Alienware m17 R5 AMD — fixes many CPU/platform WHEA crashes.</div></div>
+            <div class="act"><span class="btn">Open BIOS page</span></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="phase">
+          <div class="phase-h">Hardware care <span class="chip">No app action</span></div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Disable CPU overclocking in BIOS; clean fans and vents; let the PC cool before gaming or heavy loads.</div></div>
+            <div class="act"><span class="spacer"></span></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="phase">
+          <div class="phase-h">If crashes continue <span class="chip">Steps 4–7</span></div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Run <strong>Windows Memory Diagnostic</strong> (mdsched.exe).</div></div>
+            <div class="act"><span class="btn">Start memory test</span></div>
+          </div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Optional: <strong>sfc /scannow</strong> if problems persist.</div></div>
+            <div class="act"><span class="btn">Run SFC now</span></div>
+          </div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Download drivers from <strong>Alienware support</strong>.</div></div>
+            <div class="act"><span class="btn">Open PC maker site</span></div>
+          </div>
+          <div class="row-c">
+            <input class="chk" type="checkbox" />
+            <div class="body"><div class="t">Check <strong>Windows Update</strong> optional updates.</div></div>
+            <div class="act"><span class="btn">Open Windows Update</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pros">
+    <strong>Pros:</strong> “Hardware care” group makes text-only step 3 feel intentional, not broken.<br />
+    <strong>Cons:</strong> Requires grouping logic in the action-plan builder (which steps are platform vs verify).
+  </div>
+</div>
+
+</body>
+</html>

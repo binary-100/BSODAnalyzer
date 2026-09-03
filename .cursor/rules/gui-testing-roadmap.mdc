@@ -1,0 +1,21 @@
+---
+description: GUI test phases 2–3 roadmap (after Phase 1 run_tests.bat)
+globs: bsod_gui_qt.py
+alwaysApply: false
+---
+
+# GUI testing roadmap (Phases 2–3)
+
+Phase 1 is shipped: `run_tests.bat` runs all `tests/test_*.py` via `tests/run_test_module.py` + `tests/_qt_startup.py` (Qt plugin bootstrap).
+
+Phase 2 is shipped (v5.2.27): `tests/gui_test_harness.py`, `tests/test_gui_phase2_offscreen.py` (`QT_QPA_PLATFORM=offscreen` + plugin paths via bootstrap).
+
+**Qt popup prevention:** see [`docs/AGENT_READINESS.md`](docs/AGENT_READINESS.md) § Qt test bootstrap and `.cursor/rules/qt-test-bootstrap.mdc`. Never run GUI tests with only `QT_QPA_PLATFORM=offscreen`.
+
+Phase 3 is shipped (v5.4.4): `tests/test_gui_phase3_widgets.py` — Include checkbox, view-filter combo, firmware Search gating, parallel catalog status. Uses PySide6 QtTest where needed; **no pytest-qt**.
+
+Optional live-machine tests: see [`docs/ROADMAP.md`](docs/ROADMAP.md) and `scripts/live_validate_analysis.py`.
+
+## After `bsod_gui_qt.py` changes
+
+Run `run_tests.bat` from the project root. Fix failures before `build_ci.bat` (or `build_and_deploy_v6.bat`).

@@ -1,0 +1,25 @@
+---
+description: Session readiness — self-audit, priorities, risk reporting table, validation tiers
+alwaysApply: true
+---
+
+# Agent readiness (BSOD Analyzer)
+
+Before **substantial work** (module splits, cross-file refactors, audits, new subsystems) or when the user asks for **readiness** / **compare against** / **how you will proceed**:
+
+1. Read **`docs/AGENT_READINESS.md`** (canonical — do not duplicate this rule into a second doc).
+2. Apply **§ Session-start self-audit** (8 sections) in chat — concrete, evidence-based, reconcile audits; do not parrot Fix/Improve lists.
+3. **§ Risk and validation reporting** — when you name a risk/gap/“if” mitigation in plans or “done”, include the mandatory table with **Agent runs it?** (Yes/No/Blocked), **Evidence** (commands + exit codes), **Remaining risk** (None if Yes+pass). Never leave conditional risk language without saying whether you execute the mitigation.
+4. Honor **§ Priority order**: user accuracy → user speed → codebase efficiency (state tradeoffs explicitly).
+5. Honor **§ Current build priority** in `AGENT_READINESS.md` unless the user redirects.
+6. **Host:** user runs Cursor **as Administrator** — agent runs tests, live validation, Qt log/hygiene; never offload to the user (see `PRODUCT_REFERENCE.md` §2).
+
+**Validation tiers:** run applicable tiers before “done”; report exit codes + `verify_agent_report.cmd --require …` in the risk table.
+
+**Machine proof:** `docs/.agent_gate_proof.json` — gates stamp on success; `scripts/verify_agent_report.cmd` verifies claims.
+
+**Repeat pushback / “still broken” / “check everything again”:** `loop-back-protocol.mdc` — re-read workstream, validate repo, proceed differently; risk table must show what failed before vs evidence now.
+
+**Audit Improve ≠ ROADMAP backlog** — reconcile per `AGENT_READINESS.md` § Audit findings reconciliation. Full audits: read all docs in **`docs/DOC_MAP.md`**.
+
+Related: `AGENTS.md`, `docs/PRODUCT_REFERENCE.md`, `docs/FACADE_ORCHESTRATION.md`, `.cursor/rules/qt-test-bootstrap.mdc`.

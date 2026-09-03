@@ -1,0 +1,38 @@
+{
+  "manifest_version": 1,
+  "min_app_version": "6.2.4",
+  "endpoints": {
+    "amd": {
+      "download_page": "https://www.amd.com/en/support/download/drivers.html"
+    },
+    "intel": {
+      "graphics_product": "https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html"
+    }
+  },
+  "candidates": {
+    "amd": {
+      "download_page": [
+        "https://www.amd.com/en/support/download/drivers.html"
+      ]
+    },
+    "intel": {
+      "graphics_product": [
+        "https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html"
+      ]
+    }
+  },
+  "extractors": {
+    "amd": {
+      "graphics": {
+        "version": [
+          {
+            "kind": "regex",
+            "pattern": "Adrenalin.*?(\\d+\\.\\d+\\.\\d+(?:\\.\\d+)?)",
+            "flags": "is",
+            "id": "example_remote"
+          }
+        ]
+      }
+    }
+  }
+}

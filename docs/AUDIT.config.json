@@ -1,0 +1,584 @@
+{
+  "configVersion": 1,
+  "projectName": "BSOD Analyzer",
+  "versionSync": {
+    "codeFile": "bsod_analyzer.py",
+    "codePattern": "^VERSION = \"([^\"]+)\"",
+    "txtFile": "VERSION.txt",
+    "txtPattern": "^Version:\\s*(\\S+)",
+    "distTxtFile": "BSODAnalyzer_v6/VERSION.txt",
+    "distTxtPattern": "Version:\\s*(\\d+\\.\\d+\\.\\d+)"
+  },
+  "tests": {
+    "script": "run_tests.bat",
+    "env": {
+      "QT_QPA_PLATFORM": "offscreen"
+    }
+  },
+  "requiredPaths": {
+    "app": [
+      "bsod_analyzer.py",
+      "run_tests.bat",
+      "run_audit.cmd",
+      "build_ci.bat",
+      "docs/AUDIT.md",
+      "docs/AUDIT.config.json",
+      ".cursor/rules/audit.mdc",
+      "AGENTS.md",
+      "BSODAnalyzer_v6/BSODAnalyzer.exe"
+    ],
+    "repo": [
+      "README.md",
+      "PROJECT_LAYOUT.md"
+    ]
+  },
+  "staleDocs": {
+    "pattern": "BSODAnalyzer_Opus|junction|interim rename|Complete_Phase6",
+    "excludeFiles": [
+      "AUDIT.md"
+    ],
+    "excludeDirs": [
+      "audit_archive",
+      "release_notes",
+      "design_archive",
+      "handoff_archive"
+    ],
+    "scanRepoMd": true,
+    "scanAppDocsMd": true,
+    "extraFiles": [
+      "BUILD_NOTES.md",
+      "CONSOLIDATION.md",
+      "AGENTS.md"
+    ]
+  },
+  "cruft": {
+    "dirs": [
+      "dist",
+      "build",
+      "BSODAnalyzer_v6_stable"
+    ],
+    "globFiles": [
+      "live_*.json"
+    ],
+    "logDirs": [
+      "repo"
+    ],
+    "cacheExcludeRegex": "\\\\tests\\\\|\\\\BSODAnalyzer_v6\\\\|\\\\DebuggingTools\\\\|_internal\\\\|\\\\__pycache__$"
+  },
+  "obsoletePaths": {
+    "repo": [
+      "Complete_Phase6_Rename.cmd",
+      "Consolidate_Project.cmd",
+      "scripts/consolidate_project.ps1",
+      "scripts/complete_phase6_rename.ps1",
+      "proposed_patches",
+      "app"
+    ],
+    "desktopFolder": "BSODAnalyzer_Opus"
+  },
+  "domainMap": {
+    "auditMd": "docs/AUDIT.md",
+    "sectionHeading": "## Domain map",
+    "scanGlob": "*.py",
+    "scanDir": ".",
+    "moduleSearchDirs": [
+      "scripts"
+    ],
+    "excludeModules": [
+      "_build_slice_batch2.py",
+      "_build_slice_modules.py",
+      "_diff_scan_exports.py",
+      "_map_chipset_to_system.py",
+      "agent_gate_proof.py",
+      "analyze_amd_chipset_package.py",
+      "apply_version.py",
+      "audit_facade_complete.py",
+      "audit_vendor_apis.py",
+      "build_amd_gpu_map.py",
+      "build_amd_logo_png.py",
+      "build_app_icon.py",
+      "build_intel_graphics_map.py",
+      "build_nvidia_gpu_map.py",
+      "capture_driver_update_baseline.py",
+      "catalog_layout_preview.py",
+      "compare_catalog_exports.py",
+      "compare_catalog_scan_timings.py",
+      "compare_driver_update_baselines.py",
+      "diag_after_fix.py",
+      "diag_dell_product.py",
+      "diag_driver_catalog.py",
+      "diag_full_scan_timing.py",
+      "diag_nvidia_confirm.py",
+      "diag_nvidia_grd.py",
+      "diag_nvidia_json.py",
+      "diag_nvidia_parse.py",
+      "diag_nvidia_process.py",
+      "diag_nvidia_scrape.py",
+      "diag_realtek_audio.py",
+      "diag_realtek_batch.py",
+      "diag_vendor_endpoints.py",
+      "diag_wu_nvidia.py",
+      "extract_amd_chipset_installer.py",
+      "extract_analyzer_gather.py",
+      "extract_analyzer_hardware.py",
+      "extract_bsod_crash_report.py",
+      "extract_bsod_minidump.py",
+      "extract_catalog_device_context.py",
+      "extract_catalog_device_profiles.py",
+      "extract_catalog_mscatalog_session.py",
+      "extract_catalog_none_reason.py",
+      "extract_catalog_oem_filters.py",
+      "extract_catalog_oem_live.py",
+      "extract_catalog_offer_pipeline.py",
+      "extract_catalog_offer_status.py",
+      "extract_catalog_row_rejects.py",
+      "extract_catalog_scoring.py",
+      "extract_catalog_tier_policy.py",
+      "extract_crash_report_culprit.py",
+      "extract_crash_report_fix_plan.py",
+      "extract_crash_report_format.py",
+      "extract_crash_report_narrative.py",
+      "extract_crash_report_timeline.py",
+      "extract_gui_mixin_catalog_phase2.py",
+      "extract_gui_mixin_catalog_scan.py",
+      "extract_gui_mixin_drivers_inventory.py",
+      "extract_gui_mixin_drivers_table.py",
+      "extract_gui_mixin_drivers_workflow.py",
+      "extract_gui_mixin_firmware_splits.py",
+      "extract_gui_mixin_shell.py",
+      "extract_gui_mixin_shell_phase2.py",
+      "extract_gui_mixin_shell_phase3.py",
+      "finalize_portable_dist.py",
+      "finish_catalog_slices.py",
+      "firmware_peripheral_coverage_audit.py",
+      "firmware_ssd_coverage_audit.py",
+      "live_build_smoke.py",
+      "live_firmware_comprehensive_update_scan.py",
+      "live_firmware_device_discovery.py",
+      "live_firmware_scan_report.py",
+      "live_firmware_secondary_test.py",
+      "live_machine_probe.py",
+      "live_populate_export_timing.py",
+      "live_probe_gating.py",
+      "live_validate_analysis.py",
+      "live_workflow_timing.py",
+      "preview_amd_logos.py",
+      "probe_ba_symbols.py",
+      "probe_gui_bootstrap.py",
+      "probe_nvidia_psid_pfid.py",
+      "refresh_vendor_icons.py",
+      "remove_catalog_installed_packages.py",
+      "remove_catalog_slices.py",
+      "remove_catalog_slices_batch2.py",
+      "repair_slice_lazy_patch.py",
+      "run_lookup_audit_now.py",
+      "sign_vendor_manifest.py",
+      "simulate_catalog_rejections.py",
+      "split_gui_modules.py",
+      "sync_dist_readme.py",
+      "sync_install_fallbacks.py",
+      "verify_agent_report.py",
+      "verify_facade_gate.py",
+      "verify_gui_launch.py"
+    ],
+    "wildcardPatterns": [
+      "gui_*",
+      "firmware_peripheral_*.py"
+    ],
+    "orphanScanEnabled": true
+  },
+  "stables": {
+    "enabled": true,
+    "desktopFolder": "BSODAnalyzer_StableBuilds",
+    "expected": [
+      "v6.1.20",
+      "v6.2.3",
+      "v6.5.27"
+    ]
+  },
+  "secretsScan": {
+    "enabled": true,
+    "extensions": [
+      ".py",
+      ".ps1",
+      ".md",
+      ".json",
+      ".env",
+      ".bat",
+      ".cmd",
+      ".txt",
+      ".yaml",
+      ".yml",
+      ".spec"
+    ],
+    "excludePathRegex": "\\\\tests\\\\fixtures\\\\|\\\\DebuggingTools\\\\|\\\\BSODAnalyzer_v6\\\\|_internal\\\\|audit_archive\\\\"
+  },
+  "syncAndVerify": {
+    "runSyncVerify": true,
+    "runLegacyVerify": true,
+    "autoFixDrift": true
+  },
+  "codeChecks": {
+    "importSmoke": {
+      "enabled": true,
+      "exclude": [
+        "preview_amd_logos.py"
+      ],
+      "useModuleSearchDirs": false
+    },
+    "semanticReportFile": "docs/.audit_semantic_report.json",
+    "semanticReportRequireCites": true,
+    "semanticReportRequireEvidence": true,
+    "semanticReportEvidenceMinWhenNotClean": 1,
+    "semanticReportEvidenceRequireFileWhenNotClean": true,
+    "semanticReportRequiredInRunAudit": true,
+    "semanticBlockCleanWhenMachineFails": true,
+    "semanticFreshnessCheck": true,
+    "semanticRequireTestsGitHead": true,
+    "semanticRequireModulesReviewed": true,
+    "semanticModulesReviewedSections": [
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K"
+    ],
+    "inventoryFile": "docs/.audit_inventory.json",
+    "inventoryRequireAck": true,
+    "docReviewAck": {
+      "enabled": true,
+      "docMapFile": "docs/DOC_MAP.md",
+      "docInventoryFile": "docs/.audit_doc_inventory.json"
+    },
+    "expandedDomainMapFile": "docs/.audit_domain_expanded.json",
+    "receiptFile": "docs/.audit_receipt.json",
+    "allowlistFile": "docs/audit_allowlist.json",
+    "largeModuleLocThreshold": 2000,
+    "deadCodeScan": {
+      "enabled": true,
+      "maxReports": 8
+    },
+    "testGapHints": {
+      "enabled": true,
+      "sections": [
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K"
+      ],
+      "maxModulesListed": 5
+    },
+    "sectionMachineChecks": {
+      "B": {
+        "enabled": true,
+        "layoutRequiredPaths": [
+          "run_tests.bat",
+          "run_audit.cmd",
+          "docs/AUDIT.md",
+          "docs/AUDIT.config.json",
+          "README.md",
+          "PROJECT_LAYOUT.md"
+        ],
+        "repoRootPaths": [
+          "README.md",
+          "PROJECT_LAYOUT.md"
+        ],
+        "onedriveDoc": "docs/repo_flatten_archive/ONEDRIVE_CLEANUP.md"
+      },
+      "C": {
+        "enabled": true,
+        "requiredPaths": [
+          "BSODAnalyzer.spec",
+          "build_ci.bat",
+          "scripts/finalize_portable_dist.py",
+          "scripts/sync_dist_readme.py"
+        ],
+        "distMarker": "BSODAnalyzer_v6/BSODAnalyzer.exe",
+        "bundledRuntimePaths": [
+          "BSODAnalyzer_v6/_internal/DebuggingTools/x64/cdb.exe"
+        ],
+        "forbidDuplicateRootPaths": [
+          "BSODAnalyzer_v6/DebuggingTools"
+        ],
+        "sectionTests": [
+          "tests/test_portable_build_smoke.py",
+          "tests/test_powershell7.py",
+          "tests/test_seven_zip_runtime.py"
+        ]
+      },
+      "L": {
+        "enabled": true,
+        "forbiddenRules": [
+          "code-audit-checklist.mdc",
+          "generic-code-audit-checklist.mdc",
+          "bsod-analyzer-audit-overlay.mdc"
+        ],
+        "forbidDuplicateSkill": "agent-code-audit",
+        "agentsMdRequiredPhrases": [
+          "run_audit.cmd",
+          "run_tests.bat",
+          "never `-SkipTests`",
+          "build_ci.bat"
+        ],
+        "gitignoreAuditArtifacts": [
+          "docs/.audit_agent_manifest.json",
+          "docs/.audit_semantic_report.json",
+          "docs/.audit_timing.jsonl",
+          "docs/.audit_inventory.json",
+          "docs/.audit_doc_inventory.json",
+          "docs/.audit_domain_expanded.json",
+          "docs/.audit_receipt.json"
+        ]
+      },
+      "N": {
+        "enabled": true,
+        "gitLogPaths": [
+          "bsod_analyzer.py",
+          "VERSION.txt"
+        ],
+        "gitMaxCommits": 8,
+        "blockCleanSummaryIfGitHits": true
+      },
+      "M": {
+        "enabled": true,
+        "scanGlobs": [
+          "docs/*.md"
+        ],
+        "htmlScanGlobs": [
+          "docs/*.html"
+        ],
+        "excludeFiles": [
+          "AUDIT.md",
+          "IMPROVEMENT_BACKLOG.md",
+          "KNOWN_LIMITATIONS.md",
+          "ROADMAP.md",
+          "PRODUCT_REFERENCE.md",
+          "DRIVER_VERIFICATION_PLAN.md",
+          "AGENT_HANDOFF_20260820.md",
+          "AGENT_HANDOFF_20260821.md"
+        ],
+        "scanRepoReadme": true,
+        "repoFiles": [
+          "README.md",
+          "PROJECT_LAYOUT.md",
+          "BUILD_NOTES.md",
+          "CONSOLIDATION.md"
+        ],
+        "mdcScanGlobs": [
+          ".cursor/rules/*.mdc"
+        ],
+        "mdcRepoScanGlobs": [
+          ".cursor/rules/*.mdc"
+        ],
+        "mdcForbiddenPatterns": [
+          {
+            "regex": "build_and_deploy_v2\\.bat",
+            "message": "obsolete v2 build script \u2014 use build_ci.bat / build_and_deploy_v6.bat"
+          },
+          {
+            "regex": "BSODAnalyzer_v2",
+            "message": "obsolete v2 output folder \u2014 use BSODAnalyzer_v6"
+          },
+          {
+            "regex": "build_and_deploy_v5\\.bat",
+            "message": "v5 build bat in agent .mdc \u2014 default agent builds use build_ci.bat (v5 is maintenance-only)"
+          }
+        ]
+      },
+      "F": {
+        "enabled": true,
+        "agentsMdRequiredPhrases": [
+          "portable first",
+          "Portable-first product direction"
+        ]
+      }
+    },
+    "staticPatterns": [
+      {
+        "id": "bare-except",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\|\\\\scripts\\\\",
+        "forbiddenRegex": "^\\s*except\\s*:\\s*(#.*)?$",
+        "message": "bare except \u2014 use a specific exception type"
+      },
+      {
+        "id": "except-pass",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "^\\s*except\\s+.*:\\s*pass\\s*(#.*)?$",
+        "message": "except pass swallows failures"
+      },
+      {
+        "id": "stale-opus-path",
+        "section": "M",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\fixtures\\\\",
+        "forbiddenRegex": "BSODAnalyzer_Opus",
+        "message": "stale Opus path in source"
+      },
+      {
+        "id": "subprocess-shell",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "subprocess\\.(run|Popen|call)\\([^\\)]*shell\\s*=\\s*True",
+        "message": "subprocess shell=True \u2014 use list args without shell"
+      },
+      {
+        "id": "os-system",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "os\\.system\\(",
+        "message": "os.system \u2014 use subprocess with list args"
+      },
+      {
+        "id": "eval-call",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "\\beval\\(",
+        "message": "eval() \u2014 security risk"
+      },
+      {
+        "id": "exec-call",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "(?<!\\.)exec\\(",
+        "message": "exec() \u2014 security risk"
+      },
+      {
+        "id": "hardcoded-secret",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\|\\\\scripts\\\\",
+        "forbiddenRegex": "(?i)(password|api_key|secret_key|auth_token)\\s*=\\s*[\"'][^\"']{6,}[\"']",
+        "message": "possible hardcoded credential"
+      },
+      {
+        "id": "yaml-unsafe-load",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "yaml\\.load\\(",
+        "allowLineRegex": "SafeLoader|safe_load",
+        "message": "yaml.load without SafeLoader \u2014 use yaml.safe_load"
+      },
+      {
+        "id": "pickle-loads",
+        "section": "K",
+        "glob": "*.py",
+        "excludePathRegex": "\\\\tests\\\\",
+        "forbiddenRegex": "pickle\\.loads?\\(",
+        "message": "pickle load \u2014 untrusted data risk"
+      }
+    ],
+    "sectionTests": {
+      "A": [
+        "tests/test_test_discovery.py",
+        "tests/test_static_analysis.py"
+      ],
+      "C": [
+        "tests/test_portable_build_smoke.py",
+        "tests/test_powershell7.py",
+        "tests/test_seven_zip_runtime.py"
+      ],
+      "D": [
+        "tests/test_version_consistency.py",
+        "tests/test_batch1_v529.py"
+      ],
+      "E": [
+        "tests/test_gui_main_thread_guard.py",
+        "tests/test_pre_compile_hygiene.py"
+      ],
+      "F": [
+        "tests/test_data_dir_settings.py"
+      ],
+      "G": [
+        "tests/test_catalog_audit_coverage.py",
+        "tests/test_parser_rot_detection.py",
+        "tests/test_vendor_source_hardening.py"
+      ],
+      "H": [
+        "tests/test_vendor_firmware_fetch.py",
+        "tests/test_firmware_catalog_parity.py"
+      ],
+      "I": [
+        "tests/test_catalog_export.py",
+        "tests/test_driver_install_flow.py"
+      ],
+      "J": [
+        "tests/test_session_log.py"
+      ],
+      "K": [
+        "tests/test_vendor_source_hardening.py"
+      ]
+    },
+    "semanticReviewHints": {
+      "A": [
+        "Full test suite coverage",
+        "Version sync across dist"
+      ],
+      "B": [
+        "Repo layout vs PROJECT_LAYOUT",
+        "Stale paths and cruft"
+      ],
+      "C": [
+        "Portable dist layout",
+        "Bundled runtime paths"
+      ],
+      "D": [
+        "Latest minidump/event selection logic",
+        "Crash-linked driver deferral"
+      ],
+      "E": [
+        "Worker shutdown and cancel paths",
+        "Progress bar reset on error"
+      ],
+      "F": [
+        "Portable-first for new code paths",
+        "OneDrive settings fallback"
+      ],
+      "G": [
+        "Driver catalog scoring regressions",
+        "Vendor fetch timeout surfacing"
+      ],
+      "H": [
+        "Firmware SSD vs peripheral coverage",
+        "Batch warm cancel"
+      ],
+      "I": [
+        "Export path portable vs full-install",
+        "Install flow error messages"
+      ],
+      "J": [
+        "Log rotation edge cases"
+      ],
+      "K": [
+        "Subprocess quoting with user paths"
+      ],
+      "L": [
+        "No legacy audit rules in project",
+        "AGENTS.md command accuracy"
+      ],
+      "M": [
+        "Doc headers vs VERSION.txt",
+        "Archived vs active docs",
+        "DOC_MAP full read + docReviewAck"
+      ],
+      "N": [
+        "Release delta vs sections D-M when VERSION bumped"
+      ]
+    }
+  }
+}

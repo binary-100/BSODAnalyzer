@@ -1,0 +1,17 @@
+# Windsurf rules — BSODAnalyzer
+
+Session start: read docs/AGENT_SESSION_START.md when present (stale/fresh + required reads).
+
+Read AGENTS.md and AI_INSTRUCTIONS.md first.
+
+Agent runs commands; user verifies outcomes — run sync/tests/fixes yourself; report exit codes so the user can pivot.
+
+Audits: run run_audit.cmd; report Fix and Improve only (see docs/AUDIT.md). No Phase A/B.
+
+Multi-step features: one phased plan; runtime order equals build order.
+
+Before long shell commands: agent-hygiene MCP when available.
+
+Windows agent builds: BUILD_NOPAUSE=1 or build_ci.bat.
+
+Version: canonical in main.py; sync per AGENTS.md — do not hand-edit VERSION.txt.

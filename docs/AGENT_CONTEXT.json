@@ -1,0 +1,46 @@
+{
+    "schemaVersion":  2,
+    "packVersion":  "1.8.0",
+    "auditEngineVersion":  "2.22.65",
+    "installedVersion":  "2.22.65",
+    "rulesRevision":  "sha256:da5b6898e60f0ed0a7032bf86adbd59477e38bd05a34ff2c242856b914b7fdd6",
+    "syncedAt":  "2026-09-02T01:27:31.0809642Z",
+    "previousSyncedAt":  "2026-09-01T05:00:50.0290640Z",
+    "packRootUsed":  "C:\\Users\\binar\\.cursor\\AgentStarterPack",
+    "installedPackRoot":  "C:\\Users\\binar\\.cursor\\AgentStarterPack",
+    "projectRoot":  "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer",
+    "canonicalProjectRoot":  "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer",
+    "isPackRepo":  false,
+    "layers":  {
+                   "globalRules":  "ok",
+                   "installedPack":  "ok",
+                   "projectRules":  "updated",
+                   "auditTemplates":  "updated",
+                   "workQueue":  "ok",
+                   "workCompletion":  "ok",
+                   "agentHubDocs":  "updated"
+               },
+    "changedLayers":  [
+                          "auditEngineVersion",
+                          "rules"
+                      ],
+    "requiredReads":  [
+                          "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\AGENTS.md",
+                          "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\AI_INSTRUCTIONS.md",
+                          "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\docs\\AGENT_REFRESH.md",
+                          "C:\\Users\\binar\\OneDrive\\Desktop\\BSODAnalyzer\\docs\\WORK_QUEUE.md"
+                      ],
+    "triggerPhrases":  [
+                           "refresh pack context",
+                           "sync agent context",
+                           "context refresh",
+                           "pack update"
+                       ],
+    "handshake":  {
+                      "required":  true,
+                      "fields":  [
+                                     "packVersion",
+                                     "auditEngineVersion"
+                                 ]
+                  }
+}

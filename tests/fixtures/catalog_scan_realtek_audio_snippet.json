@@ -1,0 +1,30 @@
+{
+  "hardware_summary": {
+    "manufacturer": "Dell Inc.",
+    "model": "Alienware m17 R5 AMD",
+    "device_list_count": 154
+  },
+  "inventory": [
+    {
+      "name": "Realtek Audio",
+      "display_name": "Realtek Audio",
+      "device_class": "MEDIA",
+      "version": "6.0.9929.1"
+    },
+    {
+      "name": "Realtek Audio Effects Component",
+      "display_name": "Realtek Audio Effects Component",
+      "device_class": "SOFTWARECOMPONENT",
+      "version": "13.0.6000.1905"
+    }
+  ],
+  "devices": [
+    {
+      "device_name": "Realtek Audio",
+      "display_name": "Realtek Audio",
+      "device_class": "MEDIA",
+      "installed_version": "6.0.9929.1",
+      "companion_version": "13.0.6000.1905"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+---
+description: BSOD Analyzer product reference — agent obligations, in-app capabilities, validation workflow
+alwaysApply: true
+---
+
+# Product reference (agents)
+
+Before telling the user to **enable dumps**, **run as admin**, **run analysis**, **build and test**, or **upload logs** — read **`docs/PRODUCT_REFERENCE.md`**.
+
+## Rules
+
+1. **Validate on the host yourself:** `py -3 scripts\live_validate_analysis.py` from the project root (admin). Do not offload validation to the user.
+2. **The app owns capture setup:** memory dump enable, admin banner, CDB install, event log reads, minidump analysis — see PRODUCT_REFERENCE §2–§3.
+3. **Honest limits:** no matching minidump for latest incident → Focus/Unknown, not a user homework list.
+4. **Update PRODUCT_REFERENCE** when shipping capabilities that change §2–§5 (version + date in doc header).
+
+Related: `AGENTS.md`, `docs/AGENT_READINESS.md`, `docs/ROADMAP.md`, `docs/IMPROVEMENT_BACKLOG.md`, `docs/KNOWN_LIMITATIONS.md`.

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drivers tab — crash info icon + tooltip (interactive)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 20px 24px 48px;
+      background: #0e0e12; color: #e7e7ec;
+      font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px;
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    .lead { color: #9a9aa6; max-width: 720px; line-height: 1.5; margin-bottom: 16px; }
+    .controls { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+    .controls label { font-size: 12px; color: #9a9aa6; display: flex; gap: 6px; align-items: center; }
+    .controls select {
+      background: #26262d; color: #e7e7ec; border: 1px solid #3a3a44;
+      border-radius: 6px; padding: 6px 10px; font-size: 12px;
+    }
+    .layout { display: grid; grid-template-columns: 1fr 280px; gap: 20px; max-width: 900px; }
+    @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
+    .side {
+      background: #26262d; border: 1px solid #3a3a44; border-radius: 10px;
+      padding: 14px; font-size: 12px; color: #9a9aa6; line-height: 1.5;
+    }
+    .side h3 { margin: 0 0 8px; font-size: 13px; color: #e7e7ec; }
+    .side ul { margin: 8px 0 0; padding-left: 18px; }
+
+    .win {
+      max-width: 680px; border-radius: 10px; overflow: hidden;
+      border: 1px solid #3a3a44; background: #1e1e23;
+    }
+    .win-head {
+      padding: 6px 10px; font-size: 10px; color: #9a9aa6;
+      background: #2c2c34; border-bottom: 1px solid #3a3a44;
+    }
+    .card { padding: 10px; }
+    .card-t { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .status { font-size: 9px; color: #9a9aa6; margin-bottom: 8px; }
+    .filter-row {
+      display: flex; gap: 6px; margin-bottom: 8px; padding: 6px;
+      background: #2c2c34; border-radius: 6px; border: 1px solid #3a3a44;
+    }
+    .combo, .inp, .btn {
+      height: 26px; border-radius: 5px; font-size: 10px;
+      display: flex; align-items: center; padding: 0 8px;
+      border: 1px solid #3a3a44; background: #26262d;
+    }
+    .inp { flex: 1; color: #9a9aa6; }
+    .btn.primary { background: #2f81f7; border-color: #2f81f7; color: #fff; font-weight: 600; }
+
+    .tbl { border: 1px solid #3a3a44; border-radius: 6px; overflow: visible; background: #2c2c34; }
+    .tbl-h, .tbl-r {
+      display: grid;
+      grid-template-columns: 24px 22px minmax(0, 1fr) 20px 68px 48px;
+      align-items: center; font-size: 10px; gap: 0;
+    }
+    .tbl-h {
+      height: 26px; padding: 0 4px; font-weight: 600; color: #9a9aa6;
+      background: #26262d; border-bottom: 1px solid #3a3a44;
+    }
+    .tbl-r {
+      height: 32px; padding: 0 4px; position: relative;
+      border-bottom: 1px solid #3a3a44;
+    }
+    .tbl-r:last-child { border-bottom: none; }
+    .tbl-r.crash { background: #3a2228; color: #e5484d; }
+    .ico { width: 16px; height: 16px; border-radius: 3px; font-size: 7px; display: grid; place-items: center; color: #fff; }
+    .chk { width: 11px; height: 11px; border-radius: 2px; background: #2f81f7; margin: auto; }
+    .dev-cell {
+      display: flex; align-items: center; gap: 4px; min-width: 0; padding-right: 2px;
+    }
+    .dev-name {
+      flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .info-wrap { position: relative; flex-shrink: 0; display: flex; align-items: center; }
+    .info-btn {
+      width: 16px; height: 16px; border-radius: 50%; border: none; cursor: help;
+      display: grid; place-items: center; font-size: 10px; font-weight: 700;
+      font-family: "Segoe UI", serif; line-height: 1; padding: 0;
+      background: transparent; color: #2f81f7;
+    }
+    .info-btn:hover, .info-btn:focus-visible, .info-btn.pinned {
+      background: #1e4a7a; color: #6aa8ff; outline: none;
+    }
+    .info-btn svg { width: 14px; height: 14px; display: block; }
+
+    .tooltip {
+      display: none; position: absolute; z-index: 20;
+      left: 50%; transform: translateX(-50%); top: calc(100% + 6px);
+      width: 260px; padding: 10px 12px; border-radius: 8px;
+      font-size: 10px; line-height: 1.45; font-weight: 400;
+      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+      pointer-events: none;
+    }
+    .tooltip::before {
+      content: ""; position: absolute; top: -5px; left: 50%; margin-left: -5px;
+      border: 5px solid transparent; border-bottom-color: inherit;
+      border-top: none;
+    }
+    .tooltip strong { display: block; margin-bottom: 4px; font-size: 10px; }
+    .tooltip .mod { font-family: Consolas, monospace; }
+    .info-wrap:hover .tooltip,
+    .info-wrap:focus-within .tooltip,
+    .info-btn.pinned + .tooltip { display: block; }
+
+    .inst { font-size: 9px; color: #9a9aa6; line-height: 1.2; }
+    .note { margin-top: 12px; font-size: 11px; color: #6aa8ff; max-width: 680px; }
+  </style>
+</head>
+<body>
+  <h1>Option D — Info icon on crash-linked rows</h1>
+  <p class="lead">
+    Blue <strong>ⓘ</strong> at the end of the <strong>Device</strong> column (crash-linked rows only).
+    Hover or click the icon for why this row is highlighted. Non-crash rows have no icon — zero clutter.
+  </p>
+
+  <div class="controls">
+    <label>Theme
+      <select id="theme">
+        <option value="night" selected>Night</option>
+        <option value="day">Day</option>
+      </select>
+    </label>
+    <label>
+      <input type="checkbox" id="pinTip"> Click icon to pin tooltip (for screenshot)
+    </label>
+  </div>
+
+  <div class="layout">
+    <div id="host"></div>
+    <aside class="side">
+      <h3>Design notes</h3>
+      <ul>
+        <li>Icon only on <code>_crash_linked</code> rows — not every device.</li>
+        <li>Uses accent blue (same as links), not red — explains red without competing with it.</li>
+        <li>Tooltip: module name, BugCheck, match reason (WinDbg / inventory).</li>
+        <li>Reuses Qt <code>QToolTip</code> or custom popup; no banner space needed.</li>
+        <li>Works with <strong>All devices</strong> view; Needs attention filter optional.</li>
+      </ul>
+    </aside>
+  </div>
+  <p class="note" id="hint">Hover the ⓘ on the NVIDIA row to see the tooltip.</p>
+
+  <script>
+    const T = {
+      night: {
+        BG: "#1e1e23", CARD: "#26262d", ALT: "#2c2c34", BORDER: "#3a3a44",
+        TEXT: "#e7e7ec", MUTED: "#9a9aa6", ACCENT: "#2f81f7", ACCENT_SOFT: "#6aa8ff",
+        TIP_BG: "#26262d", TIP_BORDER: "#2f81f7", TIP_TEXT: "#e7e7ec",
+        CRASH_BG: "#3a2228", CRASH_FG: "#e5484d", ARROW: "#2f81f7",
+      },
+      day: {
+        BG: "#eef0f4", CARD: "#ffffff", ALT: "#f4f5f8", BORDER: "#cdd0d8",
+        TEXT: "#121218", MUTED: "#484852", ACCENT: "#2563eb", ACCENT_SOFT: "#1d4ed8",
+        TIP_BG: "#ffffff", TIP_BORDER: "#2563eb", TIP_TEXT: "#121218",
+        CRASH_BG: "#fee2e2", CRASH_FG: "#b91c1c", ARROW: "#2563eb",
+      },
+    };
+
+    const INFO_SVG = `<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-.75 3.5a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0ZM8 11.5a.75.75 0 0 1-.75-.75V7.25a.75.75 0 0 1 1.5 0v3.5A.75.75 0 0 1 8 11.5Z"/></svg>`;
+
+    function tipHtml(th) {
+      return `<div class="tooltip" style="background:${th.TIP_BG};border:1px solid ${th.TIP_BORDER};color:${th.TIP_TEXT};border-bottom-color:${th.ARROW}">
+        <strong style="color:${th.ACCENT_SOFT}">Why this device is highlighted</strong>
+        WinDbg named <span class="mod">nvlddmkm.sys</span> as the faulting driver in your latest minidump.<br><br>
+        <span class="mod">BugCheck 0x116</span> — VIDEO_TDR_FAILURE<br>
+        Matched: NVIDIA GeForce RTX 3070 Ti (Display class, driver file nvlddmkm.sys)
+      </div>`;
+    }
+
+    function row(th, { crash, name, inst, ico, bg }) {
+      const info = crash ? `
+        <div class="info-wrap">
+          <button type="button" class="info-btn" aria-label="Why is this device crash-linked?" title="">${INFO_SVG}</button>
+          ${tipHtml(th)}
+        </div>` : `<span style="width:16px"></span>`;
+      return `
+        <div class="tbl-r ${crash ? "crash" : ""}" style="${crash ? "" : `background:${bg}`}">
+          <span class="ico" style="background:${ico}">NV</span>
+          <span class="chk"></span>
+          <div class="dev-cell">
+            <span class="dev-name">${name}</span>
+          </div>
+          ${info}
+          <span class="inst">${inst.replace("\\n", "<br>")}</span>
+          <span style="color:${crash ? th.CRASH_FG : th.MUTED};font-size:9px">${crash ? "Crash" : "—"}</span>
+        </div>`;
+    }
+
+    function render() {
+      const th = T[document.getElementById("theme").value];
+      document.getElementById("host").innerHTML = `
+        <div class="win" style="background:${th.BG};color:${th.TEXT};border-color:${th.BORDER}">
+          <div class="win-head">BSOD Analyzer · Drivers tab · Option D mock</div>
+          <div class="card" style="background:${th.CARD}">
+            <div class="card-t">Driver updates</div>
+            <div class="status">142 device(s) from analysis · 1 crash-linked · All devices</div>
+            <div class="filter-row">
+              <div class="combo">All devices ▼</div>
+              <div class="inp">Search by name…</div>
+              <div class="btn">Load devices</div>
+              <div class="btn primary">Search for updates</div>
+            </div>
+            <div class="tbl">
+              <div class="tbl-h">
+                <span></span><span>☐</span><span>Device</span><span title="Crash info">ⓘ</span><span>Installed</span><span>Status</span>
+              </div>
+              ${row(th, { crash: true, name: "NVIDIA GeForce RTX 3070 Ti Laptop GPU", inst: "32.0.16.1047\\n2025-03-14", ico: "#76b900", bg: th.ALT })}
+              ${row(th, { crash: false, name: "Realtek(R) Audio", inst: "6.0.9868.1\\n2025-10-22", ico: "#0066cc", bg: th.ALT })}
+              ${row(th, { crash: false, name: "Intel Wi-Fi 6 AX210", inst: "23.140.0.4\\n2025-01-08", ico: "#0071c5", bg: th.ALT })}
+              ${row(th, { crash: false, name: "Realtek Gaming 2.5GbE Controller", inst: "1125.30.50.508\\n2025-06-01", ico: "#0066cc", bg: th.ALT })}
+            </div>
+          </div>
+        </div>`;
+
+      document.querySelectorAll(".info-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          if (!document.getElementById("pinTip").checked) return;
+          e.preventDefault();
+          document.querySelectorAll(".info-btn").forEach(b => b.classList.remove("pinned"));
+          btn.classList.toggle("pinned");
+        });
+      });
+    }
+
+    document.getElementById("theme").addEventListener("change", render);
+    document.getElementById("pinTip").addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>

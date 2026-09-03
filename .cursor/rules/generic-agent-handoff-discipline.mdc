@@ -1,0 +1,45 @@
+---
+description: One session opener per handoff file; audit verifies completion before archive (no auto-delete)
+alwaysApply: true
+---
+
+# Agent handoff discipline (all projects)
+
+Full convention: **`pack/docs/AGENT_HANDOFFS.md`** (after install: `%USERPROFILE%\.cursor\AgentStarterPack\pack\docs\AGENT_HANDOFFS.md`).
+
+## Problem
+
+Multiple paste blocks for the same implement job (handoff file + PLAN + BUILD_HANDOFF + chat) confuse humans and agents. A second doc claiming **Next** (retired root session mega-doc, 2.22.65) contradicted WORK_QUEUE three times — use **`docs/handoffs/SESSION.md`** for session continuity instead (**pointers only**; see **`handoff-first.mdc`**).
+
+## Build / implement handoffs
+
+When handing **implementation** to another chat:
+
+1. **One handoff file** under `docs/handoffs/active/` — name `HANDOFF_WQnnn_<slug>.md` (or `HANDOFF_<slug>.md` when no WQ id).
+2. **Registry table** at top (`## Handoff registry`) — see AGENT_HANDOFFS.md.
+3. **One session opener** for the human — single line, full absolute path, ending with `and implement.`
+4. **Forbidden in chat:** second paste block, "or say…", "method 1 / method 2", or repeating PLAN fences as the assignment.
+5. **PLAN / BUILD_HANDOFF** link the handoff file — they do not duplicate a user paste block or a second session opener.
+6. **Paths in chat:** when citing handoff or doc locations to the user, use **full absolute paths** (`full-paths-in-chat.mdc`) — not repo-relative bullets.
+
+## Orientation handoffs (no code)
+
+Same one-line rule; opener ends with **`and confirm.`**  
+File: `docs/handoffs/HANDOFF_<topic>.md` (not in `active/` unless still blocking work).
+
+## Multi-agent handoffs
+
+Set **`multi_agent: yes`** and list **`agents_remaining`** until every agent is done.  
+Audit **never** suggests archive/delete while `agents_remaining` is non-empty.
+
+## Completing work
+
+Follow **`pack/docs/WORK_COMPLETION.md`** end-to-end (handoff status, WORK_QUEUE Done, `verify-complete-picture.ps1`, audit, archive). Do not duplicate that checklist here.
+
+## Exempt
+
+- Pack context refresh (`AGENT_REFRESH.md`, `refresh pack context`)
+- Audits (Fix/Improve only)
+- Casual chat without a handoff file
+
+Related: **`generic-work-queue-discipline.mdc`**, **`pack/scripts/verify-agent-handoffs.ps1`**

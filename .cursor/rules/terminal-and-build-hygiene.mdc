@@ -1,0 +1,15 @@
+---
+description: BSOD Analyzer terminal/build hygiene — generic rule + project paths
+alwaysApply: false
+---
+
+# Terminal & Build Hygiene (BSOD Analyzer)
+
+Follow **`generic-terminal-and-build-hygiene.mdc`**. Skill: **`agent-terminal-hygiene`**.
+
+**This project:**
+- Agent/CI build: `build_ci.bat` (sets `BUILD_NOPAUSE=1`)
+- Manual build: `build_and_deploy_v6.bat` (runs full `run_tests.bat` first)
+- Version: edit `bsod_analyzer.VERSION` only; `run_tests.bat` and builds run `scripts\apply_version.py sync` (see `version-sync.mdc`)
+- Fix stale agent logs / orphans: MCP `agent_hygiene_full_check` or `%USERPROFILE%\.cursor\AgentStarterPack\pack\scripts\`
+- Starter pack project (separate): `Desktop\AgentStarterPack` — not this repo

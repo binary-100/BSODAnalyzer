@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Checkbox two-tone mockup — Night / Day / Manly</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #e7e7ec;
+      padding: 24px;
+    }
+    h1 { font-size: 20px; font-weight: 600; margin: 0 0 6px; }
+    .intro {
+      max-width: 920px;
+      color: #9a9aa6;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .intro strong { color: #e7e7ec; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+    }
+    @media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+    .theme-panel {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .theme-label {
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 1px solid;
+    }
+    .theme-body { padding: 16px 14px 18px; }
+    .swatches {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      font-size: 11px;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.15);
+    }
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .cb {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .cb svg {
+      position: absolute;
+      inset: 0;
+      width: 16px;
+      height: 16px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.65;
+      margin: 16px 0 8px;
+    }
+    .dialog {
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .dialog h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .dialog .muted { opacity: 0.72; font-size: 11px; margin-top: 10px; }
+    .dialog-btns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      border: 1px solid;
+    }
+    .note {
+      max-width: 1200px;
+      margin-top: 20px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #1a1a20;
+      border: 1px solid #3a3a44;
+      font-size: 12px;
+      color: #9a9aa6;
+      line-height: 1.5;
+    }
+    code { font-family: Consolas, monospace; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <h1>Two-tone checkbox mockup (preview only)</h1>
+  <p class="intro">
+    <strong>Proposal:</strong> when checked, the box uses a <strong>lighter theme tint</strong> for the fill
+    and border, and the checkmark uses the <strong>strong accent</strong> (same hue family, two tones).
+    Unchecked stays neutral (card alt + border). This is a visual spec only — not wired into the app yet.
+  </p>
+
+  <div class="grid" id="themes"></div>
+
+  <div class="note">
+    <strong>Shipped in app (gui_theme.py):</strong>
+    <code>CHECKBOX_FILL</code>, <code>CHECKBOX_BORDER</code>, <code>CHECKBOX_CHECKMARK</code>
+    per theme preset; <code>resolve_checkbox_tokens()</code> supplies fallbacks for new themes.
+  </div>
+
+  <script>
+    const themes = {
+      night: {
+        label: "Night (dark)",
+        bg: "#1e1e23",
+        card: "#26262d",
+        cardAlt: "#2c2c34",
+        border: "#3a3a44",
+        text: "#e7e7ec",
+        muted: "#9a9aa6",
+        accent: "#2f81f7",
+        // two-tone checked
+        boxFill: "#1e4a7a",      // TABLE_SELECTION — softer blue fill
+        boxBorder: "#2f81f7",    // ACCENT
+        check: "#6aa8ff",        // LINK_HOVER — brighter tick, still on-theme
+        uncheckedBorder: "#5a5a66",
+        uncheckedBg: "#2c2c34",
+        hoverBorder: "#4593ff",
+        btnBg: "#2c2c34",
+        btnBorder: "#3a3a44",
+      },
+      day: {
+        label: "Day (light)",
+        bg: "#eef0f4",
+        card: "#ffffff",
+        cardAlt: "#f4f5f8",
+        border: "#cdd0d8",
+        text: "#121218",
+        muted: "#484852",
+        accent: "#2563eb",
+        boxFill: "#bfdbfe",      // TABLE_SELECTION
+        boxBorder: "#2563eb",
+        check: "#1d4ed8",        // PRIMARY_HOVER — darker tick on light fill
+        uncheckedBorder: "#9ca3af",
+        uncheckedBg: "#f4f5f8",
+        hoverBorder: "#2563eb",
+        btnBg: "#f4f5f8",
+        btnBorder: "#cdd0d8",
+      },
+      manly: {
+        label: "Manly mode",
+        bg: "#ebe4f4",
+        card: "#faf8ff",
+        cardAlt: "#f0eaf8",
+        border: "#d4c4e8",
+        text: "#362f45",
+        muted: "#5f5670",
+        accent: "#8570f0",
+        boxFill: "#ddd6fe",      // light purple tint (accent family)
+        boxBorder: "#8570f0",
+        check: "#6b58d8",        // PRIMARY_HOVER
+        uncheckedBorder: "#9ca3af",
+        uncheckedBg: "#f0eaf8",
+        hoverBorder: "#8570f0",
+        btnBg: "#f0eaf8",
+        btnBorder: "#d4c4e8",
+      },
+    };
+
+    function checkSvg(stroke, fill, border) {
+      return `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="14" height="14" rx="3" fill="${fill}" stroke="${border}" stroke-width="1.5"/>
+        <path d="M4.2 8.1 L6.8 10.7 L11.8 5.2" fill="none" stroke="${stroke}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`;
+    }
+
+    function emptySvg(border, fill) {
+      return `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="14" height="14" rx="3" fill="${fill}" stroke="${border}" stroke-width="1.5"/>
+      </svg>`;
+    }
+
+    function renderTheme(id, t) {
+      return `
+        <div class="theme-panel" style="background:${t.bg}">
+          <div class="theme-label" style="background:${t.card}; color:${t.text}; border-color:${t.border}">${t.label}</div>
+          <div class="theme-body" style="color:${t.text}">
+            <div class="swatches">
+              <span class="swatch"><span class="dot" style="background:${t.boxFill}"></span> fill ${t.boxFill}</span>
+              <span class="swatch"><span class="dot" style="background:${t.boxBorder}"></span> border ${t.boxBorder}</span>
+              <span class="swatch"><span class="dot" style="background:${t.check}"></span> check ${t.check}</span>
+            </div>
+
+            <div class="section-title">States</div>
+            <div class="row">
+              <span class="cb">${emptySvg(t.uncheckedBorder, t.uncheckedBg)}</span>
+              <span>Unchecked</span>
+            </div>
+            <div class="row">
+              <span class="cb">${emptySvg(t.hoverBorder, t.uncheckedBg)}</span>
+              <span>Unchecked (hover)</span>
+            </div>
+            <div class="row">
+              <span class="cb">${checkSvg(t.check, t.boxFill, t.boxBorder)}</span>
+              <span><strong>Checked — two-tone</strong></span>
+            </div>
+            <div class="row">
+              <span class="cb">${checkSvg(t.muted, t.border, t.border)}</span>
+              <span>Checked (disabled)</span>
+            </div>
+
+            <div class="dialog" style="background:${t.card}; border:1px solid ${t.border}">
+              <h3>Install driver</h3>
+              <div style="color:${t.muted}; margin-bottom:10px">NVIDIA GeForce RTX 3070 Ti · v610.74</div>
+              <div class="row">
+                <span class="cb">${checkSvg(t.check, t.boxFill, t.boxBorder)}</span>
+                <span>Back up current driver before install</span>
+              </div>
+              <div class="row">
+                <span class="cb">${emptySvg(t.uncheckedBorder, t.uncheckedBg)}</span>
+                <span>Create a system restore point first</span>
+              </div>
+              <div class="muted">Administrator rights required.</div>
+              <div class="dialog-btns">
+                <span class="btn" style="background:${t.btnBg}; border-color:${t.btnBorder}; color:${t.text}">No</span>
+                <span class="btn" style="background:${t.accent}; border-color:${t.accent}; color:#fff">Install</span>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    document.getElementById("themes").innerHTML =
+      Object.entries(themes).map(([id, t]) => renderTheme(id, t)).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+---
+description: Design tier gate (BSOD Analyzer)
+alwaysApply: true
+---
+
+# Design tier gate (BSOD Analyzer)
+
+**Upgrade hub:** `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\upgrade\README.md`
+
+Process: [`docs/upgrade/DESIGN_TIERS.md`](../../docs/upgrade/DESIGN_TIERS.md)
+
+## Do not implement from design artifacts
+
+| Path | Tier | Agent may |
+|---|---|-----|
+| `docs/upgrade/inbox/` | 1 Exploration | Read; update when user asks |
+| `docs/upgrade/plans/` | 3 Design | Read; update PLAN when user asks — **no production code** |
+| `docs/upgrade/plans/spikes/` | 3 POC | Isolated spikes — **never import into source tree** |
+| [`ROADMAP.md`](../../docs/ROADMAP.md) § **Approved intent** | 2 Intent | Read only — **not buildable** |
+| `docs/upgrade/parked/` | Parked | Read **only when user asks** |
+
+**Do not read Parked** on default scans. **Do not** treat Exploration or Approved intent as buildable.
+
+## Build requires
+
+1. **ROADMAP work queue** (not Approved intent alone)
+2. `docs/upgrade/plans/*_PLAN.md` when slice is upgrade-related
+3. User: **implement Phase X** — [`BUILD_HANDOFF.md`](../../docs/upgrade/BUILD_HANDOFF.md)
+
+## Handoff
+
+```
+Read C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\upgrade\BUILD_HANDOFF.md.
+Read C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\upgrade\plans\<PLAN>.md.
+Implement <Phase ID> only.
+```
+
+Related: [`upgrade-planning-only.mdc`](upgrade-planning-only.mdc) (opt-in).

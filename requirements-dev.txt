@@ -1,0 +1,12 @@
+# Development-only dependencies — NOT bundled into BSODAnalyzer.exe.
+# Runtime deps stay in requirements.txt; adding anything here must not reach the .spec.
+
+-r requirements.txt
+
+# Test discovery. run_tests.bat and tests/run_test_module.py both delegate collection
+# to pytest, so the suite cannot run without it.
+pytest>=9.0
+
+# Static gate in tests/test_static_analysis.py: undefined names, star-import
+# resolution, dict literals whose keys shadow each other.
+pyflakes>=3.4

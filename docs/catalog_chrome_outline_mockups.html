@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BSOD Analyzer — Catalog chrome / outline options</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+      padding: 20px 24px 48px;
+      transition: background .2s, color .2s;
+    }
+    h1 { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
+    .lead { max-width: 920px; margin-bottom: 18px; opacity: .85; line-height: 1.55; }
+    .toolbar-top {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
+      padding: 12px 16px; border-radius: 10px; margin-bottom: 24px;
+    }
+    .toolbar-top label { font-size: 13px; font-weight: 600; }
+    .theme-btns { display: flex; gap: 8px; }
+    .theme-btns button {
+      border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 12px;
+      border: 1px solid transparent;
+    }
+    .theme-btns button.active { font-weight: 600; }
+    .problem {
+      max-width: 920px; padding: 10px 14px; border-radius: 8px; margin-bottom: 24px;
+      font-size: 13px; line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+    }
+    .option {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .option-head {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--opt-border, var(--border));
+    }
+    .option-head h2 { margin: 0 0 4px; font-size: 15px; }
+    .option-head p { margin: 0; font-size: 12px; opacity: .8; }
+    .option-body { padding: 10px 12px 14px; }
+    .rec { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      padding: 2px 8px; border-radius: 999px; margin-bottom: 6px;
+    }
+    /* ——— mini drivers tab mock ——— */
+    .mock-card {
+      border-radius: 10px;
+      padding: 10px 12px 12px;
+    }
+    .mock-title { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+    .mock-status { font-size: 11px; opacity: .75; margin-bottom: 8px; }
+    .filter-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .mock-combo, .mock-search {
+      height: 36px; border-radius: 6px; display: flex; align-items: center;
+      font-size: 12px; padding: 0 12px; white-space: nowrap;
+    }
+    .mock-combo { min-width: 130px; justify-content: space-between; }
+    .mock-search { flex: 1; opacity: .7; }
+    .mock-btn {
+      height: 36px; border-radius: 6px; padding: 0 14px; font-size: 12px;
+      display: flex; align-items: center; white-space: nowrap;
+    }
+    .mock-btn.primary { color: #fff; font-weight: 600; }
+    .mock-table {
+      border-radius: 8px; overflow: hidden; margin-bottom: 6px;
+    }
+    .mock-table-head, .mock-table-row {
+      display: grid;
+      grid-template-columns: 36px 34px 1fr 100px 72px;
+      align-items: center; min-height: 34px; padding: 0 4px;
+      font-size: 11px;
+    }
+    .mock-table-head { opacity: .75; font-weight: 600; }
+    .mock-table-row.sel { color: inherit; }
+    .mock-table-row.gold { /* outdated row tint applied via style classes */ }
+    .mock-splitter {
+      height: 6px; border-radius: 3px; margin: 6px 0;
+    }
+    .mock-detail {
+      border-radius: 8px; padding: 10px 12px; min-height: 72px;
+    }
+    .mock-detail strong { font-size: 12px; }
+    .mock-detail .muted { font-size: 11px; opacity: .75; margin-top: 4px; }
+    .legend {
+      margin-top: 28px; max-width: 920px; padding: 14px 16px;
+      border-radius: 10px; font-size: 13px; line-height: 1.55;
+    }
+    .legend h3 { margin: 0 0 8px; font-size: 14px; }
+    .legend ul { margin: 0; padding-left: 20px; }
+    .legend li { margin-bottom: 6px; }
+    .chev { opacity: .6; font-size: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Catalog chrome — outline options</h1>
+  <p class="lead">
+    Goal: restore visual structure (cards, tables, splitters, buttons) without bringing back the
+    <strong>thick white native line</strong> under the dropdown / search bar. All options use theme
+    tokens only — borders follow Night / Day / Manly when you switch below.
+  </p>
+
+  <div class="toolbar-top" id="themeBar">
+    <label>UI theme</label>
+    <div class="theme-btns">
+      <button type="button" data-theme="night" class="active">Night</button>
+      <button type="button" data-theme="day">Day</button>
+      <button type="button" data-theme="manly">Manly</button>
+    </div>
+  </div>
+
+  <div class="problem" id="problemBox">
+    <strong>What broke in 6.4.9–6.4.10:</strong> Fixing the white line (Fusion style + narrowed parent
+    stylesheet) flattened filter controls and reduced perceived depth on the catalog tab. We only needed
+    to remove the native sunken frame — not all chrome.
+  </div>
+
+  <div class="grid" id="optionsGrid"></div>
+
+  <div class="legend" id="legendBox">
+    <h3>Implementation notes (when you approve an option)</h3>
+    <ul>
+      <li>Keep <code>apply_catalog_filter_control()</code> (Fusion) on combo + search only — prevents white line.</li>
+      <li>Restore full <code>BORDER</code> / grid QSS on tables, cards, headers, splitters app-wide.</li>
+      <li>Do <em>not</em> put bare <code>QLineEdit { font-size }</code> on catalog card parent stylesheet.</li>
+      <li>Option <strong>3</strong> or <strong>4</strong> closest to pre-regression depth with safe filter controls.</li>
+    </ul>
+  </div>
+
+  <script>
+    const THEMES = {
+      night: {
+        label: "Night",
+        BG: "#1e1e23", CARD: "#26262d", CARD_ALT: "#2c2c34", BORDER: "#3a3a44",
+        TEXT: "#e7e7ec", MUTED: "#9a9aa6", ACCENT: "#2f81f7", TABLE_SELECTION: "#1e4a7a",
+        BTN_DISABLED: "#242429", GOLD_BG: "#3a3420", GOLD_FG: "#d8a000",
+        problemBg: "#3a2f1a", problemBorder: "#6b5420", problemText: "#f0e0b0",
+      },
+      day: {
+        label: "Day",
+        BG: "#eef0f4", CARD: "#ffffff", CARD_ALT: "#f4f5f8", BORDER: "#cdd0d8",
+        TEXT: "#121218", MUTED: "#484852", ACCENT: "#2563eb", TABLE_SELECTION: "#bfdbfe",
+        BTN_DISABLED: "#f0f1f4", GOLD_BG: "#fef3c7", GOLD_FG: "#b45309",
+        problemBg: "#fffbeb", problemBorder: "#d97706", problemText: "#92400e",
+      },
+      manly: {
+        label: "Manly",
+        BG: "#ebe4f4", CARD: "#faf8ff", CARD_ALT: "#f0eaf8", BORDER: "#d4c4e8",
+        TEXT: "#362f45", MUTED: "#5f5670", ACCENT: "#8570f0", TABLE_SELECTION: "#c4d8ff",
+        BTN_DISABLED: "#f0f1f4", GOLD_BG: "#fef3c7", GOLD_FG: "#b45309",
+        problemBg: "#fff0c2", problemBorder: "#e8c050", problemText: "#7a5a18",
+      },
+    };
+
+    const OPTIONS = [
+      {
+        id: "0",
+        title: "0 — Current build (flat)",
+        badge: "Today",
+        desc: "After white-line fix: minimal filter borders, lost table/grid depth feel.",
+        rec: false,
+        chrome: {
+          cardBorder: "none",
+          cardBg: "CARD",
+          filterTray: false,
+          comboBorder: "1px solid transparent",
+          searchBorder: "1px solid transparent",
+          comboBg: "CARD_ALT",
+          tableBorder: "none",
+          gridlines: false,
+          headBorder: false,
+          splitter: false,
+          detailBorder: "none",
+          btnBorder: "1px solid transparent",
+        },
+      },
+      {
+        id: "1",
+        title: "1 — Theme border restore",
+        badge: "Simple",
+        desc: "1px BORDER on every control — matches original QSS intent, Fusion only on filter inputs.",
+        rec: false,
+        chrome: {
+          cardBorder: "1px solid BORDER",
+          filterTray: false,
+          comboBorder: "1px solid BORDER",
+          searchBorder: "1px solid BORDER",
+          tableBorder: "1px solid BORDER",
+          gridlines: true,
+          headBorder: true,
+          splitter: true,
+          detailBorder: "1px solid BORDER",
+          btnBorder: "1px solid BORDER",
+        },
+      },
+      {
+        id: "2",
+        title: "2 — Layered surfaces",
+        badge: "Depth",
+        desc: "Card + CARD_ALT inputs + visible table grid; splitter handle uses BORDER.",
+        rec: false,
+        chrome: {
+          cardBorder: "1px solid BORDER",
+          cardBg: "CARD",
+          filterTray: false,
+          comboBorder: "1px solid BORDER",
+          searchBorder: "1px solid BORDER",
+          comboBg: "CARD_ALT",
+          tableBorder: "1px solid BORDER",
+          tableBg: "CARD_ALT",
+          gridlines: true,
+          headBorder: true,
+          headBg: "CARD",
+          splitter: true,
+          detailBorder: "1px solid BORDER",
+          detailBg: "CARD_ALT",
+          btnBorder: "1px solid BORDER",
+          btnBg: "CARD_ALT",
+        },
+      },
+      {
+        id: "3",
+        title: "3 — Filter tray + full grid",
+        badge: "Recommended",
+        desc: "Filter row in inset tray; combo/search/buttons bordered; table grid fully restored.",
+        rec: true,
+        chrome: {
+          cardBorder: "1px solid BORDER",
+          filterTray: true,
+          filterTrayBg: "CARD_ALT",
+          filterTrayBorder: "1px solid BORDER",
+          comboBorder: "1px solid BORDER",
+          searchBorder: "1px solid BORDER",
+          comboBg: "CARD",
+          tableBorder: "1px solid BORDER",
+          tableBg: "CARD_ALT",
+          gridlines: true,
+          headBorder: true,
+          splitter: true,
+          splitterAccent: false,
+          detailBorder: "1px solid BORDER",
+          btnBorder: "1px solid BORDER",
+        },
+      },
+      {
+        id: "4",
+        title: "4 — Accent highlights",
+        badge: "Polish",
+        desc: "Same as 3, plus accent hover rings on filters and accent splitter on hover.",
+        rec: false,
+        chrome: {
+          cardBorder: "1px solid BORDER",
+          filterTray: true,
+          filterTrayBg: "CARD_ALT",
+          filterTrayBorder: "1px solid BORDER",
+          comboBorder: "1px solid ACCENT",
+          searchBorder: "1px solid BORDER",
+          comboGlow: "0 0 0 1px ACCENT33",
+          tableBorder: "1px solid BORDER",
+          gridlines: true,
+          headBorder: true,
+          headAccentLine: true,
+          splitter: true,
+          splitterAccent: true,
+          detailBorder: "1px solid BORDER",
+          btnBorder: "1px solid BORDER",
+        },
+      },
+      {
+        id: "5",
+        title: "5 — Soft double stroke",
+        badge: "Subtle",
+        desc: "Outer card border + inner 1px inset on table/detail (no harsh lines on filters).",
+        rec: false,
+        chrome: {
+          cardBorder: "1px solid BORDER",
+          cardInset: true,
+          filterTray: false,
+          comboBorder: "1px solid BORDER",
+          searchBorder: "1px solid BORDER",
+          tableBorder: "1px solid BORDER",
+          tableInset: "inset 0 0 0 1px BORDER55",
+          gridlines: true,
+          headBorder: true,
+          splitter: true,
+          detailBorder: "1px solid BORDER",
+          detailInset: true,
+          btnBorder: "1px solid BORDER",
+        },
+      },
+    ];
+
+    let theme = "night";
+
+    function t(key) { return THEMES[theme][key]; }
+
+    function mockHTML(opt, c) {
+      const cardStyle = `
+        background: ${t(c.cardBg || "CARD")};
+        border: ${c.cardBorder || "none"};
+        ${c.cardInset ? `box-shadow: inset 0 0 0 1px ${t("BORDER")}88;` : ""}
+      `;
+      const trayOpen = c.filterTray ? `<div class="filter-tray" style="
+          background:${t(c.filterTrayBg || "CARD_ALT")};
+          border:${c.filterTrayBorder || "1px solid " + t("BORDER")};
+          border-radius:8px;padding:8px;margin-bottom:8px;
+        ">` : "";
+      const trayClose = c.filterTray ? "</div>" : "";
+      const comboStyle = `
+        background:${t(c.comboBg || "CARD_ALT")};
+        border:${c.comboBorder};
+        color:${t("TEXT")};
+        ${c.comboGlow ? `box-shadow: 0 0 0 1px ${t("ACCENT")}44;` : ""}
+      `;
+      const searchStyle = `
+        background:${t("CARD_ALT")};
+        border:${c.searchBorder};
+        color:${t("MUTED")};
+      `;
+      const btnStyle = `
+        background:${t(c.btnBg || "CARD_ALT")};
+        border:${c.btnBorder};
+        color:${t("TEXT")};
+      `;
+      const btnPriStyle = `
+        background:${t("ACCENT")};
+        border:1px solid ${t("ACCENT")};
+        color:#fff;
+      `;
+      const tableWrap = `
+        border:${c.tableBorder || "none"};
+        background:${t(c.tableBg || "CARD_ALT")};
+        ${c.tableInset || ""}
+      `;
+      const headStyle = c.headBorder
+        ? `background:${t(c.headBg || "CARD")};border-bottom:1px solid ${t("BORDER")};
+           ${c.headAccentLine ? `box-shadow: inset 0 -2px 0 ${t("ACCENT")}66;` : ""}`
+        : `background:${t("CARD")};`;
+      const rowBorder = c.gridlines ? `border-bottom:1px solid ${t("BORDER")}` : "border-bottom:none";
+      const cellBorder = c.gridlines ? `border-right:1px solid ${t("BORDER")}` : "";
+      const split = c.splitter
+        ? `<div class="mock-splitter" style="background:${c.splitterAccent ? t("ACCENT") + "99" : t("BORDER")}"></div>`
+        : `<div style="height:6px;margin:6px 0;background:transparent"></div>`;
+      const detailStyle = `
+        background:${t(c.detailBg || "CARD_ALT")};
+        border:${c.detailBorder || "none"};
+        ${c.detailInset ? `box-shadow: inset 0 0 0 1px ${t("BORDER")}66;` : ""}
+      `;
+
+      return `
+        <div class="mock-card" style="${cardStyle}">
+          <div class="mock-title">Driver updates</div>
+          <div class="mock-status">3 device(s) · showing 3 of 154 · 3 update(s)</div>
+          ${trayOpen}
+          <div class="filter-row">
+            <div class="mock-combo" style="${comboStyle}">Updates available <span class="chev">▼</span></div>
+            <div class="mock-search" style="${searchStyle}">Search by name…</div>
+            <div class="mock-btn" style="${btnStyle}">Load devices</div>
+            <div class="mock-btn primary" style="${btnPriStyle}">Search for updates</div>
+          </div>
+          ${trayClose}
+          <div class="mock-table" style="${tableWrap}">
+            <div class="mock-table-head" style="${headStyle}">
+              <span style="${cellBorder}"></span><span style="${cellBorder}">☐</span>
+              <span style="${cellBorder}">Device</span><span style="${cellBorder}">Installed</span><span>Status</span>
+            </div>
+            <div class="mock-table-row sel" style="background:${t("TABLE_SELECTION")};${rowBorder}">
+              <span style="${cellBorder}">◆</span><span style="${cellBorder}">☑</span>
+              <span style="${cellBorder}">NVIDIA GeForce RTX 3070 Ti…</span>
+              <span style="${cellBorder}">32.0.16…</span><span>Update</span>
+            </div>
+            <div class="mock-table-row" style="background:${t("GOLD_BG")};color:${t("GOLD_FG")};${rowBorder}">
+              <span style="${cellBorder}">◆</span><span style="${cellBorder}">☑</span>
+              <span style="${cellBorder}">Realtek Audio</span>
+              <span style="${cellBorder}">6.0.9…</span><span>Update</span>
+            </div>
+          </div>
+          ${split}
+          <div class="mock-detail" style="${detailStyle}">
+            <strong>NVIDIA GeForce RTX 3070 Ti Laptop GPU</strong>
+            <div class="muted">Installed 32.0.16.1047 · Manufacturer catalog</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      const th = THEMES[theme];
+      document.body.style.background = th.BG;
+      document.body.style.color = th.TEXT;
+      const bar = document.getElementById("themeBar");
+      bar.style.background = th.CARD;
+      bar.style.border = `1px solid ${th.BORDER}`;
+      document.getElementById("problemBox").style.background = th.problemBg;
+      document.getElementById("problemBox").style.border = `1px solid ${th.problemBorder}`;
+      document.getElementById("problemBox").style.color = th.problemText;
+      document.getElementById("legendBox").style.background = th.CARD;
+      document.getElementById("legendBox").style.border = `1px solid ${th.BORDER}`;
+
+      document.querySelectorAll(".theme-btns button").forEach(btn => {
+        const on = btn.dataset.theme === theme;
+        btn.classList.toggle("active", on);
+        btn.style.background = on ? th.ACCENT : th.CARD_ALT;
+        btn.style.color = on ? "#fff" : th.TEXT;
+        btn.style.borderColor = on ? th.ACCENT : th.BORDER;
+      });
+
+      document.getElementById("optionsGrid").innerHTML = OPTIONS.map(opt => `
+        <article class="option ${opt.rec ? "rec" : ""}" style="background:${th.CARD};border:1px solid ${th.BORDER}">
+          <div class="option-head">
+            <span class="badge" style="background:${th.CARD_ALT};border:1px solid ${th.BORDER};color:${th.MUTED}">${opt.badge}</span>
+            <h2>${opt.title}</h2>
+            <p>${opt.desc}</p>
+          </div>
+          <div class="option-body">${mockHTML(opt, opt.chrome)}</div>
+        </article>
+      `).join("");
+    }
+
+    document.querySelectorAll(".theme-btns button").forEach(btn => {
+      btn.addEventListener("click", () => { theme = btn.dataset.theme; render(); });
+    });
+    render();
+  </script>
+</body>
+</html>

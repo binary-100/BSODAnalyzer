@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "version_found": 1,
+    "parse_failed": 1
+  },
+  "results": [
+    {
+      "vendor": "razer",
+      "label": "Razer Pro Type Ultra",
+      "notes": "mysupport article a_id/6217 \u2014 not Synapse",
+      "status": "version_found",
+      "version_found": "1.03.00_r3",
+      "url": "https://mysupport.razer.com/app/answers/detail/a_id/6217",
+      "parse_method": "razer_support_article",
+      "coverage_reason": ""
+    },
+    {
+      "vendor": "logitech",
+      "label": "Logitech Gaming Virtual Keyboard",
+      "notes": "Virtual HID \u2014 search support articles by vendor + class",
+      "status": "parse_failed",
+      "version_found": "",
+      "url": "https://support.logi.com/hc/en-001/articles/1500007304442-Firmware-Update-Tool",
+      "parse_method": "zendesk_support_article",
+      "coverage_reason": "parse_failed"
+    }
+  ]
+}

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>All tabs — new design preview (1280×960)</title>
+  <style>
+    :root {
+      --bg: #1e1e23; --card: #26262d; --card-alt: #2c2c34; --border: #3a3a44;
+      --text: #e7e7ec; --muted: #9a9aa6; --accent: #2f81f7; --gold: #d8a000;
+      --green: #3fb950; --orange: #f5731f; --red: #e5484d;
+      --update-bg: rgba(63,185,80,.14); --outdated-bg: #3a3420;
+      --sel: rgba(47,129,247,.22); --slack: rgba(63,185,80,.12);
+      --mono: Consolas, "Cascadia Mono", monospace;
+      --font: "Segoe UI", sans-serif;
+      --body: 12px; --title: 13px; --hero: 20px; --win-h: 960px;
+      --list-pane: 320px; --viewport: 208px; --row-dual: 48px; --row-single: 30px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px 24px 60px; background: #0e0e12; color: var(--text); font-family: var(--font); font-size: 13px; }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    .intro { color: var(--muted); font-size: 12px; line-height: 1.55; max-width: 1000px; margin-bottom: 16px; }
+    .spec { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; max-width: 1280px; margin-bottom: 18px; font-size: 11px; color: #7ec8ff; font-family: var(--mono); line-height: 1.55; }
+    .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; max-width: 1280px; }
+    .nav a { color: var(--accent); text-decoration: none; font-size: 12px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+    .nav a:hover { border-color: var(--accent); }
+    .section { margin-bottom: 56px; max-width: 1280px; }
+    .section-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .section-head h2 { font-size: 16px; margin: 0; }
+    .pill { font-size: 10px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .pill.ok { border-color: var(--green); color: #9cf0a8; }
+    .pill.watch { border-color: var(--gold); color: #f0d080; }
+    .pill.cat { border-color: var(--accent); color: #9ec5ff; }
+    .risk { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; max-width: 1000px; }
+    .risk strong { color: var(--gold); }
+    .risk .oknote { color: #9cf0a8; }
+
+    /* ---- window chrome ---- */
+    .win {
+      width: 1280px; max-width: 100%; height: var(--win-h); background: var(--bg);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      display: flex; flex-direction: column; box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+    .win-bar { padding: 5px 12px; background: var(--card-alt); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+    .menu { padding: 2px 10px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .menu span { margin-right: 14px; }
+    .banner {
+      margin: 6px 12px 0; padding: 10px 14px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-shrink: 0;
+    }
+    .banner.off { display: none; }
+    .dot { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+    .dot.g { background: var(--green); }
+    .dot.y { background: var(--gold); }
+    .banner h3 { margin: 0; font-size: var(--hero); font-weight: 600; line-height: 1.2; }
+    .banner p { margin: 2px 0 0; font-size: var(--body); color: var(--muted); line-height: 1.35; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 3px; padding: 6px 12px 0; flex-shrink: 0; }
+    .tab { padding: 5px 11px; font-size: var(--body); border: 1px solid var(--border); border-radius: 6px 6px 0 0; background: var(--card); color: var(--muted); }
+    .tab.on { color: var(--text); border-bottom: 2px solid var(--accent); }
+    .content { flex: 1; min-height: 0; padding: 0 12px 6px; display: flex; flex-direction: column; overflow: hidden; }
+    .toolbar { flex-shrink: 0; display: flex; flex-wrap: wrap; gap: 8px; padding: 7px 12px; border-top: 1px solid var(--border); background: var(--card-alt); align-items: center; }
+    .btn { font-size: var(--body); padding: 5px 11px; border-radius: 6px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.link { background: none; border: none; color: var(--accent); }
+    .btn.dim { opacity: .45; }
+    .sp { flex: 1; min-width: 8px; }
+
+    /* cards & prose */
+    .card { flex: 1; min-height: 0; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; font-size: var(--body); overflow: hidden; }
+    .card-t { font-size: var(--title); font-weight: 600; margin-bottom: 4px; flex-shrink: 0; }
+    .muted { color: var(--muted); line-height: 1.45; }
+    .two { flex: 1; min-height: 0; display: flex; gap: 10px; }
+    .col3 { flex: 3; min-width: 0; display: flex; flex-direction: column; }
+    .col2 { flex: 2; min-width: 0; display: flex; flex-direction: column; }
+    .scroll { flex: 1; min-height: 0; overflow: auto; }
+    .prose h4 { font-size: var(--title); font-weight: 600; margin: 10px 0 4px; color: var(--text); }
+    .prose h4:first-child { margin-top: 0; }
+    .prose p, .prose li { color: var(--muted); margin: 0 0 6px; line-height: 1.5; }
+    .prose ul { margin: 0; padding-left: 16px; }
+    .step { color: var(--accent); font-weight: 600; }
+    .sev { font-size: 18px; font-weight: 700; color: var(--gold); }
+    .meter { height: 7px; background: var(--bg); border-radius: 4px; margin: 5px 0 8px; overflow: hidden; }
+    .meter i { display: block; height: 100%; width: 38%; background: var(--gold); }
+    .glance { display: grid; grid-template-columns: 1fr auto; gap: 3px 10px; font-size: var(--body); }
+    .glance .k { color: var(--muted); }
+    .glance .v { font-weight: 600; }
+    .mono { font-family: var(--mono); font-size: var(--body); line-height: 1.45; color: #c5c5cc; white-space: pre-wrap; }
+
+    /* catalog 3C */
+    .split { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+    .list-pane { height: var(--list-pane); min-height: var(--list-pane); flex-shrink: 0; display: flex; flex-direction: column; padding: 4px 0; }
+    .toolrow { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 5px; flex-shrink: 0; }
+    .combo, .inp { background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 4px 8px; font-size: var(--body); color: var(--text); }
+    .inp { flex: 1; min-width: 70px; color: var(--muted); }
+    .tbl { flex: 1; min-height: 0; border: 1px solid var(--border); border-radius: 5px; display: flex; flex-direction: column; background: var(--bg); overflow: hidden; }
+    .tbl-h { height: 34px; flex-shrink: 0; display: grid; grid-template-columns: 40px 28px 1fr 168px 88px; align-items: center; padding: 0 4px; background: var(--card-alt); color: var(--muted); font-size: var(--body); border-bottom: 1px solid var(--border); }
+    .tbl-body { height: var(--viewport); flex-shrink: 0; overflow: hidden; }
+    .tbl-r { display: grid; grid-template-columns: 40px 28px 1fr 168px 88px; align-items: center; padding: 0 4px; border-bottom: 1px solid var(--border); font-size: var(--body); }
+    .tbl-r.dual { height: var(--row-dual); }
+    .tbl-r.single { height: var(--row-single); }
+    .tbl-r.sel { background: var(--sel); outline: 1px solid var(--accent); }
+    .tbl-r.upd { background: var(--update-bg); }
+    .tbl-r.out { background: var(--outdated-bg); }
+    .inst { color: var(--muted); line-height: 1.28; white-space: pre-line; font-size: var(--body); }
+    .st-u { color: var(--gold); font-weight: 600; }
+    .st-k, .st-n { color: var(--muted); }
+    .ico { width: 13px; height: 13px; background: var(--card-alt); border: 1px solid var(--border); border-radius: 2px; margin: auto; }
+    .slack { height: 16px; background: var(--slack); text-align: center; font-size: 9px; color: var(--green); line-height: 16px; }
+    .pane-mid { flex: 170; min-height: 0; border-top: 5px solid var(--bg); padding-top: 5px; overflow: hidden; font-size: var(--body); }
+    .pane-bot { flex: 110; min-height: 0; border-top: 5px solid var(--bg); padding-top: 4px; overflow: hidden; font-size: 11px; }
+    .pkg-r { display: grid; grid-template-columns: 68px 1fr 88px; padding: 4px 6px; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .cmp-n { color: var(--green); font-weight: 600; }
+    .hint-y { color: var(--gold); font-size: 11px; margin-top: 3px; line-height: 1.3; }
+    .prog { height: 24px; margin-top: 5px; flex-shrink: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 0 8px; font-size: 11px; color: var(--muted); display: flex; align-items: center; }
+
+    .breakage { background: #2a1f1f; border: 1px solid #5a3a3a; border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 12px; color: #e8c0c0; line-height: 1.5; max-width: 1280px; }
+    .breakage h4 { margin: 0 0 6px; font-size: 13px; color: #f0a0a0; }
+    .breakage ul { margin: 0; padding-left: 18px; }
+    .summary-table { width: 100%; max-width: 1280px; border-collapse: collapse; font-size: 11px; margin-top: 32px; }
+    .summary-table th, .summary-table td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+    .summary-table th { background: var(--card); color: var(--text); }
+    .summary-table td { color: var(--muted); }
+    .status-ok { color: var(--green); }
+    .status-watch { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<h1>All tabs — new design @ 1280×960</h1>
+<p class="intro">
+  Package under review: <strong>3C catalog layout</strong> · <strong>1280×960 default</strong> (not 1080) ·
+  <strong>banner hidden on Drivers/Firmware only</strong> · <strong>12px body / 13px card titles</strong> on content tabs.
+  Scroll each full-window render and check the breakage notes below it.
+</p>
+<div class="spec">
+  WINDOW 1280×960 · MIN 960×640 · CATALOG 12px · CONTENT 12px body / 13px CardTitle / 20px banner hero ·
+  LIST PANE 320px · 4×48px dual rows + 16px slack · SPLIT 420/170/110 · INSTALLED 168px
+</div>
+
+<nav class="nav">
+  <a href="#summary">Summary</a>
+  <a href="#action">Action Plan</a>
+  <a href="#details">Crash Details</a>
+  <a href="#system">System</a>
+  <a href="#drivers">Drivers</a>
+  <a href="#firmware">Firmware</a>
+  <a href="#advanced">Advanced</a>
+  <a href="#breakage-summary">Breakage summary</a>
+</nav>
+
+<!-- ===== SUMMARY ===== -->
+<div class="section" id="summary">
+  <div class="section-head">
+    <h2>Summary</h2>
+    <span class="pill ok">Banner ON</span>
+    <span class="pill">12px prose · 13px cards</span>
+  </div>
+  <p class="risk"><span class="oknote">Likely OK</span> — two-column layout unchanged; −1px prose fits more text. Watch: long plain-English paragraphs on small laptops (min 640px height).</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19 · 1280×960</span><span>Summary</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner">
+      <div class="dot y"></div>
+      <div><h3>Driver: storahci.sys — Moderate</h3><p>Storage stack fault · check Samsung NVMe firmware and chipset drivers.</p></div>
+    </div>
+    <div class="tabs">
+      <span class="tab on">Summary</span><span class="tab">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="two">
+        <div class="col3 card">
+          <div class="card-t">What happened (in plain English)</div>
+          <div class="scroll prose">
+            <p>Windows stopped with <strong style="color:var(--text)">KERNEL_DATA_INPAGE_ERROR (0x7A)</strong>. The dump points at <strong style="color:var(--text)">storahci.sys</strong> on the Samsung 990 PRO path.</p>
+            <h4>Likely cause</h4>
+            <p>Storage I/O — driver, cable/seat, or SSD firmware. Not necessarily failing hardware; start with firmware + driver updates.</p>
+            <h4>Recommended next steps</h4>
+            <ul>
+              <li>Firmware tab → Samsung 990 PRO</li>
+              <li>Drivers tab → storage / chipset / NVMe filters</li>
+              <li>Enable kernel dump if crashes repeat (Advanced)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col2 card">
+          <div class="card-t">Severity</div>
+          <div class="sev">Moderate</div>
+          <div class="meter"><i></i></div>
+          <div class="card-t">Crash timeline</div>
+          <div class="muted">3 BSODs / 30 days · last 2026-07-18</div>
+          <div class="card-t" style="margin-top:8px">At a glance</div>
+          <div class="glance">
+            <span class="k">Bug check</span><span class="v">0x7A</span>
+            <span class="k">Culprit</span><span class="v">storahci.sys</span>
+            <span class="k">Dump</span><span class="v">Minidump</span>
+            <span class="k">Confidence</span><span class="v">Medium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Enable Memory Dump</span>
+      <span class="btn">Export Report</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ACTION ===== -->
+<div class="section" id="action">
+  <div class="section-head">
+    <h2>Action Plan</h2>
+    <span class="pill ok">Banner ON</span>
+    <span class="pill">Scrollable steps</span>
+  </div>
+  <p class="risk"><span class="oknote">Likely OK</span> — scroll area gains ~12px effective width feel; step labels at 12px remain readable. Watch: very long fix plans on 640px min height need scroll (already do).</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>Action Plan</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner"><div class="dot y"></div><div><h3>storahci.sys — storage path</h3><p>Follow steps in order.</p></div></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab on">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card scroll prose">
+        <p class="step" style="margin-top:0">Step 1 — Samsung 990 PRO firmware</p>
+        <p>Firmware tab → Load components → Search. Compare 8B2QJXD7 vs vendor package.</p>
+        <p class="step">Step 2 — Storage / chipset drivers</p>
+        <p>Drivers tab → Load devices → Search. Include NVMe controller + AMD chipset rows.</p>
+        <p class="step">Step 3 — Verify dump collection</p>
+        <p>Advanced → Enable Memory Dump if minidumps lack detail.</p>
+        <p class="step">Step 4 — Monitor 48–72h</p>
+        <p>Reliability Monitor + no new BSOD before closing case.</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Export Report</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DETAILS ===== -->
+<div class="section" id="details">
+  <div class="section-head">
+    <h2>Crash Details</h2>
+    <span class="pill ok">Banner ON</span>
+    <span class="pill">12px mono</span>
+  </div>
+  <p class="risk"><span class="oknote">Likely OK</span> — full-width dump text; 12px mono shows <em>more</em> stack lines. No layout change. Watch: none significant.</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>Crash Details</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner"><div class="dot y"></div><div><h3>0x7A — KERNEL_DATA_INPAGE_ERROR</h3><p>Technical excerpt from latest minidump.</p></div></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab">Action Plan</span><span class="tab on">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card scroll mono">
+BUGCHECK_STR:  0x7A
+FAILURE_BUCKET_ID:  0x7A_storahci!unknown_function
+MODULE_NAME: storahci
+IMAGE_NAME:  storahci.sys
+
+STACK_TEXT:
+  storahci!RaDriverDeviceControl+0x...
+  nt!IofCallDriver+0x...
+  partmgr!PmReadWrite+0x...
+
+Parameter 1: c0000185  ·  Parameter 2: fffff806`8a412000
+Parameter 3: fffffc01`923ab000  ·  Parameter 4: fffff806`89123000
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Export Report</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SYSTEM ===== -->
+<div class="section" id="system">
+  <div class="section-head">
+    <h2>System</h2>
+    <span class="pill ok">Banner ON</span>
+    <span class="pill">HTML inventory</span>
+  </div>
+  <p class="risk"><span class="oknote">Likely OK</span> — generated HTML at 12px; section headers 13px. Watch: dense OEM tables (many rows) — already scroll; links to Drivers/Firmware still work.</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>System</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner"><div class="dot g"></div><div><h3>System inventory</h3><p>Alienware m17 R5 · WMI profile loaded.</p></div></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab on">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card scroll prose">
+        <h4>Computer</h4>
+        <p>Alienware m17 R5 · BIOS 1.2.7.0 · Windows 11 Pro build 26200</p>
+        <h4>Processors &amp; graphics</h4>
+        <p>AMD Ryzen 9 6900HX · NVIDIA RTX 3070 Ti · AMD Radeon Graphics</p>
+        <h4>Storage</h4>
+        <p>Samsung SSD 990 PRO 4TB · NVMe · firmware 8B2QJXD7</p>
+        <h4>Network &amp; audio</h4>
+        <p>Realtek 2.5GbE · Intel Wi-Fi 6E AX210 · Realtek Audio</p>
+        <h4>Peripherals</h4>
+        <p>Logitech G900 · Razer Pro Type Ultra · HID keyboard</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Export Report</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DRIVERS ===== -->
+<div class="section" id="drivers">
+  <div class="section-head">
+    <h2>Drivers</h2>
+    <span class="pill cat">3C · Banner OFF</span>
+    <span class="pill ok">4 dual rows</span>
+  </div>
+  <p class="risk"><strong>Main change.</strong> Banner hidden (+~70px). List pane 320px, 12px table, 168px Installed. Watch: inspector/packages shorter (110px) — conflict table may need scroll if 3+ packages; toolbar catalog buttons visible on tab.</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>Drivers · 3C</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner off"></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab on">Drivers</span><span class="tab">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card">
+        <div class="card-t">Driver updates</div>
+        <div class="muted">Searching driver catalogs… 145/152 device(s)</div>
+        <div class="split">
+          <div class="list-pane">
+            <div class="toolrow">
+              <span class="combo">Updates available ▾</span>
+              <span class="inp">Search by name…</span>
+              <span class="btn">① Load devices</span>
+              <span class="btn primary">② Search for updates</span>
+            </div>
+            <div class="tbl">
+              <div class="tbl-h"><span></span><span></span><span>Device</span><span>Installed</span><span>Status</span></div>
+              <div class="tbl-body">
+                <div class="tbl-r dual sel upd"><span class="ico"></span><span class="ico"></span><span>Realtek Audio</span><span class="inst">6.0.9929.1
+Effects 13.1020.1391.394</span><span class="st-u">Update</span></div>
+                <div class="tbl-r dual out"><span class="ico"></span><span class="ico"></span><span>Realtek Gaming 2.5GbE</span><span class="inst">1125.28.1224.2025
+Package 1168.008.0515.2022</span><span class="st-u">Update</span></div>
+                <div class="tbl-r dual upd"><span class="ico"></span><span class="ico"></span><span>NVIDIA RTX 3070 Ti</span><span class="inst">32.0.15.8097
+Branch 581.42</span><span class="st-u">Update</span></div>
+                <div class="tbl-r dual"><span class="ico"></span><span class="ico"></span><span>Intel Wi-Fi 6E AX210</span><span class="inst">23.160.0.8
+PROSet 23.160.0.8</span><span class="st-k">Up to date</span></div>
+                <div class="slack">16px slack below row 4</div>
+              </div>
+            </div>
+          </div>
+          <div class="pane-mid">
+            <div class="card-t" style="margin:0">Realtek Audio</div>
+            <div class="muted">WDM 6.0.9929.1 · Effects 13.1020.1391.394 · Update available</div>
+            <div class="hint-y">Source conflict: OEM vs Microsoft — compare both packages.</div>
+          </div>
+          <div class="pane-bot">
+            <div class="pkg-r" style="background:var(--card-alt);font-weight:600"><span>Compare</span><span>Source</span><span>Package</span></div>
+            <div class="pkg-r"><span class="cmp-n">Newer</span><span>Microsoft (Update Catalog)</span><span>6.0.10001.1</span></div>
+            <div class="pkg-r"><span>Same</span><span>OEM (Dell / Alienware)</span><span>6.0.9738.1</span></div>
+          </div>
+        </div>
+        <div class="prog">Catalog progress: idle</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Enable Memory Dump</span>
+      <span class="btn">Export Report</span>
+      <span class="btn">Download / open page</span>
+      <span class="btn">Install package</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FIRMWARE ===== -->
+<div class="section" id="firmware">
+  <div class="section-head">
+    <h2>Firmware</h2>
+    <span class="pill cat">3C · Banner OFF</span>
+    <span class="pill ok">6 rows visible</span>
+  </div>
+  <p class="risk"><span class="oknote">Big win</span> — all 6 components visible without scroll at 960px height. Watch: empty packages pane before Search looks sparse (cosmetic); after Search packages table same 110px as Drivers.</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>Firmware · 3C</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner off"></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab on">Firmware</span><span class="tab">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card">
+        <div class="card-t">Firmware updates</div>
+        <div class="muted">6 component(s) · full scan</div>
+        <div class="split">
+          <div class="list-pane">
+            <div class="toolrow">
+              <span class="combo">All components ▾</span>
+              <span class="inp">Search by name…</span>
+              <span class="btn">① Load components</span>
+              <span class="btn primary">② Search for updates</span>
+            </div>
+            <div class="tbl">
+              <div class="tbl-h"><span></span><span></span><span>Component</span><span>Installed</span><span>Status</span></div>
+              <div class="tbl-body" style="height:auto">
+                <div class="tbl-r single sel"><span class="ico"></span><span class="ico"></span><span>HID Keyboard Device</span><span class="inst">—</span><span class="st-n">No match</span></div>
+                <div class="tbl-r single"><span class="ico"></span><span class="ico"></span><span>Logitech G900 Gaming Mouse</span><span class="inst">—</span><span class="st-n">No match</span></div>
+                <div class="tbl-r single"><span class="ico"></span><span class="ico"></span><span>Motherboard BIOS (Alienware)</span><span class="inst">1.2.7.0</span><span class="st-k">Up to date</span></div>
+                <div class="tbl-r single"><span class="ico"></span><span class="ico"></span><span>Samsung SSD 990 PRO 4TB</span><span class="inst">8B2QJXD7</span><span class="st-n">Not checked</span></div>
+                <div class="tbl-r single"><span class="ico"></span><span class="ico"></span><span>Razer Pro Type Ultra</span><span class="inst">—</span><span class="st-n">No match</span></div>
+                <div class="tbl-r single"><span class="ico"></span><span class="ico"></span><span>AMD PSP 11.23</span><span class="inst">—</span><span class="st-n">Not checked</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pane-mid">
+            <div class="card-t" style="margin:0">HID Keyboard Device</div>
+            <div class="muted">Installed: — · No catalog match · Verify in vendor app</div>
+            <div class="muted" style="margin-top:4px;font-style:italic">No package rows — run Search for firmware updates.</div>
+          </div>
+          <div class="pane-bot">
+            <div class="muted" style="padding:6px;font-style:italic">(No displayable packages)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Export Report</span>
+      <span class="btn dim">Open download page</span>
+      <span class="btn">Confirm firmware version…</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADVANCED ===== -->
+<div class="section" id="advanced">
+  <div class="section-head">
+    <h2>Advanced</h2>
+    <span class="pill ok">Banner ON</span>
+    <span class="pill">12px mono log</span>
+  </div>
+  <p class="risk"><span class="oknote">Likely OK</span> — CDB card 13px title; raw log already 12px mono. Watch: on 640px min height, raw log area shrinks (already scrolls).</p>
+  <div class="win">
+    <div class="win-bar"><span>BSOD Analyzer v6.2.19</span><span>Advanced</span></div>
+    <div class="menu"><span>File</span><span>Settings</span><span>Tools</span><span>Help</span></div>
+    <div class="banner"><div class="dot g"></div><div><h3>Debugger &amp; raw output</h3><p>CDB bundled · minidump analysis log below.</p></div></div>
+    <div class="tabs">
+      <span class="tab">Summary</span><span class="tab">Action Plan</span><span class="tab">Crash Details</span>
+      <span class="tab">System</span><span class="tab">Drivers</span><span class="tab">Firmware</span><span class="tab on">Advanced</span>
+    </div>
+    <div class="content">
+      <div class="card" style="flex:0 0 auto;margin-bottom:6px">
+        <div class="card-t">Debugger (CDB)</div>
+        <div class="muted">CDB found (bundled) v10.0.26100.6584 · offline copy</div>
+        <div class="toolrow" style="margin-top:6px;margin-bottom:0">
+          <span class="btn">Install CDB</span>
+          <span class="btn">Check for CDB updates</span>
+        </div>
+      </div>
+      <div class="card scroll mono" style="flex:1">
+Opened log: analysis_20260718.txt
+Loading Dump File [C:\Windows\Minidump\071826-15234-01.dmp]
+Symbol search path: srv*
+................................................................
+Analysis completed — see Crash Details for formatted view.
+      </div>
+    </div>
+    <div class="toolbar">
+      <span class="btn primary">Run Analysis</span>
+      <span class="btn">Enable Memory Dump</span>
+      <span class="btn">Open latest dump in WinDbg</span>
+      <span class="sp"></span>
+      <button class="btn link">Open in WinDbg (advanced)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BREAKAGE SUMMARY ===== -->
+<div class="section" id="breakage-summary">
+  <h2 style="font-size:16px;margin-bottom:12px">Breakage / risk summary</h2>
+  <table class="summary-table">
+    <tr>
+      <th>Tab</th>
+      <th>Design change</th>
+      <th>Risk</th>
+      <th>Verdict</th>
+    </tr>
+    <tr>
+      <td>Summary</td>
+      <td>12px prose, 13px cards, 20px banner</td>
+      <td>Long text on 640px min height</td>
+      <td class="status-ok">Low — scroll already used</td>
+    </tr>
+    <tr>
+      <td>Action Plan</td>
+      <td>Same typography tier</td>
+      <td>None expected</td>
+      <td class="status-ok">Low</td>
+    </tr>
+    <tr>
+      <td>Crash Details</td>
+      <td>12px mono dump text</td>
+      <td>None — more lines visible</td>
+      <td class="status-ok">Low</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>12px generated HTML</td>
+      <td>Dense OEM pages</td>
+      <td class="status-ok">Low — scroll</td>
+    </tr>
+    <tr>
+      <td><strong>Drivers</strong></td>
+      <td>3C layout, no banner, 960px window</td>
+      <td>Shorter packages pane (110px); 3+ package rows scroll</td>
+      <td class="status-watch">Medium — monitor OEM conflict UI</td>
+    </tr>
+    <tr>
+      <td><strong>Firmware</strong></td>
+      <td>3C layout, no banner</td>
+      <td>Empty packages area before Search looks bare</td>
+      <td class="status-watch">Low cosmetic</td>
+    </tr>
+    <tr>
+      <td>Advanced</td>
+      <td>13px CDB card title</td>
+      <td>Small raw log on min height</td>
+      <td class="status-ok">Low</td>
+    </tr>
+    <tr>
+      <td>Global</td>
+      <td>1280×960 default (not 1080)</td>
+      <td>Users with saved window geometry unaffected</td>
+      <td class="status-ok">Low — first launch only</td>
+    </tr>
+    <tr>
+      <td>Menu / shell</td>
+      <td>Stays 13px</td>
+      <td>Slight mismatch with 12px tabs</td>
+      <td class="status-watch">Optional: leave shell at 13px</td>
+    </tr>
+  </table>
+
+  <div class="breakage">
+    <h4>Items to validate in real app (not visible in static renders)</h4>
+    <ul>
+      <li>Task progress bar on catalog tabs — header strip may show without banner (by design)</li>
+      <li>Saved <code>catalog_tab_splitter_sizes</code> in user settings may override 420/170/110 until reset</li>
+      <li>Admin notice bar (non-admin) still above tabs — unchanged</li>
+      <li>Summary “Update driver” sub-card when expanded — 13px title should match</li>
+      <li>High-DPI / 125% Windows scaling — row heights are px-based; may need future scaling pass</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

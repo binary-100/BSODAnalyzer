@@ -1,0 +1,107 @@
+---
+description: Always-on agent defaults — MCP terminal hygiene, non-interactive builds, loop-back, audit protocol
+alwaysApply: true
+---
+
+# Agent defaults (all sessions)
+
+## Session start
+
+On the **first turn** in a project, read **`docs/AGENT_SESSION_START.md`** when it exists, before substantial work. It carries the stale/fresh verdict for this project's agent context and the absolute paths you are expected to have read. If it reports **stale**, follow **Context refresh** below rather than working from whatever this chat already believes.
+
+Some repositories are meant to be copied or downloaded and therefore keep **no** per-machine files inside themselves. There the context artifacts live in a machine-local directory outside the checkout instead, and `docs/AGENT_SESSION_START.md` will simply be absent — run the context refresh and read the paths it prints rather than concluding the project has no context.
+
+The project's `AGENTS.md` and `AI_INSTRUCTIONS.md` say the same thing — this rule covers projects whose entry files predate that line or were customized.
+
+## Loop-back (all projects)
+
+On **any repeated error**, **same question again**, or **still broken** / **anything else** / **check everything again**:
+
+Follow **`loop-back-protocol.mdc`** and **`pack/docs/AGENT_WORKFLOW.md`** — in the starter pack, or at `%USERPROFILE%\.cursor\AgentStarterPack\pack\docs\AGENT_WORKFLOW.md` from any other project. Read the workstream from the start, validate repo state, diff intent vs reality, then proceed differently. Applies to **all projects**, not only audits.
+
+## Terminal & builds
+
+- Before/after long shell commands: use **agent-hygiene** MCP when available.
+- **Preferred one-shot:** `agent_hygiene_full_check` (terminals + orphan py/python scan).
+- **After force-killing a terminal** (`exit_code: 4294967295`): run `scan_orphan_agent_processes`, then `cleanup_orphan_agent_processes` with `dry_run=True` first; only set `dry_run=False` after confirming targets.
+- Repair stale logs: `fix_stale_terminal_logs`. Kill a specific PID: `kill_terminal_process`.
+- Without MCP: `pack/scripts/cleanup-orphan-processes.ps1` (add `-Kill` to terminate).
+- Agent-initiated Windows builds: set **`BUILD_NOPAUSE=1`** or run **`build_ci.bat`** — never leave batch files waiting on `pause`. The same applies to any double-click launcher you run yourself.
+- GUI/offscreen test suites: expect ~20s; full PyInstaller builds: allow 2–5+ minutes (`block_until_ms` accordingly).
+- If the user reports "taking longer than expected": check OS process table; run full hygiene check; tell user to **Kill Terminal** in the editor UI if the tab still spins (agents cannot dismiss UI tabs).
+
+Depth beyond this: skill **`agent-terminal-hygiene`** (diagnosis, stale metadata, orphans) and **`generic-terminal-and-build-hygiene.mdc`** (writing builds that never wait on a prompt). This section is the operational default; those two do not repeat it.
+
+## Audits (Fix / Improve only)
+
+On **audit**, **full scan**, **check everything**, **find problems**, a repeated **still broken** / **anything else**, or audit-system maintenance (same trigger list as **`audit-protocol.mdc`**):
+
+1. **Loop back** first if this is a repeat ask (see above).
+2. Product: step 1 **`run_audit.cmd`** (full tests, never `-SkipTests`); step 2 semantic report; step 3 **`finalize_audit.cmd`**. System: **`verify-audit-system.ps1`**.
+3. Load skill **`agent-code-audit`**. Report **only** Fix (remove gap) and Improve (mitigate gap).
+
+Docs: `pack/docs/AGENT_WORKFLOW.md`, `AUDIT_SYSTEM_CHANGELOG.md`, `AUDIT_SYSTEM.md`
+
+After audit-system changes: **`sync-audit-system.ps1`** + changelog entry.
+
+## Context refresh (stale chat)
+
+On **refresh pack context**, **sync agent context**, **context refresh**, or **pack update**:
+
+1. Read `docs/AGENT_REFRESH.md` in the **current workspace** if present, then every path in `requiredReads` from `docs/AGENT_CONTEXT.json` (absolute paths — use them if workspace root differs). If neither file is there, the project keeps its context outside the checkout: run the refresh (step 3) and read the paths it prints.
+2. Treat anything you learned earlier in this chat as possibly stale where it conflicts.
+3. Missing or unclear? Read `docs/AGENT_CONTEXT.json`, call MCP **`check_pack_freshness`** / **`get_agent_refresh_brief`** when agent-hygiene is available, or run the refresh yourself as below.
+4. **Handshake:** reply with the pack version and audit engine version you just read when the refresh brief or paste line asks for it.
+
+When an audit reports **Agent context stale / never refreshed / unreadable**, do not hand the user a
+command to type: **offer to run `Refresh-AgentContext.cmd` for this project yourself** and let them
+approve the run. On approval, run it, then read the regenerated brief in the same turn — the command
+prints every path it wrote. It syncs this project's rules and audit files from the installed pack; it
+does not change the user profile unless asked with `-Install`.
+
+## Fixes the agent runs (do not offload)
+
+**Agent runs commands; user verifies outcomes.** The user may review output, exit codes, and diffs to see what happened and pivot if something else should happen — that is **verification**, not **execution**. Do not ask the user to type fix commands you can run in this session.
+
+When **you** find a fixable gap during work (verify drift, sync failure, doc-version stale header, test you can run, refresh you can offer):
+
+1. **Run the fix in the same turn** — you execute; report paths, stdout/stderr highlights, and exit codes so the user can verify.
+2. **Pause for pivot only when needed** — after reporting, the user may redirect; do not substitute "please run X" for step 1.
+3. **Offer + run on approval** only when the fix needs explicit consent (profile **`install.ps1`**, destructive prune, or the user has not asked for profile writes) — still **you** run it after they approve, not "type this yourself."
+
+| You found | Agent runs (same session) |
+|---------|---------------------------|
+| Audit sync drift (Desktop vs `%USERPROFILE%\.cursor\AgentStarterPack`) | `sync-audit-system.ps1` or `install.ps1 -Scope User -NoPause` |
+| Stale doc-version header after engine bump | `sync-doc-versions.ps1` on the maintainer checkout |
+| Stale agent context (audit Improve / MCP freshness) | `Refresh-AgentContext.cmd` / `Update-AgentStack.cmd` (offer first when profile `-Install`) |
+| Product tests / live validation | Per project `AGENT_READINESS.md` / `PRODUCT_REFERENCE.md` — **never** ask the user to run tests or fix Qt env |
+
+**Forbidden:** ending with "run X to fix" when you can run X yourself (unless blocked — name the blocker and what remains unverified).
+
+## Starter pack location
+
+- `%USERPROFILE%\.cursor\AgentStarterPack\` — prefix the doc paths above and below with this when the
+  current project is not the starter pack itself
+- **Onboarding:** `pack/docs/START_HERE.md`
+- **Any AI tool / new project:** `docs/PORTABLE_SETUP.md`
+- Verify: `doctor.ps1`, `verify-audit-system.ps1`, `sync-audit-system.ps1 -VerifyOnly`
+
+## Chat paths
+
+When citing files on the user's machine in chat, use **full absolute paths** — see **`full-paths-in-chat.mdc`** (`alwaysApply: true`).
+
+## Deep / exhaustive requests
+
+When the user asks for **deep**, **full**, **thorough**, **compare**, **everything**, or **check everything** work, follow **`generic-deep-task-execution.mdc`** (`alwaysApply: true`). Run the matching depth contract with tools **before** concluding. Do **not** tell the user to rephrase or add keywords.
+
+## Work queue (what's on the radar)
+
+When the user asks **what's next**, **what's pending**, or priorities **change mid-session**, follow **`handoff-first.mdc`**: **`docs/handoffs/SESSION.md`** first (if present), then **`docs/WORK_QUEUE.md`**, then **`generic-work-queue-discipline.mdc`**. Do not replace the queue in chat without updating that file.
+
+## Agent handoffs (implement / confirm)
+
+When handing work to **another chat**, follow **`generic-agent-handoff-discipline.mdc`** and **`pack/docs/AGENT_HANDOFFS.md`**. One session opener line only; full instructions live in **`docs/handoffs/`**.
+
+## Agent docs (rules, AGENTS.md)
+
+Before adding or duplicating agent guidance, read what already exists — see **`generic-agent-doc-hygiene.mdc`** (`alwaysApply: true`).

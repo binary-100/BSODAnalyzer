@@ -1,0 +1,36 @@
+---
+description: Phased feature design — one ordered pipeline; runtime order = build order; optional work nested or appendix
+alwaysApply: true
+---
+
+# Phased feature design (all projects)
+
+Use for **multi-step features**, refactors, and “fix it properly” workstreams.
+
+**Full guide:** `%USERPROFILE%\.cursor\AgentStarterPack\pack\docs\PHASED_FEATURE_DESIGN.md`
+
+## Non-negotiables
+
+1. **One sequence** — Phases 1 → N; **runtime order = build order**.
+2. **No phase skips** — Never implement a later phase before an earlier one is complete.
+3. **One checklist** — Single table; project/feature done when every phase is ☑.
+4. **Optional work owns a phase** — No orphan “optional” steps in the main flow.
+
+## Optional / deferred work
+
+Choose one style per plan (do not mix inconsistently):
+
+| Style | Where | Rule |
+|-------|--------|------|
+| **A — Nested (preferred)** | Under owning phase as `4a`, `4b`, … | Mark sub-steps `[required]` or `[optional]`; phase ☑ when required sub-steps done |
+| **B — Appendix** | After main checklist | Entries **must** be labeled `Phase Nx` (e.g. `Phase 4d`); build only after Phase N required work |
+
+**Never:** milestones that combine non-contiguous phases (e.g. “2–4 + 7, then 5–6”).
+
+## Before coding
+
+1. Write or read a phased plan (use template in `PHASED_FEATURE_DESIGN.md`).
+2. Implement **next unchecked phase only**.
+3. Report progress as **“through Phase N”**.
+
+Store plans in `docs/*_PLAN.md` for large features; link from `AGENTS.md` when relevant.

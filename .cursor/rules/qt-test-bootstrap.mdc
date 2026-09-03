@@ -1,0 +1,30 @@
+---
+description: Qt offscreen tests — always bootstrap plugin paths (prevents native error popups)
+globs: tests/test_*.py,tests/gui_test_harness.py
+alwaysApply: false
+---
+
+# Qt test bootstrap (mandatory)
+
+Windows shows a **native Qt platform plugin error dialog** when tests set only `QT_QPA_PLATFORM=offscreen` without **`QT_PLUGIN_PATH`**.
+
+## Run tests
+
+| Do | Don't |
+|----|-------|
+| `run_tests.bat` from the project root | `py -3 tests\test_foo.py` bare |
+| `py -3 tests\run_test_module.py tests\test_foo.py` | `set QT_QPA_PLATFORM=offscreen` alone |
+
+## New GUI-touching tests
+
+- Prefer `from gui_test_harness import offscreen_main_window, offscreen_application`
+- Or import `gui_qt_bootstrap` and call `register_qt_plugins_for_import()` **before** `from PySide6 import …`
+- Never create `QApplication([])` without harness/bootstrap
+
+## Diagnose (agent only)
+
+- Read `%TEMP%\BSODAnalyzer\qt_platform.log` or `gui_qt_bootstrap.read_qt_platform_log()`
+- `agent_hygiene_full_check` → orphan cleanup if tests hung
+- Re-run via `run_test_module.py` or `run_tests.bat` — **never ask the user to do this**
+
+Doc: [`docs/AGENT_READINESS.md`](docs/AGENT_READINESS.md) § Qt test bootstrap

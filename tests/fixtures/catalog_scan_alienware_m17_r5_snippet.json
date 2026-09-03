@@ -1,0 +1,41 @@
+{
+  "hardware_summary": {
+    "manufacturer": "Alienware",
+    "model": "Alienware m17 R5 AMD",
+    "service_tag": "REDACTED",
+    "device_list_count": 119
+  },
+  "devices": [
+    {
+      "device_name": "Realtek Audio",
+      "display_name": "Realtek Audio Effects Component",
+      "device_class": "MEDIA",
+      "installed_version": "6.0.9929.1",
+      "expected_oem_rejects": ["Realtek PCIe Ethernet Controller Driver"]
+    },
+    {
+      "device_name": "Realtek Gaming 2.5GbE Family Controller",
+      "device_class": "NET",
+      "installed_version": "1125.28.1224.2025",
+      "expected_oem_accepts": [
+        {
+          "title": "Realtek PCIe Ethernet Controller Driver",
+          "version": "1168.28.1224.2025"
+        }
+      ],
+      "expected_status_after_fix": "uncertain"
+    },
+    {
+      "device_name": "AMD Audio CoProcessor",
+      "device_class": "SYSTEM",
+      "installed_version": "6.0.2.118",
+      "expected_oem_rejects": ["Realtek High Definition Audio Driver"]
+    },
+    {
+      "device_name": "AMD GPIO Controller",
+      "device_class": "SYSTEM",
+      "installed_version": "2.2.0.137",
+      "expected_oem_rejects": ["AMD Chipset Driver"]
+    }
+  ]
+}

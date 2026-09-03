@@ -1,0 +1,8 @@
+---
+description: Upgrade planning mode — see docs/upgrade/
+alwaysApply: false
+---
+
+# Upgrade planning only
+
+[`docs/upgrade/README.md`](../docs/upgrade/README.md)

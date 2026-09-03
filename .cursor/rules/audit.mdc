@@ -1,0 +1,19 @@
+---
+description: Project audit — full tests, semantic report required, Fix/Improve only
+alwaysApply: true
+---
+
+# Audit
+
+On **audit**, **full scan**, **check everything**, or repeat **still broken** / **anything else**:
+
+1. **Loop back** if repeat ask — `loop-back-protocol.mdc`.
+2. Read **`docs/AUDIT.md`** § Agent deep scan + **Incomplete audit (forbidden)** — gate-only is **not** an audit.
+3. **`run_audit.cmd`** — full tests; never `-SkipTests` (step 1).
+4. **Deep scan (same session, mandatory):** inventory + §2/§2b/§2c + **every domain-map module** (A–N) + **read every doc in [`docs/DOC_MAP.md`](docs/DOC_MAP.md)**; merge findings into Fix/Improve (awareness counts — report Improve even when not editing).
+5. Read **`docs/.audit_agent_manifest.json`** — **`machineFixesBySection`**: listed letters cannot be "Nothing found." in semantic report; use **`agentFocus`** for the rest.
+6. Edit **`docs/.audit_semantic_report.json`** — per-section summaries; **`modulesReviewed[]`** (D–K); **`inventoryAck`** (B); **`docReviewAck`** (M, from `docs/.audit_doc_inventory.json`); **`testsGitHead`**; run **`scripts\verify_semantic_audit.cmd`** (step 2).
+7. **`scripts\finalize_audit.cmd`** — step 3 (machine + semantic verify + harness).
+8. Report **only** Fix and Improve to the user. **Audit Improve ≠ product backlog** (`ROADMAP.md`).
+
+Do not claim audit complete unless **deep scan done in this session** and **`finalize_audit.cmd`** exits 0.

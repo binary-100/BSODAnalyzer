@@ -1,0 +1,2 @@
+# Bundled third-party PowerShell module (see SOURCES.txt).
+# MSCatalogLTS — MIT License, Marco-online / https://github.com/Marco-online/MSCatalogLTS

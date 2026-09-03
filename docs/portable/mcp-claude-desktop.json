@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "agent-hygiene": {
+      "command": "py",
+      "args": [
+        "-3",
+        "{{MCP_SERVER_PATH}}"
+      ]
+    }
+  }
+}

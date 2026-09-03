@@ -1,0 +1,28 @@
+---
+description: Version bump hygiene — bsod_analyzer.VERSION is canonical; VERSION.txt is derived
+globs: bsod_analyzer.py, VERSION.txt, scripts/apply_version.py
+---
+
+# Version sync (mandatory)
+
+**Reference implementation** — see also `AGENTS.md` and `generic-version-sync.mdc`.
+
+**Single source of truth:** `VERSION = "x.y.z"` in `bsod_analyzer.py`.
+
+## Rules
+
+1. **Never hand-edit `VERSION.txt`** — it is generated from `bsod_analyzer.py`.
+2. **After bumping `VERSION` in code**, run in the same task:
+   ```bat
+   py -3 scripts\apply_version.py sync
+   ```
+   Or use a preset when shipping: `py -3 scripts\apply_version.py 6.0.21` (add preset to `PRESETS` first).
+3. **`run_tests.bat` auto-syncs** before tests — if version tests fail, fix `bsod_analyzer.VERSION` first, not `VERSION.txt`.
+4. **Docs** (`IMPROVEMENT_BACKLOG.md`, etc.): prefer linking to `VERSION.txt` over hard-coding version strings in headers.
+
+## What sync updates
+
+- Root `VERSION.txt` (only when out of date vs `bsod_analyzer.py`)
+- `BSODAnalyzer_v6/VERSION.txt` and `README.txt` when that folder exists
+
+Build (`build_and_deploy_v6.bat`) also runs sync after tests.

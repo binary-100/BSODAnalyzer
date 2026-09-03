@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BSOD Analyzer — Drivers &amp; Firmware layout mockups</title>
+  <style>
+    :root {
+      --bg: #1e1e23;
+      --card: #26262d;
+      --card-alt: #2c2c34;
+      --border: #3a3a44;
+      --text: #e7e7ec;
+      --muted: #9a9aa6;
+      --accent: #2f81f7;
+      --warn: #d8a000;
+      --danger: #e5484d;
+      --mono: Consolas, "Cascadia Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 14px/1.45 "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 24px 40px;
+    }
+    h1 { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
+    .sub { color: var(--muted); margin: 0 0 20px; max-width: 720px; }
+    .tabs-app {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .tabs-app span {
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: default;
+    }
+    .tabs-app span.on {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+    }
+    .picker {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .picker button {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .picker button.on {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .panel { display: none; }
+    .panel.on { display: block; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 16px; margin: 0 0 4px; }
+    .card .hint { color: var(--muted); font-size: 12px; margin: 0 0 12px; }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .combo, .search {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .combo { min-width: 130px; }
+    .search { flex: 1; min-width: 140px; }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: var(--card-alt);
+      color: var(--text);
+      cursor: default;
+    }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th {
+      text-align: left;
+      padding: 8px 10px;
+      background: var(--card);
+      color: var(--muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 7px 10px;
+      border-top: 1px solid var(--border);
+    }
+    tr.sel td { background: rgba(47, 129, 247, 0.12); }
+    .pill {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .pill.warn { background: rgba(216, 160, 0, 0.2); color: var(--warn); }
+    .pill.ok { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
+    .device-card {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-alt);
+      margin-bottom: 6px;
+    }
+    .device-card.sel { border-color: var(--accent); background: rgba(47, 129, 247, 0.1); }
+    .device-card .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .device-card .ver { color: var(--muted); font-size: 11px; margin-top: 4px; font-family: var(--mono); }
+    .section { font-size: 13px; font-weight: 600; margin: 12px 0 6px; }
+    .pkg-card {
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-alt);
+    }
+    .pkg-card h3 { margin: 0 0 8px; font-size: 13px; }
+    .steps { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (max-width: 700px) { .meta { grid-template-columns: 1fr; } }
+    .meta .card h3 { font-size: 14px; margin: 0 0 8px; }
+    .meta ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 12px; }
+    .meta li { margin-bottom: 4px; }
+    .ref { border-left: 3px solid var(--border); padding-left: 12px; }
+    .step-pane { display: none; }
+    .step-pane.on { display: block; }
+  </style>
+</head>
+<body>
+  <h1>Drivers &amp; Firmware — layout mockups</h1>
+  <p class="sub">
+    BSOD Analyzer theme (#1e1e23 background, #2f81f7 accent). Open this file in any browser.
+    Path: <code style="color:var(--accent)">mockups/drivers_firmware_layout_mockups.html</code>
+  </p>
+
+  <div class="tabs-app">
+    <span>Summary</span><span>Action Plan</span><span>Crash Details</span><span>System</span>
+    <span class="on">Drivers</span><span>Firmware</span><span>Advanced</span>
+  </div>
+
+  <div class="picker" id="layoutPicker">
+    <button type="button" class="on" data-layout="A">A — Packages card</button>
+    <button type="button" data-layout="B">B — Master / detail</button>
+    <button type="button" data-layout="C">C — Step tabs</button>
+    <button type="button" data-layout="D">D — Minimal chrome</button>
+  </div>
+
+  <!-- A -->
+  <div class="panel on" id="panel-A">
+    <div class="card">
+      <h2>Driver updates</h2>
+      <p class="hint">12 devices need attention</p>
+      <div class="toolbar">
+        <span class="combo">Needs attention ▾</span>
+        <span class="search">Search by name…</span>
+        <span class="btn primary">Check selected</span>
+        <span class="btn">Tools ▾</span>
+      </div>
+      <table>
+        <tr><th>Device</th><th>Installed</th><th>Status</th></tr>
+        <tr class="sel"><td>AMD Processor</td><td style="font-family:var(--mono)">10.0.26100.8521</td><td><span class="pill warn">Crash suspect</span></td></tr>
+        <tr><td>Realtek 2.5GbE Controller</td><td style="font-family:var(--mono)">1125.28.1224.2025</td><td><span class="pill warn">Update</span></td></tr>
+        <tr><td>Standard NVM Express Controller</td><td style="font-family:var(--mono)">10.0.26100.5074</td><td><span class="pill ok">OK</span></td></tr>
+      </table>
+      <div class="pkg-card">
+        <h3>Packages — AMD Processor</h3>
+        <table>
+          <tr><th>Source</th><th>Version</th><th>vs installed</th></tr>
+          <tr><td>AMD</td><td>6.04.28.230</td><td>Newer</td></tr>
+          <tr><td>Dell</td><td>—</td><td>—</td></tr>
+          <tr><td>Microsoft</td><td>10.0.26100</td><td>Older</td></tr>
+        </table>
+        <div class="toolbar" style="margin-top:10px">
+          <span class="btn primary">Download</span>
+          <span class="btn">Install</span>
+          <span class="btn">Tools ▾</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="panel" id="panel-B">
+    <div class="card">
+      <h2>Driver updates</h2>
+      <p class="hint">Side-by-side: devices left, packages right — no vertical splitter</p>
+      <div class="toolbar">
+        <span class="combo">Needs attention ▾</span>
+        <span class="search">Search…</span>
+        <span class="btn primary">Check</span>
+        <span class="btn">Tools ▾</span>
+      </div>
+      <div class="split">
+        <div>
+          <div class="section">Devices</div>
+          <div class="device-card sel">
+            <div class="row"><strong style="font-size:13px">AMD Processor</strong><span class="pill warn">Crash suspect</span></div>
+            <div class="ver">10.0.26100.8521</div>
+          </div>
+          <div class="device-card">
+            <div class="row"><strong style="font-size:13px">Realtek 2.5GbE</strong><span class="pill warn">Update</span></div>
+            <div class="ver">1125.28.1224.2025</div>
+          </div>
+          <div class="device-card">
+            <div class="row"><strong style="font-size:13px">NVMe Controller</strong><span class="pill ok">OK</span></div>
+            <div class="ver">10.0.26100.5074</div>
+          </div>
+        </div>
+        <div>
+          <div class="section">Packages</div>
+          <table>
+            <tr><th>Source</th><th>Version</th><th>vs</th></tr>
+            <tr><td>AMD</td><td>6.04.28.230</td><td>Newer</td></tr>
+            <tr><td>Dell</td><td>—</td><td>—</td></tr>
+            <tr><td>Microsoft</td><td>10.0.26100</td><td>Older</td></tr>
+          </table>
+          <div class="toolbar" style="margin-top:10px">
+            <span class="btn primary">Download</span>
+            <span class="btn">Install</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="panel" id="panel-C">
+    <div class="card">
+      <h2>Driver updates</h2>
+      <p class="hint">One table at a time — click step buttons below</p>
+      <div class="steps">
+        <button type="button" class="btn primary step-btn on" data-step="devices">1. Devices</button>
+        <button type="button" class="btn step-btn" data-step="packages">2. Packages</button>
+        <span style="color:var(--muted);font-size:12px;align-self:center">Check unlocks step 2</span>
+      </div>
+      <div class="step-pane on" id="step-devices">
+        <div class="toolbar">
+          <span class="combo">Needs attention ▾</span>
+          <span class="search">Search…</span>
+          <span class="btn primary">Check selected</span>
+        </div>
+        <table>
+          <tr><th>Device</th><th>Installed</th><th>Notes</th><th>Status</th></tr>
+          <tr class="sel"><td>AMD Processor</td><td style="font-family:var(--mono)">10.0.26100</td><td>Crash suspect</td><td>Suspect</td></tr>
+          <tr><td>Realtek 2.5GbE</td><td style="font-family:var(--mono)">1125.28</td><td>Generic</td><td>—</td></tr>
+        </table>
+      </div>
+      <div class="step-pane" id="step-packages">
+        <p style="color:var(--muted);font-size:12px;margin:0 0 8px">For: AMD Processor</p>
+        <table>
+          <tr><th>Source</th><th>Version</th><th>Date</th><th>vs installed</th><th>Package</th></tr>
+          <tr><td>AMD</td><td>6.04.28</td><td>2026-04</td><td>Newer</td><td>Chipset</td></tr>
+          <tr><td>Dell</td><td>—</td><td>—</td><td>—</td><td>Support</td></tr>
+        </table>
+        <div class="toolbar" style="margin-top:10px">
+          <span class="btn primary">Download / open page</span>
+          <span class="btn">Install package</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="panel" id="panel-D">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+        <div>
+          <h2>Driver updates</h2>
+          <p class="hint" style="margin:0">12 need attention · index 847 cached</p>
+        </div>
+        <span class="pill ok">Full install</span>
+      </div>
+      <div class="toolbar">
+        <span class="combo">Needs attention ▾</span>
+        <span class="search">Search…</span>
+        <span class="btn primary">Check selected</span>
+        <span class="btn">Tools ▾</span>
+      </div>
+      <table>
+        <tr><th>Device</th><th>Driver</th><th>Status</th></tr>
+        <tr class="sel"><td>AMD Processor</td><td style="font-family:var(--mono)">10.0.26100.8521</td><td>Crash suspect</td></tr>
+        <tr><td>Realtek 2.5GbE</td><td style="font-family:var(--mono)">1125.28</td><td>Update available</td></tr>
+      </table>
+      <p style="color:var(--muted);font-size:11px;margin:12px 0 0">Packages appear after Check — not shown until then.</p>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="card ref">
+      <h3>Current UI (reference)</h3>
+      <ul>
+        <li>Card + status + maintenance block</li>
+        <li>Vertical splitter: Devices (5 columns + hint)</li>
+        <li>Vertical splitter: Packages (5 columns + 3 buttons + Tools)</li>
+      </ul>
+    </div>
+    <div class="card" id="metaPros">
+      <h3>B — Master / detail (recommended)</h3>
+      <ul>
+        <li>Pros: no double table stack; status pills; actions beside packages</li>
+        <li>Tradeoff: narrower device names on small screens</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const meta = {
+      A: { title: "A — Contextual packages card", pros: ["Smallest change from today", "Full-width device table", "Packages only after check"], con: "Still scrolls when card opens" },
+      B: { title: "B — Master / detail (recommended)", pros: ["No vertical splitter fight", "Easier scan with pills", "Download/Install always visible"], con: "Less room for long device names" },
+      C: { title: "C — Step tabs", pros: ["One dense table at a time", "Clearest for new users", "Easy on Firmware tab"], con: "Extra click for packages" },
+      D: { title: "D — Minimal chrome", pros: ["Matches System tab density", "One status line", "Deferred packages"], con: "Tools/maintenance less visible" }
+    };
+    document.getElementById("layoutPicker").addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-layout]");
+      if (!btn) return;
+      const id = btn.dataset.layout;
+      document.querySelectorAll("#layoutPicker button").forEach((b) => b.classList.toggle("on", b === btn));
+      document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("on", p.id === "panel-" + id));
+      const m = meta[id];
+      document.getElementById("metaPros").innerHTML = "<h3>" + m.title + "</h3><ul><li>Pros: " + m.pros.join("; ") + "</li><li>Tradeoff: " + m.con + "</li></ul>";
+    });
+    document.querySelectorAll(".step-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".step-btn").forEach((b) => {
+          b.classList.toggle("primary", b === btn);
+          b.classList.toggle("on", b === btn);
+        });
+        document.querySelectorAll(".step-pane").forEach((p) => p.classList.toggle("on", p.id === "step-" + btn.dataset.step));
+      });
+    });
+  </script>
+</body>
+</html>

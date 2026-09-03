@@ -1,0 +1,53 @@
+---
+description: Session handoff first on continue; what's next lookup order; interrupt rule for mid-work issues
+alwaysApply: true
+---
+
+# Handoff-first and "what's next?" (all projects)
+
+Normative detail: **`pack/docs/AGENT_HANDOFFS.md`** § Session handoff.
+
+## Canonical files
+
+| File | Owns |
+|------|------|
+| `docs/handoffs/SESSION.md` | **Now** — where we left off, blockers, open items, pointers only |
+| `docs/WORK_QUEUE.md` | **Priority/status** — one **Next**, Active, Inbox, backlog, Parked, Done |
+| `docs/handoffs/active/HANDOFF_WQ*.md` | **How** to implement one WQ slice |
+
+**Forbidden:** a second doc claiming **Next**, root session mega-docs (retired 2.22.65), chat-only priority lists.
+
+## Project updated / new session
+
+Read in order:
+
+1. `docs/handoffs/SESSION.md` (if present)
+2. `docs/WORK_QUEUE.md` (if present)
+3. Active slice handoff if implementing
+4. `AGENTS.md` / product docs as needed
+
+## Trigger: "what's next?" (and equivalents)
+
+Includes: **what's next**, **continue**, **pick up**, **updated project**, **where did we leave off**, **what remains**.
+
+| Step | Read | If … then next is … |
+|------|------|---------------------|
+| 1 | **SESSION.md** | Open items or blockers → **stop here**; report and act on those |
+| 2 | **WORK_QUEUE.md** | **Next** / untriaged Inbox → that (after SESSION clear) |
+| 3 | Unplanned | Only if SESSION **and** WQ are clear — say so explicitly |
+
+Report format: `Session handoff: … | WQ: … | Unplanned proposal: yes/no`.
+
+## Interrupt rule (while on SESSION or WQ work)
+
+Issues found during the slice (failing tests, verify, regressions, doc contradictions):
+
+- **Fix or triage in the same session** when possible
+- Large surprise → **WQ Inbox** row + note in **SESSION** blockers; do not jump to step 3
+- Do not abandon a broken tree for greenfield ideas
+
+## End of session
+
+Update **SESSION.md** (evidence, blockers, open items, pointers). If WQ status changed, update **WORK_QUEUE.md** first, then align SESSION pointers in the same session.
+
+Related: **`generic-work-queue-discipline.mdc`**, **`generic-agent-handoff-discipline.mdc`**.

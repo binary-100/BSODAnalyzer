@@ -1,0 +1,608 @@
+[
+  {
+    "psid": "98",
+    "pfid": "778",
+    "product": "GeForce GTX 980 Ti",
+    "series": "GeForce 900 Series"
+  },
+  {
+    "psid": "98",
+    "pfid": "755",
+    "product": "GeForce GTX 980",
+    "series": "GeForce 900 Series"
+  },
+  {
+    "psid": "98",
+    "pfid": "756",
+    "product": "GeForce GTX 970",
+    "series": "GeForce 900 Series"
+  },
+  {
+    "psid": "98",
+    "pfid": "764",
+    "product": "GeForce GTX 960",
+    "series": "GeForce 900 Series"
+  },
+  {
+    "psid": "98",
+    "pfid": "782",
+    "product": "GeForce GTX 950",
+    "series": "GeForce 900 Series"
+  },
+  {
+    "psid": "99",
+    "pfid": "785",
+    "product": "GeForce GTX 980",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "757",
+    "product": "GeForce GTX 980M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "758",
+    "product": "GeForce GTX 970M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "765",
+    "product": "GeForce GTX 965M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "769",
+    "product": "GeForce GTX 960M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "770",
+    "product": "GeForce GTX 950M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "795",
+    "product": "GeForce 945M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "796",
+    "product": "GeForce 940MX",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "807",
+    "product": "GeForce 930MX",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "808",
+    "product": "GeForce 920MX",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "771",
+    "product": "GeForce 940M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "772",
+    "product": "GeForce 930M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "773",
+    "product": "GeForce 920M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "99",
+    "pfid": "779",
+    "product": "GeForce 910M",
+    "series": "GeForce 900M Series (Notebooks)"
+  },
+  {
+    "psid": "101",
+    "pfid": "845",
+    "product": "GeForce GTX 1080 Ti",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "815",
+    "product": "GeForce GTX 1080",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "859",
+    "product": "GeForce GTX 1070 Ti",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "816",
+    "product": "GeForce GTX 1070",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "817",
+    "product": "GeForce GTX 1060",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "825",
+    "product": "GeForce GTX 1050 Ti",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "826",
+    "product": "GeForce GTX 1050",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "852",
+    "product": "GeForce GT 1030",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "101",
+    "pfid": "936",
+    "product": "GeForce GT 1010",
+    "series": "GeForce 10 Series"
+  },
+  {
+    "psid": "102",
+    "pfid": "819",
+    "product": "GeForce GTX 1080",
+    "series": "GeForce 10 Series (Notebooks)"
+  },
+  {
+    "psid": "102",
+    "pfid": "820",
+    "product": "GeForce GTX 1070",
+    "series": "GeForce 10 Series (Notebooks)"
+  },
+  {
+    "psid": "102",
+    "pfid": "821",
+    "product": "GeForce GTX 1060",
+    "series": "GeForce 10 Series (Notebooks)"
+  },
+  {
+    "psid": "102",
+    "pfid": "836",
+    "product": "GeForce GTX 1050 Ti",
+    "series": "GeForce 10 Series (Notebooks)"
+  },
+  {
+    "psid": "102",
+    "pfid": "837",
+    "product": "GeForce GTX 1050",
+    "series": "GeForce 10 Series (Notebooks)"
+  },
+  {
+    "psid": "112",
+    "pfid": "910",
+    "product": "GeForce GTX 1660 SUPER",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "112",
+    "pfid": "911",
+    "product": "GeForce GTX 1650 SUPER",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "112",
+    "pfid": "892",
+    "product": "GeForce GTX 1660 Ti",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "112",
+    "pfid": "895",
+    "product": "GeForce GTX 1660",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "112",
+    "pfid": "897",
+    "product": "GeForce GTX 1650",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "112",
+    "pfid": "993",
+    "product": "GeForce GTX 1630",
+    "series": "GeForce 16 Series"
+  },
+  {
+    "psid": "115",
+    "pfid": "899",
+    "product": "GeForce GTX 1660 Ti",
+    "series": "GeForce GTX 16 Series (Notebooks)"
+  },
+  {
+    "psid": "115",
+    "pfid": "921",
+    "product": "GeForce GTX 1650 Ti",
+    "series": "GeForce GTX 16 Series (Notebooks)"
+  },
+  {
+    "psid": "115",
+    "pfid": "898",
+    "product": "GeForce GTX 1650",
+    "series": "GeForce GTX 16 Series (Notebooks)"
+  },
+  {
+    "psid": "107",
+    "pfid": "877",
+    "product": "GeForce RTX 2080 Ti",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "904",
+    "product": "GeForce RTX 2080 SUPER",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "879",
+    "product": "GeForce RTX 2080",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "903",
+    "product": "GeForce RTX 2070 SUPER",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "880",
+    "product": "GeForce RTX 2070",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "902",
+    "product": "GeForce RTX 2060 SUPER",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "107",
+    "pfid": "887",
+    "product": "GeForce RTX 2060",
+    "series": "GeForce RTX 20 Series"
+  },
+  {
+    "psid": "111",
+    "pfid": "919",
+    "product": "GeForce RTX 2080 SUPER",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "111",
+    "pfid": "890",
+    "product": "GeForce RTX 2080",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "111",
+    "pfid": "920",
+    "product": "GeForce RTX 2070 SUPER",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "111",
+    "pfid": "889",
+    "product": "GeForce RTX 2070",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "111",
+    "pfid": "888",
+    "product": "GeForce RTX 2060",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "111",
+    "pfid": "978",
+    "product": "GeForce RTX 2050",
+    "series": "GeForce RTX 20 Series (Notebooks)"
+  },
+  {
+    "psid": "120",
+    "pfid": "985",
+    "product": "GeForce RTX 3090 Ti",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "930",
+    "product": "GeForce RTX 3090",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "964",
+    "product": "GeForce RTX 3080 Ti",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "929",
+    "product": "GeForce RTX 3080",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "965",
+    "product": "GeForce RTX 3070 Ti",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "933",
+    "product": "GeForce RTX 3070",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "934",
+    "product": "GeForce RTX 3060 Ti",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "942",
+    "product": "GeForce RTX 3060",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "120",
+    "pfid": "975",
+    "product": "GeForce RTX 3050",
+    "series": "GeForce RTX 30 Series"
+  },
+  {
+    "psid": "123",
+    "pfid": "976",
+    "product": "GeForce RTX 3080 Ti Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "938",
+    "product": "GeForce RTX 3080 Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "979",
+    "product": "GeForce RTX 3070 Ti Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "939",
+    "product": "GeForce RTX 3070 Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "940",
+    "product": "GeForce RTX 3060 Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "962",
+    "product": "GeForce RTX 3050 Ti Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "123",
+    "pfid": "963",
+    "product": "GeForce RTX 3050 Laptop GPU",
+    "series": "GeForce RTX 30 Series (Notebooks)"
+  },
+  {
+    "psid": "127",
+    "pfid": "1036",
+    "product": "NVIDIA GeForce RTX 4090 D",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "995",
+    "product": "NVIDIA GeForce RTX 4090",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1041",
+    "product": "NVIDIA GeForce RTX 4080 SUPER",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "999",
+    "product": "NVIDIA GeForce RTX 4080",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1040",
+    "product": "NVIDIA GeForce RTX 4070 Ti SUPER",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1001",
+    "product": "NVIDIA GeForce RTX 4070 Ti",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1039",
+    "product": "NVIDIA GeForce RTX 4070 SUPER",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1015",
+    "product": "NVIDIA GeForce RTX 4070",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1022",
+    "product": "NVIDIA GeForce RTX 4060 Ti",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "127",
+    "pfid": "1023",
+    "product": "NVIDIA GeForce RTX 4060",
+    "series": "GeForce RTX 40 Series"
+  },
+  {
+    "psid": "129",
+    "pfid": "1004",
+    "product": "GeForce RTX 4090 Laptop GPU",
+    "series": "GeForce RTX 40 Series (Notebooks)"
+  },
+  {
+    "psid": "129",
+    "pfid": "1005",
+    "product": "GeForce RTX 4080 Laptop GPU",
+    "series": "GeForce RTX 40 Series (Notebooks)"
+  },
+  {
+    "psid": "129",
+    "pfid": "1006",
+    "product": "GeForce RTX 4070 Laptop GPU",
+    "series": "GeForce RTX 40 Series (Notebooks)"
+  },
+  {
+    "psid": "129",
+    "pfid": "1007",
+    "product": "GeForce RTX 4060 Laptop GPU",
+    "series": "GeForce RTX 40 Series (Notebooks)"
+  },
+  {
+    "psid": "129",
+    "pfid": "1008",
+    "product": "GeForce RTX 4050 Laptop GPU",
+    "series": "GeForce RTX 40 Series (Notebooks)"
+  },
+  {
+    "psid": "131",
+    "pfid": "1092",
+    "product": "NVIDIA GeForce RTX 5090 D v2",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1067",
+    "product": "NVIDIA GeForce RTX 5090 D",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1066",
+    "product": "NVIDIA GeForce RTX 5090",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1065",
+    "product": "NVIDIA GeForce RTX 5080",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1068",
+    "product": "NVIDIA GeForce RTX 5070 Ti",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1070",
+    "product": "NVIDIA GeForce RTX 5070",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1076",
+    "product": "NVIDIA GeForce RTX 5060 Ti",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1078",
+    "product": "NVIDIA GeForce RTX 5060",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "131",
+    "pfid": "1090",
+    "product": "NVIDIA GeForce RTX 5050",
+    "series": "GeForce RTX 50 Series"
+  },
+  {
+    "psid": "133",
+    "pfid": "1073",
+    "product": "NVIDIA GeForce RTX 5090 Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  },
+  {
+    "psid": "133",
+    "pfid": "1074",
+    "product": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  },
+  {
+    "psid": "133",
+    "pfid": "1075",
+    "product": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  },
+  {
+    "psid": "133",
+    "pfid": "1077",
+    "product": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  },
+  {
+    "psid": "133",
+    "pfid": "1079",
+    "product": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  },
+  {
+    "psid": "133",
+    "pfid": "1091",
+    "product": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "series": "GeForce RTX 50 Series (Notebooks)"
+  }
+]

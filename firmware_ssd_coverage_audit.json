@@ -1,0 +1,56 @@
+{
+  "summary": {
+    "up_to_date": 3,
+    "compare_unknown": 1
+  },
+  "results": [
+    {
+      "vendor": "samsung",
+      "model": "Samsung SSD 990 PRO 4TB",
+      "example_installed": "8B2QJXD7",
+      "notes": "User machine \u2014 retail NVMe",
+      "status": "up_to_date",
+      "vs_installed": "same",
+      "parse_method": "samsung_series_heading",
+      "version_found": "8B2QJXD7",
+      "coverage_reason": "",
+      "url": "https://semiconductor.samsung.com/consumer-storage/support/tools/"
+    },
+    {
+      "vendor": "samsung",
+      "model": "Samsung SSD 990 PRO 2TB",
+      "example_installed": "8B2QJXD7",
+      "notes": "Same series as 4TB",
+      "status": "up_to_date",
+      "vs_installed": "same",
+      "parse_method": "samsung_series_heading",
+      "version_found": "8B2QJXD7",
+      "coverage_reason": "",
+      "url": "https://semiconductor.samsung.com/consumer-storage/support/tools/"
+    },
+    {
+      "vendor": "samsung",
+      "model": "Samsung SSD 970 EVO Plus 1TB",
+      "example_installed": "2B2QEXM7",
+      "notes": "Common retail SATA/NVMe",
+      "status": "compare_unknown",
+      "vs_installed": "unknown",
+      "parse_method": "samsung_model_anchor",
+      "version_found": "667V15H3",
+      "coverage_reason": "",
+      "url": "https://semiconductor.samsung.com/consumer-storage/support/tools/"
+    },
+    {
+      "vendor": "samsung",
+      "model": "Samsung SSD 980 PRO 1TB",
+      "example_installed": "5B2QGXA7",
+      "notes": "Prior-gen PRO",
+      "status": "up_to_date",
+      "vs_installed": "same",
+      "parse_method": "samsung_series_heading",
+      "version_found": "5B2QGXA7",
+      "coverage_reason": "",
+      "url": "https://semiconductor.samsung.com/consumer-storage/support/tools/"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# BSOD Analyzer dependencies
+# Core app uses only the Python standard library (tkinter ships with CPython on Windows).
+# The modern GUI (Option B) uses PySide6; PyInstaller is used to build the exe.
+# Test/lint tooling lives in requirements-dev.txt so it never reaches the bundle.
+
+PySide6==6.11.1
+pyinstaller>=6.18

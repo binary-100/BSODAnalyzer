@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BSOD Analyzer — Logo concepts (Night / Day / Manly)</title>
+  <style>
+    :root {
+      --bg: #1e1e23;
+      --card: #26262d;
+      --border: #3a3a44;
+      --text: #e7e7ec;
+      --muted: #9a9aa6;
+      --accent: #2f81f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 56px; }
+    h1 { font-size: 22px; margin: 0 0 6px; font-weight: 600; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 32px; max-width: 720px; }
+    section {
+      margin-bottom: 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    section header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      font-weight: 600;
+    }
+    section header span { color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 8px; }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+    }
+    .palette div {
+      padding: 10px 14px;
+      border-right: 1px solid var(--border);
+    }
+    .palette div:last-child { border-right: none; }
+    .palette strong { display: block; margin-bottom: 4px; font-size: 12px; }
+    .night { background: #1e1e23; }
+    .day { background: #eef0f4; color: #121218; }
+    .manly { background: #ebe4f4; color: #362f45; }
+    code { font-size: 10px; opacity: .85; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Logo concepts — themed sets (A–D)</h1>
+    <p class="sub">
+      Four directions, each with <strong>Night</strong>, <strong>Day</strong>, and <strong>Manly</strong> palettes
+      taken from <code>gui_theme.py</code> (<code>ACCENT</code> + background context). Option E (monogram) omitted.
+      Pick a concept row, then we can refine SVG + runtime <code>setWindowIcon()</code> switching.
+    </p>
+
+    <section>
+      <header>A — Diagnostic Shield <span>trust · forensic utility</span></header>
+      <img src="logo_concept_A_shield_themes.png" alt="Concept A shield — Night, Day, Manly">
+      <div class="palette">
+        <div class="night"><strong>Night</strong> accent <code>#2f81f7</code></div>
+        <div class="day"><strong>Day</strong> accent <code>#2563eb</code></div>
+        <div class="manly"><strong>Manly</strong> accent <code>#8570f0</code></div>
+      </div>
+    </section>
+
+    <section>
+      <header>B — Severity Pulse <span>matches in-app severity meter</span></header>
+      <img src="logo_concept_B_severity_themes.png" alt="Concept B severity — Night, Day, Manly">
+      <div class="palette">
+        <div class="night"><strong>Night</strong> 4-bar meter + blue marker</div>
+        <div class="day"><strong>Day</strong> higher-contrast severity colors</div>
+        <div class="manly"><strong>Manly</strong> purple marker ring</div>
+      </div>
+    </section>
+
+    <section>
+      <header>C — Dump Lens <span>minidump · CDB · analysis</span></header>
+      <img src="logo_concept_C_lens_themes.png" alt="Concept C lens — Night, Day, Manly">
+      <div class="palette">
+        <div class="night"><strong>Night</strong> blue lens on dark chrome</div>
+        <div class="day"><strong>Day</strong> clean light forensic look</div>
+        <div class="manly"><strong>Manly</strong> lavender + purple lens</div>
+      </div>
+    </section>
+
+    <section>
+      <header>D — Crash Wave <span>timeline · instability spike</span></header>
+      <img src="logo_concept_D_wave_themes.png" alt="Concept D wave — Night, Day, Manly">
+      <div class="palette">
+        <div class="night"><strong>Night</strong> blue field + white EKG spike</div>
+        <div class="day"><strong>Day</strong> brighter blue gradient</div>
+        <div class="manly"><strong>Manly</strong> purple gradient field</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

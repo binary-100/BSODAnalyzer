@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drivers tab — crash focus note options (interactive)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 20px 24px 64px;
+      background: #0e0e12; color: #e7e7ec;
+      font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px;
+    }
+    h1 { font-size: 22px; margin: 0 0 8px; }
+    .lead { color: #9a9aa6; max-width: 920px; line-height: 1.55; margin-bottom: 16px; }
+    .controls {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      margin-bottom: 20px; max-width: 1100px;
+    }
+    .controls label { font-size: 12px; color: #9a9aa6; display: flex; align-items: center; gap: 6px; }
+    .controls select, .controls button {
+      background: #26262d; color: #e7e7ec; border: 1px solid #3a3a44;
+      border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer;
+    }
+    .controls button.active { border-color: #2f81f7; color: #6aa8ff; }
+    .opt-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .opt-tabs button {
+      padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
+      background: #26262d; border: 1px solid #3a3a44; color: #9a9aa6; cursor: pointer;
+    }
+    .opt-tabs button.active {
+      background: #1e4a7a; border-color: #2f81f7; color: #e7e7ec;
+    }
+    .layout {
+      display: grid; grid-template-columns: 1fr 320px; gap: 24px; max-width: 1100px;
+    }
+    @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
+    .side {
+      background: #26262d; border: 1px solid #3a3a44; border-radius: 10px;
+      padding: 16px; align-self: start;
+    }
+    .side h3 { margin: 0 0 8px; font-size: 14px; }
+    .side p, .side li { color: #9a9aa6; font-size: 12px; line-height: 1.5; }
+    .side ul { margin: 8px 0 0; padding-left: 18px; }
+    .pill {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      padding: 2px 8px; border-radius: 999px; margin-bottom: 8px;
+      border: 1px solid #2f81f7; color: #6aa8ff;
+    }
+
+    .win {
+      width: 100%; max-width: 720px; height: 580px;
+      display: flex; flex-direction: column;
+      border-radius: 10px; overflow: hidden;
+      font-size: 11px;
+    }
+    .win-bar {
+      padding: 4px 10px; font-size: 10px;
+      display: flex; justify-content: space-between; flex-shrink: 0;
+    }
+    .tabs { display: flex; gap: 2px; padding: 4px 8px 0; flex-shrink: 0; flex-wrap: wrap; }
+    .tab { padding: 4px 8px; font-size: 10px; border-radius: 5px 5px 0 0; }
+    .content { flex: 1; min-height: 0; padding: 0 10px 6px; display: flex; flex-direction: column; }
+    .catalog-card {
+      flex: 1; min-height: 0; border-radius: 8px;
+      padding: 8px 10px; display: flex; flex-direction: column;
+    }
+    .card-t { font-size: 12px; font-weight: 600; margin-bottom: 2px; flex-shrink: 0; }
+    .status-line { font-size: 9px; margin-bottom: 6px; flex-shrink: 0; line-height: 1.35; }
+
+    /* Option A — banner */
+    .crash-banner {
+      flex-shrink: 0; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px;
+      font-size: 10px; line-height: 1.45;
+    }
+    .crash-banner strong { font-weight: 600; }
+    .crash-banner .module { font-family: Consolas, monospace; font-size: 10px; }
+    .crash-banner a { text-decoration: underline; cursor: pointer; }
+
+    /* Option C — chip */
+    .filter-tray { border-radius: 6px; padding: 6px; margin-bottom: 6px; flex-shrink: 0; }
+    .filter-row { display: flex; gap: 5px; flex-shrink: 0; flex-wrap: wrap; align-items: center; }
+    .combo, .inp, .fbtn {
+      height: 28px; border-radius: 5px; display: flex; align-items: center;
+      font-size: 10px; padding: 0 8px;
+    }
+    .combo { min-width: 88px; justify-content: space-between; flex-shrink: 0; }
+    .inp { flex: 1; min-width: 80px; }
+    .fbtn { flex-shrink: 0; white-space: nowrap; }
+    .fbtn.primary { font-weight: 600; }
+    .crash-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      height: 28px; padding: 0 10px; border-radius: 5px;
+      font-size: 10px; font-weight: 600; cursor: pointer; flex-shrink: 0;
+    }
+    .crash-chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .tbl {
+      flex: 1; min-height: 0; border-radius: 6px;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .tbl-h, .tbl-r {
+      display: grid; grid-template-columns: 28px 24px 1fr 72px 52px;
+      align-items: center; padding: 0 3px; font-size: 10px;
+    }
+    .dev-cell {
+      display: flex; align-items: center; gap: 4px; min-width: 0;
+      border-right: 1px solid var(--row-border, #3a3a44); padding-right: 4px;
+    }
+    .dev-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .info-wrap {
+      position: relative; flex-shrink: 0; display: flex; align-items: center;
+    }
+    .info-btn {
+      width: 15px; height: 15px; border-radius: 50%;
+      font-size: 10px; font-weight: 700; font-style: italic; font-family: Georgia, serif;
+      display: grid; place-items: center; cursor: help; line-height: 1;
+      border: none; padding: 0;
+    }
+    .info-tooltip {
+      position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%);
+      width: 268px; padding: 8px 10px; border-radius: 6px;
+      font-size: 10px; font-weight: 400; font-style: normal; line-height: 1.45;
+      text-align: left; white-space: normal; z-index: 20;
+      pointer-events: none; opacity: 0; transition: opacity 0.12s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,.35);
+    }
+    .info-wrap:hover .info-tooltip,
+    .info-wrap.pinned .info-tooltip { opacity: 1; pointer-events: auto; }
+    .info-tooltip .tt-title { font-weight: 600; margin-bottom: 4px; }
+    .info-tooltip .tt-mod { font-family: Consolas, monospace; font-size: 9px; }
+    .tbl-h { height: 26px; flex-shrink: 0; font-weight: 600; }
+    .tbl-body { flex: 1; overflow: auto; }
+    .tbl-body.tooltip-friendly { overflow: visible; }
+    .tbl-r { height: 30px; cursor: pointer; }
+    .tbl-r.sel { outline: 1px solid var(--accent, #2f81f7); outline-offset: -1px; }
+    .tbl-r .inst { font-size: 9px; line-height: 1.25; white-space: pre-line; }
+    .ico { width: 18px; height: 18px; border-radius: 3px; margin: auto; font-size: 7px; display: grid; place-items: center; }
+    .chk { width: 12px; height: 12px; border-radius: 2px; margin: auto; }
+    .st-crash { font-weight: 600; font-size: 9px; }
+
+    .splitter { height: 5px; flex-shrink: 0; border-radius: 2px; margin: 3px 0; }
+    .insp {
+      flex: 0.9; min-height: 0; border-radius: 6px; padding: 8px 10px; overflow: hidden;
+    }
+    .insp h4 { margin: 0 0 4px; font-size: 11px; font-weight: 600; }
+    .insp .sub { font-size: 9px; line-height: 1.45; margin-bottom: 6px; white-space: pre-line; }
+    .insp .crash-detail {
+      border-radius: 5px; padding: 6px 8px; font-size: 9px; line-height: 1.45;
+      margin-bottom: 6px;
+    }
+    .insp .field { font-size: 9px; margin-bottom: 3px; }
+    .insp .field span { opacity: 0.75; }
+    .hint-line {
+      flex-shrink: 0; font-size: 9px; padding: 4px 0 2px; line-height: 1.35;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <h1>Drivers tab — crash focus note (4 options)</h1>
+  <p class="lead">
+    Interactive mocks for explaining <strong>why a row is red</strong> after Run Analysis.
+    Scenario: Analysis linked <code>nvlddmkm.sys</code> to a VIDEO_TDR_FAILURE crash. One device matched and is pinned to the top.
+    For <strong>D</strong>, hover (or click) the blue <strong>ⓘ</strong> at the end of the Device column on the red row.
+  </p>
+
+  <div class="opt-tabs" id="optTabs">
+    <button type="button" data-opt="banner">A · Context banner</button>
+    <button type="button" data-opt="inspector">B · Inspector detail</button>
+    <button type="button" data-opt="chip">C · Crash focus chip</button>
+    <button type="button" data-opt="infoicon" class="active">D · Row info icon</button>
+  </div>
+
+  <div class="controls">
+    <label>Theme
+      <select id="themeSelect">
+        <option value="night" selected>Night</option>
+        <option value="day">Day</option>
+        <option value="manly">Manly</option>
+      </select>
+    </label>
+    <label>
+      <input type="checkbox" id="chkAnalysis" checked> After Run Analysis (crash module named)
+    </label>
+    <label>
+      <input type="checkbox" id="chkMatch" checked> Inventory match found
+    </label>
+    <label>
+      <input type="checkbox" id="chkPinTooltip"> Pin tooltip open (screenshot)
+    </label>
+  </div>
+
+  <div class="layout">
+    <div id="winHost"></div>
+    <aside class="side" id="sidePanel"></aside>
+  </div>
+
+  <script>
+    const THEMES = {
+      night: {
+        label: "Night", BG: "#1e1e23", CARD: "#26262d", CARD_ALT: "#2c2c34", BORDER: "#3a3a44",
+        TEXT: "#e7e7ec", MUTED: "#9a9aa6", ACCENT: "#2f81f7", TABLE_SELECTION: "#1e4a7a",
+        CULPRIT_BG: "#3a2228", CULPRIT_FG: "#e5484d", GREEN: "#3fb950",
+        BANNER_BG: "#2a2438", BANNER_BORDER: "#5c4a8a",
+      },
+      day: {
+        label: "Day", BG: "#eef0f4", CARD: "#ffffff", CARD_ALT: "#f4f5f8", BORDER: "#cdd0d8",
+        TEXT: "#121218", MUTED: "#484852", ACCENT: "#2563eb", TABLE_SELECTION: "#bfdbfe",
+        CULPRIT_BG: "#fee2e2", CULPRIT_FG: "#b91c1c", GREEN: "#15803d",
+        BANNER_BG: "#eff6ff", BANNER_BORDER: "#93c5fd",
+      },
+      manly: {
+        label: "Manly", BG: "#ebe4f4", CARD: "#faf8ff", CARD_ALT: "#f0eaf8", BORDER: "#d4c4e8",
+        TEXT: "#362f45", MUTED: "#5f5670", ACCENT: "#8570f0", TABLE_SELECTION: "#c4d8ff",
+        CULPRIT_BG: "#ffd4dc", CULPRIT_FG: "#9f1239", GREEN: "#15803d",
+        BANNER_BG: "#f3efff", BANNER_BORDER: "#c4b5fd",
+      },
+    };
+
+    const SIDE = {
+      banner: {
+        title: "Option A — Context banner",
+        body: `<p>A single line <strong>above the filter row</strong>, visible whenever analysis named a faulting module and at least one row is crash-linked.</p>
+<ul>
+<li>User sees <em>why</em> red exists without changing filters or selecting a row.</li>
+<li>Best paired with removing <strong>Needs attention</strong> from the dropdown (default stays <strong>All devices</strong>).</li>
+<li>Optional “View on Summary tab” link.</li>
+</ul>`,
+      },
+      inspector: {
+        title: "Option B — Inspector detail (+ auto-select)",
+        body: `<p>After analysis, <strong>auto-select the first red row</strong> and expand the inspector subtitle + a small “Crash link” block.</p>
+<ul>
+<li>Reuses existing inspector; adds 2–3 lines from <code>culprit_callout</code>.</li>
+<li>Low chrome cost; easy to miss if inspector is collapsed.</li>
+<li>Works well as a <strong>supplement</strong> to A or C, not alone.</li>
+</ul>`,
+      },
+      chip: {
+        title: "Option C — Crash focus chip",
+        body: `<p>Replace <strong>Needs attention</strong> filter with a read-only chip in the filter tray:</p>
+<ul>
+<li>Click chip → scroll/select first crash-linked row.</li>
+<li>Filter stays on <strong>All devices</strong>; red rows remain at top.</li>
+<li>Chip text adapts when module named but no inventory match.</li>
+</ul>`,
+      },
+      infoicon: {
+        title: "Option D — Blue ⓘ on crash-linked rows",
+        body: `<p>A small <strong>accent-colored information icon</strong> at the trailing edge of the Device column, only on crash-linked (red) rows.</p>
+<ul>
+<li><strong>Hover</strong> (or focus) shows plain-language copy tied to <strong>Run Analysis</strong> — no WinDbg jargon.</li>
+<li>Zero extra vertical space; works with <strong>All devices</strong> view — no Needs attention filter.</li>
+<li>In Qt: <code>QToolTip</code> or delegate paint + <code>setToolTip</code> on the icon cell; keyboard accessible.</li>
+<li>Can combine with A (one-line banner) for first-time users who miss the icon.</li>
+</ul>`,
+      },
+    };
+
+    let currentOpt = "infoicon";
+    let rowSelected = true;
+
+    function t(th, k) { return th[k]; }
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function buildRows(th, hasAnalysis, hasMatch) {
+      const rows = [];
+      if (hasAnalysis && hasMatch) {
+        rows.push({
+          crash: true, sel: rowSelected && currentOpt === "inspector",
+          name: "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+          inst: "32.0.16.1047\n2025-03-14", status: "Pending", statusClass: "st-crash",
+          statusLabel: "Crash", ico: "NV", icoBg: "#76b900",
+          bg: t(th, "CULPRIT_BG"), fg: t(th, "CULPRIT_FG"),
+        });
+      }
+      rows.push(
+        { crash: false, sel: false, name: "Realtek(R) Audio", inst: "6.0.9868.1\n2025-10-22", status: "Pending", statusClass: "", statusLabel: "—", ico: "RT", icoBg: "#0066cc", bg: t(th, "CARD_ALT"), fg: t(th, "TEXT") },
+        { crash: false, sel: false, name: "Intel Wi-Fi 6 AX210", inst: "23.140.0.4\n2025-01-08", status: "Pending", statusClass: "", statusLabel: "—", ico: "IN", icoBg: "#0071c5", bg: t(th, "CARD_ALT"), fg: t(th, "TEXT") },
+        { crash: false, sel: false, name: "Realtek Gaming 2.5GbE…", inst: "1125.30.50.508\n2025-06-01", status: "Pending", statusClass: "", statusLabel: "—", ico: "RT", icoBg: "#0066cc", bg: t(th, "CARD_ALT"), fg: t(th, "TEXT") },
+      );
+      return rows;
+    }
+
+    function bannerHtml(th, hasAnalysis, hasMatch) {
+      if (!hasAnalysis) return "";
+      if (!hasMatch) {
+        return `<div class="crash-banner" style="background:${t(th,"BANNER_BG")};border:1px solid ${t(th,"BANNER_BORDER")};color:${t(th,"TEXT")}">
+          <strong>Crash analysis:</strong> WinDbg named faulting module <span class="module">nvlddmkm.sys</span> (BugCheck VIDEO_TDR_FAILURE).
+          No installed device row matched that module yet — use <strong>Load devices</strong> or check Summary for vendor links.
+        </div>`;
+      }
+      return `<div class="crash-banner" style="background:${t(th,"BANNER_BG")};border:1px solid ${t(th,"BANNER_BORDER")};color:${t(th,"TEXT")}">
+        <strong>Crash focus:</strong> <span class="module">nvlddmkm.sys</span> was named as the faulting driver in your latest analysis (BugCheck VIDEO_TDR_FAILURE).
+        The highlighted row below is the device we matched to that module. <a style="color:${t(th,"ACCENT")}">View on Summary tab</a>
+      </div>`;
+    }
+
+    function filterTrayHtml(th, hasAnalysis, hasMatch) {
+      const showChip = currentOpt === "chip" && hasAnalysis;
+      const comboLabel = currentOpt === "chip" ? "All devices" : (currentOpt === "banner" ? "All devices" : "All devices");
+      const chip = showChip ? `
+        <div class="crash-chip" id="crashChip" title="Click to select crash-linked device"
+          style="background:${t(th,"CULPRIT_BG")};border:1px solid ${t(th,"CULPRIT_FG")};color:${t(th,"CULPRIT_FG")}">
+          <span class="dot" style="background:${t(th,"CULPRIT_FG")}"></span>
+          ${hasMatch ? "Crash focus: nvlddmkm.sys · 1 device" : "Crash focus: nvlddmkm.sys · no match"}
+        </div>` : "";
+      const needsAttention = currentOpt === "inspector" ? `
+        <div class="combo" style="background:${t(th,"CARD")};border:1px solid ${t(th,"BORDER")};color:${t(th,"MUTED")};text-decoration:line-through;opacity:.55" title="Redundant — shown for comparison">Needs attention ▼</div>` : "";
+      return `
+        <div class="filter-tray" style="background:${t(th,"CARD_ALT")};border:1px solid ${t(th,"BORDER")}">
+          <div class="filter-row">
+            ${needsAttention}
+            <div class="combo" style="background:${t(th,"CARD")};border:1px solid ${t(th,"BORDER")};color:${t(th,"TEXT")}">${comboLabel} <span style="opacity:.5">▼</span></div>
+            ${chip}
+            <div class="inp" style="background:${t(th,"CARD")};border:1px solid ${t(th,"BORDER")};color:${t(th,"MUTED")}">Search by name…</div>
+            <div class="fbtn" style="background:${t(th,"CARD_ALT")};border:1px solid ${t(th,"BORDER")};color:${t(th,"TEXT")}">Load devices</div>
+            <div class="fbtn primary" style="background:${t(th,"ACCENT")};border:1px solid ${t(th,"ACCENT")};color:#fff">Search for updates</div>
+          </div>
+        </div>`;
+    }
+
+    function inspectorHtml(th, hasAnalysis, hasMatch) {
+      const expanded = currentOpt === "inspector" && hasAnalysis && hasMatch && rowSelected;
+      if (!expanded) {
+        return `
+          <div class="insp" style="background:${t(th,"CARD_ALT")};border:1px solid ${t(th,"BORDER")}">
+            <h4>${rowSelected ? "Select a device above" : "Select a device above"}</h4>
+            <div class="sub" style="color:${t(th,"MUTED")}">Packages appear after you search for driver updates.</div>
+          </div>`;
+      }
+      return `
+        <div class="insp" style="background:${t(th,"CARD_ALT")};border:1px solid ${t(th,"BORDER")}">
+          <h4>NVIDIA GeForce RTX 3070 Ti Laptop GPU</h4>
+          <div class="sub" style="color:${t(th,"MUTED")}">Installed: 32.0.16.1047 · Pending</div>
+          <div class="crash-detail" style="background:${t(th,"CULPRIT_BG")};border:1px solid ${t(th,"CULPRIT_FG")}44;color:${t(th,"TEXT")}">
+            <strong style="color:${t(th,"CULPRIT_FG")}">Linked to crash module nvlddmkm.sys</strong><br>
+            WinDbg named this module in the most recent minidump (BugCheck 0x116 VIDEO_TDR_FAILURE).<br>
+            Matched by display driver inventory + PnP class Display.
+          </div>
+          <div class="field"><span>Crash link:</span> Linked to crash module nvlddmkm.sys</div>
+          <div class="field"><span>Driver file:</span> nvlddmkm.sys</div>
+          <div class="field"><span>Provider:</span> NVIDIA</div>
+        </div>`;
+    }
+
+    function crashTooltipHtml(th) {
+      return `<div style="color:${t(th,"MUTED")}">
+          Crash analysis flagged this device for attention — check that its driver is current.
+        </div>`;
+    }
+
+    function deviceCellHtml(th, r, pinTooltip) {
+      const showInfo = currentOpt === "infoicon" && r.crash;
+      if (!showInfo) {
+        return `<span style="border-right:1px solid ${t(th,"BORDER")};padding-right:4px">${esc(r.name)}</span>`;
+      }
+      const pinned = pinTooltip ? " pinned" : "";
+      return `<div class="dev-cell" style="--row-border:${t(th,"BORDER")}">
+        <span class="dev-name">${esc(r.name)}</span>
+        <span class="info-wrap${pinned}" data-info="1">
+          <button type="button" class="info-btn" aria-label="Why is this device highlighted from Analysis?"
+            style="background:${t(th,"ACCENT")};color:#fff">i</button>
+          <div class="info-tooltip" style="background:${t(th,"CARD")};border:1px solid ${t(th,"BORDER")};color:${t(th,"TEXT")}">
+            ${crashTooltipHtml(th)}
+          </div>
+        </span>
+      </div>`;
+    }
+
+    function tableRowsHtml(th, rows, pinTooltip) {
+      return rows.map(r => `
+        <div class="tbl-r ${r.sel ? "sel" : ""} ${r.crash ? "crash-row" : ""}" data-crash="${r.crash ? "1" : "0"}"
+          style="background:${r.bg};color:${r.fg};border-bottom:1px solid ${t(th,"BORDER")}">
+          <span class="ico" style="background:${r.icoBg};color:#fff;border:1px solid ${t(th,"BORDER")}">${r.ico}</span>
+          <span class="chk" style="background:${t(th,"ACCENT")};border:1px solid ${t(th,"ACCENT")}"></span>
+          ${deviceCellHtml(th, r, pinTooltip && r.crash)}
+          <span class="inst" style="border-right:1px solid ${t(th,"BORDER")};color:${t(th,"MUTED")}">${esc(r.inst)}</span>
+          <span class="${r.statusClass}" style="color:${r.crash ? t(th,"CULPRIT_FG") : t(th,"MUTED")}">${r.statusLabel}</span>
+        </div>`).join("");
+    }
+
+    function render() {
+      const themeKey = document.getElementById("themeSelect").value;
+      const th = THEMES[themeKey];
+      const hasAnalysis = document.getElementById("chkAnalysis").checked;
+      const hasMatch = document.getElementById("chkMatch").checked;
+      const rows = buildRows(th, hasAnalysis, hasMatch);
+      const cardBorder = `1px solid ${t(th,"BORDER")}`;
+      const statusParts = ["142 device(s) loaded from analysis"];
+      if (hasAnalysis && hasMatch) statusParts.push("1 crash-linked");
+
+      const showBanner = currentOpt === "banner" && hasAnalysis;
+      const pinTooltip = document.getElementById("chkPinTooltip").checked;
+      const hintClass = currentOpt === "inspector" && !(hasAnalysis && hasMatch && rowSelected) ? "" : "hidden";
+      const hintD = currentOpt === "infoicon" && hasAnalysis && hasMatch ? "" : "hidden";
+
+      document.getElementById("winHost").innerHTML = `
+        <div class="win" style="background:${t(th,"BG")};color:${t(th,"TEXT")};border:${cardBorder};--accent:${t(th,"ACCENT")}">
+          <div class="win-bar" style="background:${t(th,"CARD_ALT")};border-bottom:${cardBorder};color:${t(th,"MUTED")}">
+            <span>BSOD Analyzer v6.4.52 · ${th.label}</span><span>Drivers tab mock</span>
+          </div>
+          <div class="tabs">
+            ${["Summary","System","Drivers","Firmware"].map(tab =>
+              `<span class="tab" style="background:${t(th,"CARD")};border:${cardBorder};color:${tab==="Drivers"?t(th,"TEXT"):t(th,"MUTED")};${tab==="Drivers"?`border-bottom:2px solid ${t(th,"ACCENT")}`:""}">${tab}</span>`
+            ).join("")}
+          </div>
+          <div class="content">
+            <div class="catalog-card" style="background:${t(th,"CARD")};border:${cardBorder}">
+              <div class="card-t">Driver updates</div>
+              <div class="status-line" style="color:${t(th,"MUTED")}">${statusParts.join(" · ")} · portable session</div>
+              <div class="${showBanner ? "" : "hidden"}">${bannerHtml(th, hasAnalysis, hasMatch)}</div>
+              ${filterTrayHtml(th, hasAnalysis, hasMatch)}
+              <div class="hint-line ${hintClass}" style="color:${t(th,"MUTED")}">
+                Option B: “Needs attention” filter struck through — red row already at top; inspector carries the explanation when selected.
+              </div>
+              <div class="hint-line ${hintD}" style="color:${t(th,"MUTED")}">
+                Option D: Hover the blue ⓘ on the red row for crash-link details. Click the icon to pin the tooltip (same as “Pin tooltip open”).
+              </div>
+              <div style="flex:1;min-height:0;display:flex;flex-direction:column">
+                <div class="tbl" style="background:${t(th,"CARD_ALT")};border:${cardBorder}">
+                  <div class="tbl-h" style="background:${t(th,"CARD")};color:${t(th,"MUTED")};border-bottom:${cardBorder}">
+                    <span></span><span>☐</span><span>Device</span><span>Installed</span><span>Status</span>
+                  </div>
+                  <div class="tbl-body${currentOpt === "infoicon" ? " tooltip-friendly" : ""}">${tableRowsHtml(th, rows, pinTooltip)}</div>
+                </div>
+                <div class="splitter" style="background:${t(th,"BORDER")}"></div>
+                ${inspectorHtml(th, hasAnalysis, hasMatch)}
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      document.getElementById("sidePanel").innerHTML = `
+        <span class="pill">${SIDE[currentOpt].title}</span>
+        ${SIDE[currentOpt].body}`;
+
+      document.querySelectorAll(".tbl-r").forEach(el => {
+        el.addEventListener("click", e => {
+          if (e.target.closest("[data-info]")) return;
+          rowSelected = true;
+          if (currentOpt === "inspector") render();
+        });
+      });
+      document.querySelectorAll(".info-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.stopPropagation();
+          const wrap = btn.closest(".info-wrap");
+          if (wrap) {
+            wrap.classList.toggle("pinned");
+            document.getElementById("chkPinTooltip").checked = wrap.classList.contains("pinned");
+          }
+        });
+      });
+      const chip = document.getElementById("crashChip");
+      if (chip) chip.addEventListener("click", () => {
+        rowSelected = true;
+        document.querySelector(".crash-row")?.scrollIntoView({ block: "nearest" });
+      });
+    }
+
+    document.getElementById("optTabs").addEventListener("click", e => {
+      const btn = e.target.closest("button[data-opt]");
+      if (!btn) return;
+      currentOpt = btn.dataset.opt;
+      document.querySelectorAll("#optTabs button").forEach(b => b.classList.toggle("active", b === btn));
+      if (currentOpt === "inspector") rowSelected = true;
+      render();
+    });
+
+    document.getElementById("themeSelect").addEventListener("change", render);
+    document.getElementById("chkAnalysis").addEventListener("change", render);
+    document.getElementById("chkMatch").addEventListener("change", render);
+    document.getElementById("chkPinTooltip").addEventListener("change", render);
+
+    render();
+  </script>
+</body>
+</html>

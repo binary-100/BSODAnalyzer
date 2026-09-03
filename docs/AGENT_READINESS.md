@@ -38,7 +38,7 @@ When tradeoffs conflict, state them explicitly. Do not assume “smaller diff”
 
 **Not in scope until cleanup is done:** new ROADMAP work-queue items, Phase 8, or features not already in [`ROADMAP.md`](ROADMAP.md) backlog.
 
-After each slice: **`AUDIT.md` domain map** → **`CATALOG_MODULE_SPLIT.md`** → **`scripts/README.md`** (if new `extract_*.py`) → **§ Module navigation** below → **`DOC_MAP.md`** (if new doc). See [`DOC_MAP.md`](DOC_MAP.md) § Post-slice checklist.
+After each slice: **`AUDIT.md` domain map** → **`CATALOG_MODULE_SPLIT.md`** → **`scripts/README.md`** (if new utility script) → **§ Module navigation** below → **`DOC_MAP.md`** (if new doc). See [`DOC_MAP.md`](DOC_MAP.md) § Post-slice checklist.
 
 ---
 
@@ -202,7 +202,7 @@ Checks: gate recorded · exit 0 · timestamp within `--max-age-minutes` (default
 
 ## Module navigation (~69k LOC)
 
-**Canonical agent code map** — audit completeness lives in [`AUDIT.md`](AUDIT.md) § Domain map; product §11 is pointer-only. Before re-planning a slice, read matching **`scripts/extract_*.py`** ([`scripts/README.md`](../scripts/README.md)).
+**Canonical agent code map** — audit completeness lives in [`AUDIT.md`](AUDIT.md) § Domain map; product §11 is pointer-only. Before re-planning a slice, read [`CATALOG_MODULE_SPLIT.md`](CATALOG_MODULE_SPLIT.md) and [`scripts/README.md`](../scripts/README.md).
 
 | Task | Start modules | Key tests |
 |------|---------------|-----------|

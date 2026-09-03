@@ -1,32 +1,48 @@
 # Session handoff — BSOD Analyzer
 
-**Updated:** 2026-09-02 · **Version:** 6.5.27 (`bsod_analyzer.py` → `VERSION`)
+**Updated:** 2026-09-03 · **Version:** 6.5.27 · **Session status:** clear (no blockers)
 
-## Now
+Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WORK_QUEUE.md) (process) and [`ROADMAP.md`](../ROADMAP.md) (product). **Delete** slice handoffs in `active/` when Done; do not archive.
 
-Product is **stable at 6.5.27** with **empty ROADMAP work queue** and **maintainability milestone 6.5.0 ☑**. Recent process work: **WQ-002** (stick-side migration retired) and **Agent Starter Pack 2.22.65** synced to this repo.
+---
 
-**Canonical status handoff:** [`HANDOFF_BSOD_STATUS.md`](HANDOFF_BSOD_STATUS.md) — read this for full picture.
+## Where we left off
+
+- **Shipping line:** v6.5.27 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
+- **Factory cleanup (2026-09-03):** cruft removed (mockups, slicers, handoff_archive, v5 build line); **Model A** rules — 11 BSOD-specific `.mdc` in project, generic rules profile-only; DOC_MAP/PRODUCT_REFERENCE/Copilot aligned
+- **Queues:** product work queue **empty** · process WQ Active/Inbox **empty** (WQ-001/002 in Done log)
+- **Git:** `https://github.com/binary-100/BSODAnalyzer.git` · branch `main` · factory cleanup committed and pushed (see latest commit on remote)
+- **Validation:** `run_tests.bat` exit **0** (2026-09-03 post-cleanup) · stable archive `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer_StableBuilds\v6.5.27`
+- **Agent pack:** global profile rules; project rules BSOD-only per `AGENTS.md` § Cursor rules (Model A)
+
+**Product next (when user directs):** promote one **Approved intent** row on ROADMAP → work queue → `implement Phase X` per [`upgrade/BUILD_HANDOFF.md`](../upgrade/BUILD_HANDOFF.md). Tracks: Rescue USB · Native dump engine · Guided diagnostic UX — see [`upgrade/README.md`](../upgrade/README.md).
+
+---
 
 ## Blockers
 
 *(none)*
 
+---
+
 ## Open items
 
-- **Product:** none on work queue — promote from ROADMAP **Approved intent** when user directs.
-- **Git:** remote **`https://github.com/binary-100/BSODAnalyzer.git`** — full tree tracked 2026-09-02.
-- **Agent pack:** profile at audit engine **2.22.65**; project context refreshed 2026-09-02.
+- [ ] **Optional:** `MODULE_INDEX.md` from audit domain map — navigation for 138 root modules
+- [ ] **Pack feedback (separate project):** `C:\Users\binar\OneDrive\Desktop\AgentStarterPack_feedback_from_BSOD_factory_2026-09-03.md`
 
-## Pointers (do not duplicate Next here)
+---
+
+## Pointers (do not duplicate Next / Done tables here)
 
 | Doc | Role |
 |-----|------|
-| [`docs/WORK_QUEUE.md`](../WORK_QUEUE.md) | Process WQ radar (WQ-001/002 Done) |
-| [`docs/ROADMAP.md`](../ROADMAP.md) | Product phases + Approved intent |
+| [`docs/WORK_QUEUE.md`](../WORK_QUEUE.md) | Process WQ — **Next**, Active, Inbox, Done |
+| [`docs/ROADMAP.md`](../ROADMAP.md) | Product work queue + **Approved intent** |
 | [`docs/PRODUCT_REFERENCE.md`](../PRODUCT_REFERENCE.md) | Capabilities + agent obligations |
 | [`docs/AGENT_READINESS.md`](../AGENT_READINESS.md) | Session self-audit + validation tiers |
-| [`docs/upgrade/README.md`](../upgrade/README.md) | Upgrade program (Tier 1–3, not buildable until promoted) |
+| [`docs/upgrade/README.md`](../upgrade/README.md) | Upgrade program (Tier 1–3) |
+| [`docs/handoffs/active/`](../handoffs/active/) | **Build slice** handoffs only (while WQ row active) |
 
-**Session opener for next agent:**  
-`Read C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoffs\HANDOFF_BSOD_STATUS.md and confirm.`
+**Session opener (only line for continue / what's next):**
+
+`Read C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoffs\SESSION.md and confirm.`

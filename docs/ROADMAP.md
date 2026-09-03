@@ -44,7 +44,7 @@ Phases **1–7** are the numbered roadmap; all ☑. Open product work lives in t
 |------|------|-------|--------|
 | *(empty)* | | | |
 
-**Recently shipped:** Maintenance USB PC-local data (WQ-001, M1–M4) — ☑ [`upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md`](upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md); handoff archived at [`handoff_archive/HANDOFF_WQ001_maintenance_usb_data.md`](handoff_archive/HANDOFF_WQ001_maintenance_usb_data.md). Stick-side migration removed (M2 retired).
+**Recently shipped:** Maintenance USB PC-local data (WQ-001, M1–M4) — ☑ [`upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md`](upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md); evidence in [`WORK_QUEUE.md`](WORK_QUEUE.md) Done log. Stick-side migration removed (M2 retired).
 
 Promote from [Approved intent](#approved-intent) when ready for upgrade tracks below.
 

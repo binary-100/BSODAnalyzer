@@ -68,7 +68,7 @@ For each letter **A–N**, the semantic `summary` must reflect **work done in th
 - **Section M:** read every file in [`DOC_MAP.md`](DOC_MAP.md) inventory; copy **`docReviewAck`** from `docs/.audit_doc_inventory.json` (generated on test pass); summary must cite doc count reviewed or ≥1 concrete doc finding.
 - **All sections:** set top-level `testsGitHead` from `docs/.audit_agent_manifest.json`; `generatedAt` must be **after** `testsPassedAt`.
 
-**Domain map:** every production `*.py` at project root (except dev-only `preview_amd_logos.py`) must map to a section. Orphans → **Fix** (add to map) or **Improve** (remove/merge module). Machine gate flags unmapped root `*.py` automatically.
+**Domain map:** every production `*.py` at project root must map to a section. Orphans → **Fix** (add to map) or **Improve** (remove/merge module). Machine gate flags unmapped root `*.py` automatically.
 
 ### 1. Repository inventory
 
@@ -293,7 +293,7 @@ Semantic **M** summary must name **doc count reviewed** or cite **≥1** concret
 | Pytest bootstrap: `conftest.py` (app root) | A |
 | Agent: `.cursor\`, `AGENTS.md`, starter pack | L |
 
-**Dev-only (excluded from domain-map auto-check):** `preview_amd_logos.py` · all `scripts\*.py` (listed in `docs/AUDIT.config.json` `excludeModules`)
+**Dev-only (excluded from domain-map auto-check):** all `scripts\*.py` (listed in `docs/AUDIT.config.json` `excludeModules`)
 
 ---
 

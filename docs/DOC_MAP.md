@@ -3,7 +3,7 @@
 **Purpose:** One place to learn **which doc owns what** — so audits and agents do not duplicate content or “fix” the wrong file.  
 **Audit:** Section **M** in [`AUDIT.md`](AUDIT.md) — read **every** active doc listed here each full audit; report duplication/stale content as **Improve** (awareness even when no edit is safe yet).
 
-Last updated: **2026-09-01** · version: see [`VERSION.txt`](../VERSION.txt) · flat repo layout (2026-08-30)
+Last updated: **2026-09-03** · version: see [`VERSION.txt`](../VERSION.txt) · flat repo layout (2026-08-30)
 
 ---
 
@@ -12,7 +12,7 @@ Last updated: **2026-09-01** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | Kind | Rule | Examples |
 |------|------|----------|
 | **Canonical** | Owns the truth; update here when behavior changes | `PRODUCT_REFERENCE.md`, `ROADMAP.md`, `AUDIT.md` |
-| **Pointer / hub** | Links only; **no** duplicated tables, phase lists, or backlog rows | `IMPROVEMENT_BACKLOG.md`, root `EVALUATION.md` |
+| **Pointer / hub** | Links only; **no** duplicated tables, phase lists, or backlog rows | `IMPROVEMENT_BACKLOG.md` |
 | **Thin rule (`.mdc`)** | Triggers + 5–15 lines; **must link** to canonical doc | `product-reference.mdc`, `agent-readiness.mdc`, `qt-test-bootstrap.mdc` |
 | **Archive** | Historical; do not treat as current policy | `docs/audit_archive/`, `docs/design_archive/`, root stubs → archive |
 
@@ -28,11 +28,8 @@ Last updated: **2026-09-01** · version: see [`VERSION.txt`](../VERSION.txt) · 
 |------|------|
 | [`README.md`](../../README.md) | Quick start, layout pointer |
 | [`PROJECT_LAYOUT.md`](../../PROJECT_LAYOUT.md) | Tree contract, stable builds |
-| [`ONEDRIVE_CLEANUP.md`](../../ONEDRIVE_CLEANUP.md) | OneDrive / Phase 8 cleanup status |
-| [`BUILD_NOTES.md`](../../BUILD_NOTES.md) | Build notes (user-facing) |
-| [`CONSOLIDATION.md`](../../CONSOLIDATION.md) | Historical stub — pointer to `PROJECT_LAYOUT.md` |
-| [`EVALUATION.md`](../../EVALUATION.md) | Archive stub → `docs/audit_archive/EVALUATION.md` |
-| [`PERFORMANCE_PLAN.md`](../../PERFORMANCE_PLAN.md) | Archive stub → `docs/audit_archive/PERFORMANCE_PLAN.md` |
+| [`VERSIONING.md`](../../VERSIONING.md) | v6 build line and layout |
+| [`README.txt`](../../README.txt) | Dev-tree quick reference (dist README is generated in `BSODAnalyzer_v6\`) |
 
 ### Agent & product (project root)
 
@@ -48,22 +45,21 @@ Last updated: **2026-09-01** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | [`docs/upgrade/BUILD_HANDOFF.md`](upgrade/BUILD_HANDOFF.md) | Implementation agent checklist |
 | [`docs/upgrade/inbox/`](upgrade/inbox/README.md) | Tier 1 Exploration |
 | [`docs/upgrade/plans/`](upgrade/plans/README.md) | Tier 3 Design PLANs |
-| [`docs/handoffs/HANDOFF_BSOD_STATUS.md`](handoffs/HANDOFF_BSOD_STATUS.md) | Agent status handoff — product + process snapshot |
+| [`docs/handoffs/SESSION.md`](handoffs/SESSION.md) | **Session catch-up** — temporary; blockers + pointers (not durable WQ) |
 | [`docs/WORK_QUEUE.md`](WORK_QUEUE.md) | **Maintainer radar** — WQ ids, Done/Parked/Inbox (not product ROADMAP) |
 | [`docs/WORK_COMPLETION.md`](WORK_COMPLETION.md) | Work-completion checklist (pack) |
 | [`docs/REPO_FLATTEN_PLAN.md`](REPO_FLATTEN_PLAN.md) | Flat layout record (2026-08-30) |
-| [`docs/handoffs/README.md`](handoffs/README.md) | Handoff discipline + active/completed registry |
+| [`docs/handoffs/README.md`](handoffs/README.md) | Handoff discipline — **temporary only; delete when Done** |
 | [`docs/IMPROVEMENT_BACKLOG.md`](IMPROVEMENT_BACKLOG.md) | **Pointer only** — links to ROADMAP / readiness |
 | [`docs/KNOWN_LIMITATIONS.md`](KNOWN_LIMITATIONS.md) | Accepted tradeoffs (not bugs) |
 | [`docs/AUDIT.md`](AUDIT.md) | Full audit A–N, **audit domain map**, §2b/§2c |
 | [`docs/CATALOG_MODULE_SPLIT.md`](CATALOG_MODULE_SPLIT.md) | Module split status & rules |
-| [`docs/TEST_HARNESS_PLAN.md`](TEST_HARNESS_PLAN.md) | **Suite trust** — pytest discovery, static gates, the bugs a green suite was hiding |
-| [`docs/AGENT_HANDOFF_20260821.md`](AGENT_HANDOFF_20260821.md) | **Latest session handoff** — start here; supersedes the 2026-08-20 handoff for session state |
+| [`docs/TEST_HARNESS_PLAN.md`](TEST_HARNESS_PLAN.md) | **Suite trust** — pytest discovery, static gates |
 | [`docs/FACADE_ORCHESTRATION.md`](FACADE_ORCHESTRATION.md) | Facade T3 gate, prune/decouple options |
 | [`docs/DRIVER_VERIFICATION_PLAN.md`](DRIVER_VERIFICATION_PLAN.md) | Completed verification plan |
 | [`docs/DEPENDENCIES_CHEATSHEET.txt`](DEPENDENCIES_CHEATSHEET.txt) | **Dependency matrix** — CDB/WinDbg, PS7, winget, MSCatalog, first-launch flow |
 | [`scripts/README.md`](../scripts/README.md) | **Scripts index** — extract/diag/live utilities; update when adding `scripts/*.py` |
-| [`VERSIONING.md`](../VERSIONING.md) | v5 vs v6 product lines (link `VERSION.txt` for current number) |
+| [`VERSIONING.md`](../VERSIONING.md) | v6 product line and build layout (link `VERSION.txt` for current number) |
 
 ### Design & audit archive (read for context — not build order)
 
@@ -73,29 +69,23 @@ Last updated: **2026-09-01** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | [`docs/audit_archive/README.md`](audit_archive/README.md) | Old audit reports — historical only |
 | [`docs/audit_archive/*`](audit_archive/) | Prior evaluations, performance plans, code audits |
 
-### Cursor rules — agent surface (`.cursor/rules/` + repo root)
+### Cursor rules — BSOD-specific only (`.cursor/rules/`)
 
-Read on audit for **stale commands** (wrong build bats, obsolete paths) and **bloat** (paragraphs duplicated from canonical markdown).
+**Factory (Model A):** generic pack rules live in **`%USERPROFILE%\.cursor\rules\`** — not duplicated in this repo. Audit project rules for stale BSOD commands only.
 
 | File | Canonical doc | Notes |
 |------|----------------|-------|
 | `agent-readiness.mdc` | `AGENT_READINESS.md` | alwaysApply |
 | `audit.mdc` | `AUDIT.md` | alwaysApply |
-| `product-reference.mdc` (repo [`.cursor/rules/`](../../.cursor/rules/product-reference.mdc)) | `PRODUCT_REFERENCE.md` | alwaysApply at repo root |
+| `product-reference.mdc` | `PRODUCT_REFERENCE.md` | alwaysApply |
+| `design-tier-gate.mdc` | `docs/upgrade/README.md` | alwaysApply — no implement from plans / Approved intent / Parked without approval |
+| `project-handoffs.mdc` | `docs/handoffs/README.md` | alwaysApply — delete when Done; no `handoff_archive/` |
 | `qt-test-bootstrap.mdc` | `AGENT_READINESS.md` § Qt | |
 | `gui-testing-roadmap.mdc` | `AGENTS.md` + harness docs | |
 | `version-sync.mdc` | `AGENTS.md` § Version sync | |
-| `terminal-and-build-hygiene.mdc` | generic rule + `AGENTS.md` paths | |
+| `terminal-and-build-hygiene.mdc` | `AGENTS.md` paths | BSOD wrapper |
 | `recompile-after-changes.mdc` | `AGENTS.md` + `AGENT_READINESS.md` § Tiered validation | **Not** “build every edit” |
-| `audit-protocol.mdc` | `audit.mdc` + starter pack `AGENT_WORKFLOW.md` | Cross-project entry; **pointer only** |
-| `loop-back-protocol.mdc` | starter pack `AGENT_WORKFLOW.md` | |
-| `agent-defaults-always.mdc` | starter pack defaults + project paths | |
-| `generic-phased-feature-design.mdc` | starter pack `PHASED_FEATURE_DESIGN.md` | |
-| `generic-version-sync.mdc` | starter pack + `version-sync.mdc` | |
-| `design-tier-gate.mdc` | `docs/upgrade/README.md` | alwaysApply — no implement from plans / Approved intent / Parked without approval |
 | `upgrade-planning-only.mdc` | `docs/upgrade/PLANNING_AGENT.md` | opt-in planning chats |
-| `full-paths-in-chat.mdc` | starter pack `full-paths-in-chat.mdc` | alwaysApply — full absolute paths in chat |
-| `new-project-bootstrap.mdc` | starter pack (other repos) | |
 
 ### Project-local skills (`.cursor/skills/`)
 
@@ -113,9 +103,9 @@ Copies of hygiene/audit skills for this repo. **Canonical** copies live in `%USE
 
 | Artifact | Role |
 |----------|------|
-| **`AUDIT.md` domain map** | Every production `app\*.py` → section A–N; orphan modules → Fix |
+| **`AUDIT.md` domain map** | Every production root `*.py` → section A–N; orphan modules → Fix |
 | **`AGENT_READINESS.md` § Module navigation** | Task-oriented “start here” for agents (see [code map policy](#code-map-policy-item-3)) |
-| **`scripts/extract_*.py`** | Planned slice boundaries — read **before** re-planning a `driver_catalog.py` / GUI extract |
+| **`scripts/README.md`** | **Scripts index** — diag/live/compare; module map in `CATALOG_MODULE_SPLIT.md` |
 | **`tests/test_improve_coverage.py`** | Implicit “must import” module contract |
 | **`tests/test_catalog_audit_coverage.py`** | Catalog invariants |
 | **`tests/test_test_discovery.py`** | Every defined test is collected — guards the pytest discovery fix |

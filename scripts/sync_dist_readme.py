@@ -56,7 +56,7 @@ def render_readme(version: str) -> str:
 
 
 def sync_dist_readme(dist_dir: Path | None = None) -> Path:
-    dist = dist_dir or (ROOT / "BSODAnalyzer_v5")
+    dist = dist_dir or (ROOT / "BSODAnalyzer_v6")
     dist.mkdir(parents=True, exist_ok=True)
     version = _read_version(ROOT / "VERSION.txt")
     out = dist / "README.txt"

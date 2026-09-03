@@ -44,6 +44,6 @@ Spitball and active exploration. **Not build order.** **Not** on ROADMAP.
 - **End product:** one flash drive — **rescue** + **maintenance**.
 - **Foundation shipped:** ROADMAP Phases 1–7 ☑ · maintainability 6.5.0 ☑.
 - **Parked ideas:** [`../parked/PARKED.md`](../parked/PARKED.md) — not active lists.
-- **Maintenance USB data (build queued 2026-08-30):** [`../plans/MAINTENANCE_USB_DATA_PLAN.md`](../plans/MAINTENANCE_USB_DATA_PLAN.md) · opener [`../handoffs/active/HANDOFF_WQ001_maintenance_usb_data.md`](../handoffs/active/HANDOFF_WQ001_maintenance_usb_data.md).
+- **Maintenance USB data:** ☑ WQ-001 Done — [`plans/MAINTENANCE_USB_DATA_PLAN.md`](../plans/MAINTENANCE_USB_DATA_PLAN.md) · evidence [`../../WORK_QUEUE.md`](../../WORK_QUEUE.md) Done log.
 
 See [`../plans/NEXT_UPGRADE_INDEX.md`](../plans/NEXT_UPGRADE_INDEX.md).

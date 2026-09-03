@@ -40,8 +40,7 @@
     "excludeDirs": [
       "audit_archive",
       "release_notes",
-      "design_archive",
-      "handoff_archive"
+      "design_archive"
     ],
     "scanRepoMd": true,
     "scanAppDocsMd": true,
@@ -85,10 +84,6 @@
       "scripts"
     ],
     "excludeModules": [
-      "_build_slice_batch2.py",
-      "_build_slice_modules.py",
-      "_diff_scan_exports.py",
-      "_map_chipset_to_system.py",
       "agent_gate_proof.py",
       "analyze_amd_chipset_package.py",
       "apply_version.py",
@@ -118,38 +113,7 @@
       "diag_realtek_batch.py",
       "diag_vendor_endpoints.py",
       "diag_wu_nvidia.py",
-      "extract_amd_chipset_installer.py",
-      "extract_analyzer_gather.py",
-      "extract_analyzer_hardware.py",
-      "extract_bsod_crash_report.py",
-      "extract_bsod_minidump.py",
-      "extract_catalog_device_context.py",
-      "extract_catalog_device_profiles.py",
-      "extract_catalog_mscatalog_session.py",
-      "extract_catalog_none_reason.py",
-      "extract_catalog_oem_filters.py",
-      "extract_catalog_oem_live.py",
-      "extract_catalog_offer_pipeline.py",
-      "extract_catalog_offer_status.py",
-      "extract_catalog_row_rejects.py",
-      "extract_catalog_scoring.py",
-      "extract_catalog_tier_policy.py",
-      "extract_crash_report_culprit.py",
-      "extract_crash_report_fix_plan.py",
-      "extract_crash_report_format.py",
-      "extract_crash_report_narrative.py",
-      "extract_crash_report_timeline.py",
-      "extract_gui_mixin_catalog_phase2.py",
-      "extract_gui_mixin_catalog_scan.py",
-      "extract_gui_mixin_drivers_inventory.py",
-      "extract_gui_mixin_drivers_table.py",
-      "extract_gui_mixin_drivers_workflow.py",
-      "extract_gui_mixin_firmware_splits.py",
-      "extract_gui_mixin_shell.py",
-      "extract_gui_mixin_shell_phase2.py",
-      "extract_gui_mixin_shell_phase3.py",
       "finalize_portable_dist.py",
-      "finish_catalog_slices.py",
       "firmware_peripheral_coverage_audit.py",
       "firmware_ssd_coverage_audit.py",
       "live_build_smoke.py",
@@ -162,19 +126,13 @@
       "live_probe_gating.py",
       "live_validate_analysis.py",
       "live_workflow_timing.py",
-      "preview_amd_logos.py",
       "probe_ba_symbols.py",
       "probe_gui_bootstrap.py",
       "probe_nvidia_psid_pfid.py",
       "refresh_vendor_icons.py",
-      "remove_catalog_installed_packages.py",
-      "remove_catalog_slices.py",
-      "remove_catalog_slices_batch2.py",
-      "repair_slice_lazy_patch.py",
       "run_lookup_audit_now.py",
       "sign_vendor_manifest.py",
       "simulate_catalog_rejections.py",
-      "split_gui_modules.py",
       "sync_dist_readme.py",
       "sync_install_fallbacks.py",
       "verify_agent_report.py",
@@ -221,9 +179,7 @@
   "codeChecks": {
     "importSmoke": {
       "enabled": true,
-      "exclude": [
-        "preview_amd_logos.py"
-      ],
+      "exclude": [],
       "useModuleSearchDirs": false
     },
     "semanticReportFile": "docs/.audit_semantic_report.json",
@@ -290,7 +246,7 @@
           "README.md",
           "PROJECT_LAYOUT.md"
         ],
-        "onedriveDoc": "docs/repo_flatten_archive/ONEDRIVE_CLEANUP.md"
+        "onedriveDoc": "docs/REPO_FLATTEN_PLAN.md"
       },
       "C": {
         "enabled": true,
@@ -360,16 +316,12 @@
           "KNOWN_LIMITATIONS.md",
           "ROADMAP.md",
           "PRODUCT_REFERENCE.md",
-          "DRIVER_VERIFICATION_PLAN.md",
-          "AGENT_HANDOFF_20260820.md",
-          "AGENT_HANDOFF_20260821.md"
+          "DRIVER_VERIFICATION_PLAN.md"
         ],
         "scanRepoReadme": true,
         "repoFiles": [
           "README.md",
-          "PROJECT_LAYOUT.md",
-          "BUILD_NOTES.md",
-          "CONSOLIDATION.md"
+          "PROJECT_LAYOUT.md"
         ],
         "mdcScanGlobs": [
           ".cursor/rules/*.mdc"

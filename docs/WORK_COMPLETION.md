@@ -13,7 +13,7 @@ This file adds **project paths only** — no duplicate lifecycle rules.
 | Project root | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer` |
 | Work queue | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\WORK_QUEUE.md` |
 | Active handoffs | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoffs\active\` |
-| Handoff archive | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoff_archive\` |
+| Session handoff | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\handoffs\SESSION.md` |
 | Tests | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\run_tests.bat` |
 | Audit | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\run_audit.cmd` |
 | Product truth (capabilities) | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\PRODUCT_REFERENCE.md` |
@@ -24,16 +24,7 @@ This file adds **project paths only** — no duplicate lifecycle rules.
 
 Canonical Step 3 procedure: `C:\Users\binar\.cursor\AgentStarterPack\pack\docs\WORK_COMPLETION.md` § Step 3.
 
----
-
-## Archive preview (safe — no changes)
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\.cursor\AgentStarterPack\pack\scripts\archive-completed-handoff.ps1" `
-  -ProjectRoot "C:\Users\binar\OneDrive\Desktop\BSODAnalyzer"
-```
-
-**Apply only after you explicitly confirm** — add `-Apply` to the command above.
+**BSOD handoff policy:** when a slice is Done, **delete** `docs/handoffs/active/HANDOFF_*.md` after updating the WQ Done log — no handoff archive in this repo.
 
 ---
 

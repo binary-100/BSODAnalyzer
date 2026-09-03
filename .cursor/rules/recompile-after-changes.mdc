@@ -25,6 +25,4 @@ call build_ci.bat
 
 Edits to **`BSODAnalyzer.spec`** or packaging-critical paths in **`bsod_analyzer.py`** → run **T2 tests**, then **build** in the same task if the deliverable is a portable exe.
 
-**v5 maintenance line only:** see [`VERSIONING.md`](../../VERSIONING.md) — not the default agent build path.
-
-Never use legacy v5/v2 build scripts or output folders; use `build_ci.bat` / `build_and_deploy_v6.bat` and `BSODAnalyzer_v6\` only.
+Use `build_ci.bat` / `build_and_deploy_v6.bat` and `BSODAnalyzer_v6\` only.

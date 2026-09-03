@@ -28,7 +28,6 @@
 | `BSODAnalyzer_portable\` (beside exe or source) | **Legacy orphan** | Gitignored | Old stick-side folder from pre–PC-local builds; app ignores it except optional OneDrive warning — safe to delete when empty |
 | `BSODAnalyzer_v6\BSODAnalyzer_portable\` | **Legacy (dist)** | Rare | Same dirname if an old build created stick-side data; not used by current builds |
 | `build\`, `dist\` | **Build scratch** | No | PyInstaller intermediates — delete anytime; gitignored |
-| `docs\repo_flatten_archive\` | **Archive** | Yes | Pre-2026-08-30 repo-root + migration docs |
 
 ### Naming (product terms)
 

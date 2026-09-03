@@ -5,14 +5,14 @@
 | | |
 |---|---|
 | **Canonical version** | `bsod_analyzer.py` → `VERSION` (see [`VERSION.txt`](../VERSION.txt)) |
-| **Last updated** | 2026-08-23 · sync this date when capabilities change |
+| **Last updated** | 2026-09-03 · sync this date when capabilities change |
 | **Open work / plan of attack** | [`ROADMAP.md`](ROADMAP.md) — **single phased checklist** (implement next unchecked phase only) |
 | **Accepted tradeoffs** | [`KNOWN_LIMITATIONS.md`](KNOWN_LIMITATIONS.md) |
 | **Crash-linked drivers** | [`DRIVER_VERIFICATION_PLAN.md`](DRIVER_VERIFICATION_PLAN.md) — complete |
-| **Phased planning rules** | Starter pack `PHASED_FEATURE_DESIGN.md` · `.cursor/rules/generic-phased-feature-design.mdc` |
+| **Phased planning rules** | Starter pack `PHASED_FEATURE_DESIGN.md` (profile `%USERPROFILE%\.cursor\rules\`) |
 | **Agent entry point** | [`../AGENTS.md`](../AGENTS.md) |
 | **Agent readiness (65k LOC)** | [`AGENT_READINESS.md`](AGENT_READINESS.md) — session self-audit, validation tiers, navigation, current slicing priority |
-| **Architecture health** | [`../../EVALUATION.md`](../../EVALUATION.md), [`../../PERFORMANCE_PLAN.md`](../../PERFORMANCE_PLAN.md) (may lag version — use for design context) |
+| **Architecture health (archive)** | [`audit_archive/EVALUATION.md`](audit_archive/EVALUATION.md), [`audit_archive/PERFORMANCE_PLAN.md`](audit_archive/PERFORMANCE_PLAN.md) — historical design context |
 | **Full audit procedure** | [`AUDIT.md`](AUDIT.md) + `AGENTS.md` § Audits |
 
 ---

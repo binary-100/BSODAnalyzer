@@ -1038,7 +1038,7 @@ def release_notes_path() -> Path | None:
     candidates.extend(
         (
             root / "VERSION.txt",
-            root / "BSODAnalyzer_v5" / "VERSION.txt",
+            root / "BSODAnalyzer_v6" / "VERSION.txt",
         )
     )
     for path in candidates:

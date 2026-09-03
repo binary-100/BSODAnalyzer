@@ -18,4 +18,4 @@ When the user asks for an **audit**: run **`run_audit.cmd`**, complete the seman
 
 ## Version
 
-Canonical version lives in **`main.py`** (`VERSION` constant). Do not hand-edit **`VERSION.txt`** — run version sync per **`AGENTS.md`**.
+Canonical version lives in **`bsod_analyzer.py`** (`VERSION` constant). Do not hand-edit **`VERSION.txt`** — run version sync per **`AGENTS.md`** (`run_tests.bat` or `scripts\apply_version.py sync`).

@@ -56,3 +56,9 @@ DebuggingTools/x64/ttd/
 # Machine-local stable-build pointer (scripts/save_stable_build.bat)
 STABLE_BUILD_LOCATION.txt
 
+# Generated audit / agent scratch (regenerate or omit)
+firmware_peripheral_coverage_audit.json
+firmware_ssd_coverage_audit.json
+docs/.audit_run_output.txt
+docs/AGENT_PASTE.txt
+

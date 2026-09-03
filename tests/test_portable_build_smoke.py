@@ -22,7 +22,6 @@ import product_version as pv
 
 _major = str(pv.product_major())
 DIST = ROOT / f"BSODAnalyzer_v{_major}"
-PRODUCT_LINE = os.environ.get("BSOD_PRODUCT_LINE", f"v{_major}")
 EXE = DIST / "BSODAnalyzer.exe"
 
 
@@ -148,8 +147,8 @@ def test_distrib_debugging_tools_folder() -> None:
 
 
 def test_distrib_powershell_modules_folder() -> None:
-    """MSCatalogLTS is bundled under _internal (v6 only)."""
-    if not _postbuild_exe_tests() or PRODUCT_LINE == "v5":
+    """MSCatalogLTS is bundled under _internal."""
+    if not _postbuild_exe_tests():
         return
     psd1 = (
         DIST / "_internal" / "PowerShellModules" / "MSCatalogLTS" / "2.1.0.2" / "MSCatalogLTS.psd1"
@@ -171,7 +170,7 @@ def test_distrib_portable_user_layout() -> None:
 
 
 def test_frozen_probe_mscatalog_module() -> None:
-    if not _postbuild_exe_tests() or not EXE.is_file() or PRODUCT_LINE == "v5":
+    if not _postbuild_exe_tests() or not EXE.is_file():
         return
     env = os.environ.copy()
     env["BSOD_NO_PAUSE"] = "1"
@@ -239,16 +238,14 @@ if __name__ == "__main__":
         print("distrib DebuggingTools OK")
         test_distrib_portable_user_layout()
         print("distrib portable layout OK")
-        if PRODUCT_LINE != "v5":
-            test_distrib_powershell_modules_folder()
-            print("distrib PowerShellModules OK")
+        test_distrib_powershell_modules_folder()
+        print("distrib PowerShellModules OK")
         test_frozen_probe_cdb_path()
         print("frozen probe-cdb OK")
         test_portable_gui_exe_starts()
         print("gui launch OK")
         test_portable_cli_version_banner()
         print("cli banner OK")
-    if postbuild and PRODUCT_LINE != "v5":
         test_frozen_probe_mscatalog_module()
         print("frozen probe-mscatalog OK")
     print("Portable build smoke tests OK")

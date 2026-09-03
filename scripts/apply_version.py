@@ -1,4 +1,4 @@
-"""Set VERSION in bsod_analyzer.py and root VERSION.txt for v5 or v6 builds.
+"""Set VERSION in bsod_analyzer.py and root VERSION.txt for v6 builds.
 
 Canonical runtime version: bsod_analyzer.VERSION
 VERSION.txt is derived — do not edit by hand; use apply_version.py or run_tests.bat (auto-sync).
@@ -17,8 +17,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 PRESETS = {
-    "5": ("5.4.13", "AMD vendor icon — user-approved reference PNG (no other v5 changes)"),
-    "5.4.13": ("5.4.13", "AMD vendor icon — user-approved reference PNG (no other v5 changes)"),
     "6": ("6.0.0", "v6 — driver catalog overhaul (MSCatalogLTS, accuracy, scrapers)"),
     "6.0.0": ("6.0.0", "v6 — driver catalog overhaul (MSCatalogLTS, accuracy, scrapers)"),
     "6.0.1": ("6.0.1", "v6 Batch 2 — Realtek download-center scraper (audio, PCIe/USB Ethernet)"),

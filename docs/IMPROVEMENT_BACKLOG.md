@@ -10,7 +10,7 @@ This file is a **short dashboard** only. Do not add plan items here.
 | [`ROADMAP.md`](ROADMAP.md) | Work queue · **Approved intent** · phase history |
 | [`upgrade/DESIGN_TIERS.md`](upgrade/DESIGN_TIERS.md) | Tier workflow |
 | [`upgrade/parked/PARKED.md`](upgrade/parked/PARKED.md) | Parked ideas (not agent default) |
-| [`handoffs/HANDOFF_BSOD_STATUS.md`](handoffs/HANDOFF_BSOD_STATUS.md) | Latest agent handoff |
+| [`handoffs/SESSION.md`](handoffs/SESSION.md) | Session catch-up (temporary) |
 
 Last updated: **2026-09-02** · see [`VERSION.txt`](../VERSION.txt)
 
@@ -38,7 +38,7 @@ Last updated: **2026-09-02** · see [`VERSION.txt`](../VERSION.txt)
 
 Phases **1–7** ☑ · maintainability ☑ · upgrade program in design (work queue empty).
 
-**Agent handoff:** [`handoffs/HANDOFF_BSOD_STATUS.md`](handoffs/HANDOFF_BSOD_STATUS.md) · session pointer: [`handoffs/SESSION.md`](handoffs/SESSION.md)
+**Session handoff:** [`handoffs/SESSION.md`](handoffs/SESSION.md) · durable status: [`WORK_QUEUE.md`](WORK_QUEUE.md) + [`ROADMAP.md`](ROADMAP.md)
 
 **Agent build priority:** Approved intent when user promotes to work queue — [`AGENT_READINESS.md`](AGENT_READINESS.md).
 

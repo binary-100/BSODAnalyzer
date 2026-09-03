@@ -1,0 +1,18 @@
+---
+description: BSOD Analyzer handoff policy — temporary only, delete when Done (no archive)
+alwaysApply: true
+---
+
+# Project handoffs (BSOD Analyzer)
+
+**Overrides pack archive convention for this repo.** Full detail: [`docs/handoffs/README.md`](../../docs/handoffs/README.md).
+
+| Artifact | Lifetime |
+|----------|----------|
+| `docs/handoffs/SESSION.md` | Rewrite each session — catch-up only |
+| `docs/handoffs/active/HANDOFF_*.md` | **Delete** when WQ row → Done |
+| `docs/WORK_QUEUE.md` / `docs/ROADMAP.md` | Durable status — Done log, Active, Approved intent |
+
+**Forbidden:** `handoff_archive/`, standing status/orientation handoffs, duplicating WQ tables in SESSION.
+
+Pack baseline still applies for registry tables and one session opener line: `generic-agent-handoff-discipline.mdc`.

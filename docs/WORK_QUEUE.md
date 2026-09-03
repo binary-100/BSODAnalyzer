@@ -6,7 +6,7 @@ Items are **never deleted** when priorities shift — they move to **Done**, **P
 | Field | Value |
 |-------|--------|
 | **Next active ID** | *(none — triage Inbox)* |
-| **Last updated** | 2026-09-01 |
+| **Last updated** | 2026-09-02 |
 
 ---
 
@@ -60,7 +60,7 @@ Recurring gaps from audits or reviews (not one-off audit Fix lines).
 
 | ID | Task | Completed | Evidence |
 |----|------|-----------|----------|
-| WQ-001 | Maintenance USB: PC-local data (no stick persistence) | 2026-08-31 | M1–M4; `run_tests.bat` exit 0; handoff `HANDOFF_WQ001_maintenance_usb_data.md` |
+| WQ-001 | Maintenance USB: PC-local data (no stick persistence) | 2026-08-31 | M1–M4; `run_tests.bat` exit 0; [`MAINTENANCE_USB_DATA_PLAN.md`](upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md) |
 | WQ-002 | Remove stick migration (M2 retired) + derivative doc sync | 2026-09-01 | `migrate_maintenance_usb_from_stick` removed; ROADMAP/KNOWN_LIMITATIONS/AGENT_READINESS updated; pack rules strengthened |
 
 ---

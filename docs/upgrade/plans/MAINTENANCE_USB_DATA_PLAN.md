@@ -138,6 +138,4 @@ Update [`PRODUCT_REFERENCE.md`](../../PRODUCT_REFERENCE.md) §3.7 and [`AGENTS.m
 
 ## Handoff
 
-**Build handoff (session opener lives here only):** [`../handoffs/active/HANDOFF_WQ001_maintenance_usb_data.md`](../handoffs/active/HANDOFF_WQ001_maintenance_usb_data.md)
-
-Authoring rules: [`../handoffs/README.md`](../handoffs/README.md) · pack `AGENT_HANDOFFS.md` — do **not** paste a second opener from this PLAN.
+**Build handoff:** create `docs/handoffs/active/HANDOFF_WQnnn_<slug>.md` when slice is Active; **delete** when Done — see [`../handoffs/README.md`](../handoffs/README.md).

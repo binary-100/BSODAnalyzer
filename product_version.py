@@ -1,4 +1,4 @@
-"""Product line helpers — v5 maintenance vs v6 development share one source tree."""
+"""Product line helpers — version from VERSION.txt beside source or frozen exe."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ def _version_txt_path() -> Path | None:
     candidates.extend(
         (
             _MODULE_ROOT / "VERSION.txt",
-            _MODULE_ROOT / "BSODAnalyzer_v5" / "VERSION.txt",
+            _MODULE_ROOT / "BSODAnalyzer_v6" / "VERSION.txt",
         )
     )
     for path in candidates:

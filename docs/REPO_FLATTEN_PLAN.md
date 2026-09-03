@@ -15,10 +15,10 @@ Phase 6 consolidation left a finished migration shell (`repo/` + `app/`). That c
 
 | Phase | Work | Evidence |
 |-------|------|----------|
-| 1 | Inventory + scripts | `scripts/flatten_repo.ps1`, `scripts/update_paths_after_flatten.ps1` |
+| 1 | Inventory + path scripts | One-time migration (removed 2026-09-03; see git history) |
 | 2 | Lift `app/` to git root | `app/` directory removed |
 | 3 | Path updates | `run_audit.ps1` flat RepoRoot logic; `AUDIT.config.json` §B paths |
-| 4 | Root docs | `README.md`, `PROJECT_LAYOUT.md` rewritten; pre-flatten files in `docs/repo_flatten_archive/` |
+| 4 | Root docs | `README.md`, `PROJECT_LAYOUT.md` rewritten |
 | 5 | Verify | `run_tests.bat` exit 0 |
 
 ---

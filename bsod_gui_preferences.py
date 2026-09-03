@@ -1,4 +1,4 @@
-"""Settings and first-run dialogs for BSOD Analyzer v5."""
+"""Settings and first-run dialogs for BSOD Analyzer."""
 
 from __future__ import annotations
 

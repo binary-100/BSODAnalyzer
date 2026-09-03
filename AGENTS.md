@@ -14,7 +14,11 @@ Also enforced by **`.cursor/rules/agent-readiness.mdc`** (always-on pointer — 
 
 **Next major upgrade (planning only until work queue):** [`docs/upgrade/README.md`](docs/upgrade/README.md) — one folder; gate: `.cursor/rules/design-tier-gate.mdc`.
 
-**Handoffs (implement / confirm):** [`docs/handoffs/README.md`](docs/handoffs/README.md) — one session opener per file; pack `AGENT_HANDOFFS.md` · rule `generic-agent-handoff-discipline.mdc`.
+**Handoffs (implement / confirm):** [`docs/handoffs/README.md`](docs/handoffs/README.md) — temporary only; **delete when Done** (record in WORK_QUEUE). Pack handoff convention: `%USERPROFILE%\.cursor\AgentStarterPack\pack\docs\AGENT_HANDOFFS.md` · BSOD override: `.cursor/rules/project-handoffs.mdc`.
+
+## Cursor rules (Model A — factory)
+
+This repo is the **dev factory**. Generic Agent Starter Pack rules load from **`%USERPROFILE%\.cursor\rules\`** (global install). **Project** [`.cursor/rules/`](.cursor/rules/) holds **BSOD-specific** rules only — do not re-copy generic `generic-*.mdc` here (avoids duplicate always-on context). After pack rule changes elsewhere, run **`Refresh-AgentContext.cmd`** — not `sync-project-rules.ps1` generic copies into this repo.
 
 ## Session start
 
@@ -128,7 +132,7 @@ We have **not** identified a feature that meets the “big unless” bar yet. Re
 
 ## Multi-step features
 
-Follow starter pack **`pack/docs/PHASED_FEATURE_DESIGN.md`** and rule **`generic-phased-feature-design.mdc`**: one phase sequence; runtime order = build order; optional work nested under a phase or in a keyed appendix.
+Follow starter pack **`pack/docs/PHASED_FEATURE_DESIGN.md`** (profile rule `generic-phased-feature-design.mdc`): one phase sequence; runtime order = build order; optional work nested under a phase or in a keyed appendix.
 
 **Active plan:** [`docs/ROADMAP.md`](docs/ROADMAP.md) — work queue empty · **Approved intent:** three upgrade tracks · **Parked:** [`docs/upgrade/parked/PARKED.md`](docs/upgrade/parked/PARKED.md) · **Exploration:** Action Plan checklist (Tier 1).
 
@@ -138,11 +142,12 @@ Follow starter pack **`pack/docs/PHASED_FEATURE_DESIGN.md`** and rule **`generic
 
 **Completed plan:** [`docs/DRIVER_VERIFICATION_PLAN.md`](docs/DRIVER_VERIFICATION_PLAN.md) (crash-linked verification).
 
-## Starter pack
+## Starter pack (global — not copied into this repo)
 
 Install once per machine: `C:\Users\binar\OneDrive\Desktop\AgentStarterPack\Install-AgentStarterPack.cmd`  
 Onboarding: `C:\Users\binar\.cursor\AgentStarterPack\pack\docs\START_HERE.md`  
-**Pack ↔ project sync (generic rules):** `C:\Users\binar\.cursor\AgentStarterPack\pack\docs\PACK_MAINTENANCE.md` — edit generic rules in the pack only; run `sync-project-rules.ps1` to refresh `.cursor\rules\` copies.  
+**This factory:** generic rules in **`%USERPROFILE%\.cursor\rules\`** only — see **Cursor rules (Model A)** above. Refresh audit/context: **`Refresh-AgentContext.cmd`** at repo root.  
+Pack maintenance (other repos): `C:\Users\binar\.cursor\AgentStarterPack\pack\docs\PACK_MAINTENANCE.md`  
 Verify: `C:\Users\binar\.cursor\AgentStarterPack\pack\scripts\doctor.ps1`
 
 **"For new Python projects"** in starter pack docs means **other repos** you bootstrap later — not this one.

@@ -36,6 +36,7 @@ BSOD Analyzer **v6.5.27** is the current shipping line. **Phases 1–7** on [`RO
 |------|------|----------|
 | **2026-08-31** | **WQ-001** Maintenance USB PC-local data (M1–M4) | [`handoff_archive/HANDOFF_WQ001_maintenance_usb_data.md`](../handoff_archive/HANDOFF_WQ001_maintenance_usb_data.md); `run_tests.bat` exit 0 |
 | **2026-09-01** | **WQ-002** Stick-side migration **removed** (M2 retired) | `migrate_maintenance_usb_from_stick` gone from `app_settings.py`; legacy flat cache uses `maintenance_data_dir()` in `catalog_cache.py`; docs: `KNOWN_LIMITATIONS.md`, `ROADMAP.md`, `AGENT_READINESS.md`, `PROJECT_LAYOUT.md`, `MAINTENANCE_USB_DATA_PLAN.md` |
+| **2026-09-02** | Git remote + full tree tracking | `https://github.com/binary-100/BSODAnalyzer.git` · branch `main` · 867 paths tracked |
 | **2026-09-02** | Agent Starter Pack upgrade on dev machine | Generic rules synced (12); audit system synced; `docs/AGENT_SESSION_START.md` reports engine **2.22.65** fresh |
 
 **Stable build on disk:** `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer_StableBuilds\v6.5.27` (see `STABLE_BUILD_LOCATION.txt`).

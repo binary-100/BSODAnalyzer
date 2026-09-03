@@ -27,7 +27,7 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 
 ## Open items
 
-- [ ] **Optional:** `MODULE_INDEX.md` from audit domain map — navigation for 138 root modules
+- [ ] **Agent context:** stamped audit engine **2.22.65** vs installed **2.22.68** — run `Refresh-AgentContext.cmd` when convenient
 - [ ] **Pack feedback (separate project):** `C:\Users\binar\OneDrive\Desktop\AgentStarterPack_feedback_from_BSOD_factory_2026-09-03.md`
 
 ---

@@ -58,7 +58,8 @@ Last updated: **2026-09-03** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | [`docs/FACADE_ORCHESTRATION.md`](FACADE_ORCHESTRATION.md) | Facade T3 gate, prune/decouple options |
 | [`docs/DRIVER_VERIFICATION_PLAN.md`](DRIVER_VERIFICATION_PLAN.md) | Completed verification plan |
 | [`docs/DEPENDENCIES_CHEATSHEET.txt`](DEPENDENCIES_CHEATSHEET.txt) | **Dependency matrix** — CDB/WinDbg, PS7, winget, MSCatalog, first-launch flow |
-| [`scripts/README.md`](../scripts/README.md) | **Scripts index** — extract/diag/live utilities; update when adding `scripts/*.py` |
+| [`docs/MODULE_INDEX.md`](MODULE_INDEX.md) | **Module navigation** — audit domain map by section (138 flat root modules) |
+| [`scripts/README.md`](../scripts/README.md) | **Scripts index** — diag/live/compare utilities |
 | [`VERSIONING.md`](../VERSIONING.md) | v6 product line and build layout (link `VERSION.txt` for current number) |
 
 ### Design & audit archive (read for context — not build order)

@@ -8,10 +8,13 @@
 |---|---|
 | **Tier map** | [`../DESIGN_TIERS.md`](../DESIGN_TIERS.md) § Current state |
 | **Index** | [`NEXT_UPGRADE_INDEX.md`](NEXT_UPGRADE_INDEX.md) |
+| **Layers + contract** | [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) |
+| **Build wiring** | [`INTEGRATION_PATH.md`](INTEGRATION_PATH.md) |
+| **D1 spike** | [`spikes/analysis_core/README.md`](spikes/analysis_core/README.md) |
 | **Today (shipping code)** | `bsod_minidump.analyze_minidump_with_cdb` → subprocess `!analyze -v; kv` |
 | **Target (after Build)** | `analyze_minidump_native()` (name TBD) → same dict → existing report/GUI unchanged |
 
-Last updated: **2026-08-25**
+Last updated: **2026-09-03**
 
 ---
 
@@ -22,7 +25,7 @@ Last updated: **2026-08-25**
 | **Built into the app** — no user install of Debugging Tools / WinDbg for Run Analysis | Shipping WinDbg UI or teaching `!analyze` commands |
 | Native parse of kernel minidumps / triage dumps | Full interactive kernel debugger |
 | Same Quick Answer / confidence / Drivers crash-linked inputs | Mandatory 100% parity with every `!analyze` edge case on day one |
-| Cross-platform core (Linux rescue + Windows maintenance) | Replacing “Open in WinDbg” advanced escape hatch (can remain optional) |
+| Cross-platform core (Linux rescue + Windows maintenance) | Replacing “Open in WinDbg” advanced escape hatch — **keep Level E forever** on Windows maintenance |
 | Open-source–friendly own code path | Redistributing CDB as the **primary** engine in OSS release (TBD at D1) |
 
 **Integration point:** Replace the CDB subprocess path in `bsod_minidump.py` (and callers in `analyzer_gather`) with native analysis that emits the **same structured dict** today’s pipeline already consumes. Rename `enrich_windbg_analysis` → neutral name when shipping (e.g. `enrich_dump_analysis`).
@@ -80,7 +83,7 @@ From `analyze_minidump_with_cdb` parse:
 
 | Phase | Name | Required | Status |
 |-------|------|----------|--------|
-| **D1** | Parity harness — corpus of `.dmp`; native vs CDB diff report | yes | ☐ |
+| **D1** | Parity harness — corpus of `.dmp`; native vs CDB diff report | yes | ◐ **Harness plumbing** — PAGE header read + fixtures; full parity needs maintainer corpus — [`spikes/analysis_core/`](spikes/analysis_core/README.md) |
 | **D2** | Native extractor v1 — bugcheck, P1–P4, RIP, module-for-RIP | yes | ☐ |
 | **D2b** | Adapter — same dict as CDB path; `analysis_source: native\|cdb` | yes | ☐ |
 | **D3** | Stack frames without PDB | yes | ☐ |
@@ -88,7 +91,31 @@ From `analyze_minidump_with_cdb` parse:
 | **D5** | Shrink portable build — optional CDB pack | optional | ☐ |
 | **D6** | Cross-platform parser (Rust) for rescue USB | optional | ☐ |
 
-Spikes: [`spikes/README.md`](spikes/README.md) only until approved.
+Spikes: [`spikes/analysis_core/README.md`](spikes/analysis_core/README.md) — **D1 scaffold in place**; reimplement in production at Build.
+
+---
+
+## Parity baseline (host 2026-09-04)
+
+Recorded before promote. Corpus: `C:\Windows\Minidump\` (5 files). Harness: `parity_harness.py --no-strict`.
+
+| File | Stop (native = CDB) | Bugcheck fields | CDB-only fields (D2–D3) |
+|------|---------------------|-----------------|-------------------------|
+| `012926-15546-01.dmp` | `0x124` WHEA_UNCORRECTABLE_ERROR | ☑ match | driver (`AuthenticAMD`), bucket, stack |
+| `080426-18703-01.dmp` | `0x50` PAGE_FAULT_IN_NONPAGED_AREA | ☑ match | driver, bucket, stack |
+| `082126-18484-01.dmp` | `0xA` IRQL_NOT_LESS_OR_EQUAL | ☑ match | driver, bucket, stack |
+| `082326-19171-01.dmp` | `0x154` UNEXPECTED_STORE_EXCEPTION | ☑ match | driver, bucket, stack |
+| `121425-16515-01.dmp` | `0x50` PAGE_FAULT_IN_NONPAGED_AREA | ☑ match | driver, bucket, stack |
+
+**D1 Build exit:** reproduce harness in `scripts/` (or equivalent); fixtures + optional maintainer corpus; bugcheck parity holds on PAGE dumps.
+
+Full checklist: [`PROMOTE_WHEN_READY.md`](PROMOTE_WHEN_READY.md).
+
+---
+
+## WinDbg removal levels (maintenance exe)
+
+See [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) § WinDbg / CDB — levels A–F. This track targets **A–D** on Windows; **E** (Open in WinDbg) stays.
 
 ---
 

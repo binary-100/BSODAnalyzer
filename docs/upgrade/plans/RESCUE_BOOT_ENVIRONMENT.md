@@ -5,7 +5,8 @@
 | | |
 |---|---|
 | **Index** | [`NEXT_UPGRADE_INDEX.md`](NEXT_UPGRADE_INDEX.md) |
-| **Last updated** | 2026-08-24 |
+| **Analysis core** | [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) — native L2 mandatory on Linux |
+| **Last updated** | 2026-09-03 |
 
 ---
 

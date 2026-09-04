@@ -5,9 +5,22 @@
 | | |
 |---|---|
 | **Index** | [`NEXT_UPGRADE_INDEX.md`](NEXT_UPGRADE_INDEX.md) |
+| **Layers (interpret vs present)** | [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) |
 | **Today** | Quick Answer, confidence ladder, repair narrative, Action Plan |
 
-Last updated: **2026-08-24**
+Last updated: **2026-09-03**
+
+---
+
+## Scope note (interpretation vs presentation)
+
+This track is **not** “UX only.” Most phases are **interpretation** (evidence fusion, hardware suspicion, crash signatures). **Presentation** phases are G1 (plain-language mapping) and display tiers D1–D3.
+
+| Phase band | Layer |
+|------------|-------|
+| G3–G5 | Interpretation (L3–L5) |
+| G1, G2, display tiers | Presentation |
+| G2 | Wire native dump dict — depends Native **D2b** |
 
 ---
 

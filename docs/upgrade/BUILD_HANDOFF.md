@@ -4,7 +4,7 @@
 
 Parent: [`README.md`](README.md) · Tiers: [`DESIGN_TIERS.md`](DESIGN_TIERS.md) · **Handoff convention:** [`../handoffs/README.md`](../handoffs/README.md) · pack `AGENT_HANDOFFS.md`
 
-Last updated: **2026-08-30**
+Last updated: **2026-09-03**
 
 ---
 
@@ -35,6 +35,7 @@ All must be true:
 
 | Task | PLAN | Phase | Handoff file |
 |------|------|-------|--------------|
+| Analysis core orientation | `ANALYSIS_CORE_PLAN.md` + `INTEGRATION_PATH.md` | read-only | — |
 | WinDbg replacement parity harness | `NATIVE_DUMP_ENGINE_PLAN.md` | D1 | `HANDOFF_WQnnn_native_dump_d1.md` |
 | Plain-language Summary | `GUIDED_DIAGNOSTIC_PLAN.md` | G1 | `HANDOFF_WQnnn_guided_g1.md` |
 | Offline target volume | `RESCUE_USB_PLAN.md` | 9a | `HANDOFF_WQnnn_rescue_9a.md` |

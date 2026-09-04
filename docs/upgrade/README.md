@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Last updated** | 2026-08-26 |
+| **Last updated** | 2026-09-03 |
 | **Canonical root** | `C:\Users\binar\OneDrive\Desktop\BSODAnalyzer\docs\upgrade\` |
 | **Tier 2 (agents watch)** | [`../ROADMAP.md`](../ROADMAP.md) § **Approved intent** |
 | **Parked (hidden)** | [`parked/PARKED.md`](parked/PARKED.md) |
@@ -37,7 +37,7 @@ upgrade/
 
 **Work queue:** empty. **Exploration (Tier 1):** Action Plan checklist — [`inbox/EXPLORATION_LOG.md`](inbox/EXPLORATION_LOG.md).
 
-Index: [`plans/NEXT_UPGRADE_INDEX.md`](plans/NEXT_UPGRADE_INDEX.md) · Process: [`DESIGN_TIERS.md`](DESIGN_TIERS.md)
+Index: [`plans/NEXT_UPGRADE_INDEX.md`](plans/NEXT_UPGRADE_INDEX.md) · Architecture: [`plans/ANALYSIS_CORE_PLAN.md`](plans/ANALYSIS_CORE_PLAN.md) · Process: [`DESIGN_TIERS.md`](DESIGN_TIERS.md)
 
 ---
 

@@ -45,6 +45,10 @@ Last updated: **2026-09-03** · version: see [`VERSION.txt`](../VERSION.txt) · 
 | [`docs/upgrade/BUILD_HANDOFF.md`](upgrade/BUILD_HANDOFF.md) | Implementation agent checklist |
 | [`docs/upgrade/inbox/`](upgrade/inbox/README.md) | Tier 1 Exploration |
 | [`docs/upgrade/plans/`](upgrade/plans/README.md) | Tier 3 Design PLANs |
+| [`docs/upgrade/plans/ANALYSIS_CORE_PLAN.md`](upgrade/plans/ANALYSIS_CORE_PLAN.md) | **Upgrade architecture** — layers, dump formats, contract |
+| [`docs/upgrade/plans/INTEGRATION_PATH.md`](upgrade/plans/INTEGRATION_PATH.md) | Spike → production wiring for build agents |
+| [`docs/upgrade/plans/PROMOTE_WHEN_READY.md`](upgrade/plans/PROMOTE_WHEN_READY.md) | Pre-promote checklist + parity baseline |
+| [`docs/upgrade/plans/spikes/analysis_core/`](upgrade/plans/spikes/analysis_core/README.md) | D1 parity spike (quarantined) |
 | [`docs/handoffs/SESSION.md`](handoffs/SESSION.md) | **Session catch-up** — temporary; blockers + pointers (not durable WQ) |
 | [`docs/WORK_QUEUE.md`](WORK_QUEUE.md) | **Maintainer radar** — WQ ids, Done/Parked/Inbox (not product ROADMAP) |
 | [`docs/WORK_COMPLETION.md`](WORK_COMPLETION.md) | Work-completion checklist (pack) |

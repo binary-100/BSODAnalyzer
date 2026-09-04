@@ -10,7 +10,9 @@
 | **Process** | [`../DESIGN_TIERS.md`](../DESIGN_TIERS.md) |
 | **Hub** | [`../README.md`](../README.md) |
 
-Last updated: **2026-08-26**
+Last updated: **2026-09-03**
+
+**Architecture (layers + contract):** [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) · **Build wiring:** [`INTEGRATION_PATH.md`](INTEGRATION_PATH.md) · **D1 spike:** [`spikes/analysis_core/README.md`](spikes/analysis_core/README.md)
 
 ---
 
@@ -45,6 +47,18 @@ One **bootable flash drive** that a technician or motivated owner can use across
 
 ---
 
+## Three layers (where tracks land)
+
+| Layer | Question | Tracks |
+|-------|----------|--------|
+| **Acquisition** | What evidence exists? | Today’s gather; Rescue **9a–9b** (offline paths) |
+| **Interpretation** | What faulted? Hardware vs software? | **Native dump** (L2), **Guided G3–G5** (L1/L3–L5) |
+| **Presentation** | Plain language + tiers | **Guided G1–G2**, display tiers D1–D3 |
+
+Detail: [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md).
+
+---
+
 ## Upgrade tracks (build separately, integrate at end)
 
 ```mermaid
@@ -54,15 +68,17 @@ flowchart TB
     end
 
     subgraph next [Next slices - prove here first]
-        ND[Native Dump Engine]
-        GD[Guided Diagnostic + hardware guidance]
+        ND[Native Dump Engine - L2 adapter]
+        GD[Guided Diagnostic - interpret + present]
+        AC[Analysis core contract + D1 spike]
     end
 
     subgraph later [Rescue mode]
         RU[Rescue USB + offline target Windows]
     end
 
-    MA --> ND
+    MA --> AC
+    AC --> ND
     MA --> GD
     ND --> GD
     ND --> RU
@@ -74,10 +90,11 @@ flowchart TB
 
 | Track | PLAN | Role in end product |
 |-------|------|---------------------|
-| **Built-in crash analysis (WinDbg/CDB replacement)** | [`NATIVE_DUMP_ENGINE_PLAN.md`](NATIVE_DUMP_ENGINE_PLAN.md) | Native `.dmp` parse → same report pipeline; no debugger install |
-| **Guided diagnostic** | [`GUIDED_DIAGNOSTIC_PLAN.md`](GUIDED_DIAGNOSTIC_PLAN.md) | Deep multi-source analysis + plain UX; **hardware vs software**; parts guidance |
+| **Analysis core (umbrella)** | [`ANALYSIS_CORE_PLAN.md`](ANALYSIS_CORE_PLAN.md) | Acquisition / Interpretation / Presentation; dict contract; WinDbg levels A–F |
+| **Built-in crash analysis (WinDbg/CDB replacement)** | [`NATIVE_DUMP_ENGINE_PLAN.md`](NATIVE_DUMP_ENGINE_PLAN.md) | Native `.dmp` parse → same report pipeline; no debugger install on default path |
+| **Guided diagnostic** | [`GUIDED_DIAGNOSTIC_PLAN.md`](GUIDED_DIAGNOSTIC_PLAN.md) | Interpretation depth + plain UX; **hardware vs software**; parts guidance |
 | **Rescue USB** | [`RESCUE_USB_PLAN.md`](RESCUE_USB_PLAN.md) | Boot media; target internal disk; repair when Windows can’t run the app |
-| **Boot environment (open)** | [`RESCUE_BOOT_ENVIRONMENT.md`](RESCUE_BOOT_ENVIRONMENT.md) | Linux vs WinPE vs hybrid — **decide after analysis core slices** |
+| **Boot environment (open)** | [`RESCUE_BOOT_ENVIRONMENT.md`](RESCUE_BOOT_ENVIRONMENT.md) | Linux vs WinPE vs hybrid — **decide after D1 + 9b + Linux spike** |
 
 **Suggested promote order:** Native dump → Guided diagnostic (in-app) → Rescue USB.  
 Adjust if field pain is “won’t boot” first — then parallelize Rescue 9a–9c with Native D1–D2.
@@ -134,3 +151,5 @@ Canonical detail: [`GUIDED_DIAGNOSTIC_PLAN.md`](GUIDED_DIAGNOSTIC_PLAN.md).
 | 2026-08-24 | Deep dump strategy **open** — parity harness before locking approach |
 | 2026-08-24 | Boot environment **open** — Linux lean (NIC, OSS, native dump); maintenance stays Windows portable |
 | 2026-08-24 | Build **analysis core** cross-platform before locking rescue shell |
+| 2026-09-03 | **`ANALYSIS_CORE_PLAN.md`** + **`INTEGRATION_PATH.md`**; D1 spike; WinDbg Level E preserved |
+| 2026-09-03 | Deep review fixes: **PAGE triage** primary format; MDMP stream-4 bug removed; parity enrich + strict exit; corpus policy |

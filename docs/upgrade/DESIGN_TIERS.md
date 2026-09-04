@@ -87,18 +87,20 @@ Implement <Phase ID> only.
 
 ---
 
-## Current state snapshot (2026-08-26)
+## Current state snapshot (2026-09-03)
 
-**Build:** Work queue **empty**.
+**Build:** Work queue **empty** (maintainer WQ-001/002 Done).
 
 **Foundation shipped:** ROADMAP Phases 1–7 ☑ · 6.5.0 maintainability ☑.
+
+**Upgrade planning (Tier 3):** [`plans/ANALYSIS_CORE_PLAN.md`](plans/ANALYSIS_CORE_PLAN.md) + [`plans/INTEGRATION_PATH.md`](plans/INTEGRATION_PATH.md) · D1 spike (harness plumbing) in [`plans/spikes/analysis_core/`](plans/spikes/analysis_core/README.md).
 
 ### Approved intent (Tier 2) — three tracks
 
 | Name | Tier 3 |
 |------|--------|
 | Rescue: bootable USB for offline target PC | [`plans/RESCUE_USB_PLAN.md`](plans/RESCUE_USB_PLAN.md) |
-| Analysis: built-in minidump engine (no CDB install) | [`plans/NATIVE_DUMP_ENGINE_PLAN.md`](plans/NATIVE_DUMP_ENGINE_PLAN.md) |
+| Analysis: built-in minidump engine (no CDB install) | [`plans/NATIVE_DUMP_ENGINE_PLAN.md`](plans/NATIVE_DUMP_ENGINE_PLAN.md) · [`plans/ANALYSIS_CORE_PLAN.md`](plans/ANALYSIS_CORE_PLAN.md) |
 | UX: guided diagnosis in plain language + hardware guidance | [`plans/GUIDED_DIAGNOSTIC_PLAN.md`](plans/GUIDED_DIAGNOSTIC_PLAN.md) |
 
 ### Exploration (Tier 1) — active

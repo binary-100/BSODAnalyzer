@@ -75,8 +75,8 @@ Product direction we are pursuing — **not current build order**. Promote to th
 | Name | Design (Tier 3) | Build |
 |------|-----------------|-------|
 | **Rescue: bootable USB for offline target PC** | **Drafted** — [`upgrade/plans/RESCUE_USB_PLAN.md`](upgrade/plans/RESCUE_USB_PLAN.md) · boot OS: [`upgrade/plans/RESCUE_BOOT_ENVIRONMENT.md`](upgrade/plans/RESCUE_BOOT_ENVIRONMENT.md) | Not buildable |
-| **Analysis: built-in minidump engine (no CDB install)** | **Drafted** — [`upgrade/plans/NATIVE_DUMP_ENGINE_PLAN.md`](upgrade/plans/NATIVE_DUMP_ENGINE_PLAN.md) | Not buildable |
-| **UX: guided diagnosis in plain language + hardware guidance** | **Drafted** — [`upgrade/plans/GUIDED_DIAGNOSTIC_PLAN.md`](upgrade/plans/GUIDED_DIAGNOSTIC_PLAN.md) | Not buildable |
+| **Analysis: built-in minidump engine (no CDB install)** | **Drafted** — [`upgrade/plans/NATIVE_DUMP_ENGINE_PLAN.md`](upgrade/plans/NATIVE_DUMP_ENGINE_PLAN.md) · architecture: [`upgrade/plans/ANALYSIS_CORE_PLAN.md`](upgrade/plans/ANALYSIS_CORE_PLAN.md) · integration: [`upgrade/plans/INTEGRATION_PATH.md`](upgrade/plans/INTEGRATION_PATH.md) | Not buildable |
+| **UX: guided diagnosis in plain language + hardware guidance** | **Drafted** — [`upgrade/plans/GUIDED_DIAGNOSTIC_PLAN.md`](upgrade/plans/GUIDED_DIAGNOSTIC_PLAN.md) · layers: [`upgrade/plans/ANALYSIS_CORE_PLAN.md`](upgrade/plans/ANALYSIS_CORE_PLAN.md) | Not buildable |
 
 **Upgrade hub:** [`upgrade/README.md`](upgrade/README.md) · **Build handoff:** [`upgrade/BUILD_HANDOFF.md`](upgrade/BUILD_HANDOFF.md)
 

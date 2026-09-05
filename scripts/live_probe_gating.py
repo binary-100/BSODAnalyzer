@@ -63,6 +63,81 @@ def chipset_platform_targets(system_ctx: dict | None) -> list[tuple[str, str]]:
     return out
 
 
+def bundle_verification_probe_summary(comparison: dict | None) -> dict[str, Any]:
+    """Compact bundle rollup block for live_machine_probe JSON."""
+    from bundle_verification import (
+        bundle_compare_rows_from_catalog_entry,
+        stale_bundle_component_labels,
+    )
+
+    comp = comparison or {}
+    wrapper = (comp.get("status") or "").strip().lower()
+    rollup = (comp.get("bundle_status_rollup") or "").strip().lower()
+    final = rollup if rollup == "newer" and wrapper in ("same", "none", "uncertain", "unknown") else wrapper
+    compare = bundle_compare_rows_from_catalog_entry(comp)
+    stale = stale_bundle_component_labels(compare)
+    return {
+        "wrapper_status": wrapper or "unknown",
+        "rollup_status": rollup or "",
+        "final_status": final or wrapper or "unknown",
+        "stale_components": stale,
+        "compare_count": len(compare),
+        "bundle_compare_note": (comp.get("bundle_compare_note") or "").strip(),
+        "components": [
+            {
+                "label": (row.get("label") or "?").strip(),
+                "installed": (row.get("installed_version") or "?").strip(),
+                "offer": (row.get("offer_version") or "?").strip(),
+                "vs": (row.get("vs_offer") or "?").strip(),
+            }
+            for row in compare[:12]
+        ],
+    }
+
+
+def probe_chipset_bundle_verification(
+    system_ctx: dict | None,
+    inventory: list | None,
+) -> dict[str, Any]:
+    """Live chipset platform comparison with bundle rollup (may use network for vendor offers)."""
+    ctx = dict(system_ctx or {})
+    out: dict[str, Any] = {}
+    for dev_name, label in chipset_platform_targets(ctx):
+        try:
+            comparison = dc.build_chipset_platform_comparison(
+                dev_name,
+                ctx,
+                inventory=inventory,
+            )
+        except Exception as exc:  # noqa: BLE001
+            out[label] = {"error": str(exc)}
+            continue
+        status = comparison.get("status")
+        if not status:
+            from catalog_offer_status import summarize_offer_status
+
+            status = summarize_offer_status(
+                comparison.get("offers") or [],
+                device_ctx=comparison.get("context"),
+            )
+        rollup = (comparison.get("bundle_status_rollup") or "").lower()
+        if rollup == "newer" and (status or "").lower() in (
+            "same",
+            "none",
+            "uncertain",
+            "unknown",
+        ):
+            status = "newer"
+        comparison["status"] = status
+        block = bundle_verification_probe_summary(comparison)
+        block["device_name"] = dev_name
+        block["installed_version"] = comparison.get("installed_version") or ""
+        block["offer_count"] = len(comparison.get("offers") or [])
+        block["catalog_note"] = (comparison.get("catalog_note") or "").strip()
+        out[label] = block
+    return out
+
+
 def _nvidia_probe() -> dict[str, Any]:
     ctx_n = {
         "vendor_key": "nvidia",

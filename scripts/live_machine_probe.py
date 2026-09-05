@@ -23,7 +23,12 @@ import bsod_analyzer as core
 import bsod_hardware_wmi as hw
 import catalog_cache as ccat
 import driver_catalog as dc
-from live_probe_gating import chipset_platform_targets, run_gated_vendor_probes
+from live_probe_gating import (
+    bundle_verification_probe_summary,
+    chipset_platform_targets,
+    probe_chipset_bundle_verification,
+    run_gated_vendor_probes,
+)
 
 _WU = ccat._WU_FILE
 _OEM = ccat._OEM_FILE
@@ -194,6 +199,7 @@ def _run_search_simulation(prof: dict, *, max_devices: int) -> dict[str, Any]:
                 "installed_version": d.get("installed_version"),
                 "offer_count": len(d.get("offers") or []),
                 "catalog_note": d.get("catalog_note"),
+                "bundle_verification": bundle_verification_probe_summary(d),
             }
             for d in devices
         ],
@@ -256,26 +262,7 @@ def build_report(
 
     chipset_block: dict[str, Any] = {}
     try:
-        for dev_name, label in chipset_platform_targets(ctx):
-            r = dc.build_chipset_platform_comparison(
-                dev_name, ctx, inventory=inv,
-            )
-            offers = r.get("offers") or []
-            vendor_ver = next(
-                (
-                    (o.get("version") or "").strip()
-                    for o in offers
-                    if (o.get("source") or "") == "vendor" and (o.get("version") or "").strip()
-                ),
-                "",
-            )
-            chipset_block[label] = {
-                "pnp_anchor": bool((r.get("context") or {}).get("instance_id")),
-                "catalog_note": r.get("catalog_note"),
-                "offer_count": len(offers),
-                "installed_version": r.get("installed_version"),
-                "vendor_version": vendor_ver,
-            }
+        chipset_block = probe_chipset_bundle_verification(ctx, inv)
     except Exception as e:
         chipset_block = {"error": str(e)}
 
@@ -346,6 +333,7 @@ def build_report(
             "portable_mismatch_message": ccat.portable_cache_mismatch_message(ctx) if ctx else None,
         },
         "chipset_quick": chipset_block,
+        "bundle_verification": chipset_block,
         "vendor_health": vendor_health,
         "fix_progress": fix_progress_block,
         "vendor_probes": vendor_probes,
@@ -361,6 +349,28 @@ def build_report(
         }
 
     return _json_safe(report)
+
+
+def build_bundle_probe_report(*, network_timeout_sec: float = 25.0) -> dict[str, Any]:
+    """Chipset platform bundle verification — Alienware-class AMD rollup scenario."""
+    prof, profile_sec = _gather_profile()
+    ctx = dict(prof.get("system_ctx") or {})
+    inv = core.device_inventory_for_matching(prof.get("bios_driver_info"))
+    block = probe_chipset_bundle_verification(ctx, inv)
+    return _json_safe(
+        {
+            "version": core.VERSION,
+            "mode": "bundle_probe",
+            "hardware_profile": {
+                "gather_sec": round(profile_sec, 2),
+                "manufacturer": ctx.get("system_manufacturer"),
+                "model": ctx.get("system_model"),
+                "has_amd_chipset": ctx.get("has_amd_chipset"),
+                "has_intel_chipset": ctx.get("has_intel_chipset"),
+            },
+            "bundle_verification": block,
+        }
+    )
 
 
 def main() -> int:
@@ -382,18 +392,26 @@ def main() -> int:
         help="Max devices for --scan (default 2)",
     )
     parser.add_argument(
+        "--bundle-probe",
+        action="store_true",
+        help="Chipset platform bundle verification only (WMI + catalog; may network)",
+    )
+    parser.add_argument(
         "--timeout",
         type=float,
         default=25.0,
         help="Per-probe network timeout in seconds (default 25)",
     )
     args = parser.parse_args()
-    report = build_report(
-        run_scan=args.scan and not args.fast,
-        max_devices=max(1, args.max_devices),
-        fast=args.fast,
-        network_timeout_sec=max(5.0, args.timeout),
-    )
+    if args.bundle_probe:
+        report = build_bundle_probe_report(network_timeout_sec=max(5.0, args.timeout))
+    else:
+        report = build_report(
+            run_scan=args.scan and not args.fast,
+            max_devices=max(1, args.max_devices),
+            fast=args.fast,
+            network_timeout_sec=max(5.0, args.timeout),
+        )
     print(json.dumps(report, indent=2))
     return 0
 

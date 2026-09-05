@@ -1,6 +1,6 @@
 # Session handoff — BSOD Analyzer
 
-**Updated:** 2026-09-05 · **Version:** 6.5.33 · **Session status:** WQ-003 BV-11 landed · **Upgrade planning:** Native dump still not promoted
+**Updated:** 2026-09-05 · **Version:** 6.5.34 · **Session status:** WQ-003 Done · **Upgrade planning:** Native dump still not promoted
 
 Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WORK_QUEUE.md) (process) and [`ROADMAP.md`](../ROADMAP.md) (product). **Delete** slice handoffs in `active/` when Done; do not archive.
 
@@ -8,8 +8,9 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 
 ## Where we left off
 
-- **Shipping line:** v6.5.31 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
-- **Active WQ:** **WQ-003** — **BV-11** GUI/export/verification rollup ☑ (6.5.33); **BV-12** next
+- **Shipping line:** v6.5.34 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
+- **WQ-003:** Universal driver bundle verification ☑ — BV-1–BV-12 complete (6.5.34)
+- **Active WQ:** *(none — triage Inbox)*
 - **Pack transfer (audit + rules, other system):** **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** (pass 5 — neutral + HANDOFF-VERIFY); maintainer copy for USB/email — **not in repo**
 
 ### Upgrade planning (Native dump track — Tier 3, not Build)

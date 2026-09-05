@@ -412,6 +412,7 @@ When a vendor or OEM offer represents a **suite** (AMD Chipset Software, Dell DU
 | Primary GPU + OEM graphics bundle | Display + gpu_companion inventory vs bundle manifest (6.5.29) | Wrapper rollup on primary display row |
 | **Component-only install** | `bundle_selective_install.py` — AMD `DevID.xml`/`Info.xml` tag, Intel INF label, DUP `inner_versions` → extract subfolder before HWID scan (6.5.32) | Wired in `driver_install.py` |
 | **GUI + export + Action Plan** | Per-component table on Drivers inspector; export includes `bundle_component_compare`; verification narrative uses rollup after catalog scan (6.5.33) | Wired |
+| **Live probe + Alienware fixture** | `scripts/live_machine_probe.py --bundle-probe`; `tests/fixtures/bundle_verification_alienware_m17_r5_amd.json` (6.5.34) | Wired |
 
 Skipped in **quick-check** catalog mode (no manifest download). Requires **7-Zip** (bundled or on PATH) when `Info.xml` is not embedded in the `.exe` bytes.
 

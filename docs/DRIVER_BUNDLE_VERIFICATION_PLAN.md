@@ -1,6 +1,6 @@
 # Driver bundle verification — unified plan
 
-**Status:** In progress (Phase 1 started 2026-09-05)  
+**Status:** Complete (2026-09-05)  
 **WQ:** WQ-003  
 **Priority:** User-facing accuracy (AGENT_READINESS § Priority order)
 
@@ -48,7 +48,7 @@ One **bundle verification** pipeline for every multi-driver offer:
 | 3 | BV-9 | Enterprise manifest (`catalog_oem_live`) — full inner_versions on all DUP rows | ☑ |
 | 4 | BV-10 | Selective install generalization (DevID.xml / DUP tag → extract path) | ☑ |
 | 4 | BV-11 | GUI component table + export + `driver_verification.py` narrative uses rollup | ☑ |
-| 4 | BV-12 | Live probe scenario + Alienware fixture | ☐ |
+| 4 | BV-12 | Live probe scenario + Alienware fixture | ☑ |
 
 ---
 

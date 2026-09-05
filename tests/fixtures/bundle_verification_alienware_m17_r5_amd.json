@@ -1,0 +1,33 @@
+{
+  "description": "Alienware m17 R5 AMD — AMD Chipset Software suite matches but SMBus INF stale (2026-09-05 live baseline)",
+  "hardware_summary": {
+    "manufacturer": "Alienware",
+    "model": "Alienware m17 R5 AMD",
+    "cpu_vendor": "amd",
+    "has_amd_chipset": true
+  },
+  "chipset_platform": {
+    "device_key": "__chipset_amd_platform__",
+    "suite_installed": "8.08.12.551",
+    "wrapper_offer_version": "8.08.12.551",
+    "wrapper_status": "same",
+    "expected_rollup_status": "newer",
+    "expected_stale_labels": ["SMBus"],
+    "installed_components": [
+      {"label": "PSP", "device_name": "AMD PSP Device", "version": "5.46.0.0"},
+      {"label": "GPIO", "device_name": "AMD GPIO Controller", "version": "2.2.0.137"},
+      {"label": "I2C", "device_name": "AMD I2C Controller", "version": "1.2.0.131"},
+      {"label": "MicroPEP", "device_name": "AMD MicroPEP Device", "version": "1.0.47.1"},
+      {"label": "PPM", "device_name": "AMD Ryzen Power Plan", "version": "8.0.0.65"},
+      {"label": "SMBus", "device_name": "AMD SMBUS Controller", "version": "2.0.0.26"}
+    ],
+    "offer_bundle_components": [
+      {"label": "PSP", "device_name": "AMD PSP Driver", "version": "5.46.0.0"},
+      {"label": "GPIO", "device_name": "AMD GPIO2 Driver", "version": "2.2.0.137"},
+      {"label": "I2C", "device_name": "AMD I2C Driver", "version": "1.2.0.131"},
+      {"label": "MicroPEP", "device_name": "AMD MicroPEP Driver", "version": "1.0.47.1"},
+      {"label": "PPM", "device_name": "AMD Ryzen Power Plan", "version": "8.0.0.65"},
+      {"label": "SMBus", "device_name": "AMD SMBUS Driver", "version": "5.12.0.44"}
+    ]
+  }
+}

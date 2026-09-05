@@ -6,7 +6,7 @@ Items are **never deleted** when priorities shift — they move to **Done**, **P
 | Field | Value |
 |-------|--------|
 | **Next active ID** | *(none — triage Inbox)* |
-| **Last updated** | 2026-09-05 |
+| **Last updated** | 2026-09-05 (WQ-003 Done) |
 
 ---
 
@@ -26,7 +26,7 @@ Rule: `generic-work-queue-discipline.mdc`.
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| WQ-003 | Universal driver bundle verification (Option 1) | **Next** / In progress | BV-11 ☑ (6.5.33) · next **BV-12** |
+| | | | |
 
 ---
 
@@ -62,6 +62,7 @@ Recurring gaps from audits or reviews (not one-off audit Fix lines).
 |----|------|-----------|----------|
 | WQ-001 | Maintenance USB: PC-local data (no stick persistence) | 2026-08-31 | M1–M4; `run_tests.bat` exit 0; [`MAINTENANCE_USB_DATA_PLAN.md`](upgrade/plans/MAINTENANCE_USB_DATA_PLAN.md) |
 | WQ-002 | Remove stick migration (M2 retired) + derivative doc sync | 2026-09-01 | `migrate_maintenance_usb_from_stick` removed; ROADMAP/KNOWN_LIMITATIONS/AGENT_READINESS updated; pack rules strengthened |
+| WQ-003 | Universal driver bundle verification (Option 1) | 2026-09-05 | BV-1–BV-12 ☑ (6.5.34); `run_tests.bat` exit 0; [`DRIVER_BUNDLE_VERIFICATION_PLAN.md`](DRIVER_BUNDLE_VERIFICATION_PLAN.md) |
 
 ---
 

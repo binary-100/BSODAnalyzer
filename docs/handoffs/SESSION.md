@@ -1,6 +1,6 @@
 # Session handoff — BSOD Analyzer
 
-**Updated:** 2026-09-05 · **Version:** 6.5.29 · **Session status:** WQ-003 BV-7 landed · **Upgrade planning:** Native dump still not promoted
+**Updated:** 2026-09-05 · **Version:** 6.5.30 · **Session status:** WQ-003 BV-8 landed · **Upgrade planning:** Native dump still not promoted
 
 Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WORK_QUEUE.md) (process) and [`ROADMAP.md`](../ROADMAP.md) (product). **Delete** slice handoffs in `active/` when Done; do not archive.
 
@@ -8,8 +8,8 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 
 ## Where we left off
 
-- **Shipping line:** v6.5.28 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
-- **Active WQ:** **WQ-003** — universal driver bundle verification; **BV-7** wrapper-row rollup for OEM graphics bundles ☑ (6.5.29); **BV-8** next
+- **Shipping line:** v6.5.30 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
+- **Active WQ:** **WQ-003** — **BV-8** Intel chipset manifest ☑ (6.5.30); **BV-9** next
 - **Pack transfer (audit + rules, other system):** **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** (pass 5 — neutral + HANDOFF-VERIFY); maintainer copy for USB/email — **not in repo**
 
 ### Upgrade planning (Native dump track — Tier 3, not Build)

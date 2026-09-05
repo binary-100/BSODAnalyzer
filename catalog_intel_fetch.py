@@ -416,4 +416,13 @@ def fetch_intel_driver_offers(ctx: dict) -> list[dict]:
         )
     if _dc("_v6_catalog_enabled")():
         offers.append(_dc("_intel_dsa_utility_offer")(ctx, scraped_version=ver))
+    if hint == "chipset" and ver and offers and offers[0].get("source") == "vendor":
+        try:
+            import catalog_intel_chipset_manifest as icm
+
+            components = icm.fetch_intel_chipset_bundle_components(ver, ctx)
+            if components:
+                offers[0]["bundle_components"] = components
+        except Exception:  # noqa: BLE001 — manifest fetch is best-effort
+            pass
     return offers

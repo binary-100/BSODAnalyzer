@@ -26,7 +26,7 @@ Rule: `generic-work-queue-discipline.mdc`.
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| WQ-003 | Universal driver bundle verification (Option 1) | **Next** / In progress | BV-6 ☑ (6.5.28) · **BV-7** ☑ (6.5.29) — next **BV-8** |
+| WQ-003 | Universal driver bundle verification (Option 1) | **Next** / In progress | BV-7 ☑ (6.5.29) · **BV-8** ☑ (6.5.30) — next **BV-9** |
 
 ---
 

@@ -44,7 +44,7 @@ One **bundle verification** pipeline for every multi-driver offer:
 | 1 | BV-5 | Tests `tests/test_bundle_verification.py` | ☑ |
 | 2 | BV-6 | AMD vendor fetch: download/cache manifest; attach `bundle_components` to AMD chipset vendor offer | ☑ |
 | 2 | BV-7 | Generic wrapper-row rollup hook for non-chipset synthetic rows (OEM graphics bundle parent) | ☑ |
-| 3 | BV-8 | Intel chipset manifest adapter + rollup | ☐ |
+| 3 | BV-8 | Intel chipset manifest adapter + rollup | ☑ |
 | 3 | BV-9 | Enterprise manifest (`catalog_oem_live`) — full inner_versions on all DUP rows | ☐ |
 | 4 | BV-10 | Selective install generalization (DevID.xml / DUP tag → extract path) | ☐ |
 | 4 | BV-11 | GUI component table + export + `driver_verification.py` narrative uses rollup | ☐ |
@@ -58,7 +58,8 @@ One **bundle verification** pipeline for every multi-driver offer:
 |--------|------|
 | `bundle_verification.py` | Normalized compare + rollup (vendor-agnostic) |
 | `amd_chipset_manifest.py` | AMD Info.xml / DevID.xml adapter |
-| `catalog_amd_chipset_manifest.py` | AMD chipset package fetch/cache → `bundle_components` on vendor offer |
+| `intel_chipset_manifest.py` | Intel chipset INF DriverVer adapter |
+| `catalog_intel_chipset_manifest.py` | Intel chipset package fetch/cache → `bundle_components` |
 | `oem_effective_version.py` | PCI/ACPI inner version pick (extend, do not fork) |
 | `catalog_chipset_comparison.py` | Platform row integration |
 | `catalog_offer_compare.py` | Offer enrichment |

@@ -9,6 +9,8 @@ import bundle_verification as bv
 from amd_chipset_manifest import amd_info_products_to_bundle_components, parse_info_products
 import catalog_amd_chipset_manifest as acm
 import catalog_amd_fetch as amd_fetch
+import catalog_intel_fetch as intel_fetch
+import intel_chipset_manifest as icm
 
 
 def test_compare_bundle_detects_stale_smbus_while_wrapper_same() -> None:
@@ -170,3 +172,73 @@ def test_graphics_bundle_rollup_upgrades_stale_npcf() -> None:
     )
     assert result.get("bundle_status_rollup") == "newer"
     assert any(d.get("label") == "NPCF" for d in result.get("bundle_component_compare") or [])
+
+
+def test_intel_infs_to_bundle_components_skips_suite_wrapper() -> None:
+    entries = [
+        (
+            "Chipset.inf",
+            '[Version]\nDriverVer=06/21/2024,10.1.20398.8776\nProvider="Intel Corporation"\n',
+        ),
+        (
+            "SerialIO.inf",
+            '[Version]\nDriverVer=06/21/2024,10.1.1.45\nProvider="Intel Corporation"\n',
+        ),
+        (
+            "SmbUS.inf",
+            '[Version]\nDriverVer=06/21/2024,10.1.1.46\nProvider="Intel Corporation"\n',
+        ),
+    ]
+    components = icm.intel_infs_to_bundle_components(entries)
+    labels = {c["label"] for c in components}
+    assert "Serial IO" in labels
+    assert "SMBus" in labels
+    assert "Chipset INF" not in labels
+    smbus = next(c for c in components if c["label"] == "SMBus")
+    assert smbus["version"] == "10.1.1.46"
+
+
+def test_intel_infs_from_zip_fixture(tmp_path) -> None:
+    import zipfile
+
+    zpath = tmp_path / "chipset.zip"
+    with zipfile.ZipFile(zpath, "w") as zf:
+        zf.writestr(
+            "Drivers/SerialIO.inf",
+            '[Version]\nDriverVer=06/21/2024,10.1.1.45\n',
+        )
+        zf.writestr(
+            "Drivers/SmbUS.inf",
+            '[Version]\nDriverVer=06/21/2024,10.1.1.46\n',
+        )
+    entries = icm.read_infs_from_zip(zpath)
+    components = icm.intel_infs_to_bundle_components(entries)
+    assert len(components) == 2
+
+
+def test_fetch_intel_driver_offers_attaches_bundle_components() -> None:
+    import driver_catalog as dc
+
+    ctx = {
+        "vendor_key": "intel",
+        "hw_category": "chipset",
+        "pnp_class": "system",
+        "device_label": "Intel Chipset",
+    }
+    components = [
+        {"label": "Serial IO", "version": "10.1.1.45", "device_name": "SerialIO.inf"},
+        {"label": "SMBus", "version": "10.1.1.46", "device_name": "SmbUS.inf"},
+    ]
+    with (
+        mock.patch.object(dc, "_manufacturer_vendor_lookup_applicable", return_value=True),
+        mock.patch.object(dc, "_intel_driver_hint_from_ctx", return_value="chipset"),
+        mock.patch.object(dc, "_vendor_scrape_cache_get", return_value=("10.1.20398.8776", "", "https://intel.test", "")),
+        mock.patch.object(dc, "_v6_catalog_enabled", return_value=False),
+        mock.patch(
+            "catalog_intel_chipset_manifest.fetch_intel_chipset_bundle_components",
+            return_value=components,
+        ),
+    ):
+        offers = intel_fetch.fetch_intel_driver_offers(ctx)
+    vendor = next(o for o in offers if o.get("source") == "vendor")
+    assert vendor["bundle_components"] == components

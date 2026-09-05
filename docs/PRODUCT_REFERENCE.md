@@ -408,8 +408,9 @@ When a vendor or OEM offer represents a **suite** (AMD Chipset Software, Dell DU
 |-------|---------------------|--------|
 | AMD chipset (platform row) | `Info.xml` from AMD chipset package — downloaded/cached under catalog cache (`catalog_amd_chipset_manifest.py`, 6.5.28) | Vendor offer gets `bundle_components`; rollup wired |
 | Offers with `inner_versions` | Normalized via `bundle_verification.py` | Rollup on compare |
+| Intel chipset (platform row) | INF `DriverVer` from chipset package — cached (`catalog_intel_chipset_manifest.py`, 6.5.30) | Vendor offer gets `bundle_components`; rollup wired |
 | Primary GPU + OEM graphics bundle | Display + gpu_companion inventory vs bundle manifest (6.5.29) | Wrapper rollup on primary display row |
-| Intel chipset, selective install | Planned — [`DRIVER_BUNDLE_VERIFICATION_PLAN.md`](DRIVER_BUNDLE_VERIFICATION_PLAN.md) | Not yet |
+| Intel chipset (platform row) | INF `DriverVer` from chipset package — cached (`catalog_intel_chipset_manifest.py`, 6.5.30) | Vendor offer gets `bundle_components`; rollup wired |
 
 Skipped in **quick-check** catalog mode (no manifest download). Requires **7-Zip** (bundled or on PATH) when `Info.xml` is not embedded in the `.exe` bytes.
 

@@ -1275,6 +1275,75 @@ def gate_catalog_for_suspects(verified_suspects: list[dict]) -> list[dict]:
     return gated
 
 
+def _platform_catalog_entry(device_catalog_rows: dict[str, dict]) -> dict | None:
+    """Return AMD/Intel synthetic platform row from GUI catalog batch."""
+    try:
+        from bsod_hardware_wmi import CHIPSET_DEVICE_AMD, CHIPSET_DEVICE_INTEL
+    except ImportError:
+        CHIPSET_DEVICE_AMD = "__chipset_amd_platform__"
+        CHIPSET_DEVICE_INTEL = "__chipset_intel_platform__"
+    for name in (CHIPSET_DEVICE_AMD, CHIPSET_DEVICE_INTEL):
+        row = device_catalog_rows.get((name or "").strip().lower())
+        if row:
+            return row
+    return None
+
+
+def enrich_attribution_with_bundle_rollup(
+    attribution: dict | None,
+    device_catalog_rows: dict[str, dict] | None,
+) -> dict:
+    """Patch repair narrative when catalog scan found stale bundle components."""
+    from bundle_verification import (
+        bundle_compare_rows_from_catalog_entry,
+        stale_bundle_component_labels,
+    )
+
+    attr = dict(attribution or {})
+    if not device_catalog_rows:
+        return attr
+    platform = _platform_catalog_entry(device_catalog_rows)
+    if not platform:
+        return attr
+    compare = bundle_compare_rows_from_catalog_entry(platform)
+    stale = stale_bundle_component_labels(compare)
+    note = (platform.get("bundle_compare_note") or "").strip()
+    if not stale and not note:
+        return attr
+    lines = list(attr.get("lines") or [])
+    steps = list(attr.get("action_plan_steps") or attr.get("action_steps") or [])
+    rollup_line = note or (
+        "Bundle wrapper may match but component(s) behind offer manifest: "
+        + ", ".join(stale[:6])
+        + ("." if stale else "")
+    )
+    if rollup_line and not any(
+        "component(s) behind" in ln or "bundle wrapper" in ln.lower() for ln in lines
+    ):
+        lines.append(f"  {rollup_line}")
+    if stale:
+        short = ", ".join(stale[:6])
+        chip_step = (
+            f"Drivers -> Needs attention: chipset suite wrapper may match but "
+            f"stale component(s): {short} — run Search for updates on the platform row."
+        )
+        replaced = False
+        for i, step in enumerate(steps):
+            low = step.lower()
+            if "chipset" in low and ("platform" in low or "suite" in low):
+                steps[i] = chip_step
+                replaced = True
+                break
+        if not replaced:
+            steps.insert(0, chip_step)
+    attr["lines"] = lines
+    attr["action_plan_steps"] = steps
+    attr["action_steps"] = steps
+    if stale:
+        attr["bundle_stale_components"] = stale
+    return attr
+
+
 def apply_catalog_results_from_gui(
     verification: dict | None,
     device_catalog_rows: dict[str, dict],
@@ -1298,8 +1367,34 @@ def apply_catalog_results_from_gui(
         if offers:
             best = offers[0]
             vs = (best.get("_check_status") or best.get("status") or "").lower()
+            rollup = (best.get("bundle_status_rollup") or "").lower()
+            if rollup != "newer" and vs in ("same", "updated"):
+                for alt in offers:
+                    if (alt.get("bundle_status_rollup") or "").lower() == "newer":
+                        best = alt
+                        rollup = "newer"
+                        break
             hwid = bool(best.get("hwid_matched"))
-            if vs in ("newer", "update"):
+            stale = []
+            if rollup == "newer":
+                from bundle_verification import (
+                    bundle_compare_rows_from_catalog_entry,
+                    stale_bundle_component_labels,
+                )
+
+                stale = stale_bundle_component_labels(
+                    bundle_compare_rows_from_catalog_entry(best)
+                )
+            if rollup == "newer" and stale:
+                detail = (
+                    f"Suite matches but stale component(s): {', '.join(stale[:6])}"
+                )
+                entry["catalog"] = {
+                    "status": "update_available",
+                    "detail": detail,
+                    "offers": len(offers),
+                }
+            elif vs in ("newer", "update"):
                 detail = f"Update available ({best.get('version') or '?'})"
                 if hwid:
                     detail += " — HWID verified."
@@ -1310,7 +1405,10 @@ def apply_catalog_results_from_gui(
                 entry["catalog"] = {"status": "checked", "detail": "Catalog checked; see Drivers tab for details.", "offers": len(offers)}
         suspects.append(entry)
     out["suspects"] = suspects
-    out["attribution"] = dict((verification or {}).get("attribution") or {})
+    out["attribution"] = enrich_attribution_with_bundle_rollup(
+        dict((verification or {}).get("attribution") or {}),
+        device_catalog_rows,
+    )
     return out
 
 

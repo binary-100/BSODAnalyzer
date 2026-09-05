@@ -211,6 +211,70 @@ def test_build_crash_confidence_focus_without_dump() -> None:
     assert conf["what_would_change"]
 
 
+def test_enrich_attribution_with_bundle_rollup() -> None:
+    try:
+        from bsod_hardware_wmi import CHIPSET_DEVICE_AMD
+    except ImportError:
+        CHIPSET_DEVICE_AMD = "__chipset_amd_platform__"
+    rows = {
+        CHIPSET_DEVICE_AMD.lower(): {
+            "device_name": CHIPSET_DEVICE_AMD,
+            "status": "same",
+            "bundle_status_rollup": "newer",
+            "bundle_component_compare": [
+                {
+                    "label": "SMBus",
+                    "installed_version": "2.0.0.26",
+                    "offer_version": "5.12.0.44",
+                    "vs_offer": "newer",
+                },
+            ],
+            "bundle_compare_note": "Bundle wrapper matches but SMBus is stale.",
+        },
+    }
+    attr = dv.enrich_attribution_with_bundle_rollup({"lines": [], "action_plan_steps": []}, rows)
+    assert attr.get("bundle_stale_components") == ["SMBus"]
+    assert any("SMBus" in ln for ln in attr.get("lines") or [])
+    assert any("stale component" in s.lower() for s in attr.get("action_plan_steps") or [])
+
+
+def test_apply_catalog_results_marks_stale_bundle_on_platform_row() -> None:
+    try:
+        from bsod_hardware_wmi import CHIPSET_DEVICE_AMD
+    except ImportError:
+        CHIPSET_DEVICE_AMD = "__chipset_amd_platform__"
+    verification = {
+        "suspects": [
+            {
+                "module": CHIPSET_DEVICE_AMD,
+                "catalog_gate": dv._CATALOG_YES,
+                "devices": [{"name": CHIPSET_DEVICE_AMD}],
+            },
+        ],
+        "attribution": {"lines": [], "action_plan_steps": []},
+    }
+    rows = {
+        CHIPSET_DEVICE_AMD.lower(): {
+            "device_name": CHIPSET_DEVICE_AMD,
+            "status": "same",
+            "bundle_status_rollup": "newer",
+            "bundle_component_compare": [
+                {
+                    "label": "SMBus",
+                    "installed_version": "2.0.0.26",
+                    "offer_version": "5.12.0.44",
+                    "vs_offer": "newer",
+                },
+            ],
+        },
+    }
+    merged = dv.apply_catalog_results_from_gui(verification, rows)
+    assert merged is not None
+    cat = merged["suspects"][0]["catalog"]
+    assert cat["status"] == "update_available"
+    assert "SMBus" in cat["detail"]
+
+
 if __name__ == "__main__":
     test_build_suspect_list_from_minidump()
     test_suspect_list_ignores_stale_dump_module()

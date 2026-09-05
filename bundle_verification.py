@@ -241,3 +241,85 @@ def attach_wrapper_row_bundle_rollup(
         result["bundle_compare_note"] = rollup_note
     if rollup_status == "newer":
         result["bundle_status_rollup"] = rollup_status
+
+
+_BUNDLE_VS_LABELS = {
+    "newer": "Stale",
+    "same": "Current",
+    "older": "Ahead",
+    "unknown": "Unknown",
+}
+
+
+def bundle_compare_vs_label(vs: str) -> str:
+    """Short UI/export label for per-component vs_offer."""
+    return _BUNDLE_VS_LABELS.get((vs or "").strip().lower(), vs or "?")
+
+
+def bundle_compare_rows_from_catalog_entry(entry: dict | None) -> list[dict]:
+    """Normalized per-component compare rows from a catalog batch entry."""
+    if not entry:
+        return []
+    compare = entry.get("bundle_component_compare")
+    if isinstance(compare, list) and compare:
+        return [dict(r) for r in compare if isinstance(r, dict)]
+    installed = entry.get("chipset_bundle_components") or []
+    offer = entry.get("bundle_offer_components") or []
+    if not offer:
+        offers = entry.get("offers") or []
+        offer = best_offer_bundle_components(offers)
+    if installed and offer:
+        details, _, _ = compare_bundle_component_sets(installed, offer)
+        return details
+    return []
+
+
+def stale_bundle_component_labels(compare_rows: list[dict] | None) -> list[str]:
+    """Labels where installed is behind the offer manifest."""
+    out: list[str] = []
+    for row in compare_rows or []:
+        if not isinstance(row, dict):
+            continue
+        if (row.get("vs_offer") or "").lower() == "newer":
+            label = (row.get("label") or "").strip()
+            if label:
+                out.append(label)
+    return out
+
+
+def format_bundle_compare_export_lines(
+    entry: dict | None,
+    *,
+    max_rows: int = 12,
+) -> list[str]:
+    """Text export lines for bundle component compare on one device row."""
+    if not entry:
+        return []
+    compare = bundle_compare_rows_from_catalog_entry(entry)
+    if not compare:
+        installed = entry.get("chipset_bundle_components") or []
+        if not installed:
+            return []
+        lines = [f"  Chipset bundle ({len(installed)} installed component INF version(s)):"]
+        for comp in installed[:max_rows]:
+            if not isinstance(comp, dict):
+                continue
+            dn = (comp.get("device_name") or comp.get("label") or "?").strip()
+            cv = (comp.get("version") or "?").strip()
+            lines.append(f"    • {dn}: {cv}")
+        if len(installed) > max_rows:
+            lines.append(f"    … and {len(installed) - max_rows} more")
+        return lines
+    lines = [f"  Bundle components ({len(compare)} compared):"]
+    for row in compare[:max_rows]:
+        label = (row.get("label") or "?").strip()
+        inst = (row.get("installed_version") or "?").strip()
+        offer = (row.get("offer_version") or "?").strip()
+        vs = bundle_compare_vs_label(row.get("vs_offer") or "")
+        lines.append(f"    • {label}: installed {inst} | offer {offer} | {vs}")
+    if len(compare) > max_rows:
+        lines.append(f"    … and {len(compare) - max_rows} more")
+    note = (entry.get("bundle_compare_note") or "").strip()
+    if note:
+        lines.append(f"  Bundle note: {note[:240]}")
+    return lines

@@ -242,3 +242,38 @@ def test_fetch_intel_driver_offers_attaches_bundle_components() -> None:
         offers = intel_fetch.fetch_intel_driver_offers(ctx)
     vendor = next(o for o in offers if o.get("source") == "vendor")
     assert vendor["bundle_components"] == components
+
+
+def test_bundle_compare_rows_from_catalog_entry_synthesizes() -> None:
+    entry = {
+        "chipset_bundle_components": [
+            {"label": "SMBus", "version": "2.0.0.26"},
+            {"label": "PSP", "version": "5.46.0.0"},
+        ],
+        "bundle_offer_components": [
+            {"label": "SMBus", "version": "5.12.0.44"},
+            {"label": "PSP", "version": "5.46.0.0"},
+        ],
+    }
+    rows = bv.bundle_compare_rows_from_catalog_entry(entry)
+    assert len(rows) == 2
+    smbus = next(r for r in rows if r.get("label") == "SMBus")
+    assert smbus.get("vs_offer") == "newer"
+
+
+def test_format_bundle_compare_export_lines() -> None:
+    entry = {
+        "bundle_component_compare": [
+            {
+                "label": "SMBus",
+                "installed_version": "2.0.0.26",
+                "offer_version": "5.12.0.44",
+                "vs_offer": "newer",
+            },
+        ],
+        "bundle_compare_note": "Bundle wrapper matches but SMBus is stale.",
+    }
+    lines = bv.format_bundle_compare_export_lines(entry)
+    assert any("SMBus" in ln for ln in lines)
+    assert any("Stale" in ln for ln in lines)
+    assert any("Bundle note" in ln for ln in lines)

@@ -25,6 +25,22 @@ class ExportFileChoices:
 
 
 class GuiCatalogExportMixin:
+    def _bundle_fields_from_catalog_entry(self, entry: dict | None) -> dict:
+        if not entry:
+            return {}
+        import bundle_verification as bv
+
+        return {
+            "chipset_bundle_components": list(
+                entry.get("chipset_bundle_components") or []
+            ),
+            "chipset_suite_version": (entry.get("chipset_suite_version") or "").strip(),
+            "bundle_offer_components": list(entry.get("bundle_offer_components") or []),
+            "bundle_component_compare": bv.bundle_compare_rows_from_catalog_entry(entry),
+            "bundle_compare_note": (entry.get("bundle_compare_note") or "").strip(),
+            "bundle_status_rollup": (entry.get("bundle_status_rollup") or "").strip(),
+        }
+
     def _build_export_index_health(self) -> dict:
         enabled = drvidx.is_index_enabled(self._settings)
         snap = drvidx.index_diagnostics_snapshot()
@@ -597,6 +613,7 @@ class GuiCatalogExportMixin:
                         "tier": (dev.get("_tier") or "").strip(),
                         "offers": list(result.get("offers") or []),
                         "device_diagnostics": self._export_device_diagnostics(result, dev),
+                        **self._bundle_fields_from_catalog_entry(result),
                     }
                 )
 
@@ -636,6 +653,7 @@ class GuiCatalogExportMixin:
                         "tier": ((dev or {}).get("_tier") or "").strip(),
                         "offers": list(entry.get("offers") or []),
                         "device_diagnostics": self._export_device_diagnostics(entry, dev),
+                        **self._bundle_fields_from_catalog_entry(entry),
                     }
                 )
 

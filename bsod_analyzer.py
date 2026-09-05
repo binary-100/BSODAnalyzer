@@ -10,7 +10,7 @@ v3.1: Single portable exe with bundled WinDbg/CDB engine.
 
 REMINDER: After any change, recompile (`build_ci.bat` from the project root, or `run_tests.bat` then `build_and_deploy_v6.bat`).
 """
-VERSION = "6.5.32"
+VERSION = "6.5.33"
 
 import ctypes
 import os

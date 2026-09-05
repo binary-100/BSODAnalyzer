@@ -463,6 +463,39 @@ class GuiDriversMixin:
         self.drv_packages_heading = QtWidgets.QLabel("Available packages")
         self.drv_packages_heading.setObjectName("SectionHeading")
         summary_lay.addWidget(self.drv_packages_heading)
+
+        self.drv_bundle_heading = QtWidgets.QLabel("Bundle components")
+        self.drv_bundle_heading.setObjectName("SectionHeading")
+        self.drv_bundle_heading.hide()
+        summary_lay.addWidget(self.drv_bundle_heading)
+
+        self.drv_bundle_table = QtWidgets.QTableWidget(0, 4)
+        self.drv_bundle_table.setHorizontalHeaderLabels(
+            ["Component", "Installed", "Offer", "Status"]
+        )
+        self._configure_driver_package_columns(
+            self.drv_bundle_table, compare_table=True
+        )
+        self.drv_bundle_table.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows
+        )
+        self.drv_bundle_table.setSelectionMode(
+            QtWidgets.QAbstractItemView.NoSelection
+        )
+        self.drv_bundle_table.setEditTriggers(
+            QtWidgets.QAbstractItemView.NoEditTriggers
+        )
+        self.drv_bundle_table.setWordWrap(True)
+        self.drv_bundle_table.setMinimumHeight(56)
+        self.drv_bundle_table.setMaximumHeight(160)
+        self.drv_bundle_table.setSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding,
+            QtWidgets.QSizePolicy.Policy.Fixed,
+        )
+        self._apply_compare_table_style(self.drv_bundle_table)
+        self.drv_bundle_table.hide()
+        summary_lay.addWidget(self.drv_bundle_table)
+
         self.drv_hint = QtWidgets.QPlainTextEdit()
         self.drv_hint.setReadOnly(True)
         self.drv_hint.setObjectName("CatalogHint")

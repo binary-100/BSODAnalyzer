@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 import driver_catalog as drvcat
+from bundle_verification import format_bundle_compare_export_lines
 
 EXPORT_SCHEMA_VERSION = 3
 
@@ -575,8 +576,11 @@ def _append_driver_text(lines: list[str], dev: dict) -> None:
     if parent_name:
         lines.append(f"  PnP parent (Windows): {parent_name}")
     lines.append(f"  Installed: {inst}  |  Status: {status}")
-    bundle = dev.get("chipset_bundle_components") or []
-    if bundle:
+    bundle_lines = format_bundle_compare_export_lines(dev)
+    if bundle_lines:
+        lines.extend(bundle_lines)
+    elif dev.get("chipset_bundle_components"):
+        bundle = dev.get("chipset_bundle_components") or []
         lines.append(f"  Chipset bundle ({len(bundle)} component INF version(s)):")
         for comp in bundle[:12]:
             if not isinstance(comp, dict):

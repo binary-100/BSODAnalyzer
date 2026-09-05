@@ -229,10 +229,16 @@ class GuiCatalogPackagesMixin:
         """Re-apply compare-table foreground colors after a theme switch."""
         for table in (
             getattr(self, "drv_compare_table", None),
+            getattr(self, "drv_bundle_table", None),
             getattr(self, "fw_compare_table", None),
             getattr(self, "driver_compare_table", None),
         ):
             if table is None:
+                continue
+            if table is getattr(self, "drv_bundle_table", None):
+                comp = getattr(self, "_driver_comparison", None)
+                if isinstance(comp, dict):
+                    self._fill_drv_bundle_table(comp)
                 continue
             offers: list[dict] = []
             for row in range(table.rowCount()):

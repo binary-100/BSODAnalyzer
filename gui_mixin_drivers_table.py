@@ -639,6 +639,48 @@ class GuiDriversTableMixin:
             else QtCore.Qt.ArrowType.RightArrow
         )
 
+    def _set_drv_bundle_section_visible(self, visible: bool) -> None:
+        if hasattr(self, "drv_bundle_table"):
+            self.drv_bundle_table.setVisible(visible)
+        if hasattr(self, "drv_bundle_heading"):
+            self.drv_bundle_heading.setVisible(visible)
+
+    def _fill_drv_bundle_table(self, result: dict | None) -> None:
+        """Per-component bundle compare (chipset platform / OEM graphics rollup)."""
+        if not hasattr(self, "drv_bundle_table"):
+            return
+        import bundle_verification as bv
+
+        table = self.drv_bundle_table
+        table.setRowCount(0)
+        rows = bv.bundle_compare_rows_from_catalog_entry(result or {})
+        note = ((result or {}).get("bundle_compare_note") or "").strip()
+        if not rows:
+            self._set_drv_bundle_section_visible(False)
+            return
+        self._set_drv_bundle_section_visible(True)
+        if hasattr(self, "drv_bundle_heading"):
+            heading = "Bundle components"
+            if note:
+                heading = f"{heading} — {note[:120]}"
+            self.drv_bundle_heading.setText(heading)
+            self.drv_bundle_heading.setToolTip(note or "")
+        table.setRowCount(len(rows))
+        for row_idx, comp in enumerate(rows):
+            label = (comp.get("label") or "?").strip()
+            inst = (comp.get("installed_version") or "?").strip()
+            offer = (comp.get("offer_version") or "?").strip()
+            vs = bv.bundle_compare_vs_label(comp.get("vs_offer") or "")
+            tip = (comp.get("device_name") or label).strip()
+            for col, text in enumerate((label, inst, offer, vs)):
+                item = QtWidgets.QTableWidgetItem(text)
+                item.setToolTip(tip)
+                item.setFlags(
+                    QtCore.Qt.ItemFlag.ItemIsEnabled
+                )
+                table.setItem(row_idx, col, item)
+        table.resizeRowsToContents()
+
     def _set_drv_packages_section_visible(self, visible: bool) -> None:
         if hasattr(self, "drv_packages_section"):
             self.drv_packages_section.setVisible(visible)
@@ -672,6 +714,7 @@ class GuiDriversTableMixin:
             if hasattr(self, "drv_packages_heading"):
                 self.drv_packages_heading.setText("Available packages")
             self._set_drv_packages_section_visible(False)
+            self._set_drv_bundle_section_visible(False)
             return
         name = (dev.get("display_name") or dev.get("name") or "?").strip()
         icon = vicons.large_icon_for_device(dev, size=UNIFIED_TABLE_INSP_ICON_SIZE)
@@ -759,7 +802,8 @@ class GuiDriversTableMixin:
                         if not notes or notes == "—"
                         else f"{notes}\n\n{uncertain}"
                     )
-        self._drv_insp_fields["notes"].setText(notes_text)
+            self._drv_insp_fields["notes"].setText(notes_text)
+        self._fill_drv_bundle_table(result)
         self.drv_insp_details_btn.show()
         self.drv_insp_details_btn.setChecked(False)
         self._toggle_drv_insp_details(False)

@@ -18,7 +18,7 @@ Also enforced by **`.cursor/rules/agent-readiness.mdc`** (always-on pointer — 
 
 ## Cursor rules (Model A — factory)
 
-This repo is the **dev factory**. Generic Agent Starter Pack rules load from **`%USERPROFILE%\.cursor\rules\`** (global install). **Project** [`.cursor/rules/`](.cursor/rules/) holds **BSOD-specific** rules only — see [`docs/MODEL_A_FACTORY.json`](docs/MODEL_A_FACTORY.json).
+This repo is the **dev factory**. Generic Agent Starter Pack rules load from **`%USERPROFILE%\.cursor\rules\`** (global install). **Project** [`.cursor/rules/`](.cursor/rules/) holds **BSOD-specific** rules only — see [`docs/MODEL_A_FACTORY.json`](docs/MODEL_A_FACTORY.json). When presenting fix/design **options** the user has not chosen yet, follow **`.cursor/rules/proposal-options-discipline.mdc`** (options + choice prompt; no phased plan until they pick). When authoring **Starter Pack transfer handoffs** (USB/email), follow **`.cursor/rules/starter-pack-isolation.mdc`** — domain-neutral only; run **`scripts\verify_pack_handoff_neutral.ps1`** before transfer.
 
 | Command | When |
 |---------|------|

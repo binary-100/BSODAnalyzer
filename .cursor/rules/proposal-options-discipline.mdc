@@ -1,0 +1,44 @@
+---
+description: Present fix/design options — user picks scope before any phased plan or sequencing
+alwaysApply: true
+---
+
+# Proposal options discipline (BSOD Analyzer)
+
+**Interim — PACK-009:** Ship `generic-proposal-options-discipline.mdc` in Agent Starter Pack to `%USERPROFILE%\.cursor\rules\`, then **remove this project copy**. Full spec is inlined in pack transfer handoff **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** § PACK-009 (filename only — not a path on any machine).
+
+When the user asks for **ideas**, **options**, or **approaches** — and has **not** chosen yet:
+
+## Required
+
+1. Present **numbered options** with tradeoffs (completeness vs cost is fair game; do not default to smallest diff).
+2. End with an explicit **choice prompt** — which option (or combination) should we pursue?
+3. Stop there unless the user also asked for implementation in the same message.
+
+## Forbidden (until user selects an option)
+
+- **Suggested phased plan**, **recommended next**, **I'd start with Phase 1**, or any delivery order
+- Combining options into a default path without user approval
+- Verbal promises ("I won't do X again") instead of following this rule
+
+## Allowed after user selects
+
+- Phased build order aligned with `generic-phased-feature-design.mdc` (runtime order = build order)
+- Risk/validation table per `agent-readiness.mdc`
+
+## Response shape (check before send)
+
+```
+## Options
+1. …
+2. …
+
+## Your call
+Which option (or mix) do you want?
+```
+
+If the user says **implement Option N**, **go with 1**, or **combine 1+3**, sequencing is allowed in that same turn or the next.
+
+## Verify
+
+`powershell -File scripts\prune_factory_generic_rules.ps1 -VerifyOnly` must list this file under allowed project rules (`docs/MODEL_A_FACTORY.json`).

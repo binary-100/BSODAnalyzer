@@ -1,0 +1,41 @@
+---
+description: Starter Pack handoffs and pack-bound artifacts — zero cross-project references
+alwaysApply: true
+---
+
+# Starter Pack isolation (this repo → pack USB/email)
+
+When you **author, edit, or review** anything intended for the **Agent Starter Pack** (transfer handoffs, pack rule text, audit seed templates, changelog drafts, or chat advice that will be pasted into pack work):
+
+## Non-negotiable
+
+1. **Domain-neutral only** in pack-bound content — patterns any app could use (`aggregate vs member`, `collect → show → status`), not this product’s modules, vendors, or scenarios.
+2. **No other project names** — no application codenames, repo names, or “the factory app” in pack artifacts.
+3. **No sender-machine paths** — no `C:\Users\...`, `Desktop\`, `OneDrive\`, or absolute paths from this PC in handoffs or pack templates.
+4. **No vendor/hardware/product tokens** in pack seed scenarios or examples (see handoff `contaminationForbiddenSubstrings`).
+5. **Self-contained transfer** — handoff filename + pack repo workspace only; opener never cites where the file was saved on another machine.
+
+## Where product-specific work belongs
+
+| Content | Location |
+|---------|----------|
+| Domain scenarios, live probes, bundle logic | **This app repo** only (`docs/`, product plans, WQ) |
+| Generic audit patterns, rules, verify gates | **Starter Pack** handoff / pack repo |
+
+Do **not** suggest copying app scenarios into pack templates or `-PushFromProject` as part of a pack upgrade handoff.
+
+## Before claiming a handoff ready for USB/email
+
+Run from this repo (maintainer):
+
+```bat
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\verify_pack_handoff_neutral.ps1
+```
+
+Exit **0** required. Fix violations in the handoff file, then re-run.
+
+## Chat discipline
+
+When the user asks about **Starter Pack** work, do not mix in **product implementation** unless they explicitly switch tracks. When giving gap analysis for the handoff, use **generic pack gaps only** — never “add a thermal driver scenario to the pack.”
+
+Related: transfer handoff **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** § Zero cross-project contamination.

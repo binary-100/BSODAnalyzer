@@ -133,3 +133,40 @@ def test_fetch_amd_driver_offers_attaches_bundle_components() -> None:
         offers = amd_fetch.fetch_amd_driver_offers(ctx)
     assert len(offers) == 1
     assert offers[0]["bundle_components"] == components
+
+
+def test_graphics_bundle_rollup_upgrades_stale_npcf() -> None:
+    from catalog_device_profiles import collect_graphics_bundle_installed_components
+
+    inventory = [
+        {
+            "catalog_role": "gpu_companion",
+            "name": "NVIDIA Platform Controllers and Framework",
+            "version": "1.0.0.1",
+        }
+    ]
+    installed = collect_graphics_bundle_installed_components(
+        inventory,
+        primary_version="32.0.16.1088",
+        video_controllers=[{"name": "NVIDIA GeForce RTX 3080", "driver_version": "32.0.16.1088"}],
+    )
+    offers = [
+        {
+            "source": "oem",
+            "title": "NVIDIA GeForce RTX Graphics Driver",
+            "version": "32.0.16.1088",
+            "inner_versions": [
+                {"name": "NVIDIA Graphics Driver", "version": "32.0.16.1088"},
+                {"name": "NVIDIA Platform Controllers and Framework", "version": "32.0.16.1100"},
+            ],
+        }
+    ]
+    result: dict = {}
+    bv.attach_wrapper_row_bundle_rollup(
+        result,
+        installed_components=installed,
+        offers=offers,
+        wrapper_status="same",
+    )
+    assert result.get("bundle_status_rollup") == "newer"
+    assert any(d.get("label") == "NPCF" for d in result.get("bundle_component_compare") or [])

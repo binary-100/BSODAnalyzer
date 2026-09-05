@@ -297,6 +297,70 @@ def build_chipset_platform_version_profile(
             profile["suite_available"] = av
     return profile
 
+def ctx_supports_graphics_bundle_rollup(ctx: dict | None) -> bool:
+    """Primary GPU row that may compare against a multi-driver OEM graphics bundle."""
+    if not ctx:
+        return False
+    role = (ctx.get("catalog_role") or "").lower()
+    if role and role != "primary_display":
+        return False
+    pnp = (ctx.get("pnp_class") or "").lower()
+    vk = (ctx.get("vendor_key") or "").lower()
+    return pnp == "display" and vk in ("nvidia", "amd", "intel")
+
+
+def offer_is_oem_graphics_bundle(offer: dict) -> bool:
+    if (offer.get("source") or "").lower() != "oem":
+        return False
+    title_l = (offer.get("title") or "").lower()
+    if not any(
+        k in title_l
+        for k in ("geforce", "graphics driver", "display driver", "radeon", "adrenalin")
+    ):
+        return False
+    if offer.get("bundle_components") or offer.get("inner_versions"):
+        return True
+    return False
+
+
+def collect_graphics_bundle_installed_components(
+    inventory: list | None,
+    *,
+    primary_version: str = "",
+    video_controllers: list | None = None,
+) -> list[dict]:
+    """Installed display + GPU companion rows for OEM graphics bundle rollup."""
+    from bundle_verification import component_label_from_text
+
+    components: list[dict] = []
+    seen: set[str] = set()
+    vc_list = video_controllers or []
+    vc = vc_list[0] if vc_list else {}
+    gpu_ver = (primary_version or vc.get("driver_version") or "").strip()
+    gpu_name = (vc.get("name") or "Display").strip()
+    if gpu_ver and gpu_ver not in ("?", "—", "N/A", "n/a"):
+        components.append(
+            {"label": "Display", "device_name": gpu_name, "version": gpu_ver}
+        )
+        seen.add("Display")
+    for row in inventory or []:
+        if not isinstance(row, dict):
+            continue
+        if (row.get("catalog_role") or "").lower() != "gpu_companion":
+            continue
+        ver = (row.get("version") or "").strip()
+        if not ver or ver in ("?", "—", "N/A", "n/a"):
+            continue
+        name = (row.get("display_name") or row.get("name") or "").strip()
+        label = component_label_from_text(name)
+        if label in seen:
+            continue
+        seen.add(label)
+        components.append(
+            {"label": label, "device_name": name or label, "version": ver}
+        )
+    return components
+
 def attach_chipset_platform_version_profile(
     dev: dict,
     offers: list | None = None,

@@ -1,13 +1,13 @@
-BSOD Analyzer v6.5.28
+BSOD Analyzer v6.5.29
 
 ====================
 
 Release date: 2026-09-05
 
-Version: 6.5.28
+Version: 6.5.29
 
 Distribution folder: BSODAnalyzer_v6\
 
-v6.5.28 highlights:
+v6.5.29 highlights:
 
-- BSOD Analyzer v6.5.28
+- BSOD Analyzer v6.5.29

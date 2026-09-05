@@ -28,6 +28,7 @@ _CHIPSET_LABEL_ALIASES: dict[str, str] = {
     "usb4": "USB3",
     "thermal": "Thermal",
     "npcf": "NPCF",
+    "platform controllers": "NPCF",
     "display": "Display",
     "graphics": "Display",
     "audio": "Audio",
@@ -152,22 +153,6 @@ def bundle_components_from_inner_versions(inner_versions: list[dict] | None) -> 
     return out
 
 
-def best_offer_bundle_components(offers: list[dict] | None) -> list[dict]:
-    """Pick the richest bundle component list from finalized offers."""
-    best: list[dict] = []
-    for offer in offers or []:
-        if not isinstance(offer, dict):
-            continue
-        cand = offer.get("bundle_components")
-        if not isinstance(cand, list) or not cand:
-            inner = offer.get("inner_versions") or offer.get("offer_inner_versions")
-            if isinstance(inner, list) and inner:
-                cand = bundle_components_from_inner_versions(inner)
-        if isinstance(cand, list) and len(cand) > len(best):
-            best = cand
-    return best
-
-
 def apply_bundle_status_rollup(
     status: str,
     *,
@@ -193,3 +178,66 @@ def apply_bundle_status_rollup(
     if wrap == "newer":
         return "newer", details, note
     return status, details, note
+
+
+def best_offer_bundle_components(offers: list[dict] | None) -> list[dict]:
+    """Pick the richest bundle component list from finalized offers."""
+    best: list[dict] = []
+    for offer in offers or []:
+        if not isinstance(offer, dict):
+            continue
+        cand = offer.get("bundle_components")
+        if not isinstance(cand, list) or not cand:
+            inner = offer.get("inner_versions") or offer.get("offer_inner_versions")
+            if isinstance(inner, list) and inner:
+                cand = bundle_components_from_inner_versions(inner)
+        if isinstance(cand, list) and len(cand) > len(best):
+            best = cand
+    return best
+
+
+def enrich_offers_with_bundle_components(offers: list[dict] | None) -> None:
+    """Attach ``bundle_components`` from ``inner_versions`` when missing."""
+    for offer in offers or []:
+        if not isinstance(offer, dict) or offer.get("bundle_components"):
+            continue
+        inner = offer.get("inner_versions") or offer.get("offer_inner_versions")
+        if isinstance(inner, list) and inner:
+            offer["bundle_components"] = bundle_components_from_inner_versions(inner)
+
+
+def attach_wrapper_row_bundle_rollup(
+    result: dict,
+    *,
+    installed_components: list[dict] | None,
+    offers: list[dict] | None,
+    device_ctx: dict | None = None,
+    wrapper_status: str | None = None,
+) -> None:
+    """
+    Generic wrapper-row hook — enrich offers and attach rollup fields to a comparison dict.
+
+    Used by chipset platform rows and primary GPU rows comparing OEM graphics bundles.
+    """
+    enrich_offers_with_bundle_components(offers)
+    installed = installed_components or []
+    offer_components = best_offer_bundle_components(offers)
+    if not offer_components or not installed:
+        return
+    if wrapper_status is None:
+        from catalog_offer_status import summarize_offer_status
+
+        wrapper_status = summarize_offer_status(offers, device_ctx=device_ctx)
+    rollup_status, detail, rollup_note = apply_bundle_status_rollup(
+        wrapper_status or "unknown",
+        installed_components=installed,
+        offers=offers,
+        wrapper_status=wrapper_status,
+    )
+    result["bundle_offer_components"] = offer_components
+    if detail:
+        result["bundle_component_compare"] = detail
+    if rollup_note:
+        result["bundle_compare_note"] = rollup_note
+    if rollup_status == "newer":
+        result["bundle_status_rollup"] = rollup_status

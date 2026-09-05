@@ -15,10 +15,10 @@ from catalog_device_profiles import build_chipset_platform_version_profile
 from catalog_offer_pipeline import _finalize_catalog_offers
 from catalog_offer_status import summarize_offer_status
 from bundle_verification import (
-    apply_bundle_status_rollup,
-    best_offer_bundle_components,
-    bundle_components_from_inner_versions,
+    attach_wrapper_row_bundle_rollup,
+    enrich_offers_with_bundle_components,
 )
+from catalog_offer_status import summarize_offer_status
 from catalog_scoring import (
     _looks_like_amd_chipset_package_version,
     _looks_like_intel_chipset_package_version,
@@ -358,12 +358,7 @@ def build_chipset_platform_comparison(
             except Exception:  # noqa: BLE001
                 pass
     offers = _finalize_catalog_offers(offers, installed, device_ctx=ctx)
-    for offer in offers:
-        if offer.get("bundle_components"):
-            continue
-        inner = offer.get("inner_versions") or offer.get("offer_inner_versions")
-        if isinstance(inner, list) and inner:
-            offer["bundle_components"] = bundle_components_from_inner_versions(inner)
+    enrich_offers_with_bundle_components(offers)
     bundle_profile = build_chipset_platform_version_profile(
         {
             "name": device_name,
@@ -388,21 +383,13 @@ def build_chipset_platform_comparison(
     if bundle_profile:
         result["chipset_bundle_components"] = bundle_profile.get("components") or []
         result["chipset_suite_version"] = bundle_profile.get("suite_installed") or installed
-        installed_components = result["chipset_bundle_components"]
-        offer_components = best_offer_bundle_components(offers)
-        if offer_components:
-            result["bundle_offer_components"] = offer_components
-            _rollup_status, detail, rollup_note = apply_bundle_status_rollup(
-                "same",
-                installed_components=installed_components,
-                offers=offers,
-                wrapper_status=summarize_offer_status(offers, device_ctx=ctx),
-            )
-            if detail:
-                result["bundle_component_compare"] = detail
-            if rollup_note:
-                result["bundle_compare_note"] = rollup_note
-            result["bundle_status_rollup"] = _rollup_status
+        attach_wrapper_row_bundle_rollup(
+            result,
+            installed_components=result["chipset_bundle_components"],
+            offers=offers,
+            device_ctx=ctx,
+            wrapper_status=summarize_offer_status(offers, device_ctx=ctx),
+        )
     return result
 
 __all__ = [

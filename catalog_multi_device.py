@@ -208,6 +208,7 @@ def _build_multi_device_driver_comparison_body(
         _dc("ensure_online_driver_store_loaded")(progress=prog)
     if "_pnpsigned_version_index" not in ctx:
         ctx["_pnpsigned_version_index"] = _dc("_build_pnpsigned_version_index")()
+    ctx["_catalog_inventory"] = inv or []
 
     device_contexts: dict[str, dict] = {}
     for name in names:

@@ -16,6 +16,12 @@ from catalog_device_context import (
 )
 from catalog_mscatalog_session import _gui_catalog_mode, is_quick_check_mode
 from catalog_offer_pipeline import _finalize_catalog_offers, _installed_driver_date_from_ctx
+from catalog_device_profiles import (
+    collect_graphics_bundle_installed_components,
+    ctx_supports_graphics_bundle_rollup,
+    offer_is_oem_graphics_bundle,
+)
+from bundle_verification import attach_wrapper_row_bundle_rollup, enrich_offers_with_bundle_components
 from catalog_tier_policy import (
     _ctx_gpu_or_network_catalog,
     _ctx_is_chipset_catalog,
@@ -317,8 +323,9 @@ def _build_device_comparison_from_ctx(
         device_ctx=ctx,
         installed_date=_installed_driver_date_from_ctx(ctx),
     )
+    enrich_offers_with_bundle_components(unique)
 
-    return {
+    result = {
         "context": ctx,
         "installed_version": installed,
         "installed_date": _installed_driver_date_from_ctx(ctx),
@@ -327,3 +334,19 @@ def _build_device_comparison_from_ctx(
         "fetched_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "device_name": ctx.get("target_device_name") or ctx.get("device_label") or "",
     }
+    if ctx_supports_graphics_bundle_rollup(ctx) and any(
+        offer_is_oem_graphics_bundle(o) for o in unique
+    ):
+        inventory = (system_ctx or {}).get("_catalog_inventory") or []
+        installed_components = collect_graphics_bundle_installed_components(
+            inventory,
+            primary_version=installed,
+            video_controllers=ctx.get("video_controllers"),
+        )
+        attach_wrapper_row_bundle_rollup(
+            result,
+            installed_components=installed_components,
+            offers=unique,
+            device_ctx=ctx,
+        )
+    return result

@@ -737,26 +737,62 @@ def _fetch_dell_oem_rows_live(system_ctx: dict | None) -> tuple[list[dict], str]
     else:
         rows = _dc("_merge_dell_dup_inner_versions_into_rows")(rows, system_ctx)
     rows = _dc("_merge_enterprise_oem_rows")(rows, system_ctx, "dell")
+    rows = _dc("_merge_dell_dup_inner_versions_into_rows")(rows, system_ctx)
     return rows, fallback
 
-def _merge_dell_dup_inner_versions_into_rows(
-    rows: list[dict],
-    system_ctx: dict | None,
-) -> list[dict]:
-    """Attach DUP per-PCI inner versions when live API rows only have wrapper version."""
-    dup_rows = _dc("_get_dell_oem_rows_from_local_dup")(system_ctx)
-    if not dup_rows:
-        return rows
-    inner_by_key: dict[tuple[str, str], list[dict]] = {}
+def _normalize_oem_row_match_key(title: str) -> str:
+    """Normalize OEM driver titles for DUP inner-version merge."""
+    import html as htmlmod
+
+    t = htmlmod.unescape(title or "").lower()
+    t = re.sub(r"[^\w\s]", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    for suffix in (
+        " controller driver",
+        " driver",
+        " drivers",
+        " application",
+        " utility",
+        " installer",
+    ):
+        if t.endswith(suffix):
+            t = t[: -len(suffix)].strip()
+    return t
+
+
+def _dup_inner_version_indexes(
+    dup_rows: list[dict],
+) -> tuple[dict[tuple[str, str], list[dict]], dict[str, list[dict]]]:
+    """Build (title, version) and normalized-title indexes from DUP manifest rows."""
+    by_title_ver: dict[tuple[str, str], list[dict]] = {}
+    by_title: dict[str, list[dict]] = {}
+    title_counts: dict[str, int] = {}
     for dr in dup_rows:
         inner = dr.get("inner_versions")
         if not inner:
             continue
-        title = (dr.get("title") or "").strip().lower()
+        norm = _normalize_oem_row_match_key(dr.get("title") or "")
         ver = (dr.get("version") or "").strip()
-        if title and ver:
-            inner_by_key[(title, ver)] = inner
-    if not inner_by_key:
+        if norm and ver:
+            by_title_ver[(norm, ver)] = inner
+        if norm:
+            title_counts[norm] = title_counts.get(norm, 0) + 1
+            if norm not in by_title:
+                by_title[norm] = inner
+    # Title-only fallback only when the DUP catalog has a single row for that title.
+    by_title = {k: v for k, v in by_title.items() if title_counts.get(k) == 1}
+    return by_title_ver, by_title
+
+
+def _merge_dup_inner_versions_into_rows(
+    rows: list[dict],
+    dup_rows: list[dict],
+) -> list[dict]:
+    """Attach DUP per-PCI inner versions when live/API rows only have wrapper version."""
+    if not rows or not dup_rows:
+        return rows
+    by_title_ver, by_title = _dup_inner_version_indexes(dup_rows)
+    if not by_title_ver and not by_title:
         return rows
     merged: list[dict] = []
     for row in rows:
@@ -764,13 +800,24 @@ def _merge_dell_dup_inner_versions_into_rows(
         if out.get("inner_versions"):
             merged.append(out)
             continue
-        title = (out.get("title") or "").strip().lower()
+        norm = _normalize_oem_row_match_key(out.get("title") or "")
         ver = (out.get("version") or "").strip()
-        inner = inner_by_key.get((title, ver))
+        inner = by_title_ver.get((norm, ver)) if norm and ver else None
+        if not inner and norm:
+            inner = by_title.get(norm)
         if inner:
             out["inner_versions"] = inner
         merged.append(out)
     return merged
+
+
+def _merge_dell_dup_inner_versions_into_rows(
+    rows: list[dict],
+    system_ctx: dict | None,
+) -> list[dict]:
+    """Attach DUP inner_versions from local Dell SoftwareComponent manifests."""
+    dup_rows = _dc("_get_dell_oem_rows_from_local_dup")(system_ctx)
+    return _merge_dup_inner_versions_into_rows(rows, dup_rows)
 
 def get_dell_oem_rows(system_ctx: dict | None) -> tuple[list[dict], str]:
     """Raw Dell/Alienware catalog rows and support URL."""

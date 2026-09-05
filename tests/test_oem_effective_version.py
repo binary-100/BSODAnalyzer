@@ -8,6 +8,7 @@ from unittest import mock
 
 import driver_catalog as dc
 import oem_effective_version as oev
+import oem_enterprise_catalog as oec
 
 
 def test_pick_inner_version_realtek_8125() -> None:
@@ -173,6 +174,45 @@ def test_merge_dell_dup_inner_into_api_rows() -> None:
         merged = dc._merge_dell_dup_inner_versions_into_rows(api_rows, {})
     assert merged[0].get("inner_versions")
     assert merged[0]["inner_versions"][0]["version"] == "1125.028.1224.2025"
+
+
+def test_merge_dup_inner_enriches_enterprise_release_rows() -> None:
+    enterprise_rows = [{
+        "title": "Realtek PCIe Ethernet Controller Driver",
+        "version": "1168.28.1224.2025",
+        "url": "https://www.dell.com/support/driverId/GD26K",
+    }]
+    dup_rows = [{
+        "title": "Realtek PCIe Ethernet Controller Driver",
+        "version": "1168.28.1224.2025",
+        "inner_versions": [{
+            "version": "1125.028.1224.2025",
+            "pci": [{"vendor_id": "10EC", "device_id": "8125"}],
+        }],
+    }]
+    merged = dc._merge_dup_inner_versions_into_rows(enterprise_rows, dup_rows)
+    assert merged[0]["inner_versions"][0]["version"] == "1125.028.1224.2025"
+
+
+def test_fetch_dell_oem_rows_live_enriches_inner_after_enterprise() -> None:
+    api_rows = [{"title": "Dell API Driver", "version": "1.0", "url": "https://dell/api"}]
+    ent_rows = [{
+        "title": "Realtek PCIe Ethernet Controller Driver",
+        "version": "1168.28.1224.2025",
+        "url": "https://dell/ent",
+    }]
+    dup_rows = [{
+        "title": "Realtek PCIe Ethernet Controller Driver",
+        "version": "1168.28.1224.2025",
+        "inner_versions": [{"version": "1125.028.1224.2025", "pci": []}],
+    }]
+    with mock.patch.object(dc, "_get_dell_oem_rows_from_api", return_value=list(api_rows)), mock.patch.object(
+        dc, "_get_dell_oem_rows_from_local_dup", return_value=list(dup_rows)
+    ), mock.patch.object(oec, "dell_enterprise_rows", return_value=list(ent_rows)):
+        oec.clear_session_cache()
+        rows, _ = dc._fetch_dell_oem_rows_live({"system_manufacturer": "Dell Inc."})
+    eth = next(r for r in rows if "Realtek PCIe Ethernet" in r["title"])
+    assert eth.get("inner_versions")
 
 
 if __name__ == "__main__":

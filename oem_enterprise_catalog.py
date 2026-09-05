@@ -40,21 +40,32 @@ def clear_session_cache() -> None:
 
 
 def merge_oem_row_lists(primary: list[dict], supplemental: list[dict]) -> list[dict]:
-    """Append supplemental OEM rows; skip exact title+version duplicates."""
+    """Append supplemental OEM rows; enrich ``inner_versions`` when title+version match."""
     if not supplemental:
         return list(primary)
-    seen = {
-        ((r.get("title") or "").strip().lower(), (r.get("version") or "").strip())
-        for r in primary
-    }
     out = list(primary)
+    index: dict[tuple[str, str], int] = {}
+    for i, row in enumerate(out):
+        index[_row_dedupe_key(row)] = i
     for row in supplemental:
-        key = ((row.get("title") or "").strip().lower(), (row.get("version") or "").strip())
-        if key in seen:
+        key = _row_dedupe_key(row)
+        if key in index:
+            i = index[key]
+            if not out[i].get("inner_versions") and row.get("inner_versions"):
+                merged = dict(out[i])
+                merged["inner_versions"] = row["inner_versions"]
+                out[i] = merged
             continue
-        seen.add(key)
         out.append(row)
+        index[key] = len(out) - 1
     return out
+
+
+def _row_dedupe_key(row: dict) -> tuple[str, str]:
+    return (
+        (row.get("title") or "").strip().lower(),
+        (row.get("version") or "").strip(),
+    )
 
 
 def dell_enterprise_rows(system_ctx: dict | None) -> list[dict]:
@@ -400,9 +411,9 @@ def _dell_enterprise_rows_impl(system_ctx: dict | None) -> list[dict]:
     for enc in ("utf-16", "utf-8"):
         try:
             text = meta_bytes.decode(enc)
-            rows = _parse_dell_driver_archive_manifest(text)
+            rows = _parse_dell_software_manifest_text(text)
             if not rows:
-                rows = _parse_dell_software_manifest_text(text)
+                rows = _parse_dell_driver_archive_manifest(text)
             if rows:
                 for row in rows:
                     row.setdefault("category", row.get("category") or "Dell enterprise catalog")

@@ -79,6 +79,19 @@ def test_merge_oem_row_lists_dedupes() -> None:
     assert merged[1]["title"] == "Intel Wi-Fi"
 
 
+def test_merge_oem_row_lists_enriches_inner_versions() -> None:
+    primary = [{"title": "Realtek PCIe Ethernet Controller Driver", "version": "1168.28.1224.2025"}]
+    inner = [{"version": "1125.028.1224.2025", "pci": [{"vendor_id": "10EC", "device_id": "8125"}]}]
+    extra = [{
+        "title": "Realtek PCIe Ethernet Controller Driver",
+        "version": "1168.28.1224.2025",
+        "inner_versions": inner,
+    }]
+    merged = oec.merge_oem_row_lists(primary, extra)
+    assert len(merged) == 1
+    assert merged[0]["inner_versions"] == inner
+
+
 def test_lenovo_enterprise_rows_from_fixture() -> None:
     with patch.object(oec, "_load_cached_xml", return_value=LENOVO_SAMPLE.encode("utf-8")):
         oec.clear_session_cache()

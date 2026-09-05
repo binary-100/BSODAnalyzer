@@ -164,6 +164,7 @@ from catalog_oem_live import (
     _is_generic_oem_support_row,
     _manufacturer_matches,
     _merge_dell_dup_inner_versions_into_rows,
+    _merge_dup_inner_versions_into_rows,
     _merge_enterprise_oem_rows,
     _normalize_oem_driver_row_dict,
     _normalize_oem_driver_rows,

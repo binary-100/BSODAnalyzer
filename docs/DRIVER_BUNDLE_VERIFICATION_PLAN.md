@@ -46,7 +46,7 @@ One **bundle verification** pipeline for every multi-driver offer:
 | 2 | BV-7 | Generic wrapper-row rollup hook for non-chipset synthetic rows (OEM graphics bundle parent) | ☑ |
 | 3 | BV-8 | Intel chipset manifest adapter + rollup | ☑ |
 | 3 | BV-9 | Enterprise manifest (`catalog_oem_live`) — full inner_versions on all DUP rows | ☑ |
-| 4 | BV-10 | Selective install generalization (DevID.xml / DUP tag → extract path) | ☐ |
+| 4 | BV-10 | Selective install generalization (DevID.xml / DUP tag → extract path) | ☑ |
 | 4 | BV-11 | GUI component table + export + `driver_verification.py` narrative uses rollup | ☐ |
 | 4 | BV-12 | Live probe scenario + Alienware fixture | ☐ |
 
@@ -64,6 +64,7 @@ One **bundle verification** pipeline for every multi-driver offer:
 | `catalog_chipset_comparison.py` | Platform row integration |
 | `catalog_offer_compare.py` | Offer enrichment |
 | `catalog_multi_device.py` | Device status from rollup |
+| `bundle_selective_install.py` | DevID.xml / DUP tag / Intel INF → extract path for component install |
 | `driver_install.py` | Selective component install (Phase 4) |
 
 ---

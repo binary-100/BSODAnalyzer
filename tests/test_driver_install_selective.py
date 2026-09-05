@@ -5,6 +5,7 @@ from __future__ import annotations
 import tempfile
 from pathlib import Path
 
+import bundle_selective_install as bsi
 import driver_install as di
 
 
@@ -67,6 +68,111 @@ def test_collect_pnputil_targets_no_fallthrough_on_component_failure() -> None:
         assert not ok
         assert not targets
         assert "component" in err.lower() or "matching" in err.lower() or "extract" in err.lower()
+
+
+def test_amd_devid_tag_resolves_smbus_folder() -> None:
+    devid_xml = """<?xml version="1.0"?>
+<Products>
+  <Product>
+    <Tag>/SETSMBUS</Tag>
+    <DevID>PCI\\VEN_1022&amp;DEV_790B</DevID>
+  </Product>
+</Products>"""
+    ctx = {
+        "instance_id": r"PCI\VEN_1022&DEV_790B&SUBSYS_10221462&REV_51",
+        "pci_tokens": ["VEN_1022", "DEV_790B"],
+        "vendor_key": "amd",
+        "device_label": "AMD SMBUS Controller",
+        "hw_category": "chipset",
+    }
+    tag = bsi.amd_install_tag_for_device(ctx, devid_xml)
+    assert tag == "/SETSMBUS"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        smbus_dir = root / "Packages" / "SETSMBUS"
+        smbus_dir.mkdir(parents=True)
+        (smbus_dir / "smbus.inf").write_text("[Version]\n", encoding="utf-8")
+        other = root / "Packages" / "SETPSP"
+        other.mkdir(parents=True)
+        (other / "psp.inf").write_text("[Version]\n", encoding="utf-8")
+        dirs = bsi.find_manifest_guided_inf_dirs(str(root), ctx, {})
+        assert dirs
+        assert "SETSMBUS" in dirs[0].replace("\\", "/")
+
+
+def test_amd_info_xml_installer_tag_for_label() -> None:
+    info_xml = """<?xml version="1.0"?>
+<Products>
+  <Product>
+    <OS>Windows 11</OS>
+    <Name>AMD SMBUS Driver</Name>
+    <Version>5.12.0.44</Version>
+    <Installer>SETSMBUS</Installer>
+  </Product>
+</Products>"""
+    tag = bsi.amd_install_tag_from_info_xml("SMBus", info_xml)
+    assert tag == "/SETSMBUS"
+
+
+def test_intel_manifest_guided_serial_io_dir() -> None:
+    ctx = {
+        "vendor_key": "intel",
+        "device_label": "Intel Serial IO I2C Host Controller",
+        "hw_category": "chipset",
+    }
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        serial = root / "SerialIO"
+        serial.mkdir()
+        (serial / "SerialIO.inf").write_text(
+            '[Version]\nDriverVer=06/21/2024,30.100.2417.30\n',
+            encoding="utf-8",
+        )
+        dirs = bsi.find_manifest_guided_inf_dirs(str(root), ctx, {})
+        assert dirs
+        assert "SerialIO" in dirs[0].replace("\\", "/")
+
+
+def test_dup_inner_version_name_tokens_narrow_folder() -> None:
+    ctx = {
+        "instance_id": r"PCI\VEN_10EC&DEV_8125&SUBSYS_10281462&REV_05",
+        "pci_tokens": ["VEN_10EC", "DEV_8125"],
+        "vendor_key": "realtek",
+        "device_label": "Realtek PCIe 2.5GbE Family Controller",
+        "pnp_class": "net",
+    }
+    offer = {
+        "inner_versions": [
+            {
+                "version": "1125.028.1224.2025",
+                "component_name": "Realtek PCIe Ethernet Controller",
+                "pci": [{"vendor_id": "10EC", "device_id": "8125"}],
+            },
+        ],
+    }
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        eth = root / "Realtek_PCIe_Ethernet_Controller"
+        eth.mkdir()
+        (eth / "rt8125.inf").write_text("[Manufacturer]\n", encoding="utf-8")
+        display = root / "Display.Driver"
+        display.mkdir()
+        (display / "nv_dispi.inf").write_text("[Manufacturer]\n", encoding="utf-8")
+        dirs = bsi.find_manifest_guided_inf_dirs(str(root), ctx, offer)
+        assert dirs
+        assert "Realtek" in dirs[0]
+
+
+def test_should_use_component_install_for_chipset_bundle() -> None:
+    ctx = {
+        "vendor_key": "amd",
+        "device_label": "AMD SMBUS Controller",
+    }
+    offer = {
+        "bundle_components": [{"label": "SMBus", "version": "5.12.0.44"}],
+    }
+    assert di._should_use_component_install(offer, ctx)
 
 
 def test_component_install_gate_blocks_downgrade_not_wrapper() -> None:

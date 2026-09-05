@@ -410,7 +410,7 @@ When a vendor or OEM offer represents a **suite** (AMD Chipset Software, Dell DU
 | Offers with `inner_versions` | Normalized via `bundle_verification.py`; DUP merge enriches API + enterprise rows (6.5.31) | Rollup on compare |
 | Intel chipset (platform row) | INF `DriverVer` from chipset package — cached (`catalog_intel_chipset_manifest.py`, 6.5.30) | Vendor offer gets `bundle_components`; rollup wired |
 | Primary GPU + OEM graphics bundle | Display + gpu_companion inventory vs bundle manifest (6.5.29) | Wrapper rollup on primary display row |
-| Intel chipset (platform row) | INF `DriverVer` from chipset package — cached (`catalog_intel_chipset_manifest.py`, 6.5.30) | Vendor offer gets `bundle_components`; rollup wired |
+| **Component-only install** | `bundle_selective_install.py` — AMD `DevID.xml`/`Info.xml` tag, Intel INF label, DUP `inner_versions` → extract subfolder before HWID scan (6.5.32) | Wired in `driver_install.py` |
 
 Skipped in **quick-check** catalog mode (no manifest download). Requires **7-Zip** (bundled or on PATH) when `Info.xml` is not embedded in the `.exe` bytes.
 

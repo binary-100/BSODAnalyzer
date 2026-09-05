@@ -94,6 +94,34 @@ def bundle_no_matching_inf_message(*, device_name: str = "", instance_id: str = 
     )
 
 
+def _should_use_component_install(
+    offer: dict | None,
+    device_ctx: dict | None,
+    *,
+    package_path: str = "",
+) -> bool:
+    """True when install should target one bundle component, not the full package."""
+    if not device_ctx:
+        return False
+    path = (package_path or "").strip()
+    if path and is_vendor_installer_path(path):
+        return True
+    if (device_ctx.get("catalog_role") or "") == "gpu_companion":
+        return True
+    offer = offer or {}
+    if offer.get("inner_versions") or offer.get("offer_effective_version"):
+        return True
+    if offer.get("bundle_components"):
+        try:
+            from catalog_device_context import _device_is_chipset_plumbing
+
+            if _device_is_chipset_plumbing(device_ctx):
+                return True
+        except ImportError:
+            pass
+    return False
+
+
 def component_install_confirm_note(
     offer: dict,
     device_ctx: dict | None,
@@ -107,15 +135,11 @@ def component_install_confirm_note(
         package_path
         or (offer.get("downloaded_path") or offer.get("local_package_path") or "")
     ).strip()
-    use_component = bool(device_ctx) and (
-        (offer.get("inner_versions") or offer.get("offer_effective_version"))
-        or (device_ctx.get("catalog_role") or "") == "gpu_companion"
-        or (path and is_vendor_installer_path(path))
-    )
+    use_component = _should_use_component_install(offer, device_ctx, package_path=path)
     if not use_component:
         return ""
     role = (device_ctx.get("catalog_role") or "").lower()
-    if role == "gpu_companion" or offer.get("inner_versions"):
+    if role == "gpu_companion" or offer.get("inner_versions") or offer.get("bundle_components"):
         return (
             "\n\nComponent-only install: BSOD Analyzer extracts and installs the driver "
             "for this device only — not the full multi-driver vendor bundle."
@@ -621,6 +645,7 @@ def _extract_archive_to_work(path: str, work: str) -> tuple[bool, str]:
 def _collect_component_pnputil_targets(
     package_path: str,
     device_ctx: dict,
+    offer: dict | None = None,
 ) -> tuple[bool, str, list[tuple[str, bool]]]:
     """Extract a bundle and locate INF folder(s) for one target device."""
     path = os.path.abspath(package_path)
@@ -664,6 +689,14 @@ def _collect_component_pnputil_targets(
                 ),
                 [],
             )
+        try:
+            import bundle_selective_install as bsi
+
+            manifest_dirs = bsi.find_manifest_guided_inf_dirs(work, device_ctx, offer)
+        except ImportError:
+            manifest_dirs = []
+        if manifest_dirs:
+            return True, "", [(d, False) for d in manifest_dirs[:3]]
         tokens = _hwid_tokens_from_device_ctx(device_ctx)
         inf_dirs = find_inf_dirs_for_hwid_tokens(work, tokens)
         if not inf_dirs:
@@ -688,11 +721,12 @@ def _collect_component_pnputil_targets(
 def _collect_pnputil_targets(
     package_path: str,
     device_ctx: dict | None = None,
+    offer: dict | None = None,
 ) -> tuple[bool, str, list[tuple[str, bool]]]:
     """Return install targets as (path, use_subdirs) — tried in order until one succeeds."""
-    if device_ctx:
+    if device_ctx and _should_use_component_install(offer, device_ctx, package_path=package_path):
         ok_c, err_c, targets_c = _collect_component_pnputil_targets(
-            package_path, device_ctx
+            package_path, device_ctx, offer=offer
         )
         if targets_c:
             return ok_c, err_c, targets_c
@@ -827,9 +861,12 @@ $out
 def install_driver_via_pnputil(
     package_path: str,
     device_ctx: dict | None = None,
+    offer: dict | None = None,
 ) -> tuple[bool, str]:
     """Stage driver with pnputil /add-driver /install (Administrator)."""
-    ok, err, targets = _collect_pnputil_targets(package_path, device_ctx=device_ctx)
+    ok, err, targets = _collect_pnputil_targets(
+        package_path, device_ctx=device_ctx, offer=offer
+    )
     if not ok or not targets:
         return False, err or "No install target."
     errors: list[str] = []
@@ -963,11 +1000,7 @@ def install_driver_offer(
     suffix = f"\n\nDevice: {device_name}" if device_name else ""
 
     if path:
-        use_component = bool(device_ctx) and (
-            (offer.get("inner_versions") or offer.get("offer_effective_version"))
-            or (device_ctx or {}).get("catalog_role") in ("gpu_companion",)
-            or is_vendor_installer_path(path)
-        )
+        use_component = _should_use_component_install(offer, device_ctx, package_path=path)
         if is_vendor_installer_path(path) and not use_component:
             _emit(progress_cb, "Opening vendor installer…")
             ok, msg = launch_vendor_installer(path)
@@ -981,7 +1014,11 @@ def install_driver_offer(
                 return False, gate_msg, offer
 
         _emit(progress_cb, "Installing driver (this may take a minute)…")
-        ok, msg = install_driver_via_pnputil(path, device_ctx=device_ctx if use_component else None)
+        ok, msg = install_driver_via_pnputil(
+            path,
+            device_ctx=device_ctx if use_component else None,
+            offer=offer if use_component else None,
+        )
         return ((True, msg + suffix, offer) if ok else (False, msg, offer))
 
     if update_id and offer.get("source") == "microsoft":

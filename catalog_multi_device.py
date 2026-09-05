@@ -262,6 +262,9 @@ def _build_multi_device_driver_comparison_body(
             offers,
             device_ctx=comp.get("context") or dev_ctx,
         )
+        rollup = (comp.get("bundle_status_rollup") or "").lower()
+        if rollup == "newer" and status in ("same", "none", "uncertain", "unknown"):
+            status = "newer"
         dctx = comp.get("context") or dev_ctx
         gap = possible_coverage_gap(
             installed,
@@ -284,6 +287,9 @@ def _build_multi_device_driver_comparison_body(
             "catalog_note": comp.get("catalog_note"),
             "chipset_bundle_components": comp.get("chipset_bundle_components") or [],
             "chipset_suite_version": comp.get("chipset_suite_version") or "",
+            "bundle_offer_components": comp.get("bundle_offer_components") or [],
+            "bundle_component_compare": comp.get("bundle_component_compare") or [],
+            "bundle_compare_note": comp.get("bundle_compare_note") or "",
         }
 
     use_scan_batches = (

@@ -236,6 +236,10 @@ def _collect_chipset_bundle_components(
             continue
         short = _chipset_component_short_label(display, vendor)
         dedupe = short if short != "Other" else display.lower()
+        if vendor == "amd" and short == "USB3":
+            blob_l = display.lower()
+            if "amd" not in blob_l and ver.startswith("10.0."):
+                continue
         if dedupe in seen:
             continue
         seen.add(dedupe)

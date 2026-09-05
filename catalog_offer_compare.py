@@ -442,6 +442,12 @@ def _recompare_offer_row(
                     out["vs_installed"] = "uncertain"
     if not skip_dual_baseline_gate and (out.get("vs_installed") or "").lower() == "newer":
         out = _apply_dual_baseline_gate(out, inst, inst_date, device_ctx)
+    if not out.get("bundle_components"):
+        inner = out.get("inner_versions") or out.get("offer_inner_versions")
+        if isinstance(inner, list) and inner:
+            from bundle_verification import bundle_components_from_inner_versions
+
+            out["bundle_components"] = bundle_components_from_inner_versions(inner)
     return out
 
 

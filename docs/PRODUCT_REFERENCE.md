@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Canonical version** | `bsod_analyzer.py` → `VERSION` (see [`VERSION.txt`](../VERSION.txt)) |
-| **Last updated** | 2026-09-03 · sync this date when capabilities change |
+| **Last updated** | 2026-09-05 · sync this date when capabilities change |
 | **Open work / plan of attack** | [`ROADMAP.md`](ROADMAP.md) — **single phased checklist** (implement next unchecked phase only) |
 | **Accepted tradeoffs** | [`KNOWN_LIMITATIONS.md`](KNOWN_LIMITATIONS.md) |
 | **Crash-linked drivers** | [`DRIVER_VERIFICATION_PLAN.md`](DRIVER_VERIFICATION_PLAN.md) — complete |
@@ -400,7 +400,19 @@ Primary GPU display rows may be **manufacturer-authoritative only** (skip lower 
 | Legacy prewarm flag | `gui_mscatalog_prewarm: false` (unused — batch warm handles MSCatalog) |
 | **Requires** | **PowerShell 7** for ~5 min scans; PS 5.1 falls back to slower sequential batch |
 
-### 12.5 After catalog code changes
+### 12.5 Bundle verification (multi-driver packages)
+
+When a vendor or OEM offer represents a **suite** (AMD Chipset Software, Dell DUP with `inner_versions`, etc.), the app compares **per-component** versions and may **upgrade** a wrapper row from "same" to "newer" when any member is stale (6.5.27+).
+
+| Class | Offer-side manifest | Status |
+|-------|---------------------|--------|
+| AMD chipset (platform row) | `Info.xml` from AMD chipset package — downloaded/cached under catalog cache (`catalog_amd_chipset_manifest.py`, 6.5.28) | Vendor offer gets `bundle_components`; rollup wired |
+| Offers with `inner_versions` | Normalized via `bundle_verification.py` | Rollup on compare |
+| Intel chipset, OEM graphics parent, selective install | Planned — [`DRIVER_BUNDLE_VERIFICATION_PLAN.md`](DRIVER_BUNDLE_VERIFICATION_PLAN.md) | Not yet |
+
+Skipped in **quick-check** catalog mode (no manifest download). Requires **7-Zip** (bundled or on PATH) when `Info.xml` is not embedded in the `.exe` bytes.
+
+### 12.6 After catalog code changes
 
 | Check | Tool |
 |-------|------|

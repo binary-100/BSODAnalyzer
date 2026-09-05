@@ -1,13 +1,13 @@
-BSOD Analyzer v6.5.27
+BSOD Analyzer v6.5.28
 
 ====================
 
-Release date: 2026-08-23
+Release date: 2026-09-05
 
-Version: 6.5.27
+Version: 6.5.28
 
 Distribution folder: BSODAnalyzer_v6\
 
-v6.5.27 highlights:
+v6.5.28 highlights:
 
-- Summary/Action header progress — full-width rounded bar with caption; log-analysis scope only (100% before driver/firmware tab work); post-analysis device load quiet on banner tabs.
+- BSOD Analyzer v6.5.28

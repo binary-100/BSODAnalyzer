@@ -398,7 +398,7 @@ def fetch_amd_driver_offers(ctx: dict) -> list[dict]:
                 url=url,
             )
         ]
-    return [{
+    offer = {
         "source": "vendor",
         "source_label": "Manufacturer (AMD)",
         "title": title if not family else f"{title} ({family})",
@@ -411,4 +411,14 @@ def fetch_amd_driver_offers(ctx: dict) -> list[dict]:
         "notes": notes,
         "confidence": "medium" if ver else "low",
         "informational_only": not _dc("_amd_vendor_version_lookup_applicable")(ctx),
-    }]
+    }
+    if ctx.get("hw_category") == "chipset" and ver:
+        try:
+            import catalog_amd_chipset_manifest as acm
+
+            components = acm.fetch_amd_chipset_bundle_components(ver, ctx)
+            if components:
+                offer["bundle_components"] = components
+        except Exception:  # noqa: BLE001 — manifest fetch is best-effort
+            pass
+    return [offer]

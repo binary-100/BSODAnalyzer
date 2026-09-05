@@ -1,6 +1,6 @@
 # Session handoff — BSOD Analyzer
 
-**Updated:** 2026-09-04 · **Version:** 6.5.27 · **Session status:** clear (no blockers) · **Upgrade planning:** in progress — **not promoted to Build**
+**Updated:** 2026-09-05 · **Version:** 6.5.28 · **Session status:** WQ-003 BV-6 landed · **Upgrade planning:** Native dump still not promoted
 
 Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WORK_QUEUE.md) (process) and [`ROADMAP.md`](../ROADMAP.md) (product). **Delete** slice handoffs in `active/` when Done; do not archive.
 
@@ -8,9 +8,9 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 
 ## Where we left off
 
-- **Shipping line:** v6.5.27 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
-- **Product work queue:** **empty** (Approved intent only — not buildable until promoted)
-- **Process WQ:** Active/Inbox empty (WQ-001/002 Done)
+- **Shipping line:** v6.5.28 · ROADMAP phases **1–7** ☑ · maintainability **6.5.0** ☑
+- **Active WQ:** **WQ-003** — universal driver bundle verification; Phase 1 ☑; **BV-6** AMD manifest fetch/cache on vendor offer ☑; **BV-7** next (wrapper-row rollup for non-chipset bundles)
+- **Pack transfer (audit + rules, other system):** **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** (pass 5 — neutral + HANDOFF-VERIFY); maintainer copy for USB/email — **not in repo**
 
 ### Upgrade planning (Native dump track — Tier 3, not Build)
 
@@ -36,7 +36,7 @@ Temporary catch-up only — **durable status** lives in [`WORK_QUEUE.md`](../WOR
 ## Open items (pre-promote — not product blockers)
 
 - [ ] **Confirm** planning defaults in [`ANALYSIS_CORE_PLAN.md`](../upgrade/plans/ANALYSIS_CORE_PLAN.md) § Open decisions (D1-only first slice; CDB fallback at D4) — optional if using defaults as-is
-- [ ] **Pack feedback (separate project):** `C:\Users\binar\OneDrive\Desktop\AgentStarterPack_feedback_from_BSOD_factory_2026-09-03.md` — use **`Refresh-AgentContext-ModelA.cmd`**
+- [ ] **Pack (other system):** transfer handoff **`AgentStarterPack_Audit_And_Rules_Upgrade_2026-09-05.md`** via USB/email (self-contained; not stored in this repo)
 
 ---
 

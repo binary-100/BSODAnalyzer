@@ -6,7 +6,7 @@ Items are **never deleted** when priorities shift — they move to **Done**, **P
 | Field | Value |
 |-------|--------|
 | **Next active ID** | *(none — triage Inbox)* |
-| **Last updated** | 2026-09-02 |
+| **Last updated** | 2026-09-05 |
 
 ---
 
@@ -26,7 +26,7 @@ Rule: `generic-work-queue-discipline.mdc`.
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| | | | |
+| WQ-003 | Universal driver bundle verification (Option 1) | **Next** / In progress | Phase 1 ☑ · **BV-6** ☑ (6.5.28) — `docs/DRIVER_BUNDLE_VERIFICATION_PLAN.md`; next **BV-7** |
 
 ---
 

@@ -193,7 +193,7 @@ Do **not** claim audit complete unless finalize exits **0**.
 - `catalog_scoring.py`, `catalog_offer_pipeline.py`, `catalog_oem_live.py`, `catalog_mscatalog_session.py`, `catalog_device_profiles.py`
 - `catalog_ps_module.py`, `catalog_ps_batch.py` — PS catalog batch pipeline
 - `vendor_fetch.py`, `vendor_extractors.py`, `vendor_extractor_repair.py`, `vendor_endpoint_health.py`, `vendor_endpoint_audit.py`
-- `oem_effective_version.py`, `bundle_verification.py`, `amd_chipset_manifest.py`, `gpu_vendor_maps.py`
+- `oem_effective_version.py`, `bundle_verification.py`, `amd_chipset_manifest.py`, `catalog_amd_chipset_manifest.py`, `catalog_intel_chipset_manifest.py`, `intel_chipset_manifest.py`, `gpu_vendor_maps.py`
 - Hint vs verified scan; driver version identity
 - Swallowed exceptions that hide failures → **Fix**
 - Dead, duplicate, or unreachable catalog/analysis paths → **Improve** (see §2b)
@@ -209,7 +209,7 @@ Do **not** claim audit complete unless finalize exits **0**.
 ### I. Code — export, install & backup
 - `catalog_export.py` — export correctness, portable vs full-install paths
 - Export blocked while driver/firmware scans run
-- `driver_install.py`, `driver_backup.py` — install/backup flows
+- `driver_install.py`, `driver_backup.py`, `bundle_selective_install.py` — install/backup flows
 - `tests/test_catalog_export.py`, `test_driver_install_flow.py`, `test_update_reporting_policy.py`
 
 ### J. Code — session, logging & preferences
@@ -282,10 +282,10 @@ Semantic **M** summary must name **doc count reviewed** or cite **≥1** concret
 | `vendor_fetch.py`, `vendor_extractors.py`, `vendor_extractor_repair.py` | G |
 | `vendor_download_resolve.py`, `vendor_page_render.py` | G |
 | `vendor_endpoint_health.py`, `vendor_endpoint_audit.py` | G |
-| `oem_effective_version.py`, `bundle_verification.py`, `amd_chipset_manifest.py`, `gpu_vendor_maps.py`, `oem_enterprise_catalog.py` | G |
+| `oem_effective_version.py`, `bundle_verification.py`, `amd_chipset_manifest.py`, `catalog_amd_chipset_manifest.py`, `catalog_intel_chipset_manifest.py`, `intel_chipset_manifest.py`, `gpu_vendor_maps.py`, `oem_enterprise_catalog.py` | G |
 | `firmware_catalog.py`, `vendor_firmware_fetch.py` | H |
 | `firmware_ssd_vendors.py`, `firmware_peripheral_*.py` | H |
-| `driver_install.py`, `driver_backup.py` | I |
+| `driver_install.py`, `driver_backup.py`, `bundle_selective_install.py` | I |
 | `session_log.py`, `bsod_gui_preferences.py` | J |
 | `bsod_gui_log_cleanup.py`, `log_cleanup.py`, `maintenance_log.py`, `timestamped_log_io.py` | J |
 | `product_version.py`, `BSODAnalyzer.spec`, `build_*.bat`, `finalize_portable_dist.py` | C |

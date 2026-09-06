@@ -196,6 +196,7 @@ report:
 | `QProxyStyle` took ownership of `app.style()` and deleted the application's live style on GC | `test_gui_checkbox_style` | Give the proxy its own `QStyleFactory` base — also makes the pixel geometry host-independent |
 | Parentless widget outlived `QApplication` teardown | `test_theme_chrome_refresh`, `test_catalog_audit_coverage` | New `offscreen_widget()` in `gui_test_harness` owns creation and destruction |
 | `MainWindow` built by hand with no teardown | `test_workflow_copy_batch4` | Use the existing `offscreen_main_window()` |
+| `MainWindow` passes then child aborts on `QApplication` teardown (`0xC0000409`) | `test_workflow_copy_batch4` | Run via `tests/qt_isolated_runner.py` from `run_tests.bat` (parent clears `PYTHONSTARTUP` so it never loads Qt; child output is authoritative) |
 | `QPixmap`/`QIcon` built with **no `QApplication` at all** | `test_gui_vendor_icons`, `test_catalog_audit_coverage` | Module fixture / `offscreen_widget`; these files have no `__main__` block, so the tests had never run |
 
 `test_gui_checkbox_style::…menu_checkmark_uses_theme_color` also had a real assertion

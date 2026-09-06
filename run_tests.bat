@@ -50,10 +50,13 @@ REM that form means ">= 1", so an interpreter crash (0xC0000005 access violation
 REM 0xC0000409 stack overrun) returns a negative code and was reported as OK.
 :run_one
 echo === %~1 ===
-py -3 tests\run_test_module.py "%~1"
-set "RC=%ERRORLEVEL%"
-if not "%RC%"=="0" if /I "%~nx1"=="test_workflow_copy_batch4.py" (
-    echo Retrying %~1 ^(Qt offscreen teardown flake^)...
+if /I "%~nx1"=="test_workflow_copy_batch4.py" (
+    set "_SAVED_PYSTARTUP=%PYTHONSTARTUP%"
+    set "PYTHONSTARTUP="
+    py -3 tests\qt_isolated_runner.py "%~1"
+    set "RC=%ERRORLEVEL%"
+    set "PYTHONSTARTUP=%_SAVED_PYSTARTUP%"
+) else (
     py -3 tests\run_test_module.py "%~1"
     set "RC=%ERRORLEVEL%"
 )

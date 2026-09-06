@@ -236,3 +236,5 @@ def drain_qt_top_levels() -> None:
             pass
     app.processEvents()
     app.processEvents()
+    app.quit()
+    app.processEvents()

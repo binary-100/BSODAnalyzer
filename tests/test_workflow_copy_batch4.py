@@ -6,6 +6,8 @@ import sys
 import tempfile
 from pathlib import Path
 
+import pytest
+
 _TESTS_DIR = Path(__file__).resolve().parent
 if str(_TESTS_DIR) not in sys.path:
     sys.path.insert(0, str(_TESTS_DIR))
@@ -13,7 +15,13 @@ if str(_TESTS_DIR) not in sys.path:
 # offscreen_main_window owns teardown (worker threads, then close). Building MainWindow
 # by hand left a live top-level window until interpreter exit, which aborted the process
 # with 0xC0000409 during Qt shutdown.
-from gui_test_harness import minimal_analysis_model, offscreen_main_window
+from gui_test_harness import drain_qt_top_levels, minimal_analysis_model, offscreen_main_window
+
+
+@pytest.fixture(autouse=True)
+def _drain_qt_after_test() -> None:
+    yield
+    drain_qt_top_levels()
 
 
 def test_driver_comparison_hint_is_manual_not_automatic() -> None:
@@ -49,4 +57,5 @@ def test_populate_deferred_does_not_start_crash_driver_scan() -> None:
 if __name__ == "__main__":
     test_driver_comparison_hint_is_manual_not_automatic()
     test_populate_deferred_does_not_start_crash_driver_scan()
+    drain_qt_top_levels()
     print("Workflow copy batch 4 tests OK")

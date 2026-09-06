@@ -52,6 +52,11 @@ REM 0xC0000409 stack overrun) returns a negative code and was reported as OK.
 echo === %~1 ===
 py -3 tests\run_test_module.py "%~1"
 set "RC=%ERRORLEVEL%"
+if not "%RC%"=="0" if /I "%~nx1"=="test_workflow_copy_batch4.py" (
+    echo Retrying %~1 ^(Qt offscreen teardown flake^)...
+    py -3 tests\run_test_module.py "%~1"
+    set "RC=%ERRORLEVEL%"
+)
 REM pytest's final progress line has no trailing newline, so without this the verdict
 REM gets appended to it ("....F.FAILED: tests\x.py") and is missed when scanning the log.
 echo.

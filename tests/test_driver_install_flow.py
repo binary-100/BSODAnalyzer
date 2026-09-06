@@ -99,7 +99,7 @@ def test_install_driver_offer_downloads_then_pnputil() -> None:
     assert "pnputil ok" in msg
     assert "Wi-Fi" in msg
     assert out_offer.get("downloaded_path") == r"C:\x\pkg.cab"
-    mock_pnp.assert_called_once_with(r"C:\x\pkg.cab", device_ctx=None)
+    mock_pnp.assert_called_once_with(r"C:\x\pkg.cab", device_ctx=None, offer=None)
 
 
 def test_install_failure_still_returns_downloaded_offer() -> None:

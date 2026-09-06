@@ -13,6 +13,13 @@ sys.path.insert(0, str(APP))
 import bsod_analyzer as core  # noqa: E402
 
 
+def _safe_print(*parts: object) -> None:
+    """Console output tolerant of Unicode on Windows cp1252 terminals."""
+    text = " ".join(str(p) for p in parts)
+    enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+    sys.stdout.buffer.write(text.encode(enc, errors="replace") + b"\n")
+
+
 def _check_ok(checks: list, key: str) -> bool | None:
     for c in checks or []:
         if c.get("key") == key:
@@ -361,15 +368,15 @@ def main() -> int:
     print(f"cause_subtitle: {model.get('cause_subtitle')}")
     print(f"driver (display): {model.get('driver')}")
     if narrative:
-        print(f"what_happened: {narrative.get('what_happened')}")
+        _safe_print(f"what_happened: {narrative.get('what_happened')}")
         wf = narrative.get("what_failed") or {}
-        print(f"what_failed: {wf.get('summary')}")
+        _safe_print(f"what_failed: {wf.get('summary')}")
         print(f"repair_targets: {len(narrative.get('repair_targets') or [])}")
         for t in (narrative.get("repair_targets") or [])[:6]:
-            print(f"  - {t.get('label')} | {t.get('version') or '—'} | {t.get('kind')}")
-        print(f"why_this_order: {narrative.get('why_this_order') or narrative.get('how_sure')}")
+            _safe_print(f"  - {t.get('label')} | {t.get('version') or '—'} | {t.get('kind')}")
+        _safe_print(f"why_this_order: {narrative.get('why_this_order') or narrative.get('how_sure')}")
         if narrative.get("older_incident_note"):
-            print(f"older_note: {narrative['older_incident_note']}")
+            _safe_print(f"older_note: {narrative['older_incident_note']}")
     if out["data_gaps"]:
         print("data_gaps:")
         for g in out["data_gaps"]:

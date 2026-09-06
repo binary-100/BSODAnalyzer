@@ -419,6 +419,7 @@ def find_manifest_guided_inf_dirs(
                         return dirs
 
     bundle = offer.get("bundle_components") or []
+    candidates = candidate_component_labels(device_ctx)
     if candidates and isinstance(bundle, list):
         for lab in candidates:
             for comp in bundle:

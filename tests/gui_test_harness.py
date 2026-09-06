@@ -163,6 +163,7 @@ def offscreen_main_window(tmp: Path | str) -> Iterator[object]:
                 yield win
             finally:
                 teardown_main_window(win)
+                drain_qt_top_levels()
 
 
 def process_events_until(
@@ -211,8 +212,27 @@ def teardown_main_window(win: object) -> None:
     win._summary_refresh_worker = None  # type: ignore[attr-defined]
     win._ps_worker = None  # type: ignore[attr-defined]
     win.close()  # type: ignore[attr-defined]
+    win.deleteLater()  # type: ignore[attr-defined]
     from PySide6 import QtWidgets
 
     app = QtWidgets.QApplication.instance()
     if app is not None:
         app.processEvents()
+        app.processEvents()
+
+
+def drain_qt_top_levels() -> None:
+    """Close stray top-level widgets so interpreter exit does not hit 0xC0000409."""
+    from PySide6 import QtWidgets
+
+    app = QtWidgets.QApplication.instance()
+    if app is None:
+        return
+    for widget in list(app.topLevelWidgets()):
+        try:
+            widget.close()
+            widget.deleteLater()
+        except RuntimeError:
+            pass
+    app.processEvents()
+    app.processEvents()

@@ -138,11 +138,6 @@ class GuiDriversInventoryMixin:
             total=total,
         )
         self.statusBar().showMessage(msg[:120])
-        app = QtWidgets.QApplication.instance()
-        if app is not None:
-            app.processEvents(
-                QtCore.QEventLoop.ProcessEventsFlag.ExcludeUserInputEvents
-            )
 
     @staticmethod
     def _driver_inventory_progress(msg: str) -> tuple[str, int | None, int | None]:
@@ -171,11 +166,6 @@ class GuiDriversInventoryMixin:
             self._set_task_progress(label=label, maximum=0)
         self._session_log_progress("load_devices", label)
         self._catalog_status_line(label)
-        app = QtWidgets.QApplication.instance()
-        if app is not None:
-            app.processEvents(
-                QtCore.QEventLoop.ProcessEventsFlag.ExcludeUserInputEvents
-            )
 
     def _display_model_from_profile(self, prof: dict) -> dict:
         """Minimal display dict for System tab before crash analysis."""

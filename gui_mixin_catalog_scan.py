@@ -734,11 +734,8 @@ class GuiCatalogScanMixin:
         label = self._driver_scan_progress_label(msg)
         self._session_log_progress("driver_catalog", label)
         self._catalog_status_line(label)
-        app = QtWidgets.QApplication.instance()
-        if app is not None:
-            app.processEvents(
-                QtCore.QEventLoop.ProcessEventsFlag.ExcludeUserInputEvents
-            )
+        # Do not call processEvents here — queued progress signals re-enter this
+        # slot recursively and overflow the stack during large catalog scans.
         if msg.startswith("Checked ") and hasattr(self, "drv_hint"):
             self._set_catalog_hint(self.drv_hint, label)
         m = re.search(r"Checked (\d+)/(\d+)", msg)

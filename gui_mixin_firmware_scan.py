@@ -173,11 +173,7 @@ class GuiFirmwareScanMixin:
         self._catalog_status_line(label)
         if hasattr(self, "fw_scan_status"):
             self.fw_scan_status.setText(label)
-        app = QtWidgets.QApplication.instance()
-        if app is not None:
-            app.processEvents(
-                QtCore.QEventLoop.ProcessEventsFlag.ExcludeUserInputEvents
-            )
+        # Do not call processEvents here — same re-entrant stack overflow as driver catalog.
         if msg.startswith("Checked ") and hasattr(self, "fw_hint"):
             self._set_catalog_hint(self.fw_hint, label)
         m = re.search(r"Checked (\d+)/(\d+)", msg)
